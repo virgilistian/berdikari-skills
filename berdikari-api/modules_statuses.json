@@ -1,9 +1,0 @@
-{
-    "Core": true,
-    "IAM": true,
-    "Catalog": true,
-    "Inventory": true,
-    "Sales": true,
-    "Finance": true,
-    "HR": true
-}
