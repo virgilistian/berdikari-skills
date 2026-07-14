@@ -1,0 +1,10 @@
+---
+description: Berdikari agent architecture entry point
+alwaysApply: true
+---
+
+This repo uses a portable agent architecture. Entry point: read `.agents/router.md` (the Agent Manager) and follow it.
+
+Minimal interface: `mode: <bugfix|rca|feature|refactor|deploy|review|design|ask>` + `task: <request>`.
+
+Router orchestrates; skills investigate. Load skills only when `.agents/manifest.yaml` triggers match. Never scan the repo — use `.agents/skills/project/berdikari.md`. Investigate progressively, stop at first sufficient evidence. Shared rules live once in `.agents/core/`.

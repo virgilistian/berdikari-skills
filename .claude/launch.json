@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "berdikari-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "berdikari-web",
+      "port": 3010,
+      "autoPort": true
+    }
+  ]
+}

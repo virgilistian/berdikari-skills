@@ -1,0 +1,30 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+*.swp
+*.swo
+
+# Ignore global dependencies, build artifacts, caches if they leak to root
+node_modules/
+vendor/
+.env
+.env.*
+!.env.example
+*.cache
+
+# Do NOT ignore AI config and project settings
+!/.agents/
+!/.claude/
+!/.cursor/
+!/berdikari.code-workspace
+!/skills-lock.json
+!/AGENTS.md
+!/CLAUDE.md

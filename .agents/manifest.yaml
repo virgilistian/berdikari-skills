@@ -1,0 +1,212 @@
+# Skill & mode registry — the ONLY index the Router loads to decide.
+# Router reads this, NOT skill bodies, to select what to load. Keep triggers tight.
+# cost = rough token weight of loading the skill body (budget planning, see core/context.md).
+
+version: 2
+
+core: # loaded once per investigation, referenced by every skill (no duplication)
+  investigation: { file: core/investigation.md, cost: 350 }
+  search:        { file: core/search.md,        cost: 250 }
+  context:       { file: core/context.md,        cost: 250 }
+
+project: # Project DNA — mandatory before every task; replaces repository scanning
+  berdikari: { file: skills/project/berdikari.md, cost: 800, always_for: [bugfix, rca, feature, refactor, review, design, deploy, ask] }
+
+modes:
+  bugfix:   { file: modes/bugfix.md,   uses_core: [investigation, search, context] }
+  rca:      { file: modes/rca.md,      uses_core: [investigation, search, context] }
+  feature:  { file: modes/feature.md,  uses_core: [investigation, search, context] }
+  refactor: { file: modes/refactor.md, uses_core: [investigation, search, context] }
+  deploy:   { file: modes/deploy.md,   uses_core: [context] }
+  review:   { file: modes/review.md,   uses_core: [investigation, context] }
+  design:   { file: modes/design.md,   uses_core: [investigation, context] }
+  ask:      { file: modes/ask.md,      uses_core: [context] }
+
+# UI/UX multi-agent pipeline. The `design` mode orchestrates these roles; the
+# Art Director picks the subset. `foundation` is the shared design doc (loaded once,
+# like core). Roles are NOT keyword-triggered individually — the mode drives them.
+design:
+  foundation:      { file: skills/design/foundation.md,      cost: 600, shared: true }
+  pipeline: [art-director, design-researcher, ux-architect, visual-designer, ui-engineer, design-critic]
+  roles:
+    art-director:      { file: skills/design/art-director.md,      cost: 300, load: always }
+    design-researcher: { file: skills/design/design-researcher.md, cost: 350, load: when_source_present }
+    ux-architect:      { file: skills/design/ux-architect.md,      cost: 350, load: when_new_screen_or_flow }
+    visual-designer:  { file: skills/design/visual-designer.md,   cost: 400, load: when_visuals_change }
+    ui-engineer:      { file: skills/design/ui-engineer.md,       cost: 400, load: when_code_written, also_load: [nuxt-vue] }
+    design-critic:    { file: skills/design/design-critic.md,     cost: 350, load: always }
+
+# UI engineering discipline overlays (Continuity / Safe / Reuse / Minimal-diff).
+# Loaded ON TOP OF the stack skill when a task ENHANCES/EXTENDS EXISTING UI — NOT a
+# full redesign (redesign → mode `design`). They share core/* (no duplication) and defer
+# stack specifics to `nuxt-vue`/`laravel`. The Router selects the relevant subset by
+# trigger (same machinery as `skills:`); on an "enhance existing UI" task they load as a
+# bundle. `also_load` pulls the stack skill they build on.
+ui:
+  applies_when: existing UI/behavior in web/** is enhanced or extended without a full redesign
+  bundle: [ui-continuity, safe-enhancement, pattern-reuse, minimal-change]
+  skills:
+    ui-continuity:
+      file: skills/ui/ui-continuity.md
+      cost: 300
+      also_load: [nuxt-vue]
+      triggers:
+        modes: [feature, refactor, bugfix]
+        paths: ["berdikari-web/**"]
+        keywords: [existing field, existing form, existing component, existing page, enhance ui, ui enhancement, match existing, consistent with, keep style, design system, conventions, look and feel]
+    safe-enhancement:
+      file: skills/ui/safe-enhancement.md
+      cost: 300
+      triggers:
+        modes: [feature, refactor, bugfix]
+        keywords: [without changing, without breaking, keep behavior, don't break, dont break, preserve behavior, additive, non-breaking, existing behavior, existing functionality, still work]
+    pattern-reuse:
+      file: skills/ui/pattern-reuse.md
+      cost: 300
+      also_load: [nuxt-vue]
+      triggers:
+        modes: [feature, refactor]
+        paths: ["berdikari-web/**"]
+        keywords: [add, new component, new util, utility, composable, helper, hook, formatter, reuse, mask, input, format]
+    minimal-change:
+      file: skills/ui/minimal-change.md
+      cost: 250
+      triggers:
+        modes: [feature, refactor, bugfix]
+        keywords: [minimal, small change, small diff, smallest, without touching, don't refactor, dont refactor, no refactor, only change, just add, without changing]
+
+skills:
+  # --- stack (Framework Isolation, Principle 9) ---
+  laravel:
+    file: skills/stack/laravel.md
+    cost: 900
+    triggers:
+      paths: ["berdikari-api/**"]
+      keywords: [controller, service, repository, eloquent, migration, artisan, module, nwidart, provider, middleware, job, event, seeder]
+  nuxt-vue:
+    file: skills/stack/nuxt-vue.md
+    cost: 900
+    triggers:
+      paths: ["berdikari-web/**"]
+      keywords: [page, component, composable, pinia, store, reka-ui, tailwind, ssr, nuxt, vue, route]
+      # Note: UI/UX design tasks route to the `design` mode, not this skill.
+      # This skill is loaded by the UI Engineer role for deeper Vue work.
+      design_keywords_route_to_mode_design: [design, ui, ux, redesign, restyle, theme, layout, mockup, look and feel, polish, visual, brand, style guide, design system]
+  postgres:
+    file: skills/stack/postgres.md
+    cost: 500
+    triggers:
+      keywords: [postgres, psql, index, explain, query plan, deadlock, migration sql, constraint]
+  redis:
+    file: skills/stack/redis.md
+    cost: 300
+    triggers:
+      keywords: [redis, cache, queue, lock, ttl, throttle, session store]
+  minio:
+    file: skills/stack/minio.md
+    cost: 300
+    triggers:
+      keywords: [minio, s3, bucket, object storage, upload, presigned, file storage]
+  docker:
+    file: skills/stack/docker.md
+    cost: 600
+    triggers:
+      keywords: [docker, dockerfile, compose, image, container build, exec, service version, docker compose]
+  kubernetes:
+    file: skills/stack/kubernetes.md
+    cost: 500
+    triggers:
+      keywords: [kubernetes, k8s, helm, manifest, pod, ingress, hpa, rollout]
+
+  # --- flutter (mobile stack, installed from github.com/flutter/skills) ---
+  # No mobile app exists in this repo yet; paths point at a future berdikari-mobile/**.
+  # Until then these load on keyword match only.
+  flutter-apply-architecture-best-practices:
+    file: skills/flutter-apply-architecture-best-practices/SKILL.md
+    cost: 400
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, dart, pubspec, layered architecture, riverpod, bloc]
+  flutter-build-responsive-layout:
+    file: skills/flutter-build-responsive-layout/SKILL.md
+    cost: 350
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, responsive layout, layoutbuilder, mediaquery, adaptive ui]
+  flutter-fix-layout-issues:
+    file: skills/flutter-fix-layout-issues/SKILL.md
+    cost: 350
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, renderflex, overflow, unbounded height, layout error]
+  flutter-implement-json-serialization:
+    file: skills/flutter-implement-json-serialization/SKILL.md
+    cost: 300
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, fromjson, tojson, "dart:convert", json serialization]
+  flutter-setup-declarative-routing:
+    file: skills/flutter-setup-declarative-routing/SKILL.md
+    cost: 350
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, go_router, materialapp.router, deep link]
+  flutter-setup-localization:
+    file: skills/flutter-setup-localization/SKILL.md
+    cost: 300
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, flutter_localizations, intl, l10n, localization]
+  flutter-use-http-package:
+    file: skills/flutter-use-http-package/SKILL.md
+    cost: 300
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, http package, rest api call]
+  flutter-add-integration-test:
+    file: skills/flutter-add-integration-test/SKILL.md
+    cost: 350
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, integration_test, flutter driver]
+  flutter-add-widget-preview:
+    file: skills/flutter-add-widget-preview/SKILL.md
+    cost: 300
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, widget preview, previews.dart]
+  flutter-add-widget-test:
+    file: skills/flutter-add-widget-test/SKILL.md
+    cost: 300
+    triggers:
+      paths: ["berdikari-mobile/**"]
+      keywords: [flutter, widgettester, widget test]
+
+  # --- domain (Domain Isolation, Principle 10) ---
+  api:
+    file: skills/domain/api.md
+    cost: 450
+    triggers:
+      keywords: [endpoint, route, http, request, response, dto, resource, status code, api, auth token, cors]
+  database:
+    file: skills/domain/database.md
+    cost: 450
+    triggers:
+      keywords: [sql, etl, report, sync, worker, cron, aggregation, persistence, n+1, transaction, dataset]
+  deployment:
+    file: skills/domain/deployment.md
+    cost: 450
+    triggers:
+      modes: [deploy]
+      keywords: [deploy, release, rollback, pipeline, ci, cd, env, secret, provision]
+  git:
+    file: skills/domain/git.md
+    cost: 250
+    triggers:
+      keywords: [git, branch, commit, blame, bisect, revert, merge, cherry-pick, since when, regression]
+  security:
+    file: skills/domain/security.md
+    cost: 400
+    always_for: [feature, bugfix, refactor, review]
+    triggers:
+      keywords: [security, auth, authorization, permission, validation, xss, csrf, ssrf, injection, upload, secret, token, password, rate-limit, sanitize, vulnerability, owasp, exploit, privilege, cors, session, headers, audit, dependency]

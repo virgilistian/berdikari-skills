@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"colima": true,
+			"docker context": true,
+			"/^php artisan route:list --path=auth 2>&1$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cd /Users/virgilistian/Sites/berdikari/berdikari-api && for f in \\\\\n  Modules/Catalog/app/Http/Controllers/CategoryController\\.php \\\\\n  Modules/Catalog/app/Http/Controllers/ProductController\\.php \\\\\n  Modules/Inventory/app/Http/Controllers/InventoryController\\.php \\\\\n  Modules/Sales/app/Http/Controllers/PlateScanController\\.php; do\n  echo \"=== \\$f ===\" && php -l \"\\$f\" 2>&1\ndone$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"docker compose": true
+		}
+	}
+}
