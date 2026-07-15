@@ -48,6 +48,19 @@ services:
       timeout: 5s
       retries: 5
 
+  # One-off: creates the `berdikari` bucket that the `s3` (MinIO) disk writes
+  # to (Tax signature/stamp uploads, etc.) — MinIO starts with zero buckets.
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "
+      mc alias set local http://minio:9000 berdikari secret123 &&
+      mc mb --ignore-existing local/berdikari
+      "
+
   api:
     build:
       context: ./berdikari-api
@@ -62,6 +75,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
     environment:
       APP_NAME: Berdikari
       APP_ENV: local
