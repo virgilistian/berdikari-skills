@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Berdikari SIPADI Autofill",
+  "version": "1.0.0",
+  "description": "Isi otomatis formulir Laporan Pajak SIPADI Kabupaten Karawang dari data Laporan Pajak Berdikari ERP. Tidak pernah mengirim (submit) formulir secara otomatis.",
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": [
+    "https://sipadi.karawangkab.go.id/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://berdikari.test/*",
+        "http://localhost:3000/*",
+        "https://*.pages.dev/*"
+      ],
+      "js": ["content/erp-bridge.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://sipadi.karawangkab.go.id/*"],
+      "js": ["lib/selectors.js", "content/sipadi-filler.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
