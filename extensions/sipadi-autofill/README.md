@@ -82,6 +82,18 @@ in sync if the protocol changes.
 4. Open the Berdikari ERP app and a logged-in SIPADI tab on the Lapor Pajak
    form for the object/period you want to fill (e.g. `/Lapor/PdlEdit?id=...`).
 
+## Packaged download (for end users)
+
+The in-app guide (`berdikari-web/app/pages/pajak/panduan-ekstensi.vue`) links
+end users to a pre-zipped copy of this folder at
+`berdikari-web/public/downloads/sipadi-autofill-extension.zip`, so they don't
+need repo/filesystem access — they download, unzip, then Load unpacked.
+
+**That zip is a committed static file, not built automatically.** Whenever
+you change anything under `extensions/sipadi-autofill/`, re-run
+`extensions/package-extension.sh` before shipping — otherwise the guide keeps
+serving end users a stale build with none of your changes.
+
 ## Before using against your real deployment
 
 `manifest.json`'s `content_scripts[0].matches` only lists local dev origins
