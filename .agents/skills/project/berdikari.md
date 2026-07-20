@@ -19,7 +19,7 @@ Berdikari is a **mobile-first ERP for Indonesian UMKM** (micro and small busines
 3. **Mobile-first**: minimum touch target 44 × 44 px. Test every layout at 375 px width first. Desktop is secondary.
 4. **Extend, never replace**: new features must sit alongside the existing pages, stores, components, and API modules — not refactor or rename them.
 5. **Backward compatibility**: existing API contracts, route names, store interfaces, and migration schemas are immutable unless a bug forces a change.
-6. **Multiplatform readiness**: the web app (`berdikari-web`) deploys to Cloudflare Pages (preset: `cloudflare-pages`). The API (`berdikari-api`) must stay stateless so a future mobile app can consume the same endpoints without server-side session coupling.
+6. **Multiplatform readiness**: the web app (`berdikari-web`) deploys to Cloudflare Pages (preset: `cloudflare-pages`). The API (`berdikari-api`) must stay stateless so `berdikari-mobile` (Flutter) can consume the same endpoints without server-side session coupling. API contracts are immutable from the mobile app's perspective — the app adapts to the API, never the reverse.
 7. **Docker-first environment**: `docker-compose.yml` (repo root) is the **single source of truth** for service versions, ports, credentials, and environment variables. All commands (`php artisan`, `composer`, `psql`, `redis-cli`, etc.) must run **inside the relevant Docker container** via `docker compose exec <service> <command>`. Never assume or rely on host-installed versions.
 
 ---
@@ -30,7 +30,9 @@ Berdikari is a **mobile-first ERP for Indonesian UMKM** (micro and small busines
 |---|---|---|
 | API | `berdikari-api/` | Laravel 13, PHP 8.3, nwidart/laravel-modules (modular monolith) |
 | Web | `berdikari-web/` | Nuxt 4, Vue 3, reka-ui, Tailwind CSS, Pinia, deployed on Cloudflare Pages |
-| Docs | `docs/` | Architecture / DB / infra specs (01–14) — read only the cited file |
+| Mobile | `berdikari-mobile/` | Flutter, MVVM (`ChangeNotifier` ViewModels), go_router, ARB l10n (Bahasa Indonesia). Layered `data/{models,services,repositories}` mirrors the web app's Pinia stores 1:1. See `docs/16-mobile-implementation-plan.md`. |
+| Browser extension | `extensions/sipadi-autofill/` | Manifest V3 Chrome/Edge extension that autofills the government SIPADI tax portal from Berdikari `Tax` data; paired with the in-app guide at `/pajak/panduan-ekstensi`. Packaged via `extensions/package-extension.sh`. |
+| Docs | `docs/` | Architecture / DB / infra specs (01–16) — read only the cited file |
 
 Infra: PostgreSQL 16, Redis 7, MinIO, Docker Compose, Kubernetes (`docs/09-infrastructure.md`, `docs/14-deployment-guide.md`).
 
@@ -40,9 +42,11 @@ Infra: PostgreSQL 16, Redis 7, MinIO, Docker Compose, Kubernetes (`docs/09-infra
 |---|---|---|---|
 | `nginx` | `nginx:alpine` | 80 | `http://berdikari.test` (requires `/etc/hosts` entry) |
 | `api` | `php:8.3-fpm-alpine` + `composer:2` | 8000 | `http://localhost:8000` (direct, no nginx) |
+| `web` | Node (Dockerfile in `berdikari-web/`) | 3000 | `http://localhost:3000` (containerized Nuxt dev server) |
 | `postgres` | `postgres:16-alpine` | 5432 | — |
 | `redis` | `redis:7-alpine` | 6379 | — |
 | `minio` | `minio/minio:latest` | 9000 / 9001 | — |
+| `minio-init` | `minio/mc:latest` | — | One-shot: creates the `berdikari` bucket on `minio` at startup (`mc mb --ignore-existing`) |
 | `mailpit` | `axllent/mailpit:latest` | 8025 / 1025 | — |
 
 ### API modules — `berdikari-api/Modules/<Name>/`
@@ -56,6 +60,7 @@ Infra: PostgreSQL 16, Redis 7, MinIO, Docker Compose, Kubernetes (`docs/09-infra
 | `Sales` | POS checkout, orders, cashier shifts (open/close), payments, refunds | Active |
 | `Finance` | Cash flow (pemasukan/pengeluaran), summary | Active |
 | `HR` | Employee CRUD, attendance (clock-in/out), leave requests & approvals | Active |
+| `Tax` | UMKM tax profiles (business type), depreciable assets, monthly tax report generation + PDF export, SIPADI autofill support | Active |
 | `Purchasing` | Purchase orders to suppliers | Planned (Phase 2) |
 | `CRM` | Customer data, loyalty points | Planned (Phase 3) |
 | `Production` | Angkringan production recommendation logic | Planned (Phase 1 special feature) |
@@ -85,7 +90,7 @@ App-wide: `berdikari-api/app/`, global routes `berdikari-api/routes/`, config `b
 | Concern | Path | Notes |
 |---|---|---|
 | Pages | `app/pages/` | File-based routing (Nuxt) |
-| Stores (Pinia) | `app/stores/` | `auth.ts` (auth + permissions), `cart.ts` (POS cart), `dailyStock.ts` (daily opname), `finance.ts`, `catalog.ts` (product CRUD), `inventory.ts` (stock valuation), `orders.ts` (sales orders), `shift.ts` (cashier shifts), `hr.ts` (employees/attendance/leave), `notifications.ts` (in-app notifications) |
+| Stores (Pinia) | `app/stores/` | `auth.ts` (auth + permissions), `business.ts` (business profile, branches, business switching, logo upload), `cart.ts` (POS cart), `dailyStock.ts` (daily stock opname), `finance.ts`, `catalog.ts` (product CRUD), `orders.ts` (sales orders), `shift.ts` (cashier shifts), `hr.ts` (employees/attendance/leave), `tax.ts` (tax profiles, assets, report generation/history), `notifications.ts` (in-app notifications) |
 | Components | `app/components/` | Shared: `FilterSheet.vue`, `PlateScanSheet.vue`, `TopNav.vue`, `EmployeeSectionTabs.vue` |
 | UI primitives | `app/components/ui/` | button, card, drawer, input, radio-group (reka-ui wrappers) |
 | Layouts | `app/layouts/` | `default.vue` (main nav + dynamic sidebar), `auth.vue` |
@@ -112,19 +117,29 @@ App-wide: `berdikari-api/app/`, global routes `berdikari-api/routes/`, config `b
 | `/catalog` | `pages/catalog/index.vue` | `catalog.ts` | Product + category CRUD (create/edit/delete products and categories) |
 | `/finance` | `pages/finance/index.vue` | `finance.ts` | Cash flow list with period/category filters |
 | `/finance/new` | `pages/finance/new.vue` | `finance.ts` | New cash entry form |
-| `/inventory` | `pages/inventory/index.vue` | `dailyStock.ts` | Daily stock opname list |
+| `/finance/[id]` | `pages/finance/[id].vue` | `finance.ts` | Edit an existing cash flow entry ("Ubah Transaksi") |
+| `/finance/categories` | `pages/finance/categories.vue` | `finance.ts` | Manage income/expense categories (tabbed), guarded for create/edit |
+| `/inventory` | `pages/inventory/index.vue` | `dailyStock.ts` | Daily stock opname history list |
 | `/inventory/new` | `pages/inventory/new.vue` | `dailyStock.ts` | Open/input new daily stock |
-| `/inventory/stock` | `pages/inventory/stock.vue` | `inventory.ts` | Stock & valuation: summary KPIs, per-product list, receive/adjust/movements |
+| `/inventory/[date]` | `pages/inventory/[date].vue` | `dailyStock.ts` | Daily stock opname detail for a given date ("Detail Stok Harian") |
+| `/pajak` | `pages/pajak/index.vue` | `tax.ts` | Laporan Pajak list (`tax.view`) |
+| `/pajak/new` | `pages/pajak/new.vue` | `tax.ts` | Generate a new monthly tax report (`tax.create`) |
+| `/pajak/[id]` | `pages/pajak/[id].vue` | `tax.ts` | Tax report detail / edit / PDF export (`tax.view`) |
+| `/pajak/panduan-ekstensi` | `pages/pajak/panduan-ekstensi.vue` | — | Install guide for the SIPADI autofill browser extension (`tax.view`) |
 | `/reports` | `pages/reports/index.vue` | — | Laporan — period filter + CSV export (`report.view`, `report.export`) |
 | `/employees` | `pages/employees/index.vue` | `hr.ts` | Employee list + CRUD (`employee.view`, `employee.create`) |
 | `/employees/attendance` | `pages/employees/attendance.vue` | `hr.ts` | Absensi: self clock-in/out + admin attendance list |
 | `/employees/leave` | `pages/employees/leave.vue` | `hr.ts` | Cuti & Izin: submit leave, view history, approve/reject (manager) |
 | `/help` | `pages/help/index.vue` | — | Bantuan — linked from account dropdown |
-| `/settings` | `pages/settings/index.vue` | `auth.ts` | Pengaturan hub → profile / password / users / roles |
+| `/settings` | `pages/settings/index.vue` | `auth.ts` | Pengaturan hub → profile / password / business / pajak / users / roles |
 | `/settings/profile` | `pages/settings/profile.vue` | `auth.ts` | Edit own name + email; calls `PUT /auth/profile` |
 | `/settings/password` | `pages/settings/password.vue` | `auth.ts` | Change password with strength indicator; calls `PUT /auth/password` |
+| `/settings/business` | `pages/settings/business.vue` | `business.ts` | Manajemen Bisnis: business profile, branches, logo, switch active business (`business.manage`) |
+| `/settings/pajak` | `pages/settings/pajak.vue` | `tax.ts` | Tax profile settings per business type (`tax.manage`) |
 | `/users` | `pages/users/index.vue` | `auth.ts` | User CRUD table — guarded by `user.manage` |
 | `/roles` | `pages/roles/index.vue` | `auth.ts` | Role cards + permission-checkbox editor — guarded by `role.assign` |
+
+Note: the earlier standalone Stock & Valuation page (`/inventory/stock`, `stores/inventory.ts`) has been removed from the web app. The `Inventory` module's receive/adjust/movements/min-stock API endpoints (§7) still exist and are stable, but currently have no web frontend consumer — check before assuming a UI exists for them.
 
 **UI patterns already established** — always match these:
 - Page header: date in `text-small text-muted-foreground`, title in `text-h1 text-foreground`.
@@ -159,10 +174,8 @@ App-wide: `berdikari-api/app/`, global routes `berdikari-api/routes/`, config `b
 4. System generates production recommendation for next day (Production module).
 5. Store methods: `fetchToday`, `openDay`, `closeDay`.
 
-### 5d — Stock & Valuation (Stok & Valuasi) flow
-1. Manager/inventory-staff opens `/inventory/stock` → sees KPI cards (total products, stock value, retail value, low-stock count).
-2. Can receive stock (`inventory.ts`: `receive`), adjust quantity (`adjust`), set minimum stock (`setMinStock`).
-3. Taps a product row → views stock movement history (`fetchMovements`).
+### 5d — Stock & Valuation (Stok & Valuasi) — API only, no current UI
+The `Inventory` module still exposes `receive`, `adjust`, `setMinStock`, and movement-history endpoints (§7), but the web page that drove them (`/inventory/stock`) and its store (`stores/inventory.ts`) were removed. Do not assume this flow has a frontend — check before building on it. Daily Stock Opname (5c) is the only active Inventory UI.
 
 ### 5e — Finance (Keuangan) flow
 1. Owner/kasir opens `/finance` → sees pemasukan/pengeluaran list with period and category filters.
@@ -179,7 +192,15 @@ App-wide: `berdikari-api/app/`, global routes `berdikari-api/routes/`, config `b
 ### 5g — Multi-business / Multi-branch tenancy
 - Every API request scopes data to a `business_id` (and optionally `branch_id`) via the `Core` module's `Tenantable` trait.
 - IAM is fully wired. The `auth.ts` store holds the authenticated user's `business_id`, `roles[]`, and `permissions[]` (returned by `POST /auth/login` and `GET /auth/me`). The `SetPermissionsTeamId` middleware sets the spatie team context on every request.
-- The web stores (`cart.ts`, `dailyStock.ts`, `finance.ts`, `inventory.ts`, `orders.ts`) should read `auth.user.business_id` from the `auth.ts` store — not a hardcoded constant.
+- The web stores (`cart.ts`, `dailyStock.ts`, `finance.ts`, `catalog.ts`, `orders.ts`, `tax.ts`, `business.ts`) should read `auth.user.business_id` from the `auth.ts` store — not a hardcoded constant.
+- Business profile, branches, logo, and business switching are managed at `/settings/business` (`business.ts`: `fetchBusinesses`, `createBusiness`, `switchBusiness`, `fetchBranches`, `saveBranch`).
+
+### 5h — Tax (Pajak) flow
+1. Owner opens `/settings/pajak` → sets tax profile per business type (`tax.ts`: `fetchBusinessTypes`, `saveProfile`) and uploads signature/stamp assets (`uploadAsset`, `removeAsset`).
+2. Owner/finance opens `/pajak` → `/pajak/new` → picks business type + month/year → generates a monthly report (`generate`), which derives daily entries from Sales/Finance data.
+3. Owner/finance opens `/pajak/{id}` → reviews/edits per-day entries (`updateEntry`), saves as draft or finalizes (`saveReport`).
+4. Exports the finalized report as PDF (`printPdf` → `GET /tax/reports/{id}/pdf`).
+5. Optionally installs the SIPADI autofill browser extension (`/pajak/panduan-ekstensi` guides install) to push the generated report data into the government SIPADI portal form fields — the extension reads report data via the API, it does not submit anything on the user's behalf without them reviewing the form first.
 
 ---
 
@@ -193,11 +214,14 @@ App-wide: `berdikari-api/app/`, global routes `berdikari-api/routes/`, config `b
 | 4 | **Dashboard** (real KPIs wired to API) | In progress | `pages/index.vue` |
 | 5 | **IAM / User Access Management** | **Complete** | `pages/users/`, `pages/roles/`, `pages/settings/`, `Modules/IAM/` — full CRUD, RBAC, profile, password change, SSR-safe auth |
 | 6 | **POS Shift Management** | **Complete** | `pages/pos/shift.vue`, `stores/shift.ts`, `Modules/Sales/` shifts routes |
-| 7 | **Stock & Valuation** | **Complete** | `pages/inventory/stock.vue`, `stores/inventory.ts`, `Modules/Inventory/` full routes |
+| 7 | **Stock & Valuation (API only)** | Backend complete, **frontend removed** | `Modules/Inventory/` full routes (receive/adjust/movements/min-stock) remain; the `stores/inventory.ts` + `pages/inventory/stock.vue` UI that consumed them was removed. Daily Stock Opname (`pages/inventory/`, `stores/dailyStock.ts`) is the active Inventory UI. |
 | 8 | **Employee Management + Attendance + Leave** | **Complete** | `pages/employees/`, `stores/hr.ts`, `Modules/HR/` — employee CRUD, clock-in/out, leave requests/approvals |
 | 9 | **Laporan (Reports)** | In progress (export wired) | `pages/reports/index.vue` — period filter + CSV export; deeper Finance + Sales aggregations pending |
 | 10 | **In-app Notifications** | In progress | `stores/notifications.ts`, `Modules/Core/` notifications routes — polling implemented; push/SSE pending |
-| 11 | **Online Swimming Pool Ticketing** | Not started | New: `pages/tiket-kolam/`, new `Ticketing` module |
+| 11 | **Tax / Pajak** (profiles, assets, monthly report generation, PDF export, SIPADI autofill extension) | **Complete** | `pages/pajak/`, `pages/settings/pajak.vue`, `stores/tax.ts`, `Modules/Tax/`, `extensions/sipadi-autofill/` |
+| 12 | **Business & Branch Management** | **Complete** | `pages/settings/business.vue`, `stores/business.ts`, `Modules/Core/` — profile, branches, logo, business switching |
+| 13 | **Mobile app (Flutter)** | In progress | `berdikari-mobile/` — auth, catalog, finance, inventory, pos, reports, settings, home, forbidden features scaffolded; `docs/16-mobile-implementation-plan.md` |
+| 14 | **Online Swimming Pool Ticketing** | Not started | New: `pages/tiket-kolam/`, new `Ticketing` module |
 
 When adding new modules: follow the same nwidart module structure, add a new page under `berdikari-web/app/pages/`, add a Pinia store under `app/stores/`, and use the existing UI primitives. Do not create new design patterns without checking what already exists first.
 
@@ -209,16 +233,17 @@ When adding new modules: follow the same nwidart module structure, add a new pag
 - **A Vue page bug** → `berdikari-web/app/pages/<area>/` → its store in `app/stores/`.
 - **A data/field question** → `docs/04-database-design.md` first, then `Modules/<Name>/database/migrations/`.
 - **An event/side-effect** → `Modules/<Name>/app/Events/` + `docs/07-event-design.md`.
-- **Which module owns the task?** → product/price → Catalog; stock/stok → Inventory; order/kasir/POS/shift → Sales; user/role/login/token → IAM; business/branch/tenant/notification → Core; kas/keuangan → Finance; karyawan/absensi/cuti → HR; tiket/kolam → Ticketing (new).
+- **Which module owns the task?** → product/price → Catalog; stock/stok → Inventory; order/kasir/POS/shift → Sales; user/role/login/token → IAM; business/branch/tenant/notification → Core; kas/keuangan → Finance; karyawan/absensi/cuti → HR; pajak/tax/SIPADI → Tax; tiket/kolam → Ticketing (new).
 - **IAM API routes** → `Modules/IAM/routes/api.php`; public: `POST /api/v1/auth/login`; protected (auth:sanctum + permission.team): `GET /api/v1/auth/me`, `PUT /api/v1/auth/profile`, `PUT /api/v1/auth/password`, `POST /api/v1/auth/logout`, `apiResource users` (requires `user.manage`), `GET /api/v1/roles`, `PUT /api/v1/roles/{id}/permissions`, `POST /api/v1/users/{id}/roles`, `DELETE /api/v1/users/{id}/roles/{role}`.
 - **IAM frontend auth flow** → `app/stores/auth.ts` (token cookie, `login`, `logout`, `fetchUser`, `updateProfile`, `changePassword`, `hasPermission`, `hasRole`); middleware: `auth.ts` (SSR+client hydration), `guest.ts`, `permission.ts`.
 - **Sales API routes** → `Modules/Sales/routes/api.php` (prefix `v1/sales`): `POST /checkout`, `POST /scan-plate`, `GET /summary`; shifts: `GET /shifts/active`, `GET /shifts`, `POST /shifts/open`, `GET /shifts/{id}`, `POST /shifts/{id}/close`; orders: `GET /orders`, `POST /orders`, `GET /orders/{id}`, `POST /orders/{id}/complete`, `POST /orders/{id}/payments`, `POST /orders/{id}/cancel`, `POST /orders/{id}/refund`.
-- **Inventory API routes** → `Modules/Inventory/routes/api.php` (prefix `v1/inventory`): `GET /` (list), `GET /summary`, `GET /low-stock`, `POST /receive`, `POST /adjust`, `GET /{id}`, `GET /{id}/movements`, `PUT /{id}/min-stock`; daily-stock sub-group: `GET /daily-stock/products`, `GET /daily-stock/{date}`, `POST /daily-stock/open`, `POST /daily-stock/close`, `POST /daily-stock/adjust`.
+- **Inventory API routes** → `Modules/Inventory/routes/api.php` (prefix `v1/inventory`): `GET /` (list), `GET /summary`, `GET /low-stock`, `GET /movements` (all), `POST /receive`, `POST /adjust`, `GET /{id}`, `GET /{id}/movements`, `PUT /{id}/min-stock` — **no web frontend currently calls these** (§6, priority 7); daily-stock sub-group (active, used by `pages/inventory/`): `GET /daily-stock/products`, `GET /daily-stock/history`, `GET /daily-stock/{date}`, `POST /daily-stock/open`, `POST /daily-stock/close`, `POST /daily-stock/adjust`, `DELETE /daily-stock/{date}`.
 - **HR API routes** → `Modules/HR/routes/api.php` (prefix `v1/hr`): employees: `GET /employees`, `POST /employees`, `GET /employees/{id}`, `PUT /employees/{id}`, `GET /summary`, `GET /employees/{id}/quota`; attendance: `GET /attendance`, `GET /attendance/me`, `POST /attendance/clock-in`, `POST /attendance/clock-out`; leaves: `GET /leaves`, `GET /leaves/mine`, `GET /leaves/quota`, `POST /leaves`, `POST /leaves/{id}/approve`, `POST /leaves/{id}/reject`.
 - **Catalog API routes** → `Modules/Catalog/routes/api.php` (prefix `v1/catalog`): `apiResource categories`, `apiResource products`.
-- **Finance API routes** → `Modules/Finance/routes/api.php` (prefix `v1/finance`): `GET /`, `POST /`, `GET /summary`, `GET /{id}`, `DELETE /{id}`.
+- **Finance API routes** → `Modules/Finance/routes/api.php` (prefix `v1/finance`): `GET /`, `POST /`, `GET /summary`, `GET /{id}`, `PUT /{id}`, `DELETE /{id}`; categories sub-group: `GET /categories`, `POST /categories`, `PUT /categories/{id}`, `DELETE /categories/{id}`.
+- **Tax API routes** → `Modules/Tax/routes/api.php` (prefix `v1/tax`): `GET /business-types`, `GET /profiles`, `PUT /profiles/{type}`, `GET /assets`, `POST /assets/{type}`, `DELETE /assets/{type}`, `POST /generate`, `GET /reports`, `GET /reports/{id}`, `PUT /reports/{id}`, `DELETE /reports/{id}`, `GET /reports/{id}/pdf`.
 - **Core/Notifications API routes** → `Modules/Core/routes/api.php` (prefix `v1`): `GET /notifications`, `GET /notifications/unread-count`, `POST /notifications/mark-all-read`, `POST /notifications/{id}/read`.
-- **Feature tests** → `berdikari-api/tests/Feature/` — subdirs: `IAM/`, `Finance/`, `HR/`, `Inventory/`, `Sales/`, `Catalog/`; run with `docker exec -e DB_CONNECTION=sqlite -e DB_DATABASE=:memory: -e DB_HOST= -e DB_URL= berdikari-api-1 php artisan test`. **Never run without those env flags** — container defaults to dev postgres and `RefreshDatabase` will wipe it.
+- **Feature tests** → `berdikari-api/tests/Feature/` — subdirs: `IAM/`, `Finance/`, `HR/`, `Inventory/`, `Sales/`, `Catalog/`, `Core/`, `Tax/`; run with `docker exec -e DB_CONNECTION=sqlite -e DB_DATABASE=:memory: -e DB_HOST= -e DB_URL= berdikari-api-1 php artisan test`. **Never run without those env flags** — container defaults to dev postgres and `RefreshDatabase` will wipe it.
 
 ---
 
@@ -281,7 +306,7 @@ All permissions follow the pattern: **`resource.action`**
 <resource>.<action>
 ```
 
-**Resource** = snake_case module domain (e.g., `pos`, `finance`, `inventory`, `catalog`, `employee`, `report`, `role`, `user`, `business`).
+**Resource** = snake_case module domain (e.g., `pos`, `finance`, `inventory`, `catalog`, `employee`, `report`, `role`, `user`, `business`, `tax`).
 
 **Action** = one of: `view`, `create`, `update`, `delete`, `export`, `approve`, `close`, `open`.
 
@@ -292,6 +317,7 @@ All permissions follow the pattern: **`resource.action`**
 | `pos.open` | cashier, supervisor, manager | Open a kasir shift |
 | `pos.close` | cashier, supervisor, manager | Close a kasir shift |
 | `pos.view` | cashier, supervisor, manager, finance, viewer | View POS/order data |
+| `pos.expense` | cashier, supervisor, manager | Record an out-of-till cash expense during an active shift |
 | `finance.view` | finance, manager, business-owner, viewer | View cash flow |
 | `finance.create` | finance, manager, business-owner | Add pemasukan/pengeluaran |
 | `finance.delete` | finance, business-owner | Delete finance entries |
@@ -317,6 +343,12 @@ All permissions follow the pattern: **`resource.action`**
 | `role.assign` | manager, business-owner | Assign roles to users |
 | `user.manage` | business-owner | Manage user accounts |
 | `business.manage` | business-owner, super-admin | Manage business settings |
+| `tax.view` | finance, manager, business-owner, viewer | View tax profiles, assets, and generated reports |
+| `tax.create` | finance, business-owner | Generate a new monthly tax report |
+| `tax.update` | finance, business-owner | Edit a generated tax report |
+| `tax.delete` | business-owner | Delete a tax report |
+| `tax.export` | finance, manager, business-owner | Export a tax report as PDF |
+| `tax.manage` | business-owner | Manage tax profile settings and depreciable assets |
 
 **Adding a new permission**: define it as a seeder in `IAM/database/seeders/PermissionSeeder.php`. Never hardcode permission strings outside of that seeder and the policy/gate that checks them.
 
@@ -447,56 +479,28 @@ The sidebar (main navigation) must be **generated dynamically** from the user's 
 
 ```ts
 // app/config/nav.ts  (static nav registry — permissions drive visibility)
-export const navItems = [
-  {
-    label: 'Dashboard',
-    icon: 'i-lucide-layout-dashboard',
-    to: '/',
-    permissions: [], // always visible to authenticated users
-  },
-  {
-    label: 'Kasir (POS)',
-    icon: 'i-lucide-shopping-cart',
-    to: '/pos',
-    permissions: ['pos.open', 'pos.view'],
-  },
-  {
-    label: 'Keuangan',
-    icon: 'i-lucide-wallet',
-    to: '/finance',
-    permissions: ['finance.view'],
-  },
-  {
-    label: 'Inventori',
-    icon: 'i-lucide-package',
-    to: '/inventory',
-    permissions: ['inventory.view'],
-  },
-  {
-    label: 'Katalog Produk',
-    icon: 'i-lucide-tag',
-    to: '/catalog',
-    permissions: ['catalog.view'],
-  },
-  {
-    label: 'Laporan',
-    icon: 'i-lucide-bar-chart-2',
-    to: '/reports',
-    permissions: ['report.view'],
-  },
-  {
-    label: 'Karyawan',
-    icon: 'i-lucide-users',
-    to: '/employees',
-    permissions: ['employee.view'],
-  },
-  {
-    label: 'Pengaturan',
-    icon: 'i-lucide-settings',
-    to: '/settings',
-    permissions: ['business.manage', 'user.manage', 'role.assign'],
-  },
+// Icons are imported Lucide Vue component objects, e.g. `import { LayoutDashboard } from '@lucide/vue'` — not string identifiers.
+export const navItems: NavItem[] = [
+  { to: '/', icon: LayoutDashboard, label: 'Beranda', permissions: [] }, // always visible
+  { to: '/pos', icon: ShoppingCart, label: 'Kasir', permissions: ['pos.view', 'pos.open'] },
+  { to: '/pos/shift', icon: Clock, label: 'Shift Kasir', permissions: ['pos.open', 'pos.close'] },
+  { to: '/finance', icon: Wallet, label: 'Keuangan', permissions: ['finance.view'] },
+  { to: '/catalog', icon: Package, label: 'Katalog', permissions: ['catalog.view'] },
+  { to: '/inventory', icon: Boxes, label: 'Stok', permissions: ['inventory.view'] },
+  { to: '/reports', icon: BarChart2, label: 'Laporan', permissions: ['report.view'] },
+  { to: '/pajak', icon: Receipt, label: 'Pajak', permissions: ['tax.view'] },
+  { to: '/employees', icon: Users, label: 'Karyawan', permissions: ['employee.view'] },
+  { to: '/employees/attendance', icon: CalendarCheck, label: 'Absensi', permissions: ['attendance.create', 'attendance.view'] },
+  { to: '/settings', icon: Settings, label: 'Pengaturan', permissions: ['business.manage', 'user.manage', 'role.assign'] },
+  { to: '/users', icon: UserCog, label: 'Pengguna', permissions: ['user.manage'] },
+  { to: '/roles', icon: ShieldCheck, label: 'Peran & Akses', permissions: ['role.assign'] },
 ]
+
+// Mobile bottom nav is limited to the 4 highest-frequency destinations;
+// everything else surfaces in the "Lainnya" bottom sheet (mobileMoreItems).
+const MOBILE_NAV_ROUTES = ['/', '/finance', '/pos', '/inventory'] as const
+export const mobileNavItems = MOBILE_NAV_ROUTES.map(to => navItems.find(i => i.to === to))
+export const mobileMoreItems = navItems.filter(i => !MOBILE_NAV_ROUTES.includes(i.to))
 ```
 
 **Computed visible nav** (in `app/layouts/default.vue` or a `useNav` composable):
