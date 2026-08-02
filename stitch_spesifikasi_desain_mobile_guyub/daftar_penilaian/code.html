@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Daftar Penilaian - Guyub Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#1b1c1c",
+                      "on-primary-fixed-variant": "#005232",
+                      "surface-dim": "#dbd9d9",
+                      "outline": "#6f7a71",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e4e2e2",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffdcc5",
+                      "surface-container-low": "#f5f3f3",
+                      "on-primary-container": "#f6fff6",
+                      "on-surface-variant": "#3f4942",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "secondary": "#9f4200",
+                      "on-tertiary-fixed": "#301400",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "surface": "#fbf9f8",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-container": "#ff7a2b",
+                      "on-secondary-container": "#602500",
+                      "inverse-primary": "#7ed9a6",
+                      "primary-container": "#258459",
+                      "surface-container": "#efeded",
+                      "on-primary-fixed": "#002111",
+                      "on-secondary-fixed-variant": "#793100",
+                      "on-secondary-fixed": "#341100",
+                      "surface-container-high": "#eae8e7",
+                      "surface-variant": "#e4e2e2",
+                      "tertiary-container": "#996a47",
+                      "secondary-fixed": "#ffdbcb",
+                      "on-background": "#1b1c1c",
+                      "surface-tint": "#006c44",
+                      "primary-fixed": "#9af5c1",
+                      "background": "#fbf9f8",
+                      "primary": "#006a42",
+                      "surface-bright": "#fbf9f8",
+                      "secondary-fixed-dim": "#ffb692",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "tertiary": "#7d5231",
+                      "outline-variant": "#bec9bf",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#303030"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "stack-md": "16px",
+                      "touch-target": "44px",
+                      "stack-lg": "24px",
+                      "stack-sm": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface-container-low shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-highest rounded-full p-2 transition-transform active:scale-95" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary">Penilaian Toko</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest rounded-full p-2 transition-transform active:scale-95" data-icon="more_vert">more_vert</button>
+</header>
+<main class="max-w-xl mx-auto px-margin-mobile py-stack-md">
+<!-- Summary Card (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm mb-stack-lg">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm flex flex-col items-center justify-center border border-outline-variant/30 transition-all hover:shadow-md" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<span class="text-secondary font-headline-lg text-[48px] leading-none mb-2">4.8</span>
+<div class="flex gap-0.5 text-secondary mb-1">
+<span class="material-symbols-outlined filled-icon text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[20px]" style="font-variation-settings: 'FILL' 0.8;">star_half</span>
+</div>
+<p class="font-label-sm text-on-surface-variant">Dari 124 Ulasan</p>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-center" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<!-- Progress Bars -->
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm w-4">5</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm w-4">4</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[10%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm w-4">3</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[3%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm w-4">2</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[1%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm w-4">1</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[1%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Chips -->
+<section class="flex gap-2 overflow-x-auto hide-scrollbar pb-stack-md -mx-margin-mobile px-margin-mobile">
+<button class="bg-primary text-on-primary font-label-lg px-4 py-2 rounded-full whitespace-nowrap active:scale-95 transition-transform">Semua</button>
+<button class="bg-surface-container-high text-on-surface font-label-lg px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant/50 active:scale-95 transition-transform">Bintang 5</button>
+<button class="bg-surface-container-high text-on-surface font-label-lg px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant/50 active:scale-95 transition-transform">Bintang 4</button>
+<button class="bg-surface-container-high text-on-surface font-label-lg px-4 py-2 rounded-full whitespace-nowrap border border-outline-variant/50 active:scale-95 transition-transform">Ada Foto</button>
+</section>
+<!-- Review List -->
+<section class="space-y-4">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/30 transition-all" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">A</div>
+<div class="flex items-center">
+<h3 class="font-label-lg text-on-surface">Agus Setiawan</h3><div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full ml-2"><span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span><span class="text-[10px] font-bold uppercase tracking-wider">Lokal Hero</span></div><div class="flex items-center gap-1 bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full ml-2"><span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">photo_library</span><span class="text-[10px] font-bold uppercase tracking-wider">Ulasan Detail</span></div><div class="flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full ml-2">
+    <span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="text-[10px] font-bold uppercase tracking-wider">Top Reviewer</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface-variant font-label-sm ml-1">2 jam yang lalu</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant mb-3">Pesanan sampai tepat waktu dan masih hangat. Rasanya otentik banget kayak masakan rumah. Porsinya juga pas buat makan siang. Sukses terus ya buat tokonya!</p>
+<div class="flex gap-2 mb-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30 shadow-sm" data-alt="Close-up shot of a traditional Indonesian nasi campur dish with various side dishes, served on a banana leaf on a ceramic plate. The lighting is warm and inviting, highlighting the textures of the rice and grilled chicken. The image has a clean, appetizing feel suitable for a local food market application." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcMN_g1Gwua7GZjjF2ddX1v3vtrhzkCk2IsqsIYV4q8WraVZOnk39MoZC8aObJc8Gyeg2MVwLiJPSZ5UJcFNzdtt2Znfn8d5tDnO-5THTtBAkTeXWz8o7wnxrxCnBhj1NhFrC3Qkl_jDgBFwf7SWq3yrxwMrDH5R-mC4j1E91kH686GoBz3suPqwOuQf-8HGkWpduYlt9f1mxpnpm2Rk0tkoMQhA78Ws7DM-PHKkf64XxEKg485TSgZA')"></div>
+<div class="w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30 shadow-sm" data-alt="A detailed shot of a side dish of spicy sambal in a small stone mortar, surrounded by fresh lime slices and green herbs. The lighting is bright and natural, emphasizing the vibrant red color of the chili. The aesthetic is rustic yet modern, fitting a high-quality merchant review list." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8wO0TLSZgWLbJmuo6CjYtyNd4PTaytI5PXoFMJOc_VSwAGoNCDnyS0j0LuvnQhJu29um-_aXVIZg_08-SO-o4CcLqobTqrR3locE2eZSb8_RN9HSSQ1VktMPAimbnp0Eii2hn06PFTRGfOJMo5cpCz8wNBwhsGOoF8QzKuZ9-33I5Bb0aG4ODogyk-aC6en2SQrDbvLqipqxE8R7rCel9XSuDRW_4TmhtDwWGcFBRtwzEptQej3-R5w')"></div>
+</div>
+<div class="flex justify-end">
+<button class="flex items-center gap-1.5 text-primary font-label-lg hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="reply">reply</span>
+                        Balas
+                    </button>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/30 transition-all" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">L</div>
+<div>
+<h3 class="font-label-lg text-on-surface">Lina Marlina</h3><div class="flex items-center gap-1 bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full ml-2"><span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">photo_library</span><span class="text-[10px] font-bold uppercase tracking-wider">Ulasan Detail</span></div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span class="text-on-surface-variant font-label-sm ml-1">Kemarin</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant mb-4">Rasanya enak tapi pengirimannya agak lama. Tolong kedepannya lebih cepat ya responnya. Selebihnya oke.</p>
+<!-- Merchant Reply Display -->
+<div class="bg-surface-container-low p-stack-sm rounded-lg border-l-4 border-primary/40 ml-4 mb-4">
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="store">store</span>
+<span class="font-label-sm text-primary">Balasan Toko</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Halo Kak Lina, mohon maaf atas keterlambatannya ya. Kami akan terus evaluasi tim pengiriman kami agar lebih cepat. Terima kasih masukannya!</p>
+</div>
+<div class="flex justify-end">
+<button class="flex items-center gap-1.5 text-outline font-label-lg px-3 py-1.5 rounded-lg cursor-not-allowed opacity-50">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+                        Ubah Balasan
+                    </button>
+</div>
+</div>
+<!-- Review Card 3 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/30 transition-all" style="opacity: 1; transform: translateY(0px); transition: 0.4s ease-out;">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">B</div>
+<div class="flex items-center">
+<h3 class="font-label-lg text-on-surface">Budi Santoso</h3><div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full ml-2"><span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span><span class="text-[10px] font-bold uppercase tracking-wider">Lokal Hero</span></div><div class="flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full ml-2">
+    <span class="material-symbols-outlined filled-icon text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+    <span class="text-[10px] font-bold uppercase tracking-wider">Top Reviewer</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined filled-icon text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface-variant font-label-sm ml-1">3 hari yang lalu</span>
+</div>
+</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant mb-3">Mantap pol! Packaging aman pake banget, gak tumpah. Recomended!</p>
+<div class="flex justify-end">
+<button class="flex items-center gap-1.5 text-primary font-label-lg hover:bg-primary/5 px-3 py-1.5 rounded-lg transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="reply">reply</span>
+                        Balas
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface rounded-t-xl shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-16 px-gutter-mobile">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all duration-200 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span class="font-label-sm text-label-sm">Ulasan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<!-- Reply Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[60] hidden bg-on-surface/40 backdrop-blur-sm flex items-end md:items-center justify-center" id="replyModal">
+<div class="bg-surface w-full max-w-lg rounded-t-2xl md:rounded-2xl p-stack-lg shadow-xl animate-slide-up">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-primary">Balas Ulasan</h2>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full" data-icon="close" onclick="toggleModal()">close</button>
+</div>
+<div class="bg-surface-container-low p-stack-sm rounded-lg mb-4">
+<p class="font-label-sm text-on-surface-variant mb-1">Membalas Agus Setiawan:</p>
+<p class="font-body-md italic text-on-surface truncate">"Pesanan sampai tepat waktu dan masih hangat..."</p>
+</div>
+<textarea class="w-full h-32 p-stack-md bg-surface-container-lowest border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md" maxlength="500" placeholder="Tuliskan balasan kamu di sini..."></textarea>
+<div class="flex justify-between items-center mt-2 mb-6">
+<span class="font-label-sm text-on-surface-variant">Max 500 karakter</span>
+<span class="font-label-sm text-on-surface-variant">0/500</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-label-lg shadow-md hover:shadow-lg active:scale-95 transition-all">Kirim Balasan</button>
+</div>
+</div>
+<script>
+        function toggleModal() {
+            const modal = document.getElementById('replyModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Add event listeners to all 'Balas' buttons for demonstration
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Balas')) {
+                btn.onclick = toggleModal;
+            }
+        });
+
+        // Simple smooth entrance for list items
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('section > div');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<style>
+        @keyframes slide-up {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slide-up 0.3s ease-out forwards;
+        }
+        @media (min-width: 768px) {
+            .animate-slide-up {
+                animation: scale-in 0.2s ease-out forwards;
+            }
+            @keyframes scale-in {
+                from { transform: scale(0.95); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+        }
+    </style>
+
+
+</body></html>

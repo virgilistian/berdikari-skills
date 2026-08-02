@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#6f7a71",
+                    "on-background": "#1b1c1c",
+                    "on-surface-variant": "#3f4942",
+                    "surface-tint": "#006c44",
+                    "surface": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-primary-container": "#f6fff6",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary-fixed": "#ffdcc5",
+                    "inverse-surface": "#303030",
+                    "secondary-fixed": "#ffdbcb",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#bec9bf",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary-fixed-variant": "#005232",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-secondary-container": "#602500",
+                    "surface-bright": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-variant": "#e4e2e2",
+                    "primary-container": "#258459",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "on-primary-fixed": "#002111",
+                    "background": "#fbf9f8",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "primary": "#006a42",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-container": "#efeded",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#996a47",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "touch-target": "44px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .order-list-container {
+            height: calc(100vh - 64px - 84px);
+            overflow-y: auto;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim shadow-sm opacity-90 z-50 flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed active:scale-95 transition-transform p-2">menu</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Pesanan Saya</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed active:scale-95 transition-transform p-2">shopping_basket</button>
+</header>
+<!-- Main Content -->
+<main class="order-list-container hide-scrollbar pb-stack-lg">
+<!-- Status Tabs for Filtering -->
+<div class="flex gap-2 overflow-x-auto px-margin-mobile py-stack-md hide-scrollbar">
+<button class="flex-none px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg transition-all active:scale-95">Semua</button>
+<button class="flex-none px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-variant transition-all active:scale-95">Berlangsung</button>
+<button class="flex-none px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-variant transition-all active:scale-95">Selesai</button>
+<button class="flex-none px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-variant transition-all active:scale-95">Dibatalkan</button>
+</div>
+<!-- Order List -->
+<div class="flex flex-col gap-stack-md px-margin-mobile">
+<!-- Card 1: Sedang Dikirim -->
+<div class="bg-surface-container-low p-3 rounded-lg shadow-sm border border-outline-variant/30 transition-all hover:shadow-md">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">12 Okt 2023 • 14:20</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                        Sedang Dikirim
+                    </span>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-20 h-20 bg-cover bg-center rounded-lg bg-surface-variant flex-shrink-0" data-alt="A detailed overhead shot of a typical Indonesian snack pack like Kerupuk or local biscuits arranged on a rustic wooden table in a warm morning sun setting. The packaging is colorful and vibrant, fitting the neighborhood warung aesthetic with a soft, friendly depth of field. Professional food photography style with warm, approachable tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcKHn5S_wxTsGWO3imzlygVRGq_OPBiNgaHkY8fC9pRresXjCJH4jo-QbcVmILCsLV2v9xwe3nntlLG0DZJ2BovMWyCPEb8yAQIkSSKPwNytRAnNRfRfzUEa4Ch1feBNxgBVQj7MSwos6BQg0Y7FxhRfYIv7fIE3Rb83R2GUYv8LKfOsTEO3SKczMBM54uY9btyiYFVTeojEC3fvIOgHNb8Tb0a_yqzumovcEsAve1QRKWF2cpYO8KDg')"></div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-md text-label-lg truncate text-on-surface">Warung Bu Sri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Kerupuk Kaleng &amp; Aneka Snack</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">2 Barang</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Pesanan</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 45.000</span>
+</div>
+<button class="px-6 h-touch-target rounded-full bg-primary text-on-primary font-label-lg text-label-lg active:scale-95 transition-transform">Lacak</button>
+</div>
+</div>
+<!-- Card 2: Selesai -->
+<div class="bg-surface-container-low p-3 rounded-lg shadow-sm border border-outline-variant/30 transition-all hover:shadow-md">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 Okt 2023 • 09:15</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Selesai
+                    </span>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-20 h-20 bg-cover bg-center rounded-lg bg-surface-variant flex-shrink-0" data-alt="A focused close-up of a carton of eggs and a bottle of cooking oil on a clean, light-colored surface. The lighting is bright and natural, suggesting a fresh grocery delivery from a local village store. The style is clean, modern, and trustworthy, using warm earthy accents and soft shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1aVkxNsjj8jWiwvaTxt4PobDfSnG3tDBJNH4fb7Y3IoaV36sOu56A8IdTAx1jskrZ8nu1FVzHHwY4sB5ebZy2ZsHeiEqzk0jrkEG1nNXdchr6FlgiwlKlBu_UwDrkWOqNAAHW_N0RJA09xnPECVi1uNzFbZ4z1FMu6JYC9RVkRZzPnvpYCZspkzactx55jXeU9AVMuuhaa4cBQuPiL6vhZkWqiBBG4B7UTNpl0UMFzRCII_Y8F5WEDQ')"></div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-md text-label-lg truncate text-on-surface">Toko Sembako Jaya</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Telur Ayam Negri (1kg)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">1 Barang</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Pesanan</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 28.500</span>
+</div>
+<button class="px-6 h-touch-target rounded-full border border-primary text-primary font-label-lg text-label-lg hover:bg-primary/5 active:scale-95 transition-all">Beli Lagi</button>
+</div>
+</div>
+<!-- Card 3: Dibatalkan -->
+<div class="bg-surface-container-low p-3 rounded-lg shadow-sm border border-outline-variant/30 transition-all hover:shadow-md opacity-80">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">08 Okt 2023 • 18:45</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container/20 text-error font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                        Dibatalkan
+                    </span>
+</div>
+<div class="flex gap-3 mb-4">
+<div class="w-20 h-20 bg-cover bg-center rounded-lg bg-surface-variant flex-shrink-0 grayscale" data-alt="A minimalist artistic representation of a collection of fresh Indonesian vegetables like spinach, chili, and garlic arranged on a banana leaf. The composition is clean and organic, reflecting a local market vibe. High-key lighting and a soft-touch modern aesthetic with muted, natural colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAleMs0OdXCZE9KIw4tZfQxHFRLDWwcNB2l3BGrNdyQ16oc9AcxmbN_wJSY0UEl26-kEh02I0l56ukuwQ1QlVYxor3m5ydWGOu1MSgqE6yiNBAitS7nrAGGDgnF9G9yPscOSKbZTxLeIecJlfTwghWUToBcFpK4ehWyYrgBsrEN5KrFY12PuARN6RvyCV8v_ByNXYTJyA4AxR8eoTOocyThs3sMO170Sa9V66OkMG2f8bLWeIe9_76mgA')"></div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-md text-label-lg truncate text-on-surface">Sayur Segar Kang Ade</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Paket Sayur Lodeh Spesial</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">3 Barang</p>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Pesanan</span>
+<span class="font-price-lg text-price-lg text-outline">Rp 15.000</span>
+</div>
+<button class="px-6 h-touch-target rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg active:scale-95 transition-transform">Lihat Detail</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-2 px-4 pb-safe bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 active:scale-90 p-1" href="#">
+<span class="material-symbols-outlined mb-0.5">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-0.5" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 active:scale-90 p-1" href="#">
+<span class="material-symbols-outlined mb-0.5">notifications</span>
+<span class="font-label-sm text-label-sm">Notifikasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 active:scale-90 p-1" href="#">
+<span class="material-symbols-outlined mb-0.5">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<!-- Micro-interactions Script -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body></html>

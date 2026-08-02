@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Alamat - Pangkalan Neighborly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Execution -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3f4942",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary": "#7d5231",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-container": "#f6fff6",
+                    "secondary-fixed-dim": "#ffb692",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "primary-container": "#258459",
+                    "on-primary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-container": "#996a47",
+                    "on-primary-fixed": "#002111",
+                    "surface-container": "#efeded",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#ff7a2b",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#303030",
+                    "secondary": "#9f4200",
+                    "outline-variant": "#bec9bf",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#6f7a71",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-dim": "#dbd9d9",
+                    "inverse-primary": "#7ed9a6",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006c44",
+                    "primary-fixed": "#9af5c1",
+                    "error": "#ba1a1a",
+                    "primary": "#006a42",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "background": "#fbf9f8",
+                    "surface-container-high": "#eae8e7",
+                    "on-secondary-container": "#602500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for better mobile feel if needed */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Section -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim shadow-none">
+<div class="flex items-center px-margin-mobile h-touch-target w-full">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim active:scale-95 transition-transform" data-icon="arrow_back">
+                arrow_back
+            </button>
+<h1 class="ml-4 font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">
+                Daftar Alamat
+            </h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile pt-stack-md pb-32">
+<!-- Address List Section -->
+<div class="space-y-stack-md">
+<!-- Address Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm transition-all active:scale-[0.98] group">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="home">home</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Rumah</h2>
+</div>
+<div class="flex gap-2">
+<button aria-label="Edit Alamat" class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button aria-label="Hapus Alamat" class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-error-container text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete_outline">delete_outline</span>
+</button>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                    Jl. Pangkalan Utama No. 42, Tegalwaru, Pangkalan, Karawang
+                </p>
+<div class="mt-stack-sm flex items-center gap-1 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-label-sm font-label-sm">Alamat Utama</span>
+</div>
+</div>
+<!-- Address Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="work">work</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Kantor</h2>
+</div>
+<div class="flex gap-2">
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-error-container text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete_outline">delete_outline</span>
+</button>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                    Ruko Central Niaga Blok B-12, Jatisari, Pangkalan, Karawang
+                </p>
+</div>
+<!-- Neighborhood context visual -->
+<div class="mt-stack-lg rounded-2xl overflow-hidden relative h-48 group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A serene, high-quality landscape photo of a suburban Indonesian neighborhood in Karawang. The scene features lush green trees, clean paved roads, and modern minimalist houses under a warm, golden sunset light. The aesthetic is clean, inviting, and community-focused, aligning with a corporate modern style that feels neighborly and reliable." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzpukWRVcG6xH-o0RL8KOt3OkxNqdY6-NuuTbc1qOT6cS4xIAjs7Mcj4f74r8_YwRY2E1a2RW95BhOGkSZtq_MH2EGiJAJfr6Q4M9VMLc-p0n-SqyjL7zzKg9Rhol-mTs1_Elbr0FKqaVcISVfXKDptXDfw0VFAX3ICLFq7ABulFa3G8es7kMvKBVd16jNLTdy2EZO23VTPY0SWs0yQTHlCBy-gOJceMHSOsFR8naAabVg4DcV9ZDEyg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white text-label-lg font-label-lg">Menjangkau seluruh Pangkalan &amp; Tegalwaru</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Area / Footer Action -->
+<div class="fixed bottom-20 left-0 right-0 px-margin-mobile z-40">
+<button class="w-full h-[56px] bg-primary text-on-primary rounded-xl flex items-center justify-center gap-3 shadow-lg active:scale-95 transition-all font-label-lg text-label-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Tambah Alamat Baru
+        </button>
+</div>
+<!-- BottomNavBar Section -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant shadow-sm flex justify-around items-center px-4 py-2">
+<!-- Beranda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Alamat (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm text-label-sm">Alamat</span>
+</a>
+<!-- Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<!-- Interaction Script -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Micro-interaction logic for ripple or specific state changes can go here
+                console.log('Action triggered:', el.ariaLabel || el.innerText || 'Interaction');
+            });
+        });
+
+        // Simple scroll behavior for header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            if (currentScroll > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-none');
+            } else {
+                header.classList.add('shadow-none');
+                header.classList.remove('shadow-md');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

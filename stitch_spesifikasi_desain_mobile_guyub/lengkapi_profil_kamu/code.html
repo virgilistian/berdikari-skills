@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub - Lengkapi Profil Kamu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006c44",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-surface-variant": "#3f4942",
+                    "surface-container-low": "#f5f3f3",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efeded",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary": "#006a42",
+                    "on-primary-fixed": "#002111",
+                    "primary-fixed": "#9af5c1",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary": "#7d5231",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface": "#fbf9f8",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-fixed": "#341100",
+                    "outline": "#6f7a71",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary-container": "#258459",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-container": "#996a47",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "inverse-surface": "#303030",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-container": "#ff7a2b",
+                    "background": "#fbf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-container": "#602500",
+                    "secondary": "#9f4200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .touch-active:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-10 bg-surface flex items-center px-margin-mobile h-touch-target">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 transition-transform duration-200" data-icon="arrow_back">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary ml-2">Lengkapi Profil Kamu</h1>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile pt-stack-lg pb-32">
+<div class="max-w-md mx-auto flex flex-col items-center">
+<!-- Profile Photo Upload -->
+<div class="relative group mt-8 mb-stack-lg">
+<div class="w-32 h-32 rounded-full bg-surface-container flex items-center justify-center border-4 border-white shadow-sm overflow-hidden transition-all duration-300 group-hover:shadow-md">
+<img class="w-full h-full object-cover hidden" data-alt="A warm, soft-focus portrait of a friendly Indonesian neighbor, used as a placeholder in a clean mobile app interface. The setting is bright and airy with natural morning light. The style is minimalist and high-quality digital photography, maintaining a professional yet approachable neighborly feel with soft green and off-white color tones." id="profile-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEoY9fBQNSlOLoMG2RURM57zxYMxLMLiB_bFhcwmdEOXF1Xck-Ju6Q2ySHz3e4BUIA-wz-3r9-1FyMUcUkZ5osQKHgmcN2t-lU_moDZDfU0cbA3JVRb4Z7n-5eddYySWpnRu-FZJG18SYy7n5sO6oVW1pdX-DIEkTb2O2USFwVAj4S7s2WK0CxFgvYcFfqmnOgL3MRvjDgL-8veDaQINDsiSB25Ep7HWhz_DZerEsCONXLqcaYsHX0LQ"/>
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="person" id="placeholder-icon">person</span>
+</div>
+<button class="absolute bottom-0 right-0 w-10 h-10 bg-primary-fixed-dim text-on-primary-fixed-variant rounded-full border-2 border-white flex items-center justify-center shadow-sm active:scale-90 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]" data-icon="camera_alt">camera_alt</span>
+</button>
+</div>
+<!-- Welcome Text -->
+<div class="text-center mb-stack-lg">
+<p class="font-body-lg text-body-lg text-on-surface-variant">Halo! Mari berkenalan lebih dekat agar tetangga mudah mengenalimu.</p>
+</div>
+<!-- Input Field Group -->
+<div class="w-full space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block ml-1" for="full-name">Nama Lengkap</label>
+<div class="relative">
+<input class="w-full h-touch-target px-4 bg-white border border-outline-variant rounded-lg text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline" id="full-name" placeholder="Masukkan nama lengkapmu" type="text"/>
+</div>
+<p class="font-label-sm text-label-sm text-tertiary flex items-center mt-2 px-1">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="info">info</span>
+                    Nama ini akan dilihat oleh tetangga sekitarmu.
+                </p>
+</div>
+<!-- Decorative Illustration -->
+<div class="mt-12 opacity-40 grayscale pointer-events-none">
+<img class="w-48 h-auto" data-alt="A simple, hand-drawn style digital illustration of a friendly suburban street in Indonesia with small houses and greenery. The art style is minimalist with thin lines and soft pastel colors, emphasizing a communal, neighborly vibe. The composition is light and airy, meant to be a subtle background element in a professional UI onboarding screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1cHTPzQ6cVG2LcY_NEEzHkkgJxAmgqPeTyOy6420AOel_nvpxZTGgdI87Z4yU0Hq8RVOUXrNF-3P_cwvjXxXFh2SlNnQ6gPci-pnN5QT3cGMdhAmZG2FIb_tbuYo7d4UxiLxjajOi7LmZqGqfca7q2qvg61Ue1aTAxgsCdf-4FTqU6BcDujdcFtk1H610xfUEBwgdWVw2GvB_qpeXgcWvGNWQ2hsK4wbXLUO1-_NXfvDmb61b3-V9xQ"/>
+</div>
+</div>
+</main>
+<!-- BottomNavBar as Action Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile py-stack-md bg-surface shadow-[0_-4px_12px_0_rgba(125,82,49,0.08)] rounded-t-xl">
+<!-- Help Button -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:opacity-90 active:scale-98 transition-all duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="help_outline">help_outline</span>
+<span class="font-label-lg text-label-lg">Bantuan</span>
+</button>
+<!-- Primary Action Button -->
+<button class="flex items-center justify-center bg-primary text-on-primary rounded-full px-8 py-3 shadow-sm hover:opacity-90 active:scale-95 transition-all duration-200">
+<span class="font-label-lg text-label-lg mr-2">Simpan &amp; Lanjut</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for input
+        const nameInput = document.getElementById('full-name');
+        nameInput.addEventListener('focus', () => {
+            nameInput.parentElement.classList.add('scale-[1.01]');
+        });
+        nameInput.addEventListener('blur', () => {
+            nameInput.parentElement.classList.remove('scale-[1.01]');
+        });
+
+        // Click effect for the profile button
+        const cameraBtn = document.querySelector('button[data-icon="camera_alt"]').parentElement;
+        cameraBtn.addEventListener('click', () => {
+            // Simulated upload interaction
+            console.log('Opening gallery...');
+        });
+    </script>
+</body></html>

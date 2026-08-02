@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pembayaran Berhasil - Guyub Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#005232",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "secondary-container": "#ff7a2b",
+                    "outline-variant": "#bec9bf",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-fixed": "#341100",
+                    "secondary": "#9f4200",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdcc5",
+                    "background": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-low": "#f5f3f3",
+                    "inverse-primary": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#602500",
+                    "error": "#ba1a1a",
+                    "outline": "#6f7a71",
+                    "secondary-fixed-dim": "#ffb692",
+                    "tertiary-container": "#996a47",
+                    "primary": "#006a42",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "surface-tint": "#006c44",
+                    "surface-container": "#efeded",
+                    "surface-bright": "#fbf9f8",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-bg-glow {
+            background: radial-gradient(circle at center, rgba(37, 132, 89, 0.08) 0%, rgba(251, 249, 248, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 left-0 bg-background flex items-center px-margin-mobile h-touch-target z-50">
+<button class="transition-transform active:scale-95 flex items-center justify-center w-10 h-10 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="ml-2 font-headline-md text-headline-md font-bold text-primary">Pembayaran Berhasil</h1>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile relative">
+<!-- Background Atmosphere -->
+<div class="absolute inset-0 success-bg-glow pointer-events-none"></div>
+<!-- Celebratory Illustration/Animation Cluster -->
+<div class="w-full max-w-sm flex flex-col items-center text-center space-y-stack-lg z-10">
+<div class="relative">
+<!-- Large Animated Checkmark -->
+<!-- STITCH_SVG_START:ANIMATION_261 class="w-32 h-32 mx-auto" --><div class="w-32 h-32 mx-auto" id="animated-svg-ANIMATION_261" style="display:block;"><svg fill="none" height="120" viewbox="0 0 120 120" width="120" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="60" fill="#E8F5E9" r="58" stroke="#2D8A5E" stroke-width="4">
+<animate attributename="r" calcmode="spline" dur="0.4s" fill="freeze" keysplines="0.4 0 0.2 1" values="0;58"></animate>
+<animate attributename="opacity" dur="0.3s" fill="freeze" values="0;1"></animate>
+</circle>
+<path d="M35 60L52 77L85 43" stroke="#2D8A5E" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" style="stroke-dasharray: 80; stroke-dashoffset: 80;">
+<animate attributename="stroke-dashoffset" begin="0.4s" calcmode="spline" dur="0.5s" fill="freeze" keysplines="0.4 0 0.2 1" values="80;0"></animate>
+</path>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_261 -->
+<!-- Confetti/Burst micro-interaction placeholder logic (handled by SVG animation) -->
+</div>
+<div class="space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Pembayaran Diterima</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                    Pembayaran dari <span class="font-semibold text-on-surface">Tetangga Budi</span> telah berhasil diverifikasi. Dana otomatis ditambahkan ke saldo Merchant kamu.
+                </p>
+</div>
+<!-- Transaction Summary Card -->
+<div class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md shadow-sm">
+<div class="flex justify-between items-center pb-stack-sm border-b border-surface-container-high mb-stack-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ID Pesanan</span>
+<span class="font-label-lg text-label-lg text-on-surface">#GP-9921</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Pendapatan</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 52.000</span>
+</div>
+</div>
+<!-- Decorative Merchant Insight -->
+<div class="flex items-center gap-2 bg-primary-container/10 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant">Saldo kamu sekarang Rp 1.240.000</span>
+</div>
+</div>
+</main>
+<!-- Bottom Actions Container -->
+<footer class="p-margin-mobile space-y-stack-md bg-background/80 backdrop-blur-md">
+<button class="w-full h-12 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg transition-all active:scale-[0.98] hover:bg-primary-container shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">outdoor_grill</span>
+            Siapkan Pesanan
+        </button>
+<button class="w-full h-12 text-primary rounded-xl font-label-lg text-label-lg transition-all active:bg-surface-container-low flex items-center justify-center">
+            Lihat Detail Pesanan
+        </button>
+<!-- Safe area spacer for mobile -->
+<div class="h-4"></div>
+</footer>
+<!-- Interactive script for slight movement -->
+<script>
+        // Micro-interaction for the summary card on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.bg-surface-container-lowest');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body></html>

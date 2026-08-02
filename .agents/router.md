@@ -39,6 +39,7 @@ If `mode:` is missing, infer it from `task:` using the table below, state your i
 - **Always** load `skills/project/berdikari.md` (Project DNA) first, for every mode, before any other action. It encodes product identity, non-negotiables, existing pages/stores, business workflows, and the pre-task checklist.
 - **Never** produce UI copy in English for end users — Bahasa Indonesia only.
 - **Never** refactor or rename existing pages, stores, components, or API module structures unless the task explicitly requires it.
+- **Never** ship a feature without the architecture gate. `security-architecture` runs before the design is fixed and can return `RENTAN — BLOKIR`; on that verdict, **stop and present safer alternatives — do not implement**.
 - **Never** load a framework skill unless its trigger path/keyword is present (Principle 9).
 - **Never** load domain skills (database/deployment/api) unless the mode or trigger requires them (Principle 10).
 - **Never** scan the repo. Use `.agents/skills/project/berdikari.md` §3 to jump straight to files (Principle 6).
@@ -56,6 +57,7 @@ If `mode:` is missing, infer it from `task:` using the table below, state your i
 - Deployment/Docker/K8s skills → mode `deploy` only, or keywords: pipeline, image, manifest, rollback, helm.
 - Redis / MinIO → keyword present only (cache/queue/lock → redis; upload/object/bucket → minio).
 - **Security skill → always loaded for modes `feature`, `bugfix`, `refactor`, `review`**, or when keywords security/auth/authorization/permission/validation/xss/csrf/ssrf/injection/upload/secret/token/password/rate-limit/sanitize appear. Run the pre-implementation scan first; output a findings table; apply only the minimum fix for confirmed vulnerabilities.
+- **Security Architecture skill → always loaded for modes `feature`, `design`, `refactor`, `review`, `deploy`** (also on keywords threat model/arsitektur/rentan/tenant/isolation/IDOR/integrity/PII). It is the **architecture gate** and runs **before** `security`: threat-model the feature, judge trust boundaries and invariants, then emit a verdict `AMAN` / `PERLU PENGUATAN` / `RENTAN — BLOKIR`. Load **both** security skills — they cover different layers and do not overlap.
 
 - **Design/UI/UX tasks → mode `design`** (a multi-agent pipeline), NOT the `nuxt-vue` skill directly. The `design` mode's Art Director orchestrates the specialist roles and requires a cited inspiration source (image/URL). See `modes/design.md`.
 

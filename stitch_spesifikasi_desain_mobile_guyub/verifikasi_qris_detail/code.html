@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Transaksi - Merchant App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#7d5231",
+                    "secondary-fixed": "#ffdbcb",
+                    "error-container": "#ffdad6",
+                    "secondary": "#9f4200",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "primary": "#006a42",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-background": "#1b1c1c",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-tint": "#006c44",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#303030",
+                    "outline": "#6f7a71",
+                    "on-surface": "#1b1c1c",
+                    "background": "#fbf9f8",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary-container": "#602500",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#258459",
+                    "surface-container": "#efeded",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-dim": "#dbd9d9",
+                    "on-primary": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "tertiary-container": "#996a47",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "secondary-container": "#ff7a2b",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container-high": "#eae8e7",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "on-primary-container": "#f6fff6",
+                    "on-surface-variant": "#3f4942",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed": "#341100",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "outline-variant": "#bec9bf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center px-margin-mobile h-touch-target">
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary mr-4 active:scale-95 duration-100 p-2 -ml-2" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Detail Transaksi</h1>
+</header>
+<main class="pb-[100px]">
+<!-- Status Banner -->
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant px-margin-mobile py-3 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<p class="font-label-lg text-label-lg">Menunggu Verifikasi</p>
+</div>
+<!-- Hero Amount Section -->
+<section class="mt-stack-lg px-margin-mobile text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Total Pembayaran</p>
+<h2 class="font-headline-lg text-[32px] text-primary leading-tight">Rp 45.000</h2>
+<div class="inline-flex items-center mt-2 bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-1" data-icon="qr_code_2">qr_code_2</span>
+<span class="font-label-sm text-label-sm">QRIS Statis</span>
+</div>
+</section>
+<!-- Bento Grid Details -->
+<div class="px-margin-mobile mt-stack-lg grid grid-cols-2 gap-3">
+<!-- Buyer Card -->
+<div class="col-span-2 bg-surface-container-lowest rounded-xl p-4 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A friendly, close-up portrait of a local Indonesian male customer named Budi Santoso smiling warmly. He is outdoors in a bright, natural daylight setting with a soft-focus neighborhood market background. The aesthetic is clean and professional, featuring high-quality photography with soft lighting and natural skin tones, aligning with a trustworthy merchant app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhxMv70uStXGUdqnr85Bw_yzjX5P9LMHWr8Xj7dEMbH1fR9vy7AwcLRKKZ2jHto_ySVzvAg36M9gzDGzOlgrB3mdsN5wSB9qQcgJjSeN2bMpMXVwTMW3gTcCD7H-XAFhVlMnFtKzC88t283n8Exbx9MvhsS097V01jg-iQfjAsn_ECaXw-AmAjzkxjpagyeD24i4_QuMoZqands6F9y0ko9RCqiErXP2kKRi3PCyrY5bSZ9SzBVc37Tw"/>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Pembeli</p>
+<p class="font-label-lg text-label-lg text-on-surface">Budi Santoso</p>
+</div>
+<button class="ml-auto w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low text-primary active:scale-95">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+</div>
+<!-- ID & Date -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<p class="text-on-surface-variant font-label-sm text-label-sm mb-1">Order ID</p>
+<p class="font-label-lg text-label-lg text-on-surface">#G-8821</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<p class="text-on-surface-variant font-label-sm text-label-sm mb-1">Waktu</p>
+<p class="font-label-lg text-label-lg text-on-surface">12 Mei, 14:20</p>
+</div>
+<!-- Proof of Payment -->
+<div class="col-span-2 bg-surface-container-lowest rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<p class="text-on-surface font-label-lg text-label-lg">Bukti Pembayaran</p>
+<button class="text-primary font-label-sm text-label-sm flex items-center gap-1">
+                        Lihat Full <span class="material-symbols-outlined text-[16px]" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container flex items-center justify-center border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A high-resolution smartphone screenshot of a successful digital payment receipt from a mobile banking app. The screen displays a green checkmark, the amount of Rp 45.000, the date May 12, 2024, and the merchant name Guyub Store. The image is captured in a flat, top-down perspective with realistic screen glare and UI details typical of modern Indonesian fintech applications." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_qK-ZQcqh_vpvlFIkGAMLBjGyl5DCojwO8hNqHDnQWhoAdyXBU7OUq5PxMU5VE8xnbfbDfcfZtmvEeemV7a97wSjlPdjAj4oVWdnqQpHZO5AB5ygAbk_wFxeD-RQjFFrlZol6gYk6i8p_1Mhf5xHuc0miIzAao340HseQ555A1On9BePvekTMLVEoAW011YJo7k2fk8DCnt65poX3AUhBfhvG4w31dO3sVeNEB5g63zu9JmY6fW4Zw"/>
+<div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
+</div>
+<div class="mt-4 flex items-start gap-3 p-3 rounded-lg bg-surface-container-low border border-dashed border-outline">
+<span class="material-symbols-outlined text-outline" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-on-surface-variant text-[11px] leading-tight">Pastikan nominal dan ID transaksi di atas sesuai dengan mutasi di aplikasi penampung QRIS kamu.</p>
+</div>
+</div>
+</div>
+<!-- Sticky Actions -->
+<div class="fixed bottom-[72px] left-0 w-full bg-surface-container-lowest p-4 flex flex-col gap-2 shadow-[0_-4px_10px_rgba(0,0,0,0.04)] z-40">
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verifikasi Pembayaran
+            </button>
+<button class="w-full h-[52px] border border-error text-error rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 active:bg-error-container transition-all">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                Tolak
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-[72px] px-2 pb-safe">
+<!-- Beranda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Transaksi (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Transaksi</span>
+</a>
+<!-- Produk -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-sm text-label-sm">Produk</span>
+</a>
+<!-- Akun -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const originalScale = btn.style.transform;
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = originalScale;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

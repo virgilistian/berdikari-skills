@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Share Product - Minyak Goreng Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary-fixed-variant": "#005232",
+                "error-container": "#ffdad6",
+                "secondary-container": "#ff7a2b",
+                "surface-variant": "#e4e2e2",
+                "on-error": "#ffffff",
+                "inverse-on-surface": "#f2f0f0",
+                "on-secondary": "#ffffff",
+                "surface-tint": "#006c44",
+                "surface-container-highest": "#e4e2e2",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "primary": "#006a42",
+                "secondary-fixed-dim": "#ffb692",
+                "on-background": "#1b1c1c",
+                "on-error-container": "#93000a",
+                "on-surface-variant": "#3f4942",
+                "background": "#fbf9f8",
+                "on-secondary-fixed": "#341100",
+                "tertiary-fixed": "#ffdcc5",
+                "inverse-surface": "#303030",
+                "surface-bright": "#fbf9f8",
+                "outline-variant": "#bec9bf",
+                "on-tertiary-container": "#fffbff",
+                "surface-container-lowest": "#ffffff",
+                "outline": "#6f7a71",
+                "surface-container": "#efeded",
+                "inverse-primary": "#7ed9a6",
+                "tertiary-fixed-dim": "#f4bb92",
+                "on-secondary-container": "#602500",
+                "surface-container-low": "#f5f3f3",
+                "secondary": "#9f4200",
+                "on-primary": "#ffffff",
+                "error": "#ba1a1a",
+                "tertiary-container": "#996a47",
+                "primary-container": "#258459",
+                "surface-dim": "#dbd9d9",
+                "surface-container-high": "#eae8e7",
+                "on-tertiary-fixed": "#301400",
+                "surface": "#fbf9f8",
+                "on-primary-fixed": "#002111",
+                "primary-fixed": "#9af5c1",
+                "on-primary-container": "#f6fff6",
+                "tertiary": "#7d5231",
+                "secondary-fixed": "#ffdbcb",
+                "on-tertiary": "#ffffff",
+                "on-surface": "#1b1c1c",
+                "on-secondary-fixed-variant": "#793100",
+                "primary-fixed-dim": "#7ed9a6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-sm": "8px",
+                "margin-mobile": "16px",
+                "gutter-mobile": "12px",
+                "stack-md": "16px",
+                "stack-lg": "24px",
+                "base": "4px",
+                "touch-target": "44px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-sm": ["Inter"],
+                "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .share-sheet-transition {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .backdrop-blur-custom {
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-hidden">
+<!-- Mock Background: Product Detail View (SCREEN_2) -->
+<div class="relative w-full h-screen overflow-y-auto">
+<!-- Top App Bar (Shared Component Logic) -->
+<header class="w-full top-0 sticky bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target w-full z-10">
+<button class="hover:bg-surface-container-low transition-colors active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Detail Produk</h1>
+<button class="hover:bg-surface-container-low transition-colors active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined text-primary">share</span>
+</button>
+</header>
+<!-- Product Content -->
+<main class="pb-32">
+<div class="w-full aspect-square">
+<img alt="Minyak Goreng Guyub" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLt1aNeh_Og9hYWm98jJQ1l6zx0G5C8ftHMpd7FFnRTfVMN5KTRc484PcTpN6vkjrMML0CvLiStXIWWLzR1bQrNnnxGXmyJZoekusupxnrHlGL69Fva580DhXddMeImeRWZVtygvhQyEu4pnjWMNk-_wW39zvgsn671i2di5ao9pGyuBc8ZhwN8Orft5SP54Ip1iYvB3aktUfwqJmvcZKPooM1mo1A-VB8VnU8tFW86Y7u1yuxeX4Z7L1i1Y"/>
+</div>
+<div class="px-margin-mobile py-stack-lg">
+<div class="flex justify-between items-start mb-base">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Minyak Goreng Guyub 2L</h2>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                        Tersedia
+                    </span>
+</div>
+<div class="font-price-lg text-price-lg text-secondary mb-stack-md">Rp 34.500</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Minyak goreng kelapa sawit premium berkualitas tinggi. Diproses secara higienis untuk menghasilkan hasil gorengan yang garing, renyah, dan sehat untuk keluarga. Pilihan tepat bagi warga Pangkalan & Tegalwaru.
+                </p>
+</div>
+</main>
+</div>
+<!-- Semi-transparent Dark Overlay Backdrop -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300" id="backdrop"></div>
+<!-- Bottom Share Sheet Overlay -->
+<div class="fixed bottom-0 left-0 right-0 z-50 share-sheet-transition translate-y-0 flex justify-center" id="shareSheet">
+<div class="bg-surface w-full max-w-md rounded-t-[24px] shadow-2xl px-margin-mobile pt-stack-sm pb-stack-lg flex flex-col items-center">
+<!-- Handle Indicator -->
+<div class="w-10 h-1 bg-outline-variant rounded-full mb-stack-md"></div>
+<div class="w-full mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface text-center mb-stack-md">Bagikan Produk</h3>
+<!-- Product Preview Card -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-stack-md border border-outline-variant/30">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLt1aNeh_Og9hYWm98jJQ1l6zx0G5C8ftHMpd7FFnRTfVMN5KTRc484PcTpN6vkjrMML0CvLiStXIWWLzR1bQrNnnxGXmyJZoekusupxnrHlGL69Fva580DhXddMeImeRWZVtygvhQyEu4pnjWMNk-_wW39zvgsn671i2di5ao9pGyuBc8ZhwN8Orft5SP54Ip1iYvB3aktUfwqJmvcZKPooM1mo1A-VB8VnU8tFW86Y7u1yuxeX4Z7L1i1Y"/>
+</div>
+<div class="flex-1">
+<div class="font-label-lg text-label-lg text-on-surface line-clamp-1">Minyak Goreng Guyub 2L</div>
+<div class="font-price-lg text-price-lg text-primary text-sm">Rp 34.500</div>
+</div>
+</div>
+</div>
+<!-- Social Sharing Grid -->
+<div class="grid grid-cols-5 gap-stack-md w-full mb-stack-lg">
+<!-- WhatsApp -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366]/20 transition-colors">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.437 2.503 1.157 3.477L6.58 18.34l3.045-.799c.92.532 1.986.815 3.125.815 3.18 0 5.766-2.587 5.767-5.767 0-3.18-2.586-5.766-5.766-5.766zm3.375 8.203c-.144.405-.833.78-1.144.832-.285.048-.654.089-1.049-.038-.255-.083-.576-.192-.967-.36-1.666-.714-2.736-2.417-2.819-2.529-.083-.112-.676-.899-.676-1.715 0-.816.427-1.217.58-1.396.152-.179.333-.224.444-.224s.222.001.32.005c.101.004.237-.038.37.28.136.327.466 1.135.507 1.219.041.083.068.18.013.29-.054.11-.082.18-.163.275-.081.095-.171.212-.244.285-.084.083-.172.174-.074.341.098.168.435.719.933 1.163.642.571 1.183.748 1.349.832.167.084.266.07.366-.045.1-.114.426-.493.54-.662.112-.168.225-.141.38-.083.155.058.986.465 1.157.551.171.085.285.128.327.2.042.072.042.417-.102.822z"></path></svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">WhatsApp</span>
+</div>
+<!-- Instagram -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 rounded-full bg-[#E4405F]/10 flex items-center justify-center text-[#E4405F] group-hover:bg-[#E4405F]/20 transition-colors">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instagram</span>
+</div>
+<!-- Facebook -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2] group-hover:bg-[#1877F2]/20 transition-colors">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Facebook</span>
+</div>
+<!-- Telegram -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 rounded-full bg-[#0088CC]/10 flex items-center justify-center text-[#0088CC] group-hover:bg-[#0088CC]/20 transition-colors">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 7.021l-2.023 9.541c-.15.666-.543.832-1.097.52l-3.078-2.272-1.485 1.432c-.164.164-.301.301-.617.301l.221-3.136 5.713-5.159c.248-.221-.053-.344-.383-.125l-7.059 4.444-3.041-.951c-.661-.206-.675-.661.138-.978l11.879-4.579c.55-.206 1.03.125.825.961z"></path></svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Telegram</span>
+</div>
+<!-- X (Twitter) -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<div class="w-12 h-12 rounded-full bg-on-surface/10 flex items-center justify-center text-on-surface group-hover:bg-on-surface/20 transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path></svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">X</span>
+</div>
+</div>
+<!-- Copy Link Button -->
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-xl font-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all hover:opacity-90" id="copyLink">
+<span class="material-symbols-outlined text-[20px]">link</span>
+                Salin Tautan
+            </button>
+<div class="mt-4 opacity-0 transition-opacity duration-300 font-label-sm text-primary-container bg-primary-fixed-dim px-4 py-2 rounded-full hidden" id="toast">
+                Tautan berhasil disalin!
+            </div>
+</div>
+</div>
+<!-- Navigation Shell (Suppressed as requested for sub-page intent) -->
+<script>
+        const backdrop = document.getElementById('backdrop');
+        const shareSheet = document.getElementById('shareSheet');
+        const copyBtn = document.getElementById('copyLink');
+        const toast = document.getElementById('toast');
+
+        // Close logic
+        function closeSheet() {
+            shareSheet.style.transform = 'translateY(100%)';
+            backdrop.style.opacity = '0';
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+                // Normally we would navigate back or close the overlay here
+            }, 300);
+        }
+
+        backdrop.addEventListener('click', closeSheet);
+
+        // Copy link simulation
+        copyBtn.addEventListener('click', () => {
+            // Mocking clipboard copy
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.style.opacity = '1', 10);
+            
+            copyBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span> Tersalin';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.classList.add('hidden'), 300);
+                copyBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">link</span> Salin Tautan';
+            }, 2000);
+        });
+
+        // Simple swipe-to-close mock logic
+        let touchStartY = 0;
+        shareSheet.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY);
+        shareSheet.addEventListener('touchmove', e => {
+            const touchY = e.touches[0].clientY;
+            const diff = touchY - touchStartY;
+            if (diff > 0) {
+                shareSheet.style.transform = `translateY(${diff}px)`;
+            }
+        });
+        shareSheet.addEventListener('touchend', e => {
+            const touchY = e.changedTouches[0].clientY;
+            const diff = touchY - touchStartY;
+            if (diff > 100) {
+                closeSheet();
+            } else {
+                shareSheet.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,70 @@
+name: guyub-api
+
+on:
+  push:
+    paths:
+      - "berdikari-api/**"
+      - ".github/workflows/guyub-api.yml"
+  pull_request:
+    paths:
+      - "berdikari-api/**"
+      - ".github/workflows/guyub-api.yml"
+
+defaults:
+  run:
+    working-directory: berdikari-api
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: berdikari
+          POSTGRES_USER: berdikari
+          POSTGRES_PASSWORD: secret
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U berdikari"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      APP_ENV: testing
+      APP_KEY: base64:c2NyYW1ibGVkc2NyYW1ibGVkc2NyYW1ibGVkc2E9
+      APP_LOCALE: id
+      APP_FALLBACK_LOCALE: id
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_DATABASE: berdikari
+      DB_USERNAME: berdikari
+      DB_PASSWORD: secret
+      CACHE_STORE: array
+      SESSION_DRIVER: array
+      QUEUE_CONNECTION: sync
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: pdo, pdo_pgsql, pgsql, bcmath, mbstring, xml, zip, intl, gd, redis
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Pint (style check)
+        run: ./vendor/bin/pint --test
+
+      - name: Migrate fresh
+        run: php artisan migrate:fresh --force
+
+      - name: Test
+        run: php artisan test

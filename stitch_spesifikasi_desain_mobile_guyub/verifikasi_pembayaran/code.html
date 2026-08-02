@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi Pembayaran - Guyub Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006a42",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bec9bf",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "surface-bright": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "outline": "#6f7a71",
+                    "surface": "#fbf9f8",
+                    "secondary-container": "#ff7a2b",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container": "#efeded",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-container": "#996a47",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface": "#1b1c1c",
+                    "primary-container": "#258459",
+                    "surface-tint": "#006c44",
+                    "on-surface-variant": "#3f4942",
+                    "tertiary-fixed": "#ffdcc5",
+                    "background": "#fbf9f8",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-primary-container": "#f6fff6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-background": "#1b1c1c",
+                    "tertiary": "#7d5231",
+                    "on-secondary-container": "#602500",
+                    "primary-fixed": "#9af5c1",
+                    "secondary-fixed-dim": "#ffb692",
+                    "inverse-surface": "#303030",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dbd9d9",
+                    "on-primary-fixed": "#002111"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            position: relative;
+            color: #006a42;
+        }
+        .active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #006a42;
+            border-radius: 9999px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center justify-between px-margin-mobile h-touch-target w-full">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-200 p-2">menu</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Verifikasi Pembayaran</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-200 p-2">notifications</button>
+</header>
+<main class="pt-16 pb-24 px-margin-mobile max-w-2xl mx-auto">
+<!-- Filter Tabs -->
+<div class="flex gap-stack-md mt-stack-lg border-b border-outline-variant sticky top-16 bg-background z-40 py-2">
+<button class="font-label-lg text-label-lg px-4 py-2 active-tab transition-colors duration-200" id="tab-pending">Pending (3)</button>
+<button class="font-label-lg text-label-lg px-4 py-2 text-on-surface-variant hover:text-primary transition-colors duration-200" id="tab-verified">Verified</button>
+</div>
+<!-- List Content -->
+<div class="flex flex-col gap-stack-md mt-stack-lg" id="payment-list">
+<!-- Payment Card Item 1 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-3 group active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="font-headline-md">AS</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Ahmad Sobari</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hari ini, 14:20</p>
+</div>
+</div>
+<div class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-label-sm font-label-sm">
+                        Transfer Bank
+                    </div>
+</div>
+<div class="flex justify-between items-center py-2 border-y border-dashed border-outline-variant">
+<span class="font-body-md text-on-surface-variant">Total Nominal</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 155.000</span>
+</div>
+<div class="flex gap-3 mt-1">
+<button class="flex-1 border border-outline text-outline font-label-lg text-label-lg py-touch-target rounded-xl hover:bg-surface-container-low transition-colors">Lihat Bukti</button>
+<button class="flex-1 bg-primary text-on-primary font-label-lg text-label-lg py-touch-target rounded-xl shadow-md hover:bg-primary-container active:scale-95 transition-all">Verifikasi</button>
+</div>
+</div>
+<!-- Payment Card Item 2 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-3 group active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="font-headline-md">NR</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Neng Ratna</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hari ini, 13:55</p>
+</div>
+</div>
+<div class="px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-label-sm font-label-sm">
+                        QRIS Guyub
+                    </div>
+</div>
+<div class="flex justify-between items-center py-2 border-y border-dashed border-outline-variant">
+<span class="font-body-md text-on-surface-variant">Total Nominal</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 42.500</span>
+</div>
+<div class="flex gap-3 mt-1">
+<button class="flex-1 border border-outline text-outline font-label-lg text-label-lg py-touch-target rounded-xl hover:bg-surface-container-low transition-colors">Lihat Bukti</button>
+<button class="flex-1 bg-primary text-on-primary font-label-lg text-label-lg py-touch-target rounded-xl shadow-md hover:bg-primary-container active:scale-95 transition-all">Verifikasi</button>
+</div>
+</div>
+<!-- Payment Card Item 3 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant flex flex-col gap-3 group active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="font-headline-md">UD</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Ujang Dadang</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hari ini, 12:10</p>
+</div>
+</div>
+<div class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-label-sm font-label-sm">
+                        Transfer Bank
+                    </div>
+</div>
+<div class="flex justify-between items-center py-2 border-y border-dashed border-outline-variant">
+<span class="font-body-md text-on-surface-variant">Total Nominal</span>
+<span class="font-price-lg text-price-lg text-primary">Rp 210.000</span>
+</div>
+<div class="flex gap-3 mt-1">
+<button class="flex-1 border border-outline text-outline font-label-lg text-label-lg py-touch-target rounded-xl hover:bg-surface-container-low transition-colors">Lihat Bukti</button>
+<button class="flex-1 bg-primary text-on-primary font-label-lg text-label-lg py-touch-target rounded-xl shadow-md hover:bg-primary-container active:scale-95 transition-all">Verifikasi</button>
+</div>
+</div>
+<!-- Empty State Helper (Hidden by default) -->
+<div class="hidden flex flex-col items-center justify-center py-12 text-center" id="empty-state">
+<div class="w-48 h-48 mb-6" data-alt="A charming, hand-drawn illustration of a local merchant looking at an empty wooden storefront table under a clear blue morning sky. The visual style is soft and organic with warm greens and earthy browns, evoking a neighborly and calm atmosphere in the Pangkalan area. No people are waiting, suggesting a peaceful moment of rest in a clean, modern digital interface context." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBDZg_Yf7qrwq5IY2BP3ILLe-letRQEcdejy3TXfs1FC3Sxf-25QdBbff-rToPxGlM_5EMN1TvtMurN2sev4EhWPYAA6vYYKxMxOtTJtlFB25zN06oTuZLgYjVLfMHAvkstlQVKMejY21XTQYgS15UZBm4x14ovndErsQZEu0WOYq-dSAymDeQ65vdEdut80UaqHIFZjfnQn_1RdrcnJHYYwqsP5gWEiBt3b76vr9ArcqUiHBfHaVZ7Q')"></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Semua Beres!</h3>
+<p class="font-body-md text-on-surface-variant">Tidak ada pembayaran yang butuh verifikasi manual saat ini.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-gutter-mobile py-2 bg-surface dark:bg-surface-dim shadow-[0_-2px_8px_rgba(0,0,0,0.08)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm">Verifikasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple Tab Switching Logic
+        const tabPending = document.getElementById('tab-pending');
+        const tabVerified = document.getElementById('tab-verified');
+        const listContainer = document.getElementById('payment-list');
+
+        tabPending.addEventListener('click', () => {
+            tabPending.classList.add('active-tab');
+            tabPending.classList.remove('text-on-surface-variant');
+            tabVerified.classList.remove('active-tab');
+            tabVerified.classList.add('text-on-surface-variant');
+            // Show current cards (mock data logic)
+            Array.from(listContainer.children).forEach(el => {
+                if(el.id !== 'empty-state') el.style.display = 'flex';
+            });
+            document.getElementById('empty-state').classList.add('hidden');
+        });
+
+        tabVerified.addEventListener('click', () => {
+            tabVerified.classList.add('active-tab');
+            tabVerified.classList.remove('text-on-surface-variant');
+            tabPending.classList.remove('active-tab');
+            tabPending.classList.add('text-on-surface-variant');
+            // Show empty state for "Verified" (mock behavior)
+            Array.from(listContainer.children).forEach(el => {
+                if(el.id !== 'empty-state') el.style.display = 'none';
+            });
+            document.getElementById('empty-state').classList.remove('hidden');
+        });
+
+        // Verification Button Interaction
+        const verifyButtons = document.querySelectorAll('button.bg-primary');
+        verifyButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.bg-surface-container-lowest');
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span>';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        card.remove();
+                        if (listContainer.querySelectorAll('.bg-surface-container-lowest').length === 0) {
+                            document.getElementById('empty-state').classList.remove('hidden');
+                        }
+                    }, 300);
+                }, 800);
+            });
+        });
+    </script>
+</body></html>

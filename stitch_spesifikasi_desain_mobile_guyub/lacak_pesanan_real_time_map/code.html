@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-surface-variant": "#3f4942",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary-container": "#f6fff6",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary-container": "#602500",
+                    "inverse-surface": "#303030",
+                    "outline": "#6f7a71",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary": "#7d5231",
+                    "surface-container-low": "#f5f3f3",
+                    "error-container": "#ffdad6",
+                    "primary": "#006a42",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary": "#9f4200",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-background": "#1b1c1c",
+                    "surface-tint": "#006c44",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#efeded",
+                    "secondary-container": "#ff7a2b",
+                    "surface": "#fbf9f8",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#dbd9d9",
+                    "inverse-primary": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "background": "#fbf9f8",
+                    "tertiary-container": "#996a47",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#9af5c1",
+                    "primary-container": "#258459",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005232",
+                    "outline-variant": "#bec9bf",
+                    "on-surface": "#1b1c1c",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overscroll-behavior-y: contain;
+            background-color: #fbf9f8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bottom-sheet {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .map-bg {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQerSW6_7hBkEtcmHn9nwgRIAKrduRgDybQxGmbQX074lQ7Z-8EfhhteeIcc87VwEQPNDc62eZN04ikYQv8BtlwkN8CJaMROkm_0GnsbUXmXzqRT7Gt4G-o3XoJOLg2v_kX2kuvWuiSwZVeCjGTHW9gXD6bSx3ahUUVT07G2pFSFR8Ip4Jx_NhfyeJSCzJbdUhiu_WmIOcoKwT5esRi3xBXuhUW1dJPepKxIQbuGaS4tkZkcXozfp7ow');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .pulse-courier {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Background Map -->
+<div class="map-bg"></div>
+<!-- Interactive Courier Marker (Visual Overlay on Map) -->
+<div class="fixed top-1/2 left-1/3 z-10 -translate-x-1/2 -translate-y-1/2 pulse-courier">
+<div class="bg-primary p-2 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">electric_moped</span>
+</div>
+<div class="mt-1 bg-white px-2 py-0.5 rounded-full shadow-sm text-center">
+<span class="text-[10px] font-bold text-primary">Bang Jaka</span>
+</div>
+</div>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm h-touch-target flex items-center px-margin-mobile">
+<button aria-label="Kembali" class="w-touch-target h-touch-target flex items-center justify-center -ml-2 hover:bg-surface-variant/20 transition-colors active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface ml-2">Lacak Pesanan</h1>
+</header>
+<!-- Bottom Sheet Container -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-surface rounded-t-[24px] shadow-[0_-4px_12px_rgba(0,0,0,0.08)] pb-safe transform translate-y-0 transition-transform duration-300 border-t border-outline-variant/30" id="bottomSheet">
+<!-- Handle for dragging -->
+<div class="w-full flex justify-center py-3">
+<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+</div>
+<div class="px-margin-mobile pb-6">
+<!-- ETA and Status -->
+<div class="flex items-center justify-between mb-stack-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Estimasi Kedatangan</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Tiba dalam 12 Menit</h2>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">speed</span>
+<span class="font-label-sm text-label-sm">Cepat</span>
+</div>
+</div>
+<!-- Detailed Status -->
+<div class="mb-stack-lg bg-surface-container-low rounded-xl p-3 flex items-start gap-3">
+<div class="mt-1 bg-primary/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-[20px]">delivery_dining</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Sedang Diantar</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-tight mt-0.5">Kurir sedang dalam perjalanan ke lokasimu. Pastikan HP kamu aktif ya!</p>
+</div>
+</div>
+<!-- Courier Profile Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-gutter-mobile flex items-center gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary-fixed" data-alt="A friendly Indonesian courier smiling warmly, wearing a professional green uniform and a safety helmet. Soft sunlight illuminates his face, set against a blurred neighborhood street with lush green trees. Corporate modern portrait style, clean and trustworthy atmosphere with high clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCndKqd5AcfF6stkQURX_dhvkWyYrghqVXEviI606XAN81O1SbNslSl0YIWp0UCeLzlBkfOLBGcK5IPsBlkH546MPEdmQV3O-epM_YbNXu4ltYj7At_JywjrIyJD13Ck_IlqlxaIRitWf1if9S_7GDaW8KZTc6vlMtyz1tTRHtYgpaUXR-yDs05aILy-9HIMEnZpkRIq3XEswuY6PY7X1B43wkOV3mzsXhLI5Q4G1zKetgLXy32aa3i4g"/>
+<div class="absolute -bottom-1 -right-1 bg-primary border-2 border-surface w-5 h-5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[10px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Bang Jaka</h3>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface-variant">Motor Listrik Hijau</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold tracking-wider">B 1234 GYB</span>
+</div>
+</div>
+<button class="bg-primary text-white h-11 px-4 rounded-xl flex items-center gap-2 hover:bg-primary-container transition-colors active:scale-95 duration-100 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-lg text-label-lg">Hubungi</span>
+</button>
+</div>
+<!-- Quick Details Grid -->
+<div class="grid grid-cols-2 gap-3 mt-stack-md">
+<div class="p-3 bg-surface-container rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Pesanan dari</span>
+<span class="font-label-lg text-label-lg text-on-surface">Warung Bu Sri</span>
+</div>
+<div class="p-3 bg-surface-container rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Metode Bayar</span>
+<span class="font-label-lg text-label-lg text-on-surface">Saldo Guyub</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Invisible but keeps logic consistent) -->
+<!-- Suppressed for this specific screen as per Task-Focused/Detail view rule -->
+<script>
+        // Micro-interactions for the bottom sheet
+        const bottomSheet = document.getElementById('bottomSheet');
+        let startY = 0;
+        let currentY = 0;
+        let isDragging = false;
+
+        bottomSheet.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            isDragging = true;
+            bottomSheet.style.transition = 'none';
+        });
+
+        bottomSheet.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentY = e.touches[0].clientY;
+            let diff = currentY - startY;
+            if (diff > 0) {
+                bottomSheet.style.transform = `translateY(${diff}px)`;
+            }
+        });
+
+        bottomSheet.addEventListener('touchend', (e) => {
+            isDragging = false;
+            bottomSheet.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            let diff = currentY - startY;
+            if (diff > 100) {
+                // Peek state logic could go here, but for now just bounce back
+                bottomSheet.style.transform = `translateY(150px)`;
+            } else {
+                bottomSheet.style.transform = `translateY(0)`;
+            }
+        });
+
+        // Simple animation to make the courier marker move slightly to simulate tracking
+        let movement = 0;
+        setInterval(() => {
+            movement += 0.001;
+            const marker = document.querySelector('.pulse-courier');
+            // Mock move towards bottom right
+            const newLeft = 33 + (Math.sin(movement) * 2);
+            const newTop = 50 + (Math.cos(movement) * 2);
+            marker.style.left = `${newLeft}%`;
+            marker.style.top = `${newTop}%`;
+        }, 100);
+    </script>
+</body></html>

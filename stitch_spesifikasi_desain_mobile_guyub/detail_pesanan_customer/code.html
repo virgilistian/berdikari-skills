@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c1c",
+                        "on-primary-fixed": "#002111",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-variant": "#e4e2e2",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "on-primary-container": "#f6fff6",
+                        "tertiary": "#7d5231",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#eae8e7",
+                        "surface-container": "#efeded",
+                        "secondary": "#9f4200",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb692",
+                        "inverse-on-surface": "#f2f0f0",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "on-secondary-fixed": "#341100",
+                        "surface-container-low": "#f5f3f3",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006c44",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-secondary-fixed-variant": "#793100",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "on-secondary-container": "#602500",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "secondary-fixed": "#ffdbcb",
+                        "background": "#fbf9f8",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#996a47",
+                        "outline-variant": "#bec9bf",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-surface-variant": "#3f4942",
+                        "primary-fixed": "#9af5c1",
+                        "on-primary-fixed-variant": "#005232",
+                        "primary-container": "#258459",
+                        "secondary-container": "#ff7a2b",
+                        "surface-bright": "#fbf9f8",
+                        "primary": "#006a42",
+                        "outline": "#6f7a71",
+                        "inverse-primary": "#7ed9a6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter-mobile": "12px",
+                        "stack-md": "16px",
+                        "touch-target": "44px",
+                        "stack-lg": "24px",
+                        "base": "4px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .receipt-edge {
+            position: relative;
+        }
+        .receipt-edge::before, .receipt-edge::after {
+            content: '';
+            position: absolute;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background-color: #fbf9f8;
+            border-radius: 100%;
+            z-index: 10;
+        }
+        .receipt-edge::before { top: -8px; }
+        .receipt-edge::after { bottom: -8px; }
+        .receipt-edge-right::before, .receipt-edge-right::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            background-color: #fbf9f8;
+            border-radius: 100%;
+            z-index: 10;
+        }
+        .receipt-edge-right::before { top: -8px; }
+        .receipt-edge-right::after { bottom: -8px; }
+
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            bottom: -8px;
+            width: 2px;
+            background: #bec9bf;
+            transform: translateX(-50%);
+        }
+        .timeline-dot:last-child::after { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col items-center">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface flex items-center px-margin-mobile h-touch-target w-full">
+<button class="w-touch-target h-touch-target flex items-center justify-start hover:bg-surface-container-low transition-colors rounded-full active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface ml-2">Detail Pesanan</h1>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[480px] mt-[44px] pb-32 px-margin-mobile space-y-stack-md">
+<!-- Status Card -->
+<section class="bg-surface-container-lowest rounded-xl p-4 mt-stack-md shadow-sm border border-surface-container">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant mb-4">Status Pesanan</h2>
+<div class="space-y-6">
+<!-- Current Status -->
+<div class="flex gap-4 relative timeline-dot">
+<div class="z-20 flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary">Pesanan Sedang Diantar</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Kurir sedang menuju lokasimu</p>
+</div>
+</div>
+<!-- Previous Status 1 -->
+<div class="flex gap-4 relative timeline-dot">
+<div class="z-20 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Pesanan Diproses</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24 Okt 2023, 14:40 WIB</p>
+</div>
+</div>
+<!-- Previous Status 2 -->
+<div class="flex gap-4 relative timeline-dot">
+<div class="z-20 flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Pesanan Diterima</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24 Okt 2023, 14:35 WIB</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Info & Items (Receipt Style) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-container overflow-hidden">
+<!-- Info Section -->
+<div class="p-4 border-b border-dashed border-outline-variant receipt-edge receipt-edge-right">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ID Pesanan</p>
+<p class="font-headline-md text-headline-md text-on-surface">#GP-9921</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tanggal</p>
+<p class="font-body-md text-body-md text-on-surface">24 Okt 2023</p>
+</div>
+</div>
+<div class="mt-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Merchant</p>
+<p class="font-label-lg text-label-lg text-secondary">Warung Pak Haji</p>
+</div>
+</div>
+<!-- Items List -->
+<div class="p-4 space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center gap-3">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-container" data-alt="A macro food photography shot of a plate of Nasi Goreng Spesial with a fried egg on top, steaming hot, served on a traditional wooden table at an outdoor Indonesian eatery. The lighting is warm and golden-hour inspired, reflecting a cozy neighborhood market vibe with soft green and earthy brown tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwMx1NUvvYOaBg4Jn6XRT7NAJvM-0z97uuLAI3FR8I44d2Q7jJGXF2xg1cy-oMkFPhxuEUNreahRXB3lE_jau_a5Bl_yxettLjz2l92qOjUpxdIDXst5q5hRBfuPh7laolkKd7CKM-nrCWKXnf4eweslIqT0pzb-OKUjcWQdMUeLfzDUvBQqncubLQRVXPf9SfWZ5g-BQTsA4AW4yZhopKfsQPC8mMGFa_0soL9fmrzVUr5gqJTISLMw"/>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Nasi Goreng Spesial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">1x</p>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp 35.000</p>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-3">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-container" data-alt="A refreshing glass of Es Jeruk, freshly squeezed orange juice with ice cubes and a mint leaf garnish, sitting on a sun-drenched wooden cafe table. The background is a blurred lush tropical garden, matching the warm, neighborly design aesthetic of the Guyub app. Soft ambient shadows and clear morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8tJNS2zMrt76vUJ3juFV384G-3-i4Fe0_JZmatzkz49_zOiun781E0Mi9i6qdNMRDQED6WHzmSFZdw1TRE87k-3nDGDf-OXajpVja_-U5uLUWEkUNzKGc7XplYzRndleDyKUgSFq4z7MnksM1hN6rOhiSx6ZqlX_m_fozNutzajWzrxCSP5SZ2Fs4puIIljmW-bowYkbToVmgS0LvesOcEnJqd1Ny1D_IA6ofruAKtd_QRPD2-XQhSg"/>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Es Jeruk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">2x</p>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp 17.000</p>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="p-4 bg-surface-container-low border-t border-dashed border-outline-variant receipt-edge receipt-edge-right">
+<div class="space-y-2">
+<div class="flex justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">Rp 52.000</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Biaya Pengiriman</span>
+<span class="font-body-md text-body-md text-on-surface">Rp 2.000</span>
+</div>
+<div class="flex justify-between pt-2 mt-2 border-t border-outline-variant">
+<span class="font-label-lg text-label-lg text-on-surface">Total Pembayaran</span>
+<span class="font-headline-lg text-headline-lg text-primary">Rp 54.000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Payment Method -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-surface-container flex justify-between items-center">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Metode Pembayaran</p>
+<p class="font-label-lg text-label-lg text-on-surface">GuyubPay</p>
+</div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</section>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-surface p-4 shadow-md rounded-t-xl flex flex-col items-center">
+<button class="flex items-center justify-center bg-primary text-on-primary rounded-lg w-full py-3 mx-margin-mobile mb-4 hover:bg-primary-container hover:text-on-primary-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mr-2">local_shipping</span>
+<span class="font-label-lg text-label-lg">Lacak Pengiriman</span>
+</button>
+<!-- Desktop/Wider screen secondary action buttons hidden by default but implied from visual hierarchy of typical checkout apps -->
+<div class="hidden md:flex gap-4 w-full px-margin-mobile">
+<button class="flex-1 py-3 border border-outline rounded-lg font-label-lg text-label-lg hover:bg-surface-container-low transition-colors">Bagikan Bukti</button>
+<button class="flex-1 py-3 border border-outline rounded-lg font-label-lg text-label-lg hover:bg-surface-container-low transition-colors">Selesai</button>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the track button
+        document.querySelector('button').addEventListener('mousedown', function() {
+            this.classList.add('scale-95');
+        });
+        document.querySelector('button').addEventListener('mouseup', function() {
+            this.classList.remove('scale-95');
+        });
+    </script>
+</body></html>

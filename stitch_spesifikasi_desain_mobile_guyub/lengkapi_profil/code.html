@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lengkapi Profil</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-high": "#eae8e7",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#793100",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary": "#7d5231",
+                    "surface-container": "#efeded",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "primary": "#006a42",
+                    "surface-tint": "#006c44",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary-container": "#602500",
+                    "surface-variant": "#e4e2e2",
+                    "outline": "#6f7a71",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed": "#9af5c1",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-container": "#996a47",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        .profile-uploader-ring {
+            background: linear-gradient(135deg, #006a42 0%, #258459 100%);
+        }
+        .input-focus-ring:focus-within {
+            border-color: #006a42;
+            box-shadow: 0 0 0 1px #006a42;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="max-w-[480px] mx-auto min-h-screen flex flex-col bg-surface relative">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim flex items-center px-margin-mobile h-touch-target">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed mr-4 active:scale-95 transition-transform p-2 -ml-2 hover:bg-surface-container-high transition-colors rounded-full" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Lengkapi Profil</h1>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-stack-lg pb-32">
+<!-- Greeting / Context -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Halo, Tetangga!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Lengkapi data dirimu agar kami bisa mengenalmu lebih dekat dan memberikan layanan terbaik di Pangkalan.</p>
+</div>
+<!-- Profile Photo Section -->
+<div class="flex flex-col items-center justify-center mb-stack-lg">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-highest shadow-md relative">
+<img class="w-full h-full object-cover grayscale opacity-30" data-alt="A professional yet friendly portrait placeholder of a person, framed in a clean circular profile shape. The background is a soft, warm neutral tone consistent with a modern corporate-soft aesthetic. High-quality studio lighting creates a welcoming and trustworthy atmosphere for a local community application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX1G3-QkMoahoL5pDxi6Leq0gkgPYnDdsv2CH6vU5Z3fDs9FsTMltYgNXwY2wiDynKvea6D6MwFi0aLGJmdzA_C2bdHKiM_iYT5bl_hw3n-UUVv-Oz5DYPXo8XBjn9oHfp2xIfwZJUhVjU_ehthWoeDKbcCF93nqnVzViHPtRQlfsi3QGQCeu1Xvn1jKWJrSqPtCK-jpY-K2L4w7wyaFrjZS9emoXKUZGW9MnYal3jOrHfV5jwvkurqQ"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<button class="absolute bottom-0 right-0 p-2 bg-primary text-on-primary rounded-full shadow-lg active:scale-90 transition-transform flex items-center justify-center border-2 border-surface">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-3">Unggah Foto Profil</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-stack-md">
+<!-- Nama Lengkap -->
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="full_name">Nama Lengkap</label>
+<div class="input-focus-ring flex items-center h-touch-target bg-surface-container-lowest border border-outline-variant rounded-lg px-4 transition-all">
+<span class="material-symbols-outlined text-outline mr-3" data-icon="person">person</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg p-0 placeholder:text-outline-variant" id="full_name" placeholder="Contoh: Budi Santoso" type="text"/>
+</div>
+</div>
+<!-- Tanggal Lahir -->
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="birth_date">Tanggal Lahir</label>
+<div class="input-focus-ring flex items-center h-touch-target bg-surface-container-lowest border border-outline-variant rounded-lg px-4 transition-all">
+<span class="material-symbols-outlined text-outline mr-3" data-icon="calendar_month">calendar_month</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg p-0 placeholder:text-outline-variant" id="birth_date" placeholder="DD / MM / YYYY" type="text"/>
+</div>
+</div>
+<!-- Info Box -->
+<div class="p-stack-md bg-surface-container-low rounded-xl flex gap-3 mt-4">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Data kamu tersimpan aman dan hanya digunakan untuk keperluan verifikasi identitas di aplikasi.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Container with Sticky Button -->
+<nav class="fixed bottom-0 left-0 w-full p-margin-mobile flex justify-end items-center bg-surface dark:bg-surface-dim shadow-md z-50">
+<button class="flex items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full h-12 px-stack-lg active:scale-98 transition-all duration-200 hover:bg-primary-container group shadow-sm">
+<span class="font-label-lg text-label-lg mr-2">Selanjutnya</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</nav>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input');
+            
+            inputs.forEach(input => {
+                const parent = input.closest('.input-focus-ring');
+                
+                input.addEventListener('focus', () => {
+                    parent.classList.add('border-primary');
+                    parent.classList.remove('border-outline-variant');
+                });
+                
+                input.addEventListener('blur', () => {
+                    parent.classList.remove('border-primary');
+                    parent.classList.add('border-outline-variant');
+                });
+            });
+
+            // Feedback for the photo upload
+            const photoBtn = document.querySelector('.group.cursor-pointer');
+            if(photoBtn) {
+                photoBtn.addEventListener('click', () => {
+                    console.log('Opening photo picker...');
+                    // In a real app, this would trigger input type="file"
+                });
+            }
+        });
+    </script>
+</body></html>

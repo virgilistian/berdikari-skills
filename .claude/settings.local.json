@@ -204,7 +204,28 @@
       "Bash(curl -s -X DELETE http://localhost:8000/api/v1/inventory/daily-stock/dev/2026-07-18 -H 'Authorization: Bearer 70|nRAG90DYIc51vomHHwJWY1MdRmWQEpDa9qmb2u67fd2f6b79' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{\"business_id\":\"019f6aa3-3716-71e2-83e2-179efa1042e5\"}')",
       "Bash(curl -s http://localhost:8000/api/v1/inventory/daily-stock/history?business_id=019f6aa3-3716-71e2-83e2-179efa1042e5 -H 'Authorization: Bearer 70|nRAG90DYIc51vomHHwJWY1MdRmWQEpDa9qmb2u67fd2f6b79' -H 'Accept: application/json')",
       "Bash(curl -s \"http://localhost:3000/_nuxt/pages/pos/shift.vue\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/pos/shift --max-time 5)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/pos/shift --max-time 5)",
+      "Bash(ls -la /Users/virgilistian/Sites/ 2>/dev/null; echo \"---\"; ls /Users/virgilistian/Sites/berdikari 2>/dev/null)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(git status *)",
+      "Bash(colima start *)",
+      "Bash(docker-compose up *)",
+      "Bash(grep -n '^#\\\\{2,3\\\\} ' docs/17-guyub-prd.md)",
+      "Bash(awk -F'|' '{print $2}')",
+      "Bash(awk -F'|' '{print $2$3}')",
+      "Bash(awk -F'|' '{print $2 $3}')",
+      "Bash(grep -n '`guyub_orders` | Order lintas vertikal' docs/17-guyub-prd.md)",
+      "Bash(sort -n -k2)",
+      "Bash(grep -v \"^app.php$\\\\|^logging.php$\")",
+      "Bash(awk '/\"scripts\"/,/^    \\\\},?$/' composer.json)",
+      "Bash(docker-compose config *)",
+      "Bash(curl -sD - -o /dev/null http://localhost:8000/api/v1/businesses)",
+      "Bash(python3 -c \"import yaml; yaml.safe_load\\(open\\('.github/workflows/guyub-api.yml'\\)\\); print\\('workflow YAML OK'\\)\")",
+      "Bash(grep -n 'setPermissionsTeamId\\\\|private function forgotPin\\\\|public function forgotPin\\\\|\\\\$user = User::' /Users/virgilistian/Sites/berdikari/berdikari-api/Modules/IAM/app/Http/Controllers/GuyubAuthController.php)",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/guyub/auth/register -H 'Content-Type: application/json' -d '{\"phone\":\"__TRACKED_VAR__\"}')",
+      "Bash(shuf -i 1000000-9999999 -n1)",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/guyub/auth/register -H 'Content-Type: application/json' -d '{\"phone\":\"0812__CMDSUB_OUTPUT__\"}')",
+      "Bash(curl -s -X POST http://localhost:8000/api/v1/guyub/auth/set-pin -H 'Content-Type: application/json' -d '{\"phone\":\"081298765432\",\"pin\":\"482913\",\"pin_confirmation\":\"482913\",\"nickname\":\"Test\",\"device_id\":\"dev-1\"}')"
     ]
   }
 }

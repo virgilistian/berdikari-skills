@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Akun - Santai tapi Pasti</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "surface-tint": "#006c44",
+                    "surface-container-highest": "#e4e2e2",
+                    "background": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "secondary-container": "#ff7a2b",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-surface": "#303030",
+                    "tertiary-container": "#996a47",
+                    "surface-dim": "#dbd9d9",
+                    "primary-fixed": "#9af5c1",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-container": "#602500",
+                    "on-background": "#1b1c1c",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "primary": "#006a42",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "outline-variant": "#bec9bf",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container": "#efeded",
+                    "primary-container": "#258459",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-container": "#f6fff6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary": "#7d5231",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-tertiary-fixed": "#301400",
+                    "outline": "#6f7a71",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 20px -2px rgba(125, 82, 49, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-background flex items-center px-margin-mobile h-touch-target">
+<button aria-label="Back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150 mr-2">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Daftar Akun</h1>
+</header>
+<main class="flex-grow pt-20 px-margin-mobile pb-10 max-w-md mx-auto w-full">
+<!-- Hero Section -->
+<div class="mb-stack-lg">
+<div class="w-full aspect-video rounded-xl overflow-hidden mb-stack-md custom-shadow">
+<img class="w-full h-full object-cover" data-alt="A warm and inviting illustration of a local neighborhood market scene in Indonesia, featuring friendly characters interacting in a clean, modern corporate artistic style. The color palette uses soft greens and warm earthy browns with plenty of white space. The lighting is bright and cheerful, suggesting a fresh morning start for the community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqS0A-LNMxUcREh0BC-UFkjBzbrX_9Fef-bTAimSg6CRGfKe1ZfSoFZmo5foqS4_dBpWsDr15HSoaAxtT8vGJC8ocoitBXpx84GSCUG_Tz7DO_yaRZlHB3FxWegxc59gpMBoelLL5spcC9iUAiN7BUxGE04JFxD-YGMtTkYnB0mHJ00-IeHHr75JnqkEToWY3ON98TtsMG8BmaaXNZbzOsH86r38P4vjeAJnMByiVW5abfSPb2Vy32eA"/>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-base">Selamat Datang, Tetangga!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Bergabunglah dengan komunitas kami untuk kemudahan akses layanan lokal di Pangkalan dan Tegalwaru.</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-stack-md" id="registrationForm">
+<!-- Full Name Input -->
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="fullName">Nama Lengkap</label>
+<div class="relative group">
+<input class="w-full h-touch-target px-4 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-body-md" id="fullName" name="fullName" placeholder="Masukkan nama sesuai KTP" required="" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">person</span>
+</div>
+</div>
+<!-- Phone Number Input -->
+<div class="flex flex-col gap-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="phoneNumber">Nomor Handphone</label>
+<div class="relative group">
+<input class="w-full h-touch-target px-4 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline font-body-md" id="phoneNumber" name="phoneNumber" placeholder="Contoh: 081234567890" required="" type="tel"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">call</span>
+</div>
+<p class="text-[11px] text-tertiary-container mt-1 ml-1 italic">Pastikan nomor kamu aktif untuk verifikasi.</p>
+</div>
+<!-- Terms and Conditions -->
+<div class="flex items-start gap-3 py-2">
+<div class="relative flex items-center h-touch-target">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-colors cursor-pointer" id="terms" name="terms" required="" type="checkbox"/>
+</div>
+<label class="font-body-md text-on-surface-variant pt-3 cursor-pointer select-none" for="terms">
+                    Saya menyetujui <a class="text-primary font-semibold hover:underline" href="#">Syarat &amp; Ketentuan</a> serta <a class="text-primary font-semibold hover:underline" href="#">Kebijakan Privasi</a> yang berlaku.
+                </label>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-md active:scale-95 transition-all duration-150 hover:bg-primary-container flex items-center justify-center gap-2" type="submit">
+                    Daftar Sekarang
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Login Link -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-on-surface-variant">
+                Sudah punya akun? 
+                <a class="text-secondary font-bold hover:text-secondary-container transition-colors ml-1 underline underline-offset-4" href="#">Masuk di sini</a>
+</p>
+</div>
+<!-- Decorative Element -->
+<div class="mt-12 flex justify-center opacity-20">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+</div>
+</main>
+<!-- Script for subtle interaction -->
+<script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            // Visual feedback
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Memproses...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Berhasil!';
+                btn.classList.replace('bg-primary', 'bg-tertiary');
+                
+                // Simulate redirect
+                setTimeout(() => {
+                    alert('Terima kasih sudah mendaftar! Kamu akan diarahkan ke halaman utama.');
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-tertiary', 'bg-primary');
+                    btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                    btn.disabled = false;
+                }, 1000);
+            }, 1500);
+        });
+
+        // Basic phone number formatting helper
+        const phoneInput = document.getElementById('phoneNumber');
+        phoneInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body></html>

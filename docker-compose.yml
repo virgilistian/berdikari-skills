@@ -1,3 +1,42 @@
+x-api-env: &api-env
+  APP_NAME: Berdikari
+  APP_ENV: local
+  APP_DEBUG: "true"
+  APP_URL: http://berdikari.test
+  APP_LOCALE: id
+  APP_FALLBACK_LOCALE: id
+  LOG_CHANNEL: stack
+  LOG_LEVEL: debug
+  DB_CONNECTION: pgsql
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_DATABASE: berdikari
+  DB_USERNAME: berdikari
+  DB_PASSWORD: secret
+  SESSION_DRIVER: redis
+  SESSION_LIFETIME: "120"
+  BROADCAST_CONNECTION: log
+  FILESYSTEM_DISK: local
+  QUEUE_CONNECTION: redis
+  CACHE_STORE: redis
+  REDIS_CLIENT: predis
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  MAIL_MAILER: smtp
+  MAIL_HOST: mailpit
+  MAIL_PORT: "1025"
+  MAIL_FROM_ADDRESS: noreply@berdikari.test
+  MAIL_FROM_NAME: Berdikari ERP
+  AWS_ACCESS_KEY_ID: berdikari
+  AWS_SECRET_ACCESS_KEY: secret123
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_BUCKET: berdikari
+  AWS_USE_PATH_STYLE_ENDPOINT: "true"
+  AWS_ENDPOINT: http://minio:9000
+  FRONTEND_URL: http://localhost:3000
+  GUYUB_PIN_PEPPER: local-dev-pepper-do-not-use-in-prod
+  GUYUB_OTP_PROVIDER: log
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -17,6 +56,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    command: redis-server --maxmemory 512mb --maxmemory-policy allkeys-lru
     ports:
       - "63790:6379"
     healthcheck:
@@ -77,42 +117,36 @@ services:
         condition: service_healthy
       minio-init:
         condition: service_completed_successfully
-    environment:
-      APP_NAME: Berdikari
-      APP_ENV: local
-      APP_DEBUG: "true"
-      APP_URL: http://berdikari.test
-      APP_LOCALE: id
-      APP_FALLBACK_LOCALE: id
-      LOG_CHANNEL: stack
-      LOG_LEVEL: debug
-      DB_CONNECTION: pgsql
-      DB_HOST: postgres
-      DB_PORT: "5432"
-      DB_DATABASE: berdikari
-      DB_USERNAME: berdikari
-      DB_PASSWORD: secret
-      SESSION_DRIVER: redis
-      SESSION_LIFETIME: "120"
-      BROADCAST_CONNECTION: log
-      FILESYSTEM_DISK: local
-      QUEUE_CONNECTION: redis
-      CACHE_STORE: redis
-      REDIS_CLIENT: predis
-      REDIS_HOST: redis
-      REDIS_PORT: "6379"
-      MAIL_MAILER: smtp
-      MAIL_HOST: mailpit
-      MAIL_PORT: "1025"
-      MAIL_FROM_ADDRESS: noreply@berdikari.test
-      MAIL_FROM_NAME: Berdikari ERP
-      AWS_ACCESS_KEY_ID: berdikari
-      AWS_SECRET_ACCESS_KEY: secret123
-      AWS_DEFAULT_REGION: us-east-1
-      AWS_BUCKET: berdikari
-      AWS_USE_PATH_STYLE_ENDPOINT: "true"
-      AWS_ENDPOINT: http://minio:9000
-      FRONTEND_URL: http://localhost:3000
+    environment: *api-env
+
+  # Queue worker & scheduler — same image as `api`, different process.
+  # `api`'s entrypoint.sh owns composer install/migrate/key:generate; these
+  # two just need the vendor volume it populates and a plain artisan command,
+  # so they skip that entrypoint entirely (docker/guyub-worker-entrypoint.sh
+  # F0.1 spec: image `api`, commands `queue:work` / `schedule:work`).
+  worker:
+    build:
+      context: ./berdikari-api
+      dockerfile: Dockerfile
+    entrypoint: ["php", "artisan", "queue:work", "--tries=1", "--timeout=90"]
+    volumes:
+      - ./berdikari-api:/var/www/html
+      - api_vendor:/var/www/html/vendor
+    depends_on:
+      - api
+    environment: *api-env
+
+  scheduler:
+    build:
+      context: ./berdikari-api
+      dockerfile: Dockerfile
+    entrypoint: ["php", "artisan", "schedule:work"]
+    volumes:
+      - ./berdikari-api:/var/www/html
+      - api_vendor:/var/www/html/vendor
+    depends_on:
+      - api
+    environment: *api-env
 
   # Nginx reverse proxy: exposes berdikari.test on port 80 → forwards to api:8000.
   # Host setup (one-time): add `127.0.0.1 berdikari.test` to /etc/hosts.

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub Onboarding - Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed-variant": "#793100",
+                "primary": "#006a42",
+                "on-secondary-fixed": "#341100",
+                "tertiary-container": "#996a47",
+                "secondary-fixed-dim": "#ffb692",
+                "on-primary-fixed": "#002111",
+                "surface-variant": "#e4e2e2",
+                "secondary-fixed": "#ffdbcb",
+                "on-primary": "#ffffff",
+                "primary-container": "#258459",
+                "on-secondary-container": "#602500",
+                "on-primary-container": "#f6fff6",
+                "surface-bright": "#fbf9f8",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed-variant": "#005232",
+                "surface-dim": "#dbd9d9",
+                "error": "#ba1a1a",
+                "surface-tint": "#006c44",
+                "outline-variant": "#bec9bf",
+                "on-tertiary-fixed": "#301400",
+                "inverse-surface": "#303030",
+                "secondary": "#9f4200",
+                "tertiary-fixed-dim": "#f4bb92",
+                "on-error-container": "#93000a",
+                "on-surface": "#1b1c1c",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "tertiary": "#7d5231",
+                "tertiary-fixed": "#ffdcc5",
+                "background": "#fbf9f8",
+                "secondary-container": "#ff7a2b",
+                "primary-fixed": "#9af5c1",
+                "surface": "#fbf9f8",
+                "on-secondary": "#ffffff",
+                "on-tertiary-container": "#fffbff",
+                "on-surface-variant": "#3f4942",
+                "inverse-on-surface": "#f2f0f0",
+                "surface-container-high": "#eae8e7",
+                "surface-container": "#efeded",
+                "error-container": "#ffdad6",
+                "surface-container-low": "#f5f3f3",
+                "surface-container-highest": "#e4e2e2",
+                "on-background": "#1b1c1c",
+                "primary-fixed-dim": "#7ed9a6",
+                "inverse-primary": "#7ed9a6",
+                "outline": "#6f7a71"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "touch-target": "44px",
+                "gutter-mobile": "12px",
+                "stack-sm": "8px",
+                "stack-lg": "24px",
+                "margin-mobile": "16px",
+                "stack-md": "16px",
+                "base": "4px"
+            },
+            "fontFamily": {
+                "label-sm": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .step-indicator-active {
+            width: 32px;
+            transition: width 0.3s ease;
+        }
+
+        /* Ambient Shadows */
+        .ambient-shadow {
+            box-shadow: 0 4px 20px -2px rgba(125, 82, 49, 0.12);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar: small_center_aligned -->
+<header class="w-full top-0 bg-background flex items-center justify-between px-margin-mobile h-touch-target sticky z-50">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center h-11 w-11">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary">Guyub</h1>
+<div class="w-11"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 flex flex-col items-center px-margin-mobile pt-stack-md pb-stack-lg max-w-md mx-auto w-full">
+<!-- Step Indicator -->
+<nav aria-label="Progress" class="flex gap-2 mb-stack-lg">
+<div class="h-2 w-2 rounded-full bg-outline-variant"></div>
+<div class="h-2 step-indicator-active rounded-full bg-primary-container"></div>
+<div class="h-2 w-2 rounded-full bg-outline-variant"></div>
+</nav>
+<!-- Illustration Canvas -->
+<section class="w-full aspect-square relative mb-stack-lg flex items-center justify-center">
+<div class="absolute inset-0 bg-surface-container-low rounded-[2rem] transform -rotate-1 opacity-50"></div>
+<div class="relative w-full h-full rounded-[2rem] overflow-hidden ambient-shadow">
+<img alt="Illustration of a friendly community marketplace" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwWMj47K8e31ELfehp9OotqHP1mKqzP3ngvuqgWgBYLLYg3KgufnmexAaW3sR1yfgCKvnNtpzsXYTOi3XJQjIhQvEUC_vDP_rGbg6Wjy3b90sXmtdKP4O2ZwJWMDj3oRZkFU2QlJ_LLA493v0Q2Ph3cEH0Ihu_OPCeyA2tJZ3L_YKJZLh5IqvyjYNPt1ZAFfFabDXtxGo8TyHUJOyPN8IRXh6hfCGB1rwMg3zktOiH2wSiS6GBe533og"/>
+</div>
+<!-- Floating Interaction Micro-elements -->
+</section>
+<!-- Content Section -->
+<article class="text-center flex flex-col items-center gap-stack-sm mb-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface">Temukan Warung &amp; Produk</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[280px]">Temukan ribuan produk segar dari warung-warung terbaik di sekitarmu dengan mudah.</p>
+</article>
+<!-- Action Button -->
+<footer class="w-full mt-stack-lg">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg text-label-lg rounded-xl hover:opacity-90 active:scale-[0.98] transition-all ambient-shadow flex items-center justify-center gap-2">
+                Lanjutkan
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="text-center mt-4 font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                Langkah 2 dari 3
+            </p>
+</footer>
+</main>
+<script>
+        // Micro-interaction for the illustration entrance
+        document.addEventListener('DOMContentLoaded', () => {
+            const illustration = document.querySelector('section img');
+            if (illustration) {
+                illustration.style.opacity = '0';
+                illustration.style.transform = 'translateY(10px)';
+                illustration.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                
+                setTimeout(() => {
+                    illustration.style.opacity = '1';
+                    illustration.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+    </script>
+</body></html>

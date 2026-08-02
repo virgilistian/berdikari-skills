@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Alamat - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-container-high": "#eae8e7",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-low": "#f5f3f3",
+                    "primary": "#006a42",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#258459",
+                    "inverse-surface": "#303030",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-container": "#996a47",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary": "#7d5231",
+                    "outline": "#6f7a71",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-background": "#1b1c1c",
+                    "outline-variant": "#bec9bf",
+                    "surface-container": "#efeded",
+                    "secondary": "#9f4200",
+                    "surface": "#fbf9f8",
+                    "surface-tint": "#006c44",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-bright": "#fbf9f8",
+                    "on-surface-variant": "#3f4942",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-secondary-fixed-variant": "#793100",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "secondary-container": "#ff7a2b",
+                    "surface-dim": "#dbd9d9",
+                    "inverse-primary": "#7ed9a6",
+                    "on-tertiary-fixed": "#301400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .form-input-focus:focus {
+            outline: none;
+            border-color: #006a42;
+            ring: 2px;
+            ring-color: #006a42;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center px-margin-mobile h-touch-target bg-surface shadow-sm transition-all duration-300" id="top-bar">
+<button aria-label="Kembali" class="mr-4 w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Detail Alamat</h1>
+</header>
+<main class="flex-grow pt-touch-target pb-32">
+<!-- Map Preview Section -->
+<section class="relative w-full h-64 overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-surface-variant flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A detailed digital map view of a lush green residential neighborhood in Pangkalan, Indonesia. The map features clean white roads, soft green park areas, and minimalist building outlines. A bright green circular GPS pin with a white drop-shadow is centered precisely in the frame, indicating a specific house location. The lighting is bright and clear, reflecting a modern, high-end mobile app interface aesthetic with soft, warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLzkEwuL9k8Uv45dEmxnJd0W_ERiBIv1aEa2bh51Fm5zgsnoQ1bSR2BB6zfBzzoUzVVuIYY3KKaiglg4DUV2yIzf9OyaSMiz15nghUV-MA3sLM1mRVT5tiJmPoh__0PVtZEenztm-h8QmGDnKPxp-7RkNRfPkRVEtJCbhB9C2SGmrBW3mTW67Ty4MTBOPsKdly5zcFR1LTMHlo2Nr7XhUxw78nee8RloTf8zYpwaSBJFsTDy2NG-CAuA"/>
+<!-- Center Pin Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative flex flex-col items-center">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-2 border-white animate-bounce">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="w-2 h-2 bg-on-surface/20 rounded-full blur-[1px] mt-1 scale-x-150"></div>
+</div>
+</div>
+</div>
+<!-- Map Overlay Controls -->
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded-lg shadow-md flex items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</section>
+<!-- Form Section -->
+<section class="px-margin-mobile mt-stack-lg">
+<div class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30">
+<h2 class="font-label-lg text-label-lg text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">contact_mail</span>
+                    Informasi Kontak
+                </h2>
+<form class="space-y-stack-md" id="address-form">
+<!-- Nama Penerima -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="name">Nama Penerima</label>
+<input class="w-full h-touch-target px-4 bg-white border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="name" placeholder="Contoh: Ahmad Hidayat" type="text"/>
+</div>
+<!-- Nomor Telepon -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="phone">Nomor Telepon</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-label-lg text-on-surface-variant border-r border-outline-variant pr-3">+62</span>
+<input class="w-full h-touch-target pl-16 pr-4 bg-white border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="phone" placeholder="81234567890" type="tel"/>
+</div>
+</div>
+<hr class="border-outline-variant/50 my-stack-sm"/>
+<h2 class="font-label-lg text-label-lg text-primary mb-stack-md flex items-center gap-2 pt-2">
+<span class="material-symbols-outlined text-[18px]">home_pin</span>
+                        Lokasi Lengkap
+                    </h2>
+<!-- Pilih Lingkungan -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="neighborhood">Pilih Lingkungan</label>
+<div class="relative">
+<select class="w-full h-touch-target px-4 appearance-none bg-white border border-outline-variant rounded-xl font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="neighborhood">
+<option disabled="" selected="" value="">Pilih salah satu</option>
+<option value="pangkalan">Pangkalan</option>
+<option value="tegalwaru">Tegalwaru</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Alamat Lengkap -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="address">Alamat Lengkap</label>
+<textarea class="w-full p-4 bg-white border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none resize-none" id="address" placeholder="Contoh: Jl. Pangkalan Utama No. 42, samping Mushola" rows="3"></textarea>
+</div>
+<!-- Catatan (Opsional) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="note">Catatan (Opsional)</label>
+<input class="w-full h-touch-target px-4 bg-white border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="note" placeholder="Contoh: Pagar warna hijau" type="text"/>
+</div>
+</form>
+</div>
+<!-- Hint Text -->
+<div class="mt-stack-md flex gap-2 p-3 bg-secondary-fixed/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">info</span>
+<p class="text-label-sm text-on-secondary-fixed-variant">Pastikan alamat sudah sesuai agar kurir lebih mudah menemukan lokasi kamu.</p>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Button -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest p-margin-mobile border-t border-outline-variant/30 shadow-[0_-4px_12px_rgba(0,0,0,0,0.05)] z-40">
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all duration-150" id="save-button">
+<span>Simpan Alamat</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        // Floating header effect on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('top-bar');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'bg-white');
+            } else {
+                header.classList.remove('shadow-md', 'bg-white');
+            }
+        });
+
+        // Simple form validation feedback
+        const saveBtn = document.getElementById('save-button');
+        const formInputs = document.querySelectorAll('input, select, textarea');
+
+        saveBtn.addEventListener('click', () => {
+            let isValid = true;
+            formInputs.forEach(input => {
+                if (input.id !== 'note' && !input.value) {
+                    input.classList.add('border-error', 'bg-error-container/20');
+                    isValid = false;
+                } else {
+                    input.classList.remove('border-error', 'bg-error-container/20');
+                }
+            });
+
+            if (isValid) {
+                saveBtn.innerHTML = '<span class="animate-spin material-symbols-outlined">progress_activity</span> <span>Menyimpan...</span>';
+                setTimeout(() => {
+                    saveBtn.innerHTML = '<span class="material-symbols-outlined">check</span> <span>Berhasil Disimpan</span>';
+                    saveBtn.classList.replace('bg-primary', 'bg-primary-container');
+                }, 1200);
+            }
+        });
+
+        // Remove error state on typing
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('border-error', 'bg-error-container/20');
+            });
+        });
+    </script>
+</body></html>

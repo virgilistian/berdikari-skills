@@ -24,6 +24,7 @@ Load conditions per role:
 4. Visual Designer produces the token set from the source.
 5. UI Engineer wires tokens + builds components/states in the real stack.
 6. Critic runs the anti-AI checklist + source fidelity + states; loop until pass.
+7. **Security Architect gate** — whenever the design introduces a new screen, flow, field, or data exposure, run `security-architecture`: does the UI surface data or actions a role must not reach, and does the flow assume client-side enforcement? Emit the verdict alongside the Critic's.
 
 ## Early stop
 Stop when the Critic passes the output against the checklist AND the source is visibly cited. Respect the mode budget — don't polish past pass.

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Preferensi Akun - Pangkalan Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-high": "#eae8e7",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#793100",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary": "#7d5231",
+                    "surface-container": "#efeded",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "primary": "#006a42",
+                    "surface-tint": "#006c44",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary-container": "#602500",
+                    "surface-variant": "#e4e2e2",
+                    "outline": "#6f7a71",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed": "#9af5c1",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-container": "#996a47",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .toggle-dot {
+            transition: all 0.3s ease-in-out;
+        }
+        input:checked ~ .toggle-bg {
+            background-color: #006a42;
+        }
+        input:checked ~ .toggle-dot {
+            transform: translateX(100%);
+        }
+
+        .asymmetric-bg {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface flex items-center px-margin-mobile h-touch-target shadow-sm">
+<button class="mr-4 active:scale-95 transition-transform p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Preferensi</h1>
+</header>
+<main class="px-margin-mobile pt-stack-lg space-y-stack-lg">
+<!-- Hero Section / Greeting -->
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-stack-lg text-on-primary-container shadow-sm">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-base">Sedikit lagi, nih!</h2>
+<p class="font-body-md text-body-md opacity-90">Atur preferensi kamu supaya belanja di Pangkalan Hub makin asik dan personal.</p>
+</div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">settings_suggest</span>
+</div>
+</div>
+<!-- Section: Notifikasi -->
+<section class="space-y-stack-sm">
+<div class="flex items-center gap-2 mb-base">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-wider text-outline">Notifikasi</h3>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl divide-y divide-outline-variant overflow-hidden">
+<!-- Promo Toggle -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex-1 pr-4">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Promosi &amp; Penawaran</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Info diskon pasar dan promo spesial harian buat kamu.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Order Status Toggle -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors group">
+<div class="flex-1 pr-4">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Status Pesanan</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Update real-time kurir dan belanjaan sudah sampai mana.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: Bahasa -->
+<section class="space-y-stack-sm">
+<div class="flex items-center gap-2 mb-base">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-wider text-outline">Bahasa Aplikasi</h3>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Indonesia -->
+<button class="flex flex-col items-center justify-center p-stack-md rounded-xl border-2 border-primary bg-primary-container/10 transition-all duration-200" id="lang-id" onclick="selectLang('id')">
+<div class="w-12 h-8 overflow-hidden rounded shadow-sm mb-stack-sm">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized minimalist representation of the Indonesian flag with a clean horizontal split of vibrant red and crisp white, presented in a high-quality graphic design style with soft studio lighting and a modern aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcqF0qF-fI-Z2wlbDv3gM5iv7VPfrfMSQi2QPvDSTcyBMZaqfQjxpwxvfcyM3HDOhwARaHDltkvtDmyD2R1IGkKJulbUZ4iLH3XnomkrHQC3jtJZU8nEKOkqE3VwTasf9pYnqAS4WvV4Q_i6xk73uZwk_4O4b0O-4rXl0YdO_cKx0WE4BfXpf2Kw6YphO5NmTqwfeRLOqZ1i20lppkDe4DDPFQXGvT7e_jgxkWzhPlJIYaAIslVezaZw')"></div>
+</div>
+<span class="font-label-lg text-label-lg text-on-primary-container">Indonesia</span>
+</button>
+<!-- Sunda -->
+<button class="flex flex-col items-center justify-center p-stack-md rounded-xl border-2 border-outline-variant bg-surface-container-lowest transition-all duration-200" id="lang-su" onclick="selectLang('su')">
+<div class="w-12 h-8 overflow-hidden rounded shadow-sm mb-stack-sm flex items-center justify-center bg-tertiary-fixed">
+<span class="material-symbols-outlined text-tertiary">local_library</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Basa Sunda</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant px-1 italic">Pilih bahasa yang paling nyaman buat kamu baca.</p>
+</section>
+<!-- Graphic Element: Local Character -->
+<div class="flex flex-col items-center justify-center py-stack-lg opacity-80">
+<div class="w-48 h-32 relative">
+<div class="w-full h-full bg-contain bg-no-repeat bg-center" data-alt="A friendly, warm, and hand-drawn style illustration of a local Indonesian neighborhood marketplace with organic lines. The scene features a smiling vendor and fresh vegetables, using a color palette of soft greens, earthy browns, and warm oranges to evoke a communal and reliable atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBW5Z7GWNhwUrPE0clPkKmorCXxVyqvuNzyezQaGrIRqvsLeg2peo_G2VfOFeS5yFQYtE1mV_a6Sot-ToeNm2ZFFDiYdsCtCtT-_ZbtmoBMpUemShWBvIlGgdATRmkgEG8uF_jTTkOh1eBeGjKKgYRiabE1tLvEZDKTdk1pwUZnXz_I0wWS2dbKzMfa6elPB1eajQk6ckvlBTV4jGWdak5G-bNC6ZNKwYZMFjhLCY46Lx2ASlKnPrS4jQ')"></div>
+</div>
+<p class="font-label-sm text-label-sm text-outline mt-stack-sm">Sampai jumpa di pasar virtual!</p>
+</div>
+</main>
+<!-- BottomNavBar as Floating Action Area -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile flex justify-end items-center pointer-events-none">
+<button class="pointer-events-auto flex items-center justify-center bg-primary text-on-primary rounded-full h-12 px-stack-lg shadow-lg active:scale-95 transition-all duration-200 gap-2 group" onclick="window.location.reload()">
+<span class="font-label-lg text-label-lg">Selesai &amp; Mulai Belanja</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<script>
+        function selectLang(lang) {
+            const idBtn = document.getElementById('lang-id');
+            const suBtn = document.getElementById('lang-su');
+            
+            if (lang === 'id') {
+                idBtn.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+                idBtn.classList.add('border-primary', 'bg-primary-container/10');
+                idBtn.querySelector('span').classList.replace('text-on-surface-variant', 'text-on-primary-container');
+                
+                suBtn.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                suBtn.classList.remove('border-primary', 'bg-primary-container/10');
+                suBtn.querySelector('span').classList.replace('text-on-primary-container', 'text-on-surface-variant');
+            } else {
+                suBtn.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+                suBtn.classList.add('border-primary', 'bg-primary-container/10');
+                suBtn.querySelector('span').classList.replace('text-on-surface-variant', 'text-on-primary-container');
+                
+                idBtn.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                idBtn.classList.remove('border-primary', 'bg-primary-container/10');
+                idBtn.querySelector('span').classList.replace('text-on-primary-container', 'text-on-surface-variant');
+            }
+        }
+
+        // Micro-interaction for page entry
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, div.relative.overflow-hidden');
+            sections.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.5s ease-out';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

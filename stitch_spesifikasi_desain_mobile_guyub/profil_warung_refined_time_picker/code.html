@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profil Warung - Pengaturan Jam Buka</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "error": "#ba1a1a",
+                    "tertiary": "#7d5231",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bec9bf",
+                    "background": "#fbf9f8",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-surface-variant": "#3f4942",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "secondary-container": "#ff7a2b",
+                    "on-primary-container": "#f6fff6",
+                    "primary-container": "#258459",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-error": "#ffffff",
+                    "primary": "#006a42",
+                    "tertiary-container": "#996a47",
+                    "surface-container": "#efeded",
+                    "on-tertiary-container": "#fffbff",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-high": "#eae8e7",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-container": "#602500",
+                    "on-background": "#1b1c1c",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-secondary-fixed-variant": "#793100",
+                    "outline": "#6f7a71",
+                    "inverse-surface": "#303030",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary-fixed": "#002111",
+                    "surface-tint": "#006c44",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdbcb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+
+        .switch-input:checked + .switch-bg {
+            background-color: #006a42;
+        }
+        .switch-input:checked + .switch-bg .switch-dot {
+            transform: translateX(20px);
+        }
+        
+        /* Interactive feedback */
+        .active-scale:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-margin-mobile h-touch-target w-full bg-surface-container-low dark:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<button class="active-scale h-touch-target w-touch-target flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Profil Warung</h1>
+</div>
+<button class="active-scale flex items-center gap-2 text-primary font-label-lg px-2 hover:opacity-80">
+<span class="material-symbols-outlined">check</span>
+<span>Simpan</span>
+</button>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Section 1: Merchant Identity -->
+<section class="flex flex-col items-center">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full border-4 border-white shadow-md overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A warm and inviting photograph of a traditional Indonesian warung storefront, captured in soft morning sunlight. The merchant, a friendly middle-aged man in a neat apron, stands proudly in the background. The scene is dominated by natural wood textures and vibrant green accents, reflecting a clean, professional, and neighborhood-focused brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNyBsDqtvXgHNI5KcYHWTissCkt426jYY_9saevp555W6WJJ2rmZ6pIPxVtCezr6UczTRCWJM_-XoJ4enAGhWFV1XqBaB9PDymKRYolcKiljuk7PWdlJty7LQp7IDG-pINVEIF0yNtwbB9y-R3VFUcpl0weOkiQwVY6VJAPfEH1dugnT0rBz-7smcpZku0ly-5P73pXJ8LxMUEQf6k1hqXR6BADKbbKsjMPoSd5TuVA8ASUzr3fdBC9Q"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg border-2 border-white active-scale">
+<span class="material-symbols-outlined" style="font-size: 20px;">photo_camera</span>
+</button>
+</div>
+<div class="w-full mt-stack-lg space-y-stack-md">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Nama Warung</label>
+<input class="w-full h-12 px-4 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-surface-container-lowest outline-none transition-all font-body-lg text-body-lg" type="text" value="Warung Pak Haji"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Kategori</label>
+<div class="relative">
+<select class="w-full h-12 px-4 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary bg-surface-container-lowest outline-none appearance-none font-body-lg text-body-lg">
+<option selected="">Kuliner - Sate &amp; Soto</option>
+<option>Kuliner - Nasi Rames</option>
+<option>Sembako &amp; Toko Kelontong</option>
+<option>Jasa Cuci &amp; Laundry</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Location -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-container">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-sm">Lokasi Warung</h2>
+<div class="space-y-stack-md">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant">Jl. Raya Pangkalan No. 45, Tegalwaru, Karawang, Jawa Barat 41362</p>
+</div>
+</div>
+<div class="h-32 w-full rounded-lg overflow-hidden border border-outline-variant relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A clean, minimalist vector-style map interface showing a specific neighborhood in Karawang, Indonesia. The map uses a soft palette of greens and light greys, with a prominent green pin drop icon marking a merchant location. The UI looks professional and trustworthy, optimized for easy local navigation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOVqcWJhBS7gquTjyh8DEOwsVouSwm6O_uf1FeephLO0uoNsvJ0etv6cv9w4vm7lSM8dFHBq72bzg9JLu9jIYFzg5BWyzOaIWUpRH0in5TaFYUbwHiKzIdE8Sdn0JEop3goYURQIDwBqezL0lvExdeyt2SG-d8ZVPHlpDTamQRxK3kFTxsQzLjowXhW3C_LY0u_VPjVYnu5Cw3FFZVLCK7sKAW_6qiDLZlz6zeNzdAAlZPlfzy1Fm9xQ')"></div>
+<div class="absolute inset-0 bg-black/5 flex items-center justify-center">
+<button class="bg-white/90 backdrop-blur-sm text-primary font-label-lg px-4 py-2 rounded-full shadow-md active-scale flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">map</span>
+                            Atur Lokasi di Peta
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Jam Operasional -->
+<section class="space-y-stack-md pb-8">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Jam Operasional</h2>
+<button class="text-secondary font-label-sm px-3 py-1 bg-secondary-fixed rounded-full active-scale">
+                    Samakan Semua Hari
+                </button>
+</div>
+<div class="space-y-3">
+<!-- Day Row Template -->
+<script>
+                    const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                    document.write(days.map((day, index) => `
+                        <div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container flex flex-col gap-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-label-lg text-label-lg text-on-surface">${day}</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer switch-input" ${index < 5 ? 'checked' : ''}>
+                                    <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer transition-colors switch-bg">
+                                        <div class="absolute top-[2px] left-[2px] bg-white border-gray-300 border rounded-full h-5 w-5 transition-all switch-dot"></div>
+                                    </div>
+                                    <span class="ml-3 text-sm font-medium text-on-surface-variant">${index < 5 ? 'Buka' : 'Tutup'}</span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between gap-2 ${index >= 5 ? 'opacity-30 pointer-events-none' : ''}">
+                                <!-- Time Picker Input: Open -->
+                                <div class="flex-1 space-y-1">
+                                    <label class="text-[10px] uppercase font-bold tracking-widest text-outline block pl-1">Jam Buka</label>
+                                    <div class="flex items-center justify-between px-3 h-11 bg-surface-container-low rounded-lg border border-outline-variant hover:border-primary active:ring-1 active:ring-primary transition-all">
+                                        <span class="font-body-md text-on-surface">08:00</span>
+                                        <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-on-surface-variant font-body-md pt-5 px-1 self-center">sampai</div>
+                                
+                                <!-- Time Picker Input: Close -->
+                                <div class="flex-1 space-y-1">
+                                    <label class="text-[10px] uppercase font-bold tracking-widest text-outline block pl-1">Jam Tutup</label>
+                                    <div class="flex items-center justify-between px-3 h-11 bg-surface-container-low rounded-lg border border-outline-variant hover:border-primary active:ring-1 active:ring-primary transition-all">
+                                        <span class="font-body-md text-on-surface">21:00</span>
+                                        <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join(''));
+                </script>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest shadow-[0_-4px_10px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active-scale" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active-scale" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-label-sm text-label-sm mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active-scale" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active-scale" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm mt-1">Lainnya</span>
+</a>
+</nav>
+<!-- Micro-interaction JS for switches -->
+<script>
+        document.querySelectorAll('.switch-input').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const label = e.target.nextElementSibling.nextElementSibling;
+                const timeContainer = e.target.closest('.bg-surface-container-lowest').querySelector('.flex.items-center.justify-between.gap-2');
+                
+                if (e.target.checked) {
+                    label.textContent = 'Buka';
+                    timeContainer.classList.remove('opacity-30', 'pointer-events-none');
+                } else {
+                    label.textContent = 'Tutup';
+                    timeContainer.classList.add('opacity-30', 'pointer-events-none');
+                }
+            });
+        });
+    </script>
+</body></html>

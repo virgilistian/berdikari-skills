@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi Dokumen - Kurir Lokal</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-container": "#f6fff6",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-fixed": "#9af5c1",
+                    "surface-tint": "#006c44",
+                    "surface-container": "#efeded",
+                    "tertiary-container": "#996a47",
+                    "primary": "#006a42",
+                    "surface-bright": "#fbf9f8",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "tertiary": "#7d5231",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "surface": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "surface-dim": "#dbd9d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary-container": "#602500",
+                    "on-primary-fixed-variant": "#005232",
+                    "primary-container": "#258459",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary": "#ffffff",
+                    "background": "#fbf9f8",
+                    "outline-variant": "#bec9bf",
+                    "outline": "#6f7a71",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+        @keyframes subtle-float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: subtle-float 4s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md">
+<!-- Top Navigation Header (Suppressed as per task-focused rule, but using the Shell logic for branding) -->
+<header class="bg-surface sticky top-0 z-40 w-full shadow-sm flex justify-between items-center px-margin-mobile py-stack-md">
+<div class="flex items-center gap-3">
+<button aria-label="Kembali" class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Verifikasi Dokumen</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+</header>
+<main class="flex-grow px-margin-mobile pt-stack-lg pb-32 max-w-2xl mx-auto w-full">
+<!-- Progress Narrative -->
+<div class="mb-stack-lg">
+<p class="font-body-lg text-on-surface-variant mb-base">Halo, Calon Mitra!</p>
+<p class="font-body-md text-on-surface-variant opacity-80">Lengkapi dokumen di bawah ini agar kamu bisa segera mulai melayani tetangga di Pangkalan &amp; Tegalwaru.</p>
+</div>
+<!-- Bento Grid for Document Sections -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- KTP Section -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex flex-col gap-3 group active:scale-95 transition-all duration-200 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">badge</span>
+</div>
+<span class="font-label-sm px-2 py-1 bg-surface-container rounded-full text-on-surface-variant">Belum diunggah</span>
+</div>
+<div>
+<h3 class="font-label-lg text-on-surface">KTP (Kartu Tanda Penduduk)</h3>
+<p class="font-label-sm text-on-surface-variant">Pastikan foto KTP terlihat jelas dan tidak buram.</p>
+</div>
+<div class="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-outline-variant">
+<span class="text-primary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_a_photo</span> Unggah Foto
+                    </span>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+<!-- SIM C Section -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex flex-col gap-3 group active:scale-95 transition-all duration-200 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">scooter</span>
+</div>
+<span class="font-label-sm px-2 py-1 bg-surface-container rounded-full text-on-surface-variant">Belum diunggah</span>
+</div>
+<div>
+<h3 class="font-label-lg text-on-surface">SIM C</h3>
+<p class="font-label-sm text-on-surface-variant">Surat Izin Mengemudi yang masih berlaku.</p>
+</div>
+<div class="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-outline-variant">
+<span class="text-primary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_a_photo</span> Unggah Foto
+                    </span>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+<!-- STNK Section -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex flex-col gap-3 group active:scale-95 transition-all duration-200 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">description</span>
+</div>
+<span class="font-label-sm px-2 py-1 bg-primary-container/20 text-on-primary-fixed-variant rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">timer</span> Menunggu verifikasi
+                    </span>
+</div>
+<div>
+<h3 class="font-label-lg text-on-surface">STNK Kendaraan</h3>
+<p class="font-label-sm text-on-surface-variant">Pajak kendaraan harus dalam keadaan hidup.</p>
+</div>
+<div class="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-outline-variant">
+<span class="text-on-surface-variant opacity-60 font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Ubah Dokumen
+                    </span>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+<!-- Selfie Section -->
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md rounded-xl flex flex-col gap-3 group active:scale-95 transition-all duration-200 cursor-pointer">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">camera_front</span>
+</div>
+<span class="font-label-sm px-2 py-1 bg-surface-container rounded-full text-on-surface-variant">Belum diunggah</span>
+</div>
+<div>
+<h3 class="font-label-lg text-on-surface">Foto Diri + Kendaraan</h3>
+<p class="font-label-sm text-on-surface-variant">Foto selfie bersama motor yang akan digunakan.</p>
+</div>
+<div class="mt-auto pt-3 flex items-center justify-between border-t border-dashed border-outline-variant">
+<span class="text-primary font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_a_photo</span> Unggah Foto
+                    </span>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Requirement Checkboxes -->
+<section class="mt-stack-lg bg-surface-container-low p-stack-md rounded-xl border border-outline-variant/30">
+<h4 class="font-label-lg text-on-surface mb-stack-sm">Persyaratan Tambahan</h4>
+<div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-outline-variant/20 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-center h-5">
+<input class="h-5 w-5 rounded border-outline text-primary focus:ring-primary-container transition-all cursor-pointer" id="helmet-check" name="helmet-check" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-label-sm text-on-surface-variant leading-tight cursor-pointer" for="helmet-check">
+                        Saya memiliki helm SNI untuk pengemudi &amp; penumpang dalam kondisi baik dan layak pakai.
+                    </label>
+</div>
+</div>
+</section>
+<!-- Informative Note -->
+<div class="mt-stack-lg flex gap-3 p-stack-md bg-secondary-fixed/30 rounded-xl border border-secondary-fixed">
+<span class="material-symbols-outlined text-secondary">info</span>
+<p class="font-label-sm text-on-secondary-fixed">Verifikasi dokumen biasanya memakan waktu 1-2 hari kerja. Kamu akan menerima notifikasi melalui WhatsApp setelah disetujui.</p>
+</div>
+</main>
+<!-- Fixed Action Footer -->
+<footer class="fixed bottom-0 left-0 right-0 p-margin-mobile bg-surface shadow-[0_-4px_16px_rgba(0,0,0,0.05)] border-t border-outline-variant/20 z-50">
+<div class="max-w-2xl mx-auto w-full flex flex-col gap-3">
+<button class="w-full h-touch-target bg-outline-variant text-surface-container-highest rounded-full font-label-lg flex items-center justify-center gap-2 cursor-not-allowed transition-all active:scale-[0.98]" disabled="" id="submit-btn">
+                Kirim Dokumen
+                <span class="material-symbols-outlined text-lg">send</span>
+</button>
+<p class="text-center font-label-sm text-on-surface-variant opacity-60">Dengan menekan Kirim, kamu menyetujui Syarat &amp; Ketentuan Driver Kurir Lokal.</p>
+</div>
+</footer>
+<script>
+        const helmetCheck = document.getElementById('helmet-check');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Simple validation logic for simulation
+        helmetCheck.addEventListener('change', function() {
+            if (this.checked) {
+                // In a real app, we'd also check if all files are uploaded
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('bg-outline-variant', 'text-surface-container-highest', 'cursor-not-allowed');
+                submitBtn.classList.add('bg-primary', 'text-white', 'hover:opacity-90', 'cursor-pointer');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('bg-outline-variant', 'text-surface-container-highest', 'cursor-not-allowed');
+                submitBtn.classList.remove('bg-primary', 'text-white', 'hover:opacity-90', 'cursor-pointer');
+            }
+        });
+
+        // Click interaction simulation
+        document.querySelectorAll('.cursor-pointer').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if(e.target.type !== 'checkbox') {
+                    // This is where file upload logic would trigger
+                    console.log('Opening upload modal for component...');
+                }
+            });
+        });
+    </script>
+</body></html>

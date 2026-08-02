@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .status-pill-glow {
+            box-shadow: 0 0 15px rgba(37, 132, 89, 0.2);
+        }
+        .bento-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-card:active {
+            transform: scale(0.97);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#efeded",
+                      "surface-tint": "#006c44",
+                      "outline-variant": "#bec9bf",
+                      "tertiary": "#7d5231",
+                      "primary-container": "#258459",
+                      "primary": "#006a42",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#9af5c1",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#341100",
+                      "secondary": "#9f4200",
+                      "secondary-fixed-dim": "#ffb692",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "on-primary-fixed": "#002111",
+                      "on-surface-variant": "#3f4942",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-bright": "#fbf9f8",
+                      "tertiary-fixed": "#ffdcc5",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "surface-container-high": "#eae8e7",
+                      "surface-dim": "#dbd9d9",
+                      "on-tertiary-container": "#fffbff",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "on-primary": "#ffffff",
+                      "background": "#fbf9f8",
+                      "secondary-fixed": "#ffdbcb",
+                      "on-secondary-fixed-variant": "#793100",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#602500",
+                      "surface-container-highest": "#e4e2e2",
+                      "on-primary-fixed-variant": "#005232",
+                      "on-surface": "#1b1c1c",
+                      "surface": "#fbf9f8",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e4e2e2",
+                      "secondary-container": "#ff7a2b",
+                      "on-background": "#1b1c1c",
+                      "outline": "#6f7a71",
+                      "inverse-on-surface": "#f2f0f0",
+                      "inverse-surface": "#303030",
+                      "inverse-primary": "#7ed9a6",
+                      "tertiary-container": "#996a47",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#301400",
+                      "on-primary-container": "#f6fff6",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "touch-target": "44px",
+                      "base": "4px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px",
+                      "gutter-mobile": "12px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-40 flex items-center justify-between px-margin-mobile h-14 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, professional headshot of a local merchant owner, lit with soft natural golden hour lighting, reflecting a neighborly and trustworthy character. The style is clean and corporate modern with a soft focus background of a clean Indonesian cafe interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoR6meeahigj6cskE2Y0Xlaxzef8Hll6XuJIa0Zo6tYuhSufdtFo0jHAfT-VHewWoqtsn76LHr0c563LoC77cULFJAGCDCGVylr54rPqPX3ADW1jLOsH1UWnIkpkBgrcR7P-1a2oXDJm4W25wP-rFMxTSXAsN3UbUt8dIxHqItxXPuJErHD_o91VErxBpip0tTbNTE5GWdcwC4AoGQ-6fV3SR15d78z8VHeyhgkowqjrMGmhW0vVu4xg"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">GUYUB</h1>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</header>
+<main class="px-margin-mobile space-y-stack-lg pt-4">
+<!-- Toggle Status Section -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-lg text-label-lg text-on-surface">Toko Sedang Buka</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">Tutup jam 21.00 • Atur jadwal</span>
+</div>
+<button class="relative inline-flex h-8 w-14 items-center rounded-full bg-primary transition-colors focus:outline-none" id="statusToggle">
+<span class="translate-x-7 inline-block h-6 w-6 transform rounded-full bg-white transition-transform"></span>
+</button>
+</section>
+<!-- New Order Alert Card (Urgent Action) -->
+<section class="animate-bounce-subtle">
+<div class="bg-secondary-container rounded-xl p-4 flex items-center gap-4 text-on-secondary-container shadow-md border-l-4 border-secondary">
+<div class="bg-white/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg font-bold">1 Pesanan Baru!</p>
+<p class="font-body-md text-body-md opacity-90">Pesanan #4421 • Rp 45.000</p>
+</div>
+<button class="bg-white text-secondary px-4 py-2 rounded-lg font-label-lg text-label-lg font-bold active:scale-95 transition-transform shadow-sm">
+                    Cek
+                </button>
+</div>
+</section>
+<!-- Ringkasan Hari Ini (Bento Grid Style) -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface px-1">Ringkasan Hari Ini</h2>
+<div class="grid grid-cols-2 gap-3">
+<!-- Large Omzet Card -->
+<div class="col-span-2 bg-primary p-4 rounded-2xl text-white shadow-lg relative overflow-hidden bento-card">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">payments</span>
+</div>
+<p class="font-label-sm text-label-sm opacity-80 mb-1">Total Omzet (Selesai)</p>
+<p class="font-headline-lg text-headline-lg font-bold">Rp 1.245.000</p>
+<div class="mt-4 flex items-center gap-1 text-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>12% dari kemarin</span>
+</div>
+</div>
+<!-- Small Stats -->
+<div class="bg-surface-container-highest p-4 rounded-2xl flex flex-col justify-between h-28 bento-card">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<div>
+<p class="font-headline-md text-headline-md">24</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pesanan Masuk</p>
+</div>
+</div>
+<div class="bg-surface-container-highest p-4 rounded-2xl flex flex-col justify-between h-28 bento-card">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+<div>
+<p class="font-headline-md text-headline-md">3</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tertunda</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions (Pintasan) -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface px-1">Pintasan</h2>
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30">
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div class="text-left">
+<p class="font-label-lg text-label-lg text-on-surface">Verifikasi Pembayaran</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cek bukti transfer manual</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<div class="h-px bg-outline-variant/20 mx-4"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</div>
+<div class="text-left">
+<p class="font-label-lg text-label-lg text-on-surface">Kelola Menu</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Ubah harga atau stok produk</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<div class="h-px bg-outline-variant/20 mx-4"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="text-left">
+<p class="font-label-lg text-label-lg text-on-surface">Atur Jam Buka</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Update jadwal operasional</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Tip of the Day / Greeting -->
+<section class="bg-tertiary-container/10 p-4 rounded-xl border border-tertiary-container/20">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+                    "Halo Pak! Pelanggan suka kalau pesanan cepat diproses. Pastikan stok kamu selalu update ya!"
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.08)] rounded-t-xl h-[72px]">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm">Lainnya</span>
+</a>
+</nav>
+<script>
+        const toggle = document.getElementById('statusToggle');
+        const toggleKnob = toggle.querySelector('span');
+        let isOpen = true;
+
+        toggle.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if (isOpen) {
+                toggle.classList.remove('bg-outline');
+                toggle.classList.add('bg-primary');
+                toggleKnob.classList.add('translate-x-7');
+                toggleKnob.classList.remove('translate-x-1');
+            } else {
+                toggle.classList.remove('bg-primary');
+                toggle.classList.add('bg-outline');
+                toggleKnob.classList.remove('translate-x-7');
+                toggleKnob.classList.add('translate-x-1');
+            }
+        });
+
+        // Add some micro-interactions to cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('touchstart', () => card.classList.add('scale-95'));
+            card.addEventListener('touchend', () => card.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

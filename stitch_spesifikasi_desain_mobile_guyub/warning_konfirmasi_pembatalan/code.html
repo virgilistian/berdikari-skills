@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary": "#ffffff",
+                    "primary": "#006a42",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-variant": "#e4e2e2",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-error": "#ffffff",
+                    "secondary": "#9f4200",
+                    "surface-dim": "#dbd9d9",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "on-secondary-container": "#602500",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container-highest": "#e4e2e2",
+                    "outline": "#6f7a71",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "primary-container": "#258459",
+                    "secondary-fixed": "#ffdbcb",
+                    "secondary-container": "#ff7a2b",
+                    "on-primary-container": "#f6fff6",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006c44",
+                    "surface": "#fbf9f8",
+                    "outline-variant": "#bec9bf",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-surface-variant": "#3f4942",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-surface": "#303030",
+                    "tertiary": "#7d5231",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-container": "#996a47",
+                    "on-background": "#1b1c1c",
+                    "surface-container": "#efeded"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .warning-glow {
+            box-shadow: 0 0 20px rgba(255, 122, 43, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center p-margin-mobile">
+<!-- Top AppBar (Simplified for context) -->
+<header class="fixed top-0 left-0 w-full h-14 flex items-center justify-between px-margin-mobile bg-surface z-50">
+<button class="w-touch-target h-touch-target flex items-center justify-center active:scale-95 transition-transform" onclick="window.history.back()">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary font-bold">GUYUB</span>
+<div class="w-touch-target"></div> <!-- Spacer for symmetry -->
+</header>
+<!-- Main Warning Content Canvas -->
+<main class="w-full max-w-md flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+<!-- Illustration/Icon Section -->
+<div class="relative mb-stack-lg flex items-center justify-center">
+<!-- Warm Amber Background Circle -->
+<div class="w-32 h-32 bg-secondary-fixed rounded-full flex items-center justify-center warning-glow">
+<span class="material-symbols-outlined text-[64px] text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<!-- Floating Decorative Elements -->
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-tertiary-fixed rounded-full animate-bounce delay-150"></div>
+<div class="absolute bottom-2 -left-4 w-6 h-6 bg-primary-fixed rounded-lg rotate-12 animate-pulse"></div>
+</div>
+<!-- Textual Content -->
+<div class="text-center px-4 mb-stack-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">
+                Batalkan Pesanan?
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Tindakan ini tidak bisa dibatalkan, kamu. Pesananmu akan dihapus dari sistem dan kurir kami tidak akan memproses pengiriman ini.
+            </p>
+</div>
+<!-- Consequences Bento-ish Grid Card -->
+<div class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md mb-stack-lg shadow-sm">
+<div class="flex items-start gap-stack-sm mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">info</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Poin Loyalitas</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Poin yang akan kamu dapatkan dari pesanan ini akan hangus.</span>
+</div>
+</div>
+<div class="flex items-start gap-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0;">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Slot Pengiriman</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Slot pengiriman di area Pangkalan mungkin akan terisi oleh orang lain.</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Vertical Stack -->
+<div class="w-full space-y-stack-sm">
+<!-- Secondary Action: Back/Cancel Cancellation -->
+<button class="w-full h-touch-target bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-full active:scale-95 transition-all duration-200 hover:bg-surface-container-highest">
+                Kembali
+            </button>
+<!-- Primary Action: Confirm Cancellation (Soft Red/Orange Warning Style) -->
+<button class="w-full h-touch-target bg-error-container text-on-error-container border border-error font-label-lg text-label-lg rounded-full active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">delete_forever</span>
+                Ya, Batalkan
+            </button>
+</div>
+<!-- Contextual Help Link -->
+<div class="mt-stack-lg text-center">
+<a class="font-label-sm text-label-sm text-primary hover:underline decoration-2 underline-offset-4" href="#">
+                Butuh bantuan dengan pesananmu?
+            </a>
+</div>
+</main>
+<!-- Support Image Decoration (Asymmetric Layout Feel) -->
+<div class="fixed bottom-10 right-0 pointer-events-none opacity-20 transform translate-x-12 translate-y-8">
+<div class="w-64 h-64 bg-cover bg-center rounded-full" data-alt="A warm and organic digital illustration showing a local market scene in the Pangkalan area. The style is handmade and neighborly, using soft earthy tones like amber, brown, and green. The lighting is golden hour, creating a friendly and reliable communal atmosphere. The composition is clean and minimalist, avoiding corporate coldness for a more personal touch." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8jINTdSM3lXz4MhVVPhZ2rH8UOVMWKxKDdelFT-DaiDLMOorRcIVJqAKbBv9hDmBIZGtyBXZXRx_Y42nrwkHzBAMDXbI5cyNv-Jjoia480R6zgGK3ccVi7Tax7wyUKm25yItjQWZx2Qi1S7mngRTAQcHLENpEv9eg080xn-rzmv105EYjxO1MWIvjBO3QoroAXPkgzuvVGWPJf0rHxRY2L6httmRDU_2-a3ppIvgzVxmXmFOSKuJWCw')"></div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.classList.add('scale-95');
+            });
+            button.addEventListener('touchend', function() {
+                this.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

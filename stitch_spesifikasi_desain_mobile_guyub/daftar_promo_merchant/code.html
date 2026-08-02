@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelola Promo - Merchant App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006c44",
+                    "surface-container-low": "#f5f3f3",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary": "#ffffff",
+                    "primary": "#006a42",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-container": "#efeded",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#9af5c1",
+                    "outline-variant": "#bec9bf",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#341100",
+                    "primary-container": "#258459",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary": "#7d5231",
+                    "surface-variant": "#e4e2e2",
+                    "on-surface-variant": "#3f4942",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed": "#ffdbcb",
+                    "secondary": "#9f4200",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "error-container": "#ffdad6",
+                    "background": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#602500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+        }
+        .promo-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .promo-card:active {
+            transform: scale(0.98);
+        }
+        /* Toggle Switch Styling */
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #006a42; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+            background-color: #ffffff;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top AppBar -->
+<header class="bg-surface sticky top-0 w-full z-50 flex items-center justify-between px-margin-mobile h-touch-target shadow-sm">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 p-2 -ml-2">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-on-surface">Kelola Promo</h1>
+</div>
+<button class="active:scale-95 transition-transform duration-200 p-2 -mr-2">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="max-w-md mx-auto">
+<!-- Tab Bar -->
+<div class="sticky top-[44px] bg-background z-40 px-margin-mobile pt-stack-md pb-stack-sm flex gap-stack-md border-b border-surface-container-high overflow-x-auto custom-scrollbar">
+<button class="flex-none pb-2 border-b-2 border-primary px-2 transition-all">
+<span class="font-label-lg text-label-lg text-primary">Aktif</span>
+</button>
+<button class="flex-none pb-2 border-b-2 border-transparent px-2 transition-all hover:bg-surface-container-low">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Akan Datang</span>
+</button>
+<button class="flex-none pb-2 border-b-2 border-transparent px-2 transition-all hover:bg-surface-container-low">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Berakhir</span>
+</button>
+</div>
+<!-- Promo Banner / Intro -->
+<section class="px-margin-mobile mt-stack-md">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-stack-md flex items-center gap-stack-md">
+<div class="flex-1 z-10">
+<h2 class="font-headline-md text-headline-md-mobile text-on-primary-container">Atur Promomu Sekarang</h2>
+<p class="font-body-md text-label-sm text-on-primary-container opacity-90 mt-1">Tarik lebih banyak pelanggan dengan voucher diskon yang menarik.</p>
+</div>
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full"></div>
+</div>
+</section>
+<!-- Promo List -->
+<section class="px-margin-mobile mt-stack-lg space-y-stack-md">
+<!-- Card 1 -->
+<div class="promo-card bg-surface-container-lowest border border-surface-container-high rounded-xl p-stack-md shadow-sm relative">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Potongan Harga</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Diskon Akhir Bulan</h3>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center">
+<label class="inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label relative w-10 h-5 bg-outline-variant rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform duration-200 shadow-sm"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-stack-md py-stack-sm border-y border-dashed border-outline-variant/30 my-stack-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Besar Diskon</span>
+<span class="font-price-lg text-price-lg text-primary">15% Off</span>
+</div>
+<div class="w-px h-8 bg-surface-container-high"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Min. Belanja</span>
+<span class="font-price-lg text-price-lg text-on-surface">Rp50.000</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-sm text-label-sm">Berlaku s.d. 31 Jan 2024</span>
+</div>
+<button class="text-tertiary font-label-lg text-label-lg active:opacity-70 transition-opacity">Edit</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="promo-card bg-surface-container-lowest border border-surface-container-high rounded-xl p-stack-md shadow-sm relative">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Flash Sale</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Serbu Jam Makan Siang</h3>
+</div>
+<div class="flex items-center">
+<label class="inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label relative w-10 h-5 bg-outline-variant rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform duration-200 shadow-sm"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-stack-md py-stack-sm border-y border-dashed border-outline-variant/30 my-stack-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Potongan</span>
+<span class="font-price-lg text-price-lg text-primary">Rp10.000</span>
+</div>
+<div class="w-px h-8 bg-surface-container-high"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kuota</span>
+<span class="font-price-lg text-price-lg text-on-surface">45/100</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-sm">
+<div class="flex items-center gap-1.5 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span class="font-label-sm text-label-sm">Berakhir dlm 02:15:30</span>
+</div>
+<button class="text-tertiary font-label-lg text-label-lg active:opacity-70 transition-opacity">Detail</button>
+</div>
+</div>
+<!-- Card 3 (New/Inactive) -->
+<div class="promo-card bg-surface-container-lowest border border-surface-container-high rounded-xl p-stack-md shadow-sm relative opacity-90">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-outline-variant/20 text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Voucher Ongkir</span>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Gratis Ongkir Pangkalan</h3>
+</div>
+<div class="flex items-center">
+<label class="inline-flex items-center cursor-pointer">
+<input class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label relative w-10 h-5 bg-outline-variant rounded-full transition-colors duration-200">
+<div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform duration-200 shadow-sm"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-stack-md py-stack-sm border-y border-dashed border-outline-variant/30 my-stack-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Subsidi Max</span>
+<span class="font-price-lg text-price-lg text-on-surface-variant">Rp5.000</span>
+</div>
+<div class="w-px h-8 bg-surface-container-high"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Status</span>
+<span class="font-price-lg text-price-lg text-on-surface-variant">Nonaktif</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="font-label-sm text-label-sm">Terakhir dipakai 2 hari lalu</span>
+</div>
+<button class="text-tertiary font-label-lg text-label-lg active:opacity-70 transition-opacity">Edit</button>
+</div>
+</div>
+</section>
+<!-- Empty State Preview (if no active promo) -->
+<!-- 
+        <div class="flex flex-col items-center justify-center py-20 px-10 text-center">
+            <div class="w-48 h-48 mb-6 opacity-80">
+                <img src="placeholder" data-alt="A friendly, hand-drawn style illustration of a merchant looking at an empty shop shelf. The illustration uses soft earthy tones like sage green and warm terracotta, with a minimalist corporate modern feel. The lighting is bright and cheerful, suggesting an opportunity for growth rather than a loss." class="w-full h-full object-contain">
+            </div>
+            <h3 class="font-headline-md text-on-surface mb-2">Belum ada promo aktif</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">Buat promo pertamamu untuk menarik lebih banyak tetangga belanja di tokomu!</p>
+        </div> 
+        -->
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-[100px] right-margin-mobile bg-primary text-on-primary flex items-center gap-2 px-stack-lg py-3 rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined font-bold">add</span>
+<span class="font-label-lg">Buat Promo Baru</span>
+</button>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 pb-safe bg-surface shadow-[0_-4px_12px_rgba(125,82,49,0.08)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors px-stack-md py-1 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors px-stack-md py-1 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-stack-md py-1 active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+<span class="font-label-sm text-label-sm">Promo</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors px-stack-md py-1 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for toggle switches
+        document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const card = this.closest('.promo-card');
+                if (!this.checked) {
+                    card.classList.add('opacity-75');
+                } else {
+                    card.classList.remove('opacity-75');
+                }
+            });
+        });
+
+        // Tab selection logic
+        const tabs = document.querySelectorAll('.sticky button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('border-primary');
+                    t.classList.add('border-transparent');
+                    t.querySelector('span').classList.remove('text-primary');
+                    t.querySelector('span').classList.add('text-on-surface-variant');
+                });
+                tab.classList.remove('border-transparent');
+                tab.classList.add('border-primary');
+                tab.querySelector('span').classList.remove('text-on-surface-variant');
+                tab.querySelector('span').classList.add('text-primary');
+            });
+        });
+    </script>
+</body></html>

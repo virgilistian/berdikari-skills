@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buat Promo Baru - Merchant Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom radio styling to match brand */
+        input[type="radio"]:checked {
+            background-color: #006a42;
+            border-color: #006a42;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006c44",
+                    "surface-container-low": "#f5f3f3",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary": "#ffffff",
+                    "primary": "#006a42",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-container": "#efeded",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#9af5c1",
+                    "outline-variant": "#bec9bf",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#341100",
+                    "primary-container": "#258459",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary": "#7d5231",
+                    "surface-variant": "#e4e2e2",
+                    "on-surface-variant": "#3f4942",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed": "#ffdbcb",
+                    "secondary": "#9f4200",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "error-container": "#ffdad6",
+                    "background": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#602500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="w-full sticky top-0 bg-surface z-50 flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary">Buat Promo Baru</h1>
+</div>
+<button class="active:scale-95 transition-transform duration-200 w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-stack-md flex flex-col gap-stack-lg max-w-2xl mx-auto">
+<!-- Illustration Section -->
+<section class="flex flex-col items-center text-center py-stack-md bg-primary-container/10 rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<div class="w-24 h-24 mb-4 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container shadow-lg">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+</div>
+<h2 class="font-headline-md text-primary px-4">Tarik lebih banyak pelanggan dengan promo spesial</h2>
+<p class="font-body-md text-on-surface-variant mt-2 px-8">Atur diskon sesuai keinginanmu untuk tingkatkan pesanan harian.</p>
+</section>
+<!-- Form Section: Basic Info -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30 flex flex-col gap-stack-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">info</span>
+<h3 class="font-label-lg text-on-surface">Informasi Dasar</h3>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="promo-name">Nama Promo</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="promo-name" placeholder="Contoh: Promo Tanggal Muda" type="text"/>
+<p class="text-[10px] text-on-surface-variant/70 italic px-1">Nama ini akan terlihat oleh pelanggan di halaman tokomu.</p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Tipe Diskon</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<label class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="discount-type" type="radio" value="percentage"/>
+<span class="font-body-md text-on-surface">Persentase (%)</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="discount-type" type="radio" value="amount"/>
+<span class="font-body-md text-on-surface">Potongan Harga</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="discount-type" type="radio" value="free"/>
+<span class="font-body-md text-on-surface">Gratis Ongkir</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Form Section: Values & Rules -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30 flex flex-col gap-stack-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">settings_suggest</span>
+<h3 class="font-label-lg text-on-surface">Nilai &amp; Aturan Promo</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="promo-value">Nilai Promo (%)</label>
+<div class="relative">
+<input class="w-full h-12 pl-4 pr-10 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="promo-value" placeholder="10" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="min-purchase">Min. Pembelian (Rp)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">Rp</span>
+<input class="w-full h-12 pl-12 pr-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="min-purchase" placeholder="20.000" type="number"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="max-discount">Maks. Potongan (Opsional)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">Rp</span>
+<input class="w-full h-12 pl-12 pr-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="max-discount" placeholder="5.000" type="number"/>
+</div>
+</div>
+</section>
+<!-- Form Section: Schedule -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30 flex flex-col gap-stack-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<h3 class="font-label-lg text-on-surface">Jadwal Promo</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="start-date">Tanggal Mulai</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="start-date" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-on-surface-variant" for="end-date">Tanggal Berakhir</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all" id="end-date" type="date"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Section: Terms -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30 flex flex-col gap-stack-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<h3 class="font-label-lg text-on-surface">Syarat &amp; Ketentuan</h3>
+</div>
+<div class="flex flex-col gap-1">
+<textarea class="w-full p-4 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md transition-all resize-none" id="terms" placeholder="Contoh: Berlaku untuk semua menu, Tidak dapat digabung dengan promo lain..." rows="4"></textarea>
+</div>
+</section>
+<!-- Helper Note -->
+<div class="p-4 bg-tertiary/10 rounded-lg border border-tertiary/20 flex gap-3">
+<span class="material-symbols-outlined text-tertiary">lightbulb</span>
+<p class="text-label-sm text-on-tertiary-fixed-variant leading-relaxed">
+<span class="font-bold">Tips Santai:</span> Promo dengan persentase (10-20%) biasanya lebih menarik bagi pelanggan baru di area Pangkalan.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md p-margin-mobile border-t border-outline-variant/20">
+<div class="max-w-2xl mx-auto flex flex-col gap-2">
+<div class="flex items-center gap-2 mb-1 px-1">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" id="confirm" type="checkbox"/>
+<label class="text-label-sm text-on-surface-variant" for="confirm">Saya menyetujui bahwa promo ini akan aktif otomatis sesuai jadwal.</label>
+</div>
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-full font-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Simpan &amp; Aktifkan
+            </button>
+</div>
+</div>
+<!-- Micro-interaction script -->
+<script>
+        // Update input prefix/suffix based on radio selection
+        const radios = document.querySelectorAll('input[name="discount-type"]');
+        const valueLabel = document.querySelector('label[for="promo-value"]');
+        const valueSuffix = document.querySelector('#promo-value + span');
+        const valueInput = document.querySelector('#promo-value');
+        const valueWrapper = valueInput.parentElement;
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'percentage') {
+                    valueLabel.textContent = 'Nilai Promo (%)';
+                    valueSuffix.textContent = '%';
+                    valueSuffix.classList.remove('hidden');
+                    valueInput.classList.remove('pl-12');
+                    valueInput.placeholder = '10';
+                    const prefix = valueWrapper.querySelector('.prefix-rp');
+                    if(prefix) prefix.remove();
+                } else if (e.target.value === 'amount') {
+                    valueLabel.textContent = 'Nilai Promo (Rp)';
+                    valueSuffix.classList.add('hidden');
+                    valueInput.classList.add('pl-12');
+                    valueInput.placeholder = '5.000';
+                    if(!valueWrapper.querySelector('.prefix-rp')) {
+                        const span = document.createElement('span');
+                        span.className = 'prefix-rp absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold';
+                        span.textContent = 'Rp';
+                        valueWrapper.prepend(span);
+                    }
+                } else {
+                    valueLabel.textContent = 'Nilai Ongkir Gratis (Maks)';
+                    valueSuffix.classList.add('hidden');
+                    valueInput.classList.add('pl-12');
+                    valueInput.placeholder = '10.000';
+                    if(!valueWrapper.querySelector('.prefix-rp')) {
+                        const span = document.createElement('span');
+                        span.className = 'prefix-rp absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold';
+                        span.textContent = 'Rp';
+                        valueWrapper.prepend(span);
+                    }
+                }
+            });
+        });
+
+        // Simple button active state handler
+        document.querySelector('button.bg-primary').addEventListener('click', function() {
+            const checkbox = document.getElementById('confirm');
+            if(!checkbox.checked) {
+                checkbox.parentElement.classList.add('animate-bounce');
+                setTimeout(() => checkbox.parentElement.classList.remove('animate-bounce'), 1000);
+                return;
+            }
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Memproses...';
+            setTimeout(() => {
+                this.innerHTML = '<span class="material-symbols-outlined">done_all</span> Berhasil Diaktifkan!';
+                this.classList.replace('bg-primary', 'bg-tertiary');
+            }, 1500);
+        });
+    </script>
+</body></html>

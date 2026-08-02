@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keranjang Belanja - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3f4942",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "inverse-surface": "#303030",
+                    "secondary-container": "#ff7a2b",
+                    "surface-bright": "#fbf9f8",
+                    "outline": "#6f7a71",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-container": "#602500",
+                    "surface-container-high": "#eae8e7",
+                    "tertiary-container": "#996a47",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-fixed": "#9af5c1",
+                    "outline-variant": "#bec9bf",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface": "#1b1c1c",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-fixed-variant": "#005232",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "on-primary-container": "#f6fff6",
+                    "primary-container": "#258459",
+                    "on-tertiary-container": "#fffbff",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary": "#7d5231",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-tint": "#006c44",
+                    "on-primary-fixed": "#002111",
+                    "primary": "#006a42",
+                    "secondary-fixed": "#ffdbcb",
+                    "inverse-primary": "#7ed9a6",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed-variant": "#653d1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "stack-sm": "8px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+        /* Elevation following "Santai tapi pasti" philosophy */
+        .ambient-shadow {
+            box-shadow: 0 4px 20px -2px rgba(125, 82, 49, 0.08);
+        }
+        .active-press {
+            transition: transform 0.15s ease;
+        }
+        .active-press:active {
+            transform: scale(0.96);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md-mobile flex flex-col min-h-screen pb-[160px]">
+<!-- Top Navigation Anchor (Shared Component: TopAppBar) -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-50 shadow-sm bg-surface-container-low dark:bg-surface-container-high transition-colors duration-200">
+<div class="flex items-center justify-between px-margin-mobile py-stack-sm w-full">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-touch-target h-touch-target rounded-full hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Keranjang Belanja</h1>
+</div>
+<button class="flex items-center justify-center w-touch-target h-touch-target rounded-full hover:bg-surface-variant/50 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<main class="flex-grow px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Group 1: Warung Bu Haji -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" id="warung-1" type="checkbox"/>
+<label class="font-headline-md text-headline-md-mobile flex items-center gap-2 text-on-surface" for="warung-1">
+<span class="material-symbols-outlined text-tertiary" data-icon="storefront">storefront</span>
+                        Warung Bu Haji
+                    </label>
+</div>
+<button class="text-label-lg font-label-lg text-primary hover:underline">Pilih Semua</button>
+</div>
+<!-- Product 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex gap-4 ambient-shadow border border-surface-variant/30">
+<div class="flex items-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A premium close-up photo of a 5kg bag of Pandan Wangi rice, showcasing the natural white grains through a clear packaging window. The lighting is warm and natural, creating a domestic, neighborly atmosphere. The background is a clean, minimalist wooden kitchen counter in light mode tones. High-end product photography style with soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBspSM_-crPqINHuixBB1QePv6MLDiB1WkNRMjFtijmJ4Og7Vpoy4PXdgjV3wKPrfEpC3bxHkw86cN0DLDa13LnMt-Jsb43gxqE4UKyQuI-Pg5jCvMRKnm3J7u3qqyVqWAsHL2btMIGa-Rjasa374eFW6cKeIygWaSN1BgmaUHchWVbEDnY4ViDKqrFq02nr64-zDcIJ7CUDWZ0tnqsOvgDFgIEdBxU5xycBCcRFLMNtqAWOwRUUoLPQg"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-label-lg text-on-surface line-clamp-1">Beras Pandan Wangi 5kg</h3>
+<p class="text-label-sm text-on-surface-variant">Stok Tersedia</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="font-price-lg text-price-lg text-secondary">Rp 78.500</p>
+<div class="flex items-center gap-2 bg-surface-container rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-lowest text-on-surface-variant active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-label-lg">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-on-primary active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<button class="self-start text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex gap-4 ambient-shadow border border-surface-variant/30">
+<div class="flex items-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clean, studio-lit photo of one kilogram of fresh brown chicken eggs arranged neatly in a natural fiber carton. The lighting is soft and warm, highlighting the smooth texture of the shells. The setting is a bright, friendly kitchen environment with soft green and white tones, reflecting a local market aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIqhlwsUrGeVwAtAlD9KMPpF-ZsAWTWpVZkiUehZzPJZjLGYLpZylgbLzXTMGtcQzpc-ajeV9y7vikLdzgMJA_WL55AnPxpiW2zr9VJ0Ngjn3Hm9W36UbXz4OPV511WPOnjmXeBvEpW0sHChn7klyL6ZhAr9zEn7Y1outX15vLl3gFkMTKEO9cHe6I-K8nOT5P3zCtOd84hAL3MbfGBupsC6hAna71pUCkjuZcM_QmAE0VUpUmeYfxug"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-label-lg text-on-surface line-clamp-1">Telur Ayam Ras 1kg</h3>
+<p class="text-label-sm text-on-surface-variant">Sisa 5 Paket</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="font-price-lg text-price-lg text-secondary">Rp 28.000</p>
+<div class="flex items-center gap-2 bg-surface-container rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-lowest text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-label-lg">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-on-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<button class="self-start text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-1 bg-surface-container-low mx-[-16px]"></div>
+<!-- Group 2: Toko Sembako Jaya -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="warung-2" type="checkbox"/>
+<label class="font-headline-md text-headline-md-mobile flex items-center gap-2 text-on-surface" for="warung-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="storefront">storefront</span>
+                        Toko Sembako Jaya
+                    </label>
+</div>
+<button class="text-label-lg font-label-lg text-primary hover:underline">Pilih Semua</button>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex gap-4 ambient-shadow border border-surface-variant/30">
+<div class="flex items-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional product shot of a 2-liter bottle of Bimoli cooking oil, clear golden liquid shimmering under soft, bright studio lights. The bottle stands on a white reflective surface with a warm, amber-tinted background. Corporate modern style with a soft, approachable neighborhood feel. High clarity and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsPz6k68mPWs29EBc6WRQOTZW3QFxVJG0NEfOC9rqXldBcDMUnDiOsuX0Lm5Agr-WsDVH1eqDo6vDDd97MPJVGb4D-wJAcfiDgaZSgCM7bRDu83_imMjxkbplwPu-cAFCExw-zBtk3Yw-2VQSS27QVrtlR3QmVyefhAPFTwR2RVKw6esfycm34FK93DJPnRbhmF9K0Wjs0v0sHt7NPWRM0MKUtnqSf8V32SOmLGeapxRUFdZMUEfUxgA"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-label-lg text-on-surface line-clamp-1">Minyak Goreng Bimoli 2L</h3>
+<p class="text-label-sm text-on-surface-variant">Stok Banyak</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="font-price-lg text-price-lg text-secondary">Rp 34.200</p>
+<div class="flex items-center gap-2 bg-surface-container rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-lowest text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-label-lg">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-on-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<button class="self-start text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</div>
+</section>
+<!-- Recommendation Section (Bento Style) -->
+<section class="pt-stack-md">
+<h2 class="font-headline-md text-headline-md-mobile text-on-surface mb-stack-md">Mungkin Kamu Butuh</h2>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low p-3 rounded-xl border border-surface-variant/30 flex flex-col gap-2">
+<div class="w-full aspect-square rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up high-quality photo of a half-kilogram pack of premium granulated sugar, crystalline white grains captured in detail. Soft morning light creates a warm and gentle atmosphere. The background is a blurred local kitchen scene with soft pastel colors, consistent with a neighborly, approachable vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs2-2CMSL_rLf7GvVQx77t4szJhzFY1u8Fa0XfaLcPn6CZyDlxRVuqR3QvZE7iMnBKQ58A5c3a7plYgkgxA14DyBEFAEaXyaMQhnZAdkJ-OuNXlc4Qz5xcPs9nYfOSemTdZNuipDMNp7jV0_TJ7c56NaaLVuKQrrlyDqk_dlNDu5ieUtEAWd4FOgc5yGo2kbmlsIe9Q--iyPVXd1HNhdwnpNyhFcTKGJXcZ30Xc79lit2MD10lPzgsJw"/>
+</div>
+<p class="font-label-sm text-on-surface truncate">Gula Pasir 500g</p>
+<p class="font-price-lg text-primary text-label-lg">Rp 8.500</p>
+<button class="mt-1 w-full bg-white border border-primary text-primary py-1 rounded-full text-label-sm font-semibold active-press">Tambah</button>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl border border-surface-variant/30 flex flex-col gap-2">
+<div class="w-full aspect-square rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-quality image of a small 250ml packet of thick coconut milk (Santan), shown in a bright and airy local market setting. The packaging is clear and modern. Lighting is warm and friendly, emphasizing the freshness of the product. The color palette is composed of soft greens and neutral whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXQYq8yUC5KDJExXubL9fWc5Bpx8tRMnEgX2fieZBxUeiLEudLyvKzBG2grMZAdig9aOC0QAru5T98dTc6ovZIX_afU6oE7vSQ4_EAcB0geoN_Mzilgbo2XaFdBKh3EN2TwBBXCRHDrrxoZt5Wychmsp5CkDsrNunr5cPg44zc3IIZtpPYGOo4Ep76JLPA5FrkAfzHyEhciSoFI9WTbVrceK-1cqC9oZXFYazCFcSoVUg92tFPP1QhHQ"/>
+</div>
+<p class="font-label-sm text-on-surface truncate">Santan Instan 250ml</p>
+<p class="font-price-lg text-primary text-label-lg">Rp 6.200</p>
+<button class="mt-1 w-full bg-white border border-primary text-primary py-1 rounded-full text-label-sm font-semibold active-press">Tambah</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Summary (Sticky Section) -->
+<footer class="fixed bottom-[72px] left-0 right-0 bg-surface border-t border-surface-variant/30 px-margin-mobile py-4 z-40 ambient-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-label-lg font-label-lg text-on-surface">Semua (3 Barang)</span>
+</div>
+<div class="text-right">
+<p class="text-label-sm text-on-surface-variant">Total Harga</p>
+<p class="font-headline-lg text-secondary">Rp 140.700</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-on-primary py-touch-target rounded-xl font-headline-md text-headline-md-mobile flex items-center justify-center gap-2 shadow-lg active-press transition-all">
+            Checkout Sekarang
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+<!-- Bottom Navigation Shell (Shared Component) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-dim shadow-lg bg-surface-container dark:bg-surface-container-highest shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center h-touch-target w-full px-base pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed-dim dark:text-on-primary-fixed rounded-full px-4 py-1 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Keranjang</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for checkboxes and totals could be added here
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                // Mock logic for selecting/deselecting items
+                const card = e.target.closest('.bg-surface-container-lowest');
+                if (card) {
+                    card.style.opacity = e.target.checked ? '1' : '0.6';
+                }
+            });
+        });
+
+        // Add touch feedback to buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('opacity-80');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('opacity-80');
+            });
+        });
+    </script>
+</body></html>

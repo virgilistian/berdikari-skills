@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pusat Bantuan - Guyub Narrative</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#006a42",
+                    "inverse-surface": "#303030",
+                    "surface-variant": "#e4e2e2",
+                    "on-primary-container": "#f6fff6",
+                    "outline": "#6f7a71",
+                    "on-secondary-container": "#602500",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#9af5c1",
+                    "secondary": "#9f4200",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary": "#7d5231",
+                    "secondary-container": "#ff7a2b",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-tint": "#006c44",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-background": "#1b1c1c",
+                    "tertiary-container": "#996a47",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-primary": "#7ed9a6",
+                    "background": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "on-surface": "#1b1c1c",
+                    "outline-variant": "#bec9bf",
+                    "surface-dim": "#dbd9d9",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "primary-container": "#258459",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "surface": "#fbf9f8",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed-dim": "#f4bb92"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "gutter-mobile": "12px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbf9f8; }
+        .font-headline-md { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:active {
+            transform: scale(0.97);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform p-1">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary dark:text-primary-fixed">Pusat Bantuan</h1>
+</div>
+<button class="active:scale-95 transition-transform p-1">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">search</span>
+</button>
+</header>
+<main class="pt-16 pb-28">
+<!-- Hero Section -->
+<section class="px-margin-mobile pt-stack-lg pb-stack-md">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-stack-md">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-on-primary-container mb-stack-sm">Halo, ada yang bisa kami bantu?</h2>
+<p class="text-body-md text-on-primary-container opacity-90 mb-stack-md">Kami siap membantu setiap langkah perjalananmu.</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-12 pl-10 pr-4 rounded-lg border-none bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary shadow-sm" placeholder="Cari bantuan..." type="text"/>
+</div>
+</div>
+<!-- Abstract decorative element -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-primary rounded-full opacity-20 blur-2xl"></div>
+</div>
+</section>
+<!-- Categories Section (Bento Style) -->
+<section class="px-margin-mobile mb-stack-lg">
+<h3 class="font-headline-md text-on-surface mb-stack-sm">Kategori Bantuan</h3>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Pesanan -->
+<div class="bento-card bg-surface-container-low p-stack-md rounded-xl flex flex-col gap-stack-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">receipt_long</span>
+</div>
+<span class="font-label-lg text-on-surface">Pesanan</span>
+</div>
+<!-- Pembayaran -->
+<div class="bento-card bg-surface-container-low p-stack-md rounded-xl flex flex-col gap-stack-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="font-label-lg text-on-surface">Pembayaran</span>
+</div>
+<!-- Akun -->
+<div class="bento-card bg-surface-container-low p-stack-md rounded-xl flex flex-col gap-stack-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">person</span>
+</div>
+<span class="font-label-lg text-on-surface">Akun</span>
+</div>
+<!-- Layanan Driver -->
+<div class="bento-card bg-surface-container-low p-stack-md rounded-xl flex flex-col gap-stack-sm border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">local_shipping</span>
+</div>
+<span class="font-label-lg text-on-surface">Layanan Driver</span>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-sm">
+<h3 class="font-headline-md text-on-surface">Pertanyaan Sering Diajukan</h3>
+<button class="text-primary font-label-lg">Lihat Semua</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20">
+<div class="divide-y divide-outline-variant/10">
+<button class="w-full flex items-center justify-between p-stack-md active:bg-surface-variant transition-colors text-left">
+<span class="text-body-lg text-on-surface">Bagaimana cara memesan?</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-stack-md active:bg-surface-variant transition-colors text-left">
+<span class="text-body-lg text-on-surface">Metode pembayaran apa saja yang tersedia?</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-stack-md active:bg-surface-variant transition-colors text-left">
+<span class="text-body-lg text-on-surface">Apa yang harus dilakukan jika driver tidak datang?</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-stack-md active:bg-surface-variant transition-colors text-left">
+<span class="text-body-lg text-on-surface">Cara mengubah profil merchant</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Illustration Section -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="flex flex-col items-center text-center bg-surface-container-high/30 p-stack-lg rounded-2xl border border-dashed border-outline-variant">
+<div class="w-32 h-32 mb-stack-md">
+<img class="w-full h-full object-contain" data-alt="A friendly, organic-style digital illustration of two neighbors chatting warmly over a wooden fence in a lush Indonesian village setting. The style is slightly 'handmade' with soft textures and a warm color palette of greens and terracotta oranges, evoking a sense of communal trust and accessibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRidZ4-Sbt2l_DByLxVl8aulINTMP5LTbkxQS_32rWC8R9bQ660W8p0Mu4-ubqVtkeG0rd3geWIyW_g3tsH-Jhcprvz9VqzeRz5vu0jqUF8Znoj8CKQRviwOVEq6Tcp0gkwTnWYdO-jXxgG-4BX_wgksMTx_OQeoMxYakM9wnqovZwDIkR2Fs484PH0a4rLAPU39gDnMZZxVGs14WbfeholTUT0rNKJruT8M3deWLZIGW-R-ZRirFlQg"/>
+</div>
+<h4 class="font-headline-md text-on-surface mb-base">Masih butuh bantuan?</h4>
+<p class="text-body-md text-on-surface-variant px-4">Kami siap mendengar kendalamu kapan saja.</p>
+</div>
+</section>
+<!-- Contact Support -->
+<section class="px-margin-mobile space-y-stack-sm mb-stack-lg">
+<button class="w-full bg-primary text-on-primary h-12 rounded-xl font-label-lg flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+                Hubungi Kami via WhatsApp
+            </button>
+<button class="w-full bg-surface-container-lowest text-primary border border-primary/20 h-12 rounded-xl font-label-lg flex items-center justify-center gap-2 active:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                Call Center
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(0,0,0,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Active Tab: Bantuan -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-sm text-label-sm">Bantuan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for FAQ buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Haptic feedback simulation if needed
+            });
+        });
+    </script>
+</body></html>

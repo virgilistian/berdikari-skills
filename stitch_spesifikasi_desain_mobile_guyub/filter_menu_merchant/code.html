@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kelola Menu - Kurir Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Toggle Switch Custom */
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #258459;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#fbf9f8",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#7d5231",
+                      "surface-container-highest": "#e4e2e2",
+                      "secondary": "#9f4200",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#301400",
+                      "on-secondary-fixed-variant": "#793100",
+                      "secondary-container": "#ff7a2b",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "primary-container": "#258459",
+                      "on-surface": "#1b1c1c",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "on-primary-fixed-variant": "#005232",
+                      "on-background": "#1b1c1c",
+                      "on-tertiary-container": "#fffbff",
+                      "background": "#fbf9f8",
+                      "inverse-primary": "#7ed9a6",
+                      "surface-tint": "#006c44",
+                      "inverse-on-surface": "#f2f0f0",
+                      "outline-variant": "#bec9bf",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "on-surface-variant": "#3f4942",
+                      "inverse-surface": "#303030",
+                      "surface-variant": "#e4e2e2",
+                      "on-secondary-container": "#602500",
+                      "on-secondary-fixed": "#341100",
+                      "surface-dim": "#dbd9d9",
+                      "primary-fixed": "#9af5c1",
+                      "tertiary-container": "#996a47",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fbf9f8",
+                      "secondary-fixed": "#ffdbcb",
+                      "surface-container-high": "#eae8e7",
+                      "secondary-fixed-dim": "#ffb692",
+                      "outline": "#6f7a71",
+                      "primary": "#006a42",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#002111",
+                      "surface-container-low": "#f5f3f3",
+                      "tertiary-fixed": "#ffdcc5",
+                      "on-primary-container": "#f6fff6",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#efeded"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "stack-md": "16px",
+                      "touch-target": "44px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px"
+              },
+              "fontFamily": {
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-on-background w-full top-0 sticky z-40 shadow-sm transition-colors duration-200">
+<div class="flex justify-between items-center px-margin-mobile py-base w-full max-w-full h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-primary/10">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Indonesian merchant wearing a clean apron, set against the warm, sunlit interior of a local family-owned cafe. The photography uses soft natural lighting and shallow depth of field, adhering to a modern corporate style with welcoming local tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFhHZzLzxYv5ax0jraH6JvGrNkteO6sYhOm4I1zYk0DLoyomKj3YLSjb-EVVtOqt0XQITRISq3pjxNqtf_rOngMOV_ptQLtWfXLN8CgnSWxbHYyDLiWVcVOfAf7sFzVhbs0AtYNTf68kv9P788Ozd12po-__7VTIlvbZFoxbXIyq1ujGBnxrdgYBL3Nxz1Jfeq98N_gAWPE9_hkjrn-yQf5qtehYBXbNdBUsXetKepEMJr78EvJJR5Dg"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Kelola Menu</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Warung Barokah</p>
+</div>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</div>
+<input class="w-full h-12 pl-10 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-body-md placeholder:text-on-surface-variant/60 shadow-sm pr-12" placeholder="Cari menu kamu..." type="text"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-primary transition-colors duration-200 active:scale-95" onclick="const overlay = document.getElementById('filter-overlay'); const sheet = document.getElementById('filter-sheet'); overlay.classList.remove('opacity-0', 'pointer-events-none'); sheet.classList.remove('translate-y-full');">
+<span class="material-symbols-outlined">tune</span>
+</button></div>
+<!-- Category Tabs -->
+<div class="flex overflow-x-auto hide-scrollbar -mx-margin-mobile px-margin-mobile gap-2 mt-4">
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-primary text-on-primary font-label-lg text-label-lg transition-all active:scale-95 shadow-sm ring-2 ring-primary/20">Semua</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-all active:scale-95 border border-outline-variant/30">Makanan</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-all active:scale-95 border border-outline-variant/30">Minuman</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-all active:scale-95 border border-outline-variant/30">Cemilan</button>
+</div>
+<!-- Menu List Grid (Asymmetric approach) -->
+<div class="grid grid-cols-1 gap-stack-md">
+<!-- Item Card 1 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-2xl shadow-sm border border-surface-container ring-1 ring-black/[0.02]">
+<div class="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A delicious, authentic bowl of Indonesian Nasi Goreng with a sunny-side-up egg, served on a traditional ceramic plate. The lighting is warm and cinematic, highlighting the steam rising from the rice. The style is clean and appetizing, following the neighborhood market aesthetic of the Kurir Lokal brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC05N5qC_PL-XoIwOToSpkMFdTjFJZ7O2Il5arszehaLxeFvxwkONW78dlymPtJ2RPa08QHx8__OOotmz4Vd6J7ESKijPJcwfmx8Bno9oXEnhtjtdjtZF2iSXUScftLDvZShAWr6j2GqzN_8ACx1nqF3EZ8d7-ru-4XsJKCvMKfaLOApOl6RV4jm_lqOSzSJDgXxF-6hQsmlUT9eFUfuZvXUjYZYcv4d6OjSIi1fpaenCcVFytif7Uvjg"/>
+<div class="absolute top-1 left-1">
+<span class="px-2 py-0.5 bg-secondary/90 text-white rounded-full text-[10px] font-bold uppercase tracking-wider">Laris</span>
+</div>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24 py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Nasi Goreng Spesial</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Makanan Utama</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 18.000</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stok</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer top-0 left-0 transition-transform duration-200" id="toggle1" name="toggle1" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-200" for="toggle1"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-2xl shadow-sm border border-surface-container ring-1 ring-black/[0.02]">
+<div class="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A refreshing glass of Es Teh Manis with mint leaves and ice cubes, shot in high-definition with soft bokeh. The glass shows condensation, suggesting a cold, revitalizing drink. The background is a clean, minimalist wooden surface, matching the organic and friendly design system of Guyub Narrative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfZiMprNwIpOhAe5hNuwqc2phy4RLAdUPQncfuUNB19HgANBeVmY1ijbopHPJU8XlOio7GXIi96tPj1ms8Hx56sL85fj2nNvM0lHOBiGPstSEnr60QyUZHAie4GDf6rxOKmzZLTaJjU6IccA3uTIifFqfgLd7m8h58E10L3hD1GK90VpVzgAxutjbUfSuD5xj2AQ7mWQLZ7XPzTuLDypEmTvYRHzYhePis_rk_v0oh8kvR2roQbr3U5A"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24 py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Es Teh Manis</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Minuman Dingin</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 5.000</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stok</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer top-0 left-0 transition-transform duration-200" id="toggle2" name="toggle2" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-200" for="toggle2"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 3 (Out of stock example) -->
+<div class="flex items-center gap-4 bg-surface-container-lowest/50 p-3 rounded-2xl border border-surface-container grayscale-[0.5] ring-1 ring-black/[0.01]">
+<div class="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-surface-container opacity-60">
+<img class="w-full h-full object-cover" data-alt="A stack of golden brown Bakwan Sayur (vegetable fritters) served on a rustic plate with small green chili peppers. The scene is bright and highlights the crispy texture of the fritters. Professional food photography that feels approachable and neighborly, in line with the Santai Tapi Pasti brand philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUHjubWH8o4aI0MYQbtIaugYwxCd9I_jVTpvxVqeUz6GWkMFLMd-sOVuCJhNFxQ1OWo14Npxa7qp1nDVcdLfoeUGeWe_oeIO4GbumELXarm9MJyzKdAitFrJObbbMo8aOJN3BfOKUEfWxGgOWIavMLXVR_HlUjkLVMjVWLJq5TQlkikdBAFVp2wY-Z54nlJGrrvK_yGO_Cwwwy1CiAMT07lMt9k4i76oGChc7kYmKCOF0URPvVinwXjQ"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24 py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface-variant/80 leading-tight">Bakwan Sayur (3 Pcs)</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60">Cemilan</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-on-surface-variant/60 line-through">Rp 7.000</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant/60">Habis</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer top-0 left-0 transition-transform duration-200" id="toggle3" name="toggle3" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-200" for="toggle3"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 4 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-2xl shadow-sm border border-surface-container ring-1 ring-black/[0.02]">
+<div class="relative w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A large bowl of hearty Bakso Sapi (beef meatball soup) with yellow noodles, tofu, and fresh celery. The photography captures the rich, steaming broth in clear detail, set against a bright, modern light-mode background. The mood is comforting and reliable, reflecting the hyper-local trust of the Pangkalan community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8EkdkvVYA7aE9DcHcxf5Oc0l80HR6v6XyVOM5W_D3Rvch4_EoIpvteUbeHNVULGfSEJBLDMVaNfeDy_m_Zgh87OftxcV_vrLyn4Zt1zqRlLY-J-_dd2WkqgSdpmBXOURCOrxUZwEP_uebG0R8hMpQqh7AFLBqEvHyyzhoo2FVeCaF97gXa078VctP12hHSlmuGZBf2dQhaUMCvCz0Xw0IJZ5xzK72jVmh7N7uPPmDfExnPxHC2J0Vsw"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24 py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Bakso Urat Mantap</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Makanan Utama</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 22.000</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stok</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer top-0 left-0 transition-transform duration-200" id="toggle4" name="toggle4" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer transition-colors duration-200" for="toggle4"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hint / Info Pattern -->
+<div class="bg-primary-container/10 p-4 rounded-xl border border-primary-container/20 flex gap-3">
+<span class="material-symbols-outlined text-primary-container">info</span>
+<p class="font-body-md text-body-md text-on-primary-container">Kamu bisa mengubah harga atau detail menu dengan mengetuk kartu menu di atas.</p>
+</div>
+</main>
+<!-- FAB: Tambah Menu Baru -->
+<button class="fixed bottom-24 right-margin-mobile flex items-center gap-2 bg-primary text-on-primary h-14 px-6 rounded-2xl shadow-lg hover:shadow-xl active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-lg text-label-lg">Tambah Menu</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-on-background shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-[64px] px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for category selection
+        const categoryButtons = document.querySelectorAll('button.whitespace-nowrap');
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                btn.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Toggle handling visuals
+        const toggles = document.querySelectorAll('.toggle-checkbox');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const card = e.target.closest('.flex.items-center.gap-4');
+                const label = e.target.parentElement.previousElementSibling;
+                
+                if (e.target.checked) {
+                    card.classList.remove('grayscale-[0.5]', 'opacity-80');
+                    label.textContent = 'Stok';
+                    label.classList.remove('text-on-surface-variant/60');
+                } else {
+                    card.classList.add('grayscale-[0.5]', 'opacity-80');
+                    label.textContent = 'Habis';
+                    label.classList.add('text-on-surface-variant/60');
+                }
+            });
+        });
+    </script>
+<div class="fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="filter-overlay" onclick="const overlay = document.getElementById('filter-overlay'); const sheet = document.getElementById('filter-sheet'); overlay.classList.add('opacity-0', 'pointer-events-none'); sheet.classList.add('translate-y-full'); event.stopPropagation();">
+<div class="absolute bottom-0 left-0 right-0 bg-surface rounded-t-[28px] p-margin-mobile space-y-stack-lg transition-transform duration-300 translate-y-full" id="filter-sheet" onclick="event.stopPropagation();">
+<!-- Header -->
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Filter Menu</h2>
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors" id="close-filter" onclick="const overlay = document.getElementById('filter-overlay'); const sheet = document.getElementById('filter-sheet'); overlay.classList.add('opacity-0', 'pointer-events-none'); sheet.classList.add('translate-y-full'); event.stopPropagation();">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Sort Section -->
+<div class="space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Urutkan</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-sm">Terbaru</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Harga Terendah</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Harga Tertinggi</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Paling Laris</button>
+</div>
+</div>
+<!-- Stock Status Section -->
+<div class="space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Status Stok</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Tersedia</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Habis</button>
+</div>
+</div>
+<!-- Category Section -->
+<div class="space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant">Kategori</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Makanan</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Minuman</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-sm border border-outline-variant/30">Cemilan</button>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex gap-4 pt-4 border-t border-outline-variant/20">
+<button class="flex-grow h-12 font-label-lg text-primary hover:bg-primary/5 rounded-xl transition-colors">Atur Ulang</button>
+<button class="flex-[2] h-12 bg-primary text-on-primary font-label-lg rounded-xl shadow-sm active:scale-95 transition-all">Tampilkan Hasil</button>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi Kode - Santai Tapi Pasti</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "surface-bright": "#fbf9f8",
+                    "surface-tint": "#006c44",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "tertiary": "#7d5231",
+                    "surface-container-low": "#f5f3f3",
+                    "surface": "#fbf9f8",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-container": "#efeded",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary-container": "#602500",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "outline": "#6f7a71",
+                    "primary-fixed": "#9af5c1",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed-dim": "#ffb692",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed": "#002111",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-fixed": "#ffdbcb",
+                    "primary": "#006a42",
+                    "on-background": "#1b1c1c",
+                    "surface-dim": "#dbd9d9",
+                    "primary-container": "#258459",
+                    "background": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-container": "#996a47",
+                    "secondary-container": "#ff7a2b",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+        .otp-input:focus {
+            box-shadow: 0 0 0 2px rgba(0, 106, 66, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        .ripple:active::after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Top AppBar (Transactional Shell Filter Applied: No BottomNav) -->
+<header class="docked full-width top-0 w-full h-touch-target flex items-center justify-between px-margin-mobile bg-background z-10">
+<button class="material-symbols-outlined text-primary p-2 active:scale-95 transition-transform" data-icon="arrow_back">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary absolute left-1/2 -translate-x-1/2">Verifikasi Kode</h1>
+<div class="w-10"></div> <!-- Spacer for visual balance -->
+</header>
+<main class="flex-grow flex flex-col items-center px-margin-mobile pt-stack-lg max-w-md mx-auto w-full">
+<!-- Illustration Area: Neighborly Locked Envelope -->
+<div class="w-full flex justify-center mb-stack-lg animate-fade-in">
+<div class="relative w-48 h-48 bg-surface-container-low rounded-full flex items-center justify-center overflow-hidden">
+<!-- Warm Glow Background -->
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary-fixed opacity-20 blur-2xl"></div>
+<!-- Main Image -->
+<img class="w-40 h-40 object-contain z-10" data-alt="A warm and friendly hand-drawn illustration of a secure brown envelope with a forest green flap, secured by a gold and green shield emblem featuring a clean white checkmark. The style is soft and organic with slightly textured linework, set against a soft pastel beige background that feels neighborly and approachable, reflecting a trusted local service identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM1-sYUlgWeA0E_u7f7kElyL3pacsMaiMmOlDh3gT-zc9GRRyK-MdO206-WvK-S7vD13fdFKb_FkbZezFpHsCd20ml917uJtjt-TXrBATv40h8_kprMgXGpJlRLvP9Nyto0Wy57iBgMvVyY1nwx2I2BW7K96bBp1-165zo8TcVjaps-2ViBnv6qc-X29ckmIB2oy0MG91Browk9JkFX-5sf9XH2xNPbWV7vocoNWFG14VwTouIgIkomQ"/>
+</div>
+</div>
+<!-- Typography Cluster -->
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Verifikasi Kode</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                Masukkan 6 digit kode yang telah kami kirimkan ke nomor HP kamu.
+            </p>
+</div>
+<!-- OTP Input Grid -->
+<div class="flex gap-2 justify-center mb-stack-lg w-full" id="otp-container">
+<!-- 6 Input Boxes -->
+<input autocomplete="one-time-code" class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="0" maxlength="1" type="tel"/>
+<input class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="1" maxlength="1" type="tel"/>
+<input class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="2" maxlength="1" type="tel"/>
+<input class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="3" maxlength="1" type="tel"/>
+<input class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="4" maxlength="1" type="tel"/>
+<input class="otp-input w-12 h-14 text-center text-headline-md font-headline-md bg-white border border-outline-variant rounded-lg focus:border-primary focus:outline-none transition-all" data-index="5" maxlength="1" type="tel"/>
+</div>
+<!-- Primary Action -->
+<button class="ripple w-full h-[48px] bg-primary text-on-primary font-label-lg text-label-lg rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all mb-stack-md flex items-center justify-center gap-2">
+            Verifikasi
+        </button>
+<!-- Secondary Actions & Timer -->
+<div class="flex flex-col items-center gap-base">
+<button class="font-label-lg text-label-lg text-secondary hover:text-secondary-container transition-colors disabled:text-outline-variant" disabled="" id="btn-resend">
+                Kirim Ulang Kode
+            </button>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm tabular-nums" id="countdown">Kirim ulang dalam 01:57</span>
+</div>
+</div>
+</main>
+<!-- Footer Attribution / Info -->
+<footer class="mt-auto p-stack-lg text-center opacity-50">
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+            Butuh bantuan? <a class="underline" href="#">Hubungi kami</a>
+</p>
+</footer>
+<script>
+        // OTP Focus Management
+        const inputs = document.querySelectorAll('.otp-input');
+        
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        let timeLeft = 117; // 01:57 in seconds
+        const countdownElement = document.getElementById('countdown');
+        const resendBtn = document.getElementById('btn-resend');
+
+        const updateTimer = () => {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            countdownElement.textContent = `Kirim ulang dalam ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                countdownElement.parentElement.classList.add('hidden');
+                resendBtn.disabled = false;
+                resendBtn.classList.remove('text-outline-variant');
+                resendBtn.classList.add('text-secondary');
+            } else {
+                timeLeft--;
+            }
+        };
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Simple animation entry
+        document.addEventListener('DOMContentLoaded', () => {
+            const main = document.querySelector('main');
+            main.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                main.classList.remove('opacity-0', 'translate-y-4');
+                main.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-700', 'ease-out');
+            }, 100);
+        });
+    </script>
+</body></html>

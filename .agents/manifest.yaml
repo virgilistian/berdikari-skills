@@ -210,3 +210,12 @@ skills:
     always_for: [feature, bugfix, refactor, review]
     triggers:
       keywords: [security, auth, authorization, permission, validation, xss, csrf, ssrf, injection, upload, secret, token, password, rate-limit, sanitize, vulnerability, owasp, exploit, privilege, cors, session, headers, audit, dependency]
+  # Architecture-level gate. Runs BEFORE the design is fixed; `security` runs on the diff.
+  # Load both — they do not overlap. This one can BLOCK a design (verdict RENTAN).
+  security-architecture:
+    file: skills/domain/security-architecture.md
+    cost: 700
+    always_for: [feature, design, refactor, review, deploy]
+    runs_before: security
+    triggers:
+      keywords: [threat model, threat modeling, architecture, arsitektur, rentan, vulnerable, trust boundary, tenant, isolation, multi-tenant, idor, blast radius, integrity, idempotency, escalation, data leak, pii, exfiltration, abuse, attack, hardening, secure by design]

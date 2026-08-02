@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Produk - Minyak Goreng 2L</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-fixed": "#002111",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-bright": "#fbf9f8",
+                    "surface-dim": "#dbd9d9",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#efeded",
+                    "tertiary": "#7d5231",
+                    "surface-tint": "#006c44",
+                    "on-error": "#ffffff",
+                    "secondary": "#9f4200",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#258459",
+                    "background": "#fbf9f8",
+                    "surface-container-highest": "#e4e2e2",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container-low": "#f5f3f3",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdbcb",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-container": "#f6fff6",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary-fixed": "#341100",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1b1c1c",
+                    "outline": "#6f7a71",
+                    "on-tertiary-container": "#fffbff",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-surface": "#303030",
+                    "primary-fixed": "#9af5c1",
+                    "surface-variant": "#e4e2e2",
+                    "on-secondary-container": "#602500",
+                    "secondary-container": "#ff7a2b",
+                    "on-tertiary-fixed": "#301400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .safe-bottom {
+            padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface shadow-sm">
+<div class="flex items-center justify-between px-margin-mobile h-touch-target w-full">
+<a aria-label="Kembali" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 transition-transform" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</a>
+<h1 class="font-headline-md text-headline-md text-primary text-center flex-1">Detail Produk</h1>
+<button aria-label="Bagikan" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-low transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">share</span>
+</button>
+</div>
+</header>
+<main class="safe-bottom">
+<!-- Hero Product Image -->
+<section class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img alt="Minyak Goreng Guyub 2L" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk34K3XhhrDNNy2FvtXGMUHqPUQbOC0IMhFKDItRVg3s7W6wq6YNpCox0mz1Wr9BGf7MCB_IcqZB0z1F96sAKxuyMcn_tmAHxj_gtrvt4tNXAKjyxk_xnZkckNP_qY4bq4PhQeAlbp9C1Q1Q7gzGzI0F99Rjbj-_BscBkkvyqfcaqQa2vHV7DqHtO0i1blfekOVfu_F7cLtPrXeK5GDEZXmGc5kGegVq6crMmlWhqZbT7MWv31mNBw3A"/>
+<!-- Badges overlay -->
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<div class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm shadow-sm">
+                    Terlaris
+                </div>
+</div>
+</section>
+<!-- Product Details Container -->
+<div class="px-margin-mobile -mt-6 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Minyak Goreng 2L</h2>
+<button class="text-on-surface-variant hover:text-error transition-colors" id="favorite-btn">
+<span class="material-symbols-outlined" id="fav-icon">favorite</span>
+</button>
+</div>
+<div class="flex items-baseline gap-2 mb-stack-md">
+<span class="font-price-lg text-price-lg text-primary">Rp 34.500</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through">Rp 38.000</span>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/30 my-stack-md"></div>
+<!-- Quantity Selector -->
+<div class="flex items-center justify-between py-2">
+<span class="font-label-lg text-label-lg text-on-surface">Jumlah</span>
+<div class="flex items-center gap-4 bg-surface-container rounded-full p-1 border border-outline-variant/20">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary shadow-sm active:scale-90 transition-transform" onclick="decrement()">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="font-headline-md text-headline-md min-w-[24px] text-center" id="quantity">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-on-primary shadow-sm active:scale-90 transition-transform" onclick="increment()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Section -->
+<section class="mt-stack-lg px-margin-mobile">
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<h3 class="font-label-lg text-label-lg text-on-surface">Detail</h3>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-stack-md shadow-sm">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Minyak goreng kelapa sawit bermutu, jernih dan tidak mudah menghitam. Diproses dengan teknologi modern untuk menjaga kualitas nutrisi. Sangat cocok untuk segala jenis masakan keluarga "Guyub".
+                </p>
+<div class="mt-stack-md grid grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kategori</span>
+<span class="font-body-md text-body-md font-semibold">Bahan Pokok</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kemasan</span>
+<span class="font-body-md text-body-md font-semibold">Pouch 2 Liter</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Merchant/Seller Info (Added for completeness based on Guyub MerchantCard principles) -->
+<section class="mt-stack-lg px-margin-mobile mb-10">
+<div class="bg-surface-container rounded-xl p-stack-md flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A profile photo of a friendly local Indonesian market vendor in a clean, traditional apron, smiling warmly against a backdrop of a well-organized grocery store. Soft, natural lighting enhances the welcoming, neighborly 'Guyub' atmosphere. The image uses a warm, organic color palette with high-key lighting to reflect reliability and local connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_DIpwR1ey0RTXp173UAzeFPXaAKEN0Uq5Pgoz74YXuFQpLS02cfqapU9d22QWEV1jD6BDWtyuRVFe8UNlyMI6BCFDUBVkNUHF3mmtAkwW7gL3sL4Oq7_q64LKcQLDNMmYfRdlVUZ96q-KVKBGmiDLt7trqu3YpTVAATv0PBJ0kVq31PwU2HCxYP7bucdqeLfAI90sHYbFCQ2fKwb7WIhQ0PZrkELTNBStVD9XVaVYT10gMjMOhCsgYw"/>
+</div>
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-on-surface">Toko Guyub Pangkalan</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.9 (120+ Penilaian)</span>
+</div>
+</div>
+<button class="bg-surface-container-lowest border border-primary text-primary px-3 py-1 rounded-full font-label-sm text-label-sm">Kunjungi</button>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-margin-mobile pt-3 pb-safe z-50">
+<div class="flex items-center gap-3 mb-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-xl border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">chat</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chat</span>
+</button>
+<button class="flex-1 h-touch-target bg-primary text-on-primary rounded-xl font-label-lg text-label-lg shadow-md active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">shopping_cart</span>
+                Tambah ke Keranjang
+            </button>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        let count = 1;
+        const quantityEl = document.getElementById('quantity');
+        const favBtn = document.getElementById('favorite-btn');
+        const favIcon = document.getElementById('fav-icon');
+
+        function increment() {
+            count++;
+            updateDisplay();
+        }
+
+        function decrement() {
+            if (count > 1) {
+                count--;
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+            quantityEl.textContent = count;
+            // Pop animation
+            quantityEl.classList.remove('scale-110');
+            void quantityEl.offsetWidth; // trigger reflow
+            quantityEl.classList.add('scale-110', 'transition-transform');
+            setTimeout(() => quantityEl.classList.remove('scale-110'), 100);
+        }
+
+        favBtn.addEventListener('click', () => {
+            const isFilled = favIcon.style.fontVariationSettings.includes("'FILL' 1");
+            if (isFilled) {
+                favIcon.style.fontVariationSettings = "'FILL' 0";
+                favIcon.classList.remove('text-error');
+            } else {
+                favIcon.style.fontVariationSettings = "'FILL' 1";
+                favIcon.classList.add('text-error');
+                // Simple pop effect
+                favIcon.classList.add('scale-125');
+                setTimeout(() => favIcon.classList.remove('scale-125'), 200);
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GUYUB - Beranda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#9af5c1",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-container": "#efeded",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-container": "#f6fff6",
+                    "surface-dim": "#dbd9d9",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-variant": "#e4e2e2",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-fixed-variant": "#793100",
+                    "secondary": "#9f4200",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-tint": "#006c44",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-secondary-container": "#602500",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-fixed": "#002111",
+                    "secondary-fixed": "#ffdbcb",
+                    "tertiary": "#7d5231",
+                    "background": "#fbf9f8",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "secondary-container": "#ff7a2b",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container-high": "#eae8e7",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "outline": "#6f7a71",
+                    "surface": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "on-tertiary-container": "#fffbff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#301400",
+                    "primary": "#006a42",
+                    "tertiary-container": "#996a47",
+                    "surface-bright": "#fbf9f8",
+                    "on-background": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "touch-target": "44px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .active-scale:active {
+            transform: scale(0.95);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top AppBar -->
+<header class="bg-surface fixed top-0 left-0 w-full z-40 flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A portrait of a friendly Indonesian woman in her late 40s, Bu Ratna, smiling warmly at the camera. She is wearing a soft pastel hijab and is positioned against a clean, softly lit outdoor garden background. The photographic style is warm and neighborly, matching a modern light-mode interface with natural green and soft cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mk6fY2-YSTiMSJr1drARxdk7LtzGWrrYq3knXf9o13cXnen4yZR4jxal2RU_np2JZZi0HfxbRO0fLRmvUNPI6nvU0lJDQM6D-UQS8iH2-SNrZdoRAKPwP66I8GaTKadnBsTuli_3FQzoDrOY4evPdq2zMJ7kPSbfMju2LMWeMzqit7-oUfE1rW5xAhZliW54ds-LwIZvGJFeBXVGGlg1j-EKwbQBqo3LzZlv0vdGNlndlv9WgduHNQ">
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Selamat sore, Bu Ratna</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-label-lg text-label-lg font-bold">Tegalwaru</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active-scale">
+<span class="material-symbols-outlined text-primary">help_outline</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-margin-mobile max-w-md mx-auto">
+<!-- Search Bar -->
+<section class="mb-stack-lg">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-body-md text-on-surface placeholder:text-on-surface-variant/60 outline-none" placeholder="Cari makanan atau warung..." type="text">
+</div>
+</section>
+<!-- Active Order Card -->
+<section class="mb-stack-lg animate-fade-in">
+<div class="bg-primary-container p-4 rounded-2xl flex items-center justify-between shadow-sm border border-primary/10">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-on-primary-container/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[28px]">lunch_dining</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-primary-container">Pesanan sedang disiapkan</p>
+<p class="font-body-md text-body-md text-on-primary-container/80">Warung Nasi Mak Ijah</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-price-lg text-price-lg text-on-primary-container">8:31</span>
+<span class="font-label-sm text-label-sm text-on-primary-container/70">Estimasi</span>
+</div>
+</div>
+</section>
+<!-- Categories Grid -->
+<section class="mb-stack-lg">
+<div class="grid grid-cols-3 gap-gutter-mobile">
+<!-- Category Item -->
+<button class="flex flex-col items-center gap-2 group active-scale">
+<div class="w-16 h-16 bg-surface-container-lowest border border-surface-container-highest rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm">Kuliner</span>
+</button>
+
+<button class="flex flex-col items-center gap-2 group active-scale">
+<div class="w-16 h-16 bg-surface-container-lowest border border-surface-container-highest rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">moped</span>
+</div>
+<span class="font-label-sm text-label-sm">Ojek</span>
+</button>
+<button class="flex flex-col items-center gap-2 group active-scale">
+<div class="w-16 h-16 bg-surface-container-lowest border border-surface-container-highest rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">shopping_bag</span>
+</div>
+<span class="font-label-sm text-label-sm">Titip Beli</span>
+</button>
+<button class="flex flex-col items-center gap-2 group active-scale">
+<div class="w-16 h-16 bg-surface-container-lowest border border-surface-container-highest rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">local_activity</span>
+</div>
+<span class="font-label-sm text-label-sm">Tiket Wisata</span>
+</button>
+<button class="flex flex-col items-center gap-2 group active-scale">
+<div class="w-16 h-16 bg-surface-container-lowest border border-surface-container-highest rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary text-[32px]">commute</span>
+</div>
+<span class="font-label-sm text-label-sm">Travel</span>
+</button>
+</div>
+</section>
+<!-- Pilihan Hari Ini (Sponsored Section) -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-sm">
+<h2 class="font-headline-md text-headline-md">Pilihan Hari Ini</h2>
+<span class="font-label-sm text-label-sm text-primary font-bold">Lihat Semua</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Merchant Card Sponsored 1 -->
+<div class="min-w-[260px] bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container flex-shrink-0 active-scale transition-transform duration-200">
+<div class="relative h-32">
+<img class="w-full h-full object-cover" data-alt="A mouth-watering high-angle shot of traditional Sundanese grilled fish (Ikan Bakar) served on a banana leaf with vibrant sambal and fresh vegetables. The lighting is warm and golden, reminiscent of a sunny village afternoon. The food looks authentic and artisanal, perfect for a high-end local delivery app UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhemOLs55FkEPeOhjadHb52OpfTpcKlpusPSECWRTyNN--W8fqlM-7_HHAVC4gdz1_Wzw2MoTrz9xMsceA-v36YrWyT2zBD8LPViu4VS22SZYjDGJHrlcmhp_DViEGB8DEkOJ6V_J43KTaaGVxtmFFPLNnUMgyyMOENTT-SnSuC6Dy2vTy9lbr6iBGFJfHT1Dfk-a0k-Y_1lVmMjF9wTebplWS4z3RQ0KlYjX5--6n3r4HODnHkLMzCQ">
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Bersponsor</div>
+</div>
+<div class="p-3">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-[16px]">Lesehan Pak H. Encep</h3>
+<div class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Sundanese • 1.2 km</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="font-label-sm text-label-sm font-medium">Buka Sekarang</span>
+</div>
+</div>
+</div>
+<!-- Merchant Card Sponsored 2 -->
+<div class="min-w-[260px] bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container flex-shrink-0 active-scale transition-transform duration-200">
+<div class="relative h-32">
+<img class="w-full h-full object-cover" data-alt="Close-up of freshly steamed traditional Indonesian snacks, 'Kue Putu' and 'Klepon', presented on a rustic ceramic plate. Steam rises gently against a soft-focus background of a traditional kitchen. The color palette features vibrant pandan greens and snowy white coconut flakes, matching the light-mode corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt9WUjaUQU0OMpjRgoXURIWgm6yiiu0gguEk_Zj4OM-dJmV-0puwiytnN5KBRu6JK2BCBy-U6xh-CT4UkFiAEjtmO1cx7ShM-bdp8yNIrsCC8F4ZI-baXsgTiTKDfm-ta9py-DZ9DSMMGbEcaKXqLmfM_f77Ad6IRxYbq-zgqDt45FcD9Cr3RgDjceBB5TwdeqO-TspLoEM1Iv1gvhr15joQjTQwsabmMcwDJpnbUBd7k9zuqeM-ixHw">
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Bersponsor</div>
+</div>
+<div class="p-3">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-[16px]">Jajanan Tradisional Bu Yuli</h3>
+<div class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Camilan • 0.8 km</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="font-label-sm text-label-sm font-medium">Buka Sekarang</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Buka Sekarang (Nearby Section) -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-sm">
+<h2 class="font-headline-md text-headline-md">Buka Sekarang</h2>
+</div>
+<div class="space-y-gutter-mobile">
+<!-- Nearby Merchant 1 (Horizontal) -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container active-scale transition-all duration-200">
+<div class="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A savory plate of Nasi Goreng Kampung with a sunny-side-up egg, crispy crackers, and cucumber slices. The image is captured in natural daylight, highlighting the rich textures of the fried rice and the golden egg yolk. The setting is clean and welcoming, embodying the 'Santai tapi pasti' philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArm3R96CRQLwlZm2X3CxMwLygn-mztmd10VFpWHSUiP2z1tuVxzw2xvUl4GpseBkwMyZJ2SUg4jOau-5yADrc_eUFvpUHqFVSg8SXjVmqZhqTAN9hBPydrioCXWG1_ir3YWE_RR_G6U2TsfpLecDxIkHI5v40ttqrbG9NcDDHLhRkJHlbHY01ExnKPC6y6tAMQg8vygNUi6kv9ALDBYMBoFeB5qnczxYsP2QrzklyZU3RetCgv8i1NpA">
+</div>
+<div class="flex flex-col justify-center flex-grow">
+<h4 class="font-headline-md text-headline-md text-[16px] mb-0.5">Warung Nasi Goreng Mang Oded</h4>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Masakan Rumah • 15 mnt • 2.1 km</span>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.7</span>
+</div>
+<span class="font-price-lg text-price-lg text-primary text-[16px]">Rp 15rb-an</span>
+</div>
+</div>
+</div>
+<!-- Nearby Merchant 2 (Horizontal) -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container active-scale transition-all duration-200">
+<div class="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A colorful variety of fresh fruit juices in tall glasses—mango, avocado, and dragon fruit. The juices are thick and vibrant, decorated with small fruit pieces on top. The background is a bright, airy local cafe setting. The lighting is crisp and refreshing, conveying trust and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoY3Hkx1cd8kPV_NR45OybbX6qgpkonVWjz4CZlDyYLif-y9fAWXQrp88xWg9wb2Y44gpeMMRhj_Rc03vagdj4TBCVvPQp1YlKmvTNh5I_R-k_o6aMmASuXBnXvFLcLY8Rz91odS9WpAILuMS8XGYJwty_3DAswYSId5wCFuTE-9GVINh-rT5gWwr8Fj4zACwP63iNwT3wPVUty3PlUwsnkSb3gA_czPIMezKwI4knHICwFuXJBF6W3w">
+</div>
+<div class="flex flex-col justify-center flex-grow">
+<h4 class="font-headline-md text-headline-md text-[16px] mb-0.5">Es Segar Pangkalan</h4>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Minuman • 10 mnt • 0.5 km</span>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.5</span>
+</div>
+<span class="font-price-lg text-price-lg text-primary text-[16px]">Rp 8rb-an</span>
+</div>
+</div>
+</div>
+<!-- Nearby Merchant 3 (Horizontal) -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container active-scale transition-all duration-200 opacity-60 grayscale-[0.5]">
+<div class="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of artisanal satay (Sate Maranggi) being grilled over charcoal, with subtle smoke and embers glowing. The aesthetic is rustic yet clean, with high-quality textures of the grilled meat. The atmosphere is warm and traditional, emphasizing the local village feel of the Tegalwaru area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjNuVi_Gl3OVK51jRlhchWZgsXbhgJ9gGTo-5JyiVDxkeuGryV_td9mBhnkwX-mr7FahkK1SRszB1IaFXUz5XfDooX6wF8dnBq0VEk4OXrLbyLtdadfIA_yhWZ7VEhXc4y6y0pb9AKJBLyE1HqXRjvFOAc3vRd6ydFOkh_0d4PZr3XOvnkizt91lZ7q5NKbCFBq3OoXZlEuXIPKMr03zP18sAWsmmqoU1tCqegEAEL2LItt4JjyejUig">
+</div>
+<div class="flex flex-col justify-center flex-grow">
+<h4 class="font-headline-md text-headline-md text-[16px] mb-0.5">Sate Maranggi Abah</h4>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm text-error">Tutup</span>
+<span class="font-label-sm text-label-sm">• Buka jam 17:00</span>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">4.6</span>
+</div>
+<span class="font-price-lg text-price-lg text-on-surface-variant text-[16px]">Rp 20rb-an</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.08)] rounded-t-xl">
+<!-- Beranda (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active-scale duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors active-scale duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-0.5">Pesanan</span>
+</a>
+<!-- Notifikasi -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors active-scale duration-200" href="#">
+<div class="relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-error border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Notifikasi</span>
+</a>
+<!-- Akun -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors active-scale duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Akun</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - Suppressed for Home/Overview as per guidelines but relevant for quick access if needed for specific 'Pesanan Baru' action in some contexts. Not strictly required by prompt but following suppression rule. -->
+<script>
+        // Simple logic for interactive states
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Haptic feedback simulation
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+
+        // Animation for progress/countdown (visual only)
+        let seconds = 45;
+        let minutes = 12;
+        const countdownEl = document.querySelector('.font-price-lg.text-on-primary-container');
+        setInterval(() => {
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+            }
+            if (minutes >= 0) {
+                countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }, 1000);
+    </script>
+
+
+</body></html>

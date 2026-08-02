@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+
+        .bottom-sheet-overlay {
+            backdrop-filter: blur(2px);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container": "#efeded",
+                "primary-fixed": "#9af5c1",
+                "surface-container-high": "#eae8e7",
+                "primary": "#006a42",
+                "surface-variant": "#e4e2e2",
+                "primary-container": "#258459",
+                "on-secondary-fixed": "#341100",
+                "on-secondary": "#ffffff",
+                "on-background": "#1b1c1c",
+                "surface-container-highest": "#e4e2e2",
+                "secondary-container": "#ff7a2b",
+                "secondary-fixed-dim": "#ffb692",
+                "on-secondary-container": "#602500",
+                "error": "#ba1a1a",
+                "surface-tint": "#006c44",
+                "surface-dim": "#dbd9d9",
+                "surface-container-lowest": "#ffffff",
+                "secondary": "#9f4200",
+                "inverse-surface": "#303030",
+                "tertiary-fixed": "#ffdcc5",
+                "on-tertiary-fixed": "#301400",
+                "on-primary-fixed-variant": "#005232",
+                "tertiary-fixed-dim": "#f4bb92",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#ffdbcb",
+                "on-error": "#ffffff",
+                "on-secondary-fixed-variant": "#793100",
+                "on-tertiary": "#ffffff",
+                "tertiary": "#7d5231",
+                "on-tertiary-container": "#fffbff",
+                "surface-bright": "#fbf9f8",
+                "surface": "#fbf9f8",
+                "on-surface": "#1b1c1c",
+                "inverse-on-surface": "#f2f0f0",
+                "surface-container-low": "#f5f3f3",
+                "on-primary": "#ffffff",
+                "background": "#fbf9f8",
+                "on-surface-variant": "#3f4942",
+                "primary-fixed-dim": "#7ed9a6",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "outline": "#6f7a71",
+                "inverse-primary": "#7ed9a6",
+                "on-primary-container": "#f6fff6",
+                "error-container": "#ffdad6",
+                "outline-variant": "#bec9bf",
+                "tertiary-container": "#996a47",
+                "on-primary-fixed": "#002111"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter-mobile": "12px",
+                "touch-target": "44px",
+                "stack-md": "16px",
+                "base": "4px",
+                "stack-sm": "8px",
+                "stack-lg": "24px",
+                "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden">
+<!-- Main Content Canvas (Profile Edit Context) -->
+<header class="w-full top-0 flex items-center justify-between px-margin-mobile h-touch-target bg-background">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer transition-transform active:scale-95">arrow_back</span>
+<h1 class="font-headline-md text-headline-md text-primary">Atur Profil</h1>
+</div>
+</header>
+<main class="flex-1 px-margin-mobile pt-stack-lg">
+<div class="flex flex-col items-center gap-stack-lg">
+<!-- Profile Picture Section -->
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-high shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional and friendly headshot of a local Indonesian resident in a bright, modern setting. The lighting is soft and warm, reflecting a neighborly and trustworthy vibe. The background is a clean, minimalist interior with subtle green plants, echoing the corporate modern yet soft aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATjKjzERJc2NW-7UfAPKW04bglViTbUcTgSMQLE1BJaLzMfp6QgUuJc5uV5jVpz0vqju0pkYpnV4NIWSsJdtXxNmW2qhTDmzFNKeIWzTATaSnGWxFSgNW78sCyalhc76dzcvg3RQiolnmrqo2e95c6HXukrT-IkDGK6jxxCwfNrrbrMupPkFJ8_67xUZl-vFN1mt24ooXcEeZFL7lDSptFWySYGg0zhqiH89-624Cwhs6IU97oEUslNA"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg transition-transform active:scale-90 flex items-center justify-center h-10 w-10" id="open-modal">
+<span class="material-symbols-outlined text-[20px]">camera_alt</span>
+</button>
+</div>
+<!-- Form Placeholders to build context -->
+<div class="w-full space-y-stack-md">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">Nama Lengkap</label>
+<div class="w-full h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center px-4 text-on-surface">Budi Santoso</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">Nomor Telepon</label>
+<div class="w-full h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center px-4 text-on-surface">+62 812 3456 7890</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Inactive for focus) -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-4 py-2 bg-surface-container-lowest shadow-lg z-10">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-40">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-40">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Pasar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-40">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm">Warga</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</div>
+</nav>
+<!-- Bottom Sheet Modal Component -->
+<div class="hidden fixed inset-0 z-[100] flex flex-col justify-end" id="modal-container">
+<!-- Scrim / Dimmed Background -->
+<div class="absolute inset-0 bg-black/40 bottom-sheet-overlay animate-fade-in" id="modal-scrim"></div>
+<!-- Sheet Content -->
+<div class="relative w-full bg-surface-bright rounded-t-[28px] px-6 pt-3 pb-10 shadow-[0_-8px_24px_rgba(0,0,0,0.12)] animate-slide-up" id="bottom-sheet">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center mb-6">
+<div class="w-8 h-1 rounded-full bg-outline-variant"></div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Foto Profil</h2>
+<div class="space-y-2">
+<!-- Option 1: Ambil Foto -->
+<button class="w-full h-touch-target flex items-center gap-4 px-4 rounded-xl hover:bg-surface-container-low active:bg-surface-container transition-colors group">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-fixed text-on-primary-fixed-variant">
+<span class="material-symbols-outlined">camera_alt</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Ambil Foto</span>
+</button>
+<!-- Option 2: Pilih dari Galeri -->
+<button class="w-full h-touch-target flex items-center gap-4 px-4 rounded-xl hover:bg-surface-container-low active:bg-surface-container transition-colors">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary-fixed text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined">photo_library</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Pilih dari Galeri</span>
+</button>
+<!-- Divider -->
+<div class="h-[1px] w-full bg-outline-variant/30 my-2"></div>
+<!-- Option 3: Hapus Foto -->
+<button class="w-full h-touch-target flex items-center gap-4 px-4 rounded-xl hover:bg-error-container/20 active:bg-error-container/40 transition-colors">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-error-container text-error">
+<span class="material-symbols-outlined">delete</span>
+</div>
+<span class="font-label-lg text-label-lg text-error">Hapus Foto</span>
+</button>
+</div>
+<!-- Cancel Button for mobile accessibility -->
+<button class="mt-4 w-full h-touch-target flex items-center justify-center font-label-lg text-label-lg text-outline" id="close-modal">
+                Batal
+            </button>
+</div>
+</div>
+<script>
+        const openBtn = document.getElementById('open-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const scrim = document.getElementById('modal-scrim');
+        const container = document.getElementById('modal-container');
+        const sheet = document.getElementById('bottom-sheet');
+
+        function showModal() {
+            container.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function hideModal() {
+            sheet.classList.remove('animate-slide-up');
+            sheet.style.transform = 'translateY(100%)';
+            sheet.style.transition = 'transform 0.2s ease-in';
+            
+            scrim.style.opacity = '0';
+            scrim.style.transition = 'opacity 0.2s ease-in';
+
+            setTimeout(() => {
+                container.classList.add('hidden');
+                sheet.style.transform = '';
+                sheet.style.transition = '';
+                scrim.style.opacity = '';
+                scrim.style.transition = '';
+                sheet.classList.add('animate-slide-up');
+                document.body.classList.remove('overflow-hidden');
+            }, 200);
+        }
+
+        openBtn.addEventListener('click', showModal);
+        closeBtn.addEventListener('click', hideModal);
+        scrim.addEventListener('click', hideModal);
+
+        // Simple swipe-to-close logic simulation
+        let touchStart = 0;
+        sheet.addEventListener('touchstart', (e) => {
+            touchStart = e.touches[0].clientY;
+        });
+
+        sheet.addEventListener('touchend', (e) => {
+            const touchEnd = e.changedTouches[0].clientY;
+            if (touchEnd - touchStart > 100) {
+                hideModal();
+            }
+        });
+        
+        // Auto-show for presentation demonstration
+        setTimeout(showModal, 800);
+    </script>
+</body></html>

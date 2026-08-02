@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Komplain Merchant - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#7d5231",
+                    "on-tertiary-fixed": "#301400",
+                    "on-background": "#1b1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#f6fff6",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "primary": "#006a42",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-secondary-container": "#602500",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-secondary-fixed": "#341100",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-fixed-dim": "#ffb692",
+                    "outline-variant": "#bec9bf",
+                    "background": "#fbf9f8",
+                    "surface-container": "#efeded",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#303030",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#005232",
+                    "secondary-container": "#ff7a2b",
+                    "primary-container": "#258459",
+                    "inverse-on-surface": "#f2f0f0",
+                    "primary-fixed": "#9af5c1",
+                    "outline": "#6f7a71",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary": "#9f4200",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-container": "#996a47",
+                    "surface-tint": "#006c44",
+                    "surface": "#fbf9f8",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#f4bb92"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .custom-scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .complaint-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .complaint-card:active {
+            transform: scale(0.98);
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #006a42;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-x-hidden pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-base">
+<button class="w-touch-target h-touch-target flex items-center justify-center text-primary active:scale-95 transition-transform hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Daftar Komplain</h1>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center text-primary active:scale-95 transition-transform hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</header>
+<!-- Navigation Drawer / Tabs -->
+<nav class="bg-surface sticky top-[44px] z-40 border-b border-outline-variant/30">
+<div class="flex items-center justify-around relative">
+<!-- Active Tab: Perlu Ditangani -->
+<button class="flex-1 py-4 flex flex-col items-center gap-1 group" onclick="switchTab(this, 0)">
+<div class="flex items-center gap-2 bg-secondary-container text-on-secondary-container rounded-full px-4 py-2 font-bold transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="pending_actions">pending_actions</span>
+<span class="font-label-lg text-label-lg">Perlu Ditangani</span>
+</div>
+</button>
+<!-- Inactive Tab: Selesai -->
+<button class="flex-1 py-4 flex flex-col items-center gap-1 group" onclick="switchTab(this, 1)">
+<div class="flex items-center gap-2 text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="task_alt">task_alt</span>
+<span class="font-label-lg text-label-lg">Selesai</span>
+</div>
+</button>
+</div>
+</nav>
+<!-- Main Content: Complaint List -->
+<main class="px-margin-mobile py-stack-lg space-y-stack-md" id="complaint-container">
+<!-- Complaint Card 1 -->
+<div class="complaint-card bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/20">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                        AW
+                    </div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface">Andi Wijaya</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Order #GYB-9921</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container text-[11px] font-bold rounded-full uppercase tracking-wider">
+                    Prioritas Tinggi
+                </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mb-stack-md">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="report_problem">report_problem</span>
+<span class="font-label-lg text-label-lg text-secondary">Item Tidak Sesuai</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    "Nasi Liwet yang sampai tidak ada telurnya, padahal pesan paket lengkap."
+                </p>
+</div>
+<div class="flex items-center justify-between mt-stack-md">
+<div class="flex items-center gap-1 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm">15 menit yang lalu</span>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-primary text-primary rounded-lg font-label-lg text-label-lg active:bg-primary/5 transition-colors">
+                        Chat Pelanggan
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all">
+                        Selesaikan
+                    </button>
+</div>
+</div>
+</div>
+<!-- Complaint Card 2 -->
+<div class="complaint-card bg-surface-container-lowest rounded-xl p-stack-md shadow-sm border border-outline-variant/20">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold">
+                        SA
+                    </div>
+<div>
+<h3 class="font-headline-md text-body-lg text-on-surface">Siti Aminah</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Order #GYB-9874</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-bold rounded-full uppercase tracking-wider">
+                    Baru
+                </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mb-stack-md">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="liquor">liquor</span>
+<span class="font-label-lg text-label-lg text-tertiary-container">Makanan Tumpah</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    "Kuah sayur lodeh tumpah di kantong plastik."
+                </p>
+</div>
+<div class="flex items-center justify-between mt-stack-md">
+<div class="flex items-center gap-1 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm">1 jam yang lalu</span>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-primary text-primary rounded-lg font-label-lg text-label-lg active:bg-primary/5 transition-colors">
+                        Chat Pelanggan
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all">
+                        Selesaikan
+                    </button>
+</div>
+</div>
+</div>
+<!-- Asymmetric/Bento-style summary card (Optional flair) -->
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="bg-primary text-on-primary p-4 rounded-2xl flex flex-col justify-between h-32">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<div>
+<div class="font-headline-lg text-headline-lg">98%</div>
+<div class="font-label-sm text-label-sm opacity-80">Rating Penanganan</div>
+</div>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container p-4 rounded-2xl flex flex-col justify-between h-32">
+<span class="material-symbols-outlined" data-icon="avg_time">avg_time</span>
+<div>
+<div class="font-headline-lg text-headline-lg">12m</div>
+<div class="font-label-sm text-label-sm opacity-80">Rata-rata Respon</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Empty State (Hidden by default, used for logic demonstration) -->
+<section class="hidden flex-col items-center justify-center px-10 py-20 text-center" id="empty-state">
+<div class="w-64 h-64 mb-6">
+<img class="w-full h-full object-contain" data-alt="A friendly, hand-drawn style illustration of a happy merchant in a local market setting. The illustration uses soft green and warm earthy tones. The merchant is giving a thumbs up next to a clean, organized food stall with no customers in line, conveying a sense of peace and efficiency in a sunlit light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ppIv8h_yeauOAf2-_OUFDoNntvifkcJL9fgZLpYXi5nNKtwd0QosVKGKMOQhBq0Xa_nlAXyRpbKJa5emMXI4u4qW9Vkw5gzaWPfT6KNTZeKc0FndzH_ViX9Tr6VDOaOOSVl4xS9s4NAxW4IpYGOMu6TwO6Nn5yjmkxoZadC4UF3z-sNR5Hu_ArYuf8Bi5_V0ISJTa1xyEgTSqVHYSYTGOFiQ4i118t4YurYCJv_tceIbkI7PE7Fk7A"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Semua aman!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tidak ada komplain yang perlu ditangani saat ini. Kerja bagus, Juragan!</p>
+</section>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 bg-surface shadow-lg border-t border-outline-variant/10">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 px-4 py-1 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 px-4 py-1 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="report_problem" style="font-variation-settings: 'FILL' 1;">report_problem</span>
+<span class="font-label-sm text-label-sm">Komplain</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 px-4 py-1 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        function switchTab(el, index) {
+            const tabs = el.parentElement.querySelectorAll('button');
+            const container = document.getElementById('complaint-container');
+            const emptyState = document.getElementById('empty-state');
+
+            tabs.forEach((tab, i) => {
+                const div = tab.querySelector('div');
+                if (i === index) {
+                    div.className = 'flex items-center gap-2 bg-secondary-container text-on-secondary-container rounded-full px-4 py-2 font-bold transition-all duration-200';
+                } else {
+                    div.className = 'flex items-center gap-2 text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest rounded-full transition-all duration-200';
+                }
+            });
+
+            // Logic to show empty state if 'Selesai' tab is clicked (mockup behavior)
+            if (index === 1) {
+                container.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                container.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+        }
+
+        // Add haptic-like feedback on buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body></html>

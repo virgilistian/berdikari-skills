@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub Merchant - Daftar Pesanan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for better UX */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efeded",
+                        "outline-variant": "#bec9bf",
+                        "surface-tint": "#006c44",
+                        "on-secondary-fixed": "#341100",
+                        "surface-container-high": "#eae8e7",
+                        "surface-variant": "#e4e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdbcb",
+                        "on-primary-fixed-variant": "#005232",
+                        "surface-container-highest": "#e4e2e2",
+                        "primary-container": "#258459",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#7d5231",
+                        "surface": "#fbf9f8",
+                        "secondary-container": "#ff7a2b",
+                        "on-primary": "#ffffff",
+                        "outline": "#6f7a71",
+                        "on-surface-variant": "#3f4942",
+                        "on-secondary-fixed-variant": "#793100",
+                        "on-primary-container": "#f6fff6",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-fixed": "#301400",
+                        "background": "#fbf9f8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#996a47",
+                        "primary": "#006a42",
+                        "inverse-on-surface": "#f2f0f0",
+                        "inverse-surface": "#303030",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "tertiary-fixed": "#ffdcc5",
+                        "error": "#ba1a1a",
+                        "secondary": "#9f4200",
+                        "on-surface": "#1b1c1c",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-container": "#602500",
+                        "inverse-primary": "#7ed9a6",
+                        "surface-dim": "#dbd9d9",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#002111",
+                        "primary-fixed": "#9af5c1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "stack-lg": "24px",
+                        "margin-mobile": "16px",
+                        "touch-target": "44px",
+                        "gutter-mobile": "12px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button aria-label="Menu" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Daftar Pesanan</h1>
+</div>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</header>
+<main class="pt-20 px-margin-mobile max-w-2xl mx-auto space-y-stack-lg">
+<!-- Section: Menunggu Verifikasi -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant">Menunggu Verifikasi</h2>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full text-label-sm font-label-sm">2 Pesanan</span>
+</div>
+<div class="grid gap-4">
+<!-- Order Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] p-stack-md border border-surface-variant/50 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A friendly profile photo of a local Indonesian customer, warm lighting, outdoor village market setting, soft focus background, corporate modern portrait style with a neighborhood connection feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkZShvSwozIfq19ry1BxjT3jeJqBEG5_plO016_FEBHJL8JS4vJ1wwU9A3_ly5l5FHNtOffylQBTeueGAaMQPwqOHXFeCR1BKdoUpSQ87TaC8CxAjOeZlE994fQMz7_CUVRoE0dDPmJsZIH2ViaJJex3Wq8DFmGwgoaGacIjWGa_tuyIBu9ZnGzPFk5Ly6skuxku4O8LBNoZJprewIO2wfX1XBXpPziNgsLiUE7fKb7wJ5AH19xLwQXg"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Tetangga Budi</p>
+<p class="text-label-sm text-outline">Order #GP-9921 • 12:45</p>
+</div>
+</div>
+<div class="bg-secondary-container/10 text-secondary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            Menunggu Pembayaran
+                        </div>
+</div>
+<div class="flex justify-between items-center mt-4 pt-3 border-t border-surface-variant">
+<div>
+<p class="text-label-sm text-outline">Total Tagihan</p>
+<p class="font-price-lg text-price-lg text-primary">Rp 52.000</p>
+</div>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-4 py-2 rounded-lg active:scale-95 transition-transform">Verifikasi</button>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] p-stack-md border border-surface-variant/50">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A smiling elderly woman from a local village, traditional yet modern attire, soft daylight from a window, clean photography, warm and approachable personality, corporate modern design system colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDALkb1Z5BqIMRyr_IV_vbplt8hM2HnDw5dPjO73wAJk-B3ZqjsdhKEwdoiKnFD6-yKDooi33kgCGJ3lLljXCQhyjkphNi_j2E8ZXrVdyNCWpfXYgifXxJ2AZUNWt5KFmaqCAEOwL8Pkw2lrgfwe2p0WQv0kBVNakycKvmZEPHnPGfYrI-ws_6qEay5z7GJN2U3LRnOTTTGRfGEf-X99rH3m69awujCWHDP3ej_0d3ORdGMivtJW-Tr-w"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Ibu Siti</p>
+<p class="text-label-sm text-outline">Order #GP-9918 • 12:30</p>
+</div>
+</div>
+<div class="bg-secondary-container/10 text-secondary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                            Proses Transfer
+                        </div>
+</div>
+<div class="flex justify-between items-center mt-4 pt-3 border-t border-surface-variant">
+<div>
+<p class="text-label-sm text-outline">Total Tagihan</p>
+<p class="font-price-lg text-price-lg text-primary">Rp 128.500</p>
+</div>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-4 py-2 rounded-lg active:scale-95 transition-transform">Cek Bukti</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Pesanan Aktif -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant">Pesanan Aktif</h2>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-label-sm font-label-sm">3 Pesanan</span>
+</div>
+<div class="grid gap-4">
+<!-- Active Order 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] p-stack-md border border-surface-variant/50">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A young adult male customer, casual village style, bright midday outdoor light, professional merchant app aesthetic, clean colors, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYIB01OupfbjU1xx9bjHjGq-p1eM4PxycMg1kWmxP18Lq-NgmzRhb8hVAUnoqPDOcwQDhEQw1sbr6HzLc6Grg6tsSaDeHKe-RH4515dHjp8ATl3cSQp0eBoxCPBPnLdObnxF1q_gZs6x69Ub56LksnM1yditHkbN0sycNQJ_6GssGaM7x0GkaUzKvVIhURQ7XqG9Ui83NJbRc9jVL8dV4ZVYshbuvlB2_yIc-m9GsS9bQ3cg4OGuaUnA"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Mas Doni</p>
+<p class="text-label-sm text-outline">Order #GP-9905 • Sedang Dikirim</p>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                            Sedang Disiapkan
+                        </div>
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-center gap-2 text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>3x Nasi Goreng Spesial, 2x Es Teh Manis</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-surface-variant">
+<p class="font-price-lg text-price-lg text-on-surface">Rp 85.000</p>
+<button class="border border-primary text-primary font-label-lg text-label-lg px-4 py-2 rounded-lg hover:bg-primary-container/5 active:scale-95 transition-transform">Selesai</button>
+</div>
+</div>
+<!-- Active Order 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] p-stack-md border border-surface-variant/50">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Indonesian customer portrait, neighborhood community setting, soft professional lighting, bright and modern, corporate visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3-C2gmh8RtwgXXsONzPXpOo5VJJveNaCF-ykUW95hqNMn9JWfBHUS-VgsdyEYJsJQ2m-h_A1glbct-JhxXm-t6ljVe53U_crWmbLq6O71bTqCnCXnISfPA4L_tJBdjP3SHt1VTwxIIb82h60uJthb6HU808I1O4PGQ_XVEWA2q2ncjR74XPNAzzrE97nVwa7SjRX4QZCENdv3SlW8m6QS7I7gAHlqJe-0QS4Ta_f6w8EC4rWW9SkHsQ"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Teh Imas</p>
+<p class="text-label-sm text-outline">Order #GP-9901 • Driver Menuju Lokasi</p>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                            Dalam Pengantaran
+                        </div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-surface-variant">
+<p class="font-price-lg text-price-lg text-on-surface">Rp 45.000</p>
+<button class="text-primary font-label-lg text-label-lg px-4 py-2 rounded-lg">Lacak Driver</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB: Manual Order Entry -->
+<button aria-label="Tambah Pesanan Manual" class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-lg flex items-center justify-center active:scale-90 transition-all duration-150 z-40">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-gutter-mobile py-2 bg-surface dark:bg-surface-dim shadow-[0_-2px_8px_rgba(0,0,0,0.08)] z-50 rounded-t-xl">
+<!-- Pesanan (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined active-tab-indicator">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Verifikasi -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-sm text-label-sm">Verifikasi</span>
+</a>
+<!-- Menu -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</a>
+<!-- Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest rounded-full px-4 py-1 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for clicking order cards
+        document.querySelectorAll('.grid > div').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.add('scale-[0.98]');
+                setTimeout(() => {
+                    card.classList.remove('scale-[0.98]');
+                }, 100);
+            });
+        });
+
+        // Soft interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.filter = 'brightness(1.05)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.filter = 'brightness(1)';
+            });
+        });
+    </script>
+</body></html>

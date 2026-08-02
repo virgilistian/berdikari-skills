@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Alamat - Santai tapi Pasti</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-high": "#eae8e7",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#793100",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary": "#7d5231",
+                    "surface-container": "#efeded",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "primary": "#006a42",
+                    "surface-tint": "#006c44",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary-container": "#602500",
+                    "surface-variant": "#e4e2e2",
+                    "outline": "#6f7a71",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed": "#9af5c1",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-container": "#996a47",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #006a42 !important;
+            box-shadow: 0 0 0 1px #006a42;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 bg-surface dark:bg-surface-dim w-full flex items-center px-margin-mobile h-touch-target">
+<button class="mr-4 active:scale-95 transition-transform flex items-center justify-center w-touch-target h-touch-target hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Lengkapi Profil</h1>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-20 pb-32 px-margin-mobile">
+<div class="max-w-md mx-auto space-y-stack-lg">
+<!-- Contextual Illustration -->
+<div class="relative w-full h-40 bg-surface-container-low rounded-xl overflow-hidden mb-stack-lg flex flex-col items-center justify-center p-stack-md text-center">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<!-- Placeholder for the "handmade" feel -->
+<div class="w-full h-full bg-[radial-gradient(#006a42_1px,transparent_1px)] [background-size:20px_20px]"></div>
+</div>
+<span class="material-symbols-outlined text-primary text-5xl mb-2" data-icon="home_pin">home_pin</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Detail Lokasimu</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Biar kurir kami nggak nyasar ke rumah tetangga sebelah, yuk isi detailnya.</p>
+</div>
+<!-- Form Section -->
+<section class="space-y-stack-md">
+<!-- Alamat Lengkap -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="alamat-lengkap">Alamat Lengkap</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 font-body-lg text-body-lg transition-all focus:ring-1 focus:ring-primary" id="alamat-lengkap" placeholder="Contoh: Jl. Raya Pangkalan No. 12, RT 02/05, Desa Pangkalan" rows="3"></textarea>
+</div>
+<!-- Nomor Rumah/Blok -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="nomor-rumah">Nomor Rumah/Blok</label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-lg px-3 font-body-lg text-body-lg transition-all focus:ring-1 focus:ring-primary" id="nomor-rumah" placeholder="Contoh: Blok A-15 / No. 24" type="text"/>
+</div>
+<!-- Patokan (Opsional) -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="patokan">Patokan (Opsional)</label>
+<input class="w-full h-12 bg-surface-container-lowest border border-outline-variant rounded-lg px-3 font-body-lg text-body-lg transition-all focus:ring-1 focus:ring-primary" id="patokan" placeholder="Contoh: Samping Mushola Nurul Iman atau dekat Warung Bu Siti" type="text"/>
+</div>
+<!-- Toggle Switch Section -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl mt-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Simpan sebagai alamat utama</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Alamat ini akan otomatis terpilih saat belanja</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</section>
+<!-- Community Tip -->
+<div class="bg-tertiary-fixed rounded-lg p-4 flex gap-3 items-start border border-tertiary-container/20">
+<span class="material-symbols-outlined text-tertiary" data-icon="tips_and_updates">tips_and_updates</span>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant">
+<strong class="font-bold">Tips:</strong> Mencantumkan warna pagar rumah atau nomor telepon aktif di patokan sangat membantu kurir kami lho!
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile flex justify-end items-center bg-surface/80 backdrop-blur-md">
+<button class="flex items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full h-12 px-stack-lg w-full font-label-lg text-label-lg shadow-md active:scale-98 transition-all duration-200 hover:bg-primary-container" onclick="handleSave()">
+<span class="mr-2">Simpan &amp; Lanjut</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<script>
+        function handleSave() {
+            // Logic for visual feedback
+            const btn = document.querySelector('button[onclick="handleSave()"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Menyimpan...
+            `;
+
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined mr-2" data-icon="check">check</span>
+                    Berhasil Disimpan
+                `;
+                btn.classList.replace('bg-primary', 'bg-tertiary');
+                
+                setTimeout(() => {
+                    alert('Alamat kamu berhasil diperbarui!');
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-tertiary', 'bg-primary');
+                    btn.disabled = false;
+                }, 1500);
+            }, 1000);
+        }
+
+        // Simple parallax for the background dot pattern
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const bgPattern = document.querySelector('.bg-\\[radial-gradient\\]');
+            if(bgPattern) {
+                bgPattern.style.backgroundPositionY = -(scrollPos * 0.1) + 'px';
+            }
+        });
+    </script>
+</body></html>

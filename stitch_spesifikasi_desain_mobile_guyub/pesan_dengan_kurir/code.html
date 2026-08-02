@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Chat dengan Bang Jaka - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container": "#efeded",
+                    "outline": "#6f7a71",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary-container": "#ff7a2b",
+                    "primary": "#006a42",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-container": "#996a47",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#301400",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "background": "#fbf9f8",
+                    "surface-variant": "#e4e2e2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#602500",
+                    "on-surface-variant": "#3f4942",
+                    "secondary": "#9f4200",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-container": "#f6fff6",
+                    "surface": "#fbf9f8",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "primary-container": "#258459",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#bec9bf",
+                    "on-background": "#1b1c1c",
+                    "inverse-surface": "#303030",
+                    "surface-tint": "#006c44",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-low": "#f5f3f3",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary": "#7d5231"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "stack-sm": "8px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .chat-container {
+            height: calc(100vh - 144px); /* Adjusting for header and bottom area */
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+
+        .bubble-left {
+            border-bottom-left-radius: 4px;
+        }
+        .bubble-right {
+            border-bottom-right-radius: 4px;
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-message {
+            animation: slideInUp 0.3s ease-out forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm flex items-center px-margin-mobile h-touch-target h-[64px]">
+<div class="flex items-center w-full gap-stack-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/20 transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center gap-stack-sm flex-1">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="A close-up portrait of a friendly Indonesian courier wearing a distinctive green motorcycle helmet with a professional yet neighborly smile. The lighting is bright and warm, reflecting a morning sun in a clean, urban environment. He has a neat appearance, representing reliability and local trust in the Guyub community service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmn1-UDg6CtmUFamQxhjbRVrSr07lZydB0L4i2t6SjdY4VdX3tA9r1Jbs5Aq5eEEMNwEt6vtKMqvlQ7asEz1MajmyKMJU5N5uxypHPL9vaGY6h2DPR1d8ypID3QTTzE38IAmDw8hmxQ6ylCvmX-n3W0cJhWwUtogHhO9TbYs7zuBebEj1SQkAwRxJJZ0-lGBgO58taCjZalsVdAaoUs7msH8MMFrmdza7Kg-by6VC7N4aJCheXFyyoFQ"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-white rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-body-lg font-bold text-on-surface">Bang Jaka</h1>
+<span class="font-label-sm text-primary flex items-center gap-1">
+                        Online
+                    </span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="call">call</span>
+</button>
+</div>
+</header>
+<!-- Chat Area -->
+<main class="chat-container pt-[72px] pb-[160px] overflow-y-auto px-margin-mobile custom-scrollbar flex flex-col gap-stack-md" id="chat-messages">
+<!-- Order Status Indicator -->
+<div class="flex justify-center my-stack-sm">
+<div class="bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="delivery_dining">delivery_dining</span>
+<span class="text-label-sm text-on-surface-variant">Kurir sedang menuju ke lokasimu</span>
+</div>
+</div>
+<!-- Timestamp -->
+<div class="text-center">
+<span class="text-label-sm text-outline font-medium">Hari Ini</span>
+</div>
+<!-- Courier Message -->
+<div class="flex flex-col gap-1 items-start max-w-[85%] animate-message">
+<div class="bg-surface-container-low text-on-surface p-3 rounded-xl bubble-left shadow-sm border border-outline-variant/20">
+<p class="text-body-md">Halo, saya sudah di jalan ya Kak.</p>
+</div>
+<span class="text-[10px] text-outline ml-1">10:42</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-1 items-end ml-auto max-w-[85%] animate-message" style="animation-delay: 0.1s;">
+<div class="bg-primary text-on-primary-container p-3 rounded-xl bubble-right shadow-sm">
+<p class="text-body-md font-medium">Oke Mas, ditunggu ya.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-outline">10:43</span>
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- Dummy Spacer for Bottom Sheet -->
+<div class="h-8 w-full"></div>
+</main>
+<!-- Bottom Controls Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest pt-2 pb-safe border-t border-outline-variant/10">
+<!-- Quick Replies -->
+<div class="px-margin-mobile mb-3">
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant text-label-lg text-on-surface-variant hover:bg-primary-container hover:text-white hover:border-primary-container transition-all active:scale-95">
+                    I am at the lobby
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant text-label-lg text-on-surface-variant hover:bg-primary-container hover:text-white hover:border-primary-container transition-all active:scale-95">
+                    Please wait a moment
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant text-label-lg text-on-surface-variant hover:bg-primary-container hover:text-white hover:border-primary-container transition-all active:scale-95">
+                    Keep the change
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant text-label-lg text-on-surface-variant hover:bg-primary-container hover:text-white hover:border-primary-container transition-all active:scale-95">
+                    Thank you!
+                </button>
+</div>
+</div>
+<!-- Input Bar -->
+<div class="px-margin-mobile pb-4 flex items-center gap-stack-sm">
+<button class="w-11 h-11 flex items-center justify-center bg-surface-variant/30 rounded-full text-on-surface-variant hover:bg-surface-variant/50 transition-colors shrink-0">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<div class="flex-1 relative flex items-center">
+<input class="w-full h-11 bg-surface-container border border-outline-variant/30 rounded-xl px-4 py-2 text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder:text-outline-variant transition-all" placeholder="Type a message..." type="text"/>
+</div>
+<button class="w-11 h-11 flex items-center justify-center bg-primary text-on-primary rounded-xl shadow-md hover:bg-primary-container transition-all active:scale-90 shrink-0">
+<span class="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
+</button>
+</div>
+</div>
+<!-- Hidden UI element: Navigation (Required by Protocol but Contextually Suppressed) -->
+<!-- Note: BottomNavBar suppressed for focused messaging task -->
+<script>
+        // Micro-interactions for message behavior
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatContainer = document.getElementById('chat-messages');
+            const inputField = document.querySelector('input[type="text"]');
+            const sendButton = document.querySelector('button .material-symbols-outlined[data-icon="send"]').parentElement;
+            const quickReplies = document.querySelectorAll('.no-scrollbar button');
+
+            // Scroll to bottom helper
+            const scrollToBottom = () => {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            };
+            scrollToBottom();
+
+            // Send message function
+            const sendMessage = (text) => {
+                if (!text.trim()) return;
+
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex flex-col gap-1 items-end ml-auto max-w-[85%] animate-message';
+                
+                const now = new Date();
+                const time = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+                messageDiv.innerHTML = `
+                    <div class="bg-primary text-on-primary-container p-3 rounded-xl bubble-right shadow-sm">
+                        <p class="text-body-md font-medium">${text}</p>
+                    </div>
+                    <div class="flex items-center gap-1 mr-1">
+                        <span class="text-[10px] text-outline">${time}</span>
+                        <span class="material-symbols-outlined text-[14px] text-outline" data-icon="done">done</span>
+                    </div>
+                `;
+
+                chatContainer.appendChild(messageDiv);
+                scrollToBottom();
+                inputField.value = '';
+
+                // Simulate delivery
+                setTimeout(() => {
+                    const icon = messageDiv.querySelector('[data-icon="done"]');
+                    icon.innerText = 'done_all';
+                    icon.classList.remove('text-outline');
+                    icon.classList.add('text-primary');
+                }, 1500);
+            };
+
+            sendButton.addEventListener('click', () => sendMessage(inputField.value));
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage(inputField.value);
+            });
+
+            // Quick reply handler
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sendMessage(btn.innerText.trim());
+                });
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Promo Berhasil Dibuat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#006c44",
+                    "surface-container-low": "#f5f3f3",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary": "#ffffff",
+                    "primary": "#006a42",
+                    "on-primary-fixed": "#002111",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-container": "#efeded",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#9af5c1",
+                    "outline-variant": "#bec9bf",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#341100",
+                    "primary-container": "#258459",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary": "#7d5231",
+                    "surface-variant": "#e4e2e2",
+                    "on-surface-variant": "#3f4942",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed": "#ffdbcb",
+                    "secondary": "#9f4200",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "error-container": "#ffdad6",
+                    "background": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#602500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<canvas class="confetti-canvas" id="confetti"></canvas>
+<header class="w-full sticky top-0 bg-surface flex items-center justify-between px-margin-mobile h-touch-target z-50">
+<button aria-label="Kembali" class="w-touch-target h-touch-target flex items-center justify-start text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary">Kelola Promo</h1>
+<button aria-label="Bantuan" class="w-touch-target h-touch-target flex items-center justify-end text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-stack-lg text-center">
+<div class="relative mb-stack-lg animate-bounce">
+<div class="absolute inset-0 bg-primary opacity-10 rounded-full scale-150 blur-xl"></div>
+<div class="w-32 h-32 md:w-48 md:h-48 bg-primary-container rounded-full flex items-center justify-center relative z-20 shadow-lg">
+<span class="material-symbols-outlined text-[64px] md:text-[96px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="absolute -top-4 -left-4 w-12 h-12 bg-secondary-container rounded-full opacity-20 blur-md"></div>
+<div class="absolute -bottom-2 -right-6 w-16 h-16 bg-tertiary-container rounded-full opacity-15 blur-lg"></div>
+</div>
+<div class="max-w-md space-y-stack-md">
+<h2 class="font-headline-lg text-headline-lg-mobile text-on-surface">Promo Berhasil Dibuat!</h2>
+<p class="font-body-lg text-on-surface-variant px-stack-md">
+                Promomu sudah aktif dan bisa digunakan oleh pelanggan mulai hari ini.
+            </p>
+</div>
+<div class="mt-12 w-full max-w-sm space-y-stack-md">
+<div class="p-stack-md bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant flex items-center space-x-stack-md">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+</div>
+<div class="text-left">
+<p class="font-label-lg text-on-surface">Potongan Rp10.000</p>
+<p class="font-label-sm text-on-surface-variant">Berlaku s/d 30 Des 2023</p>
+</div>
+<div class="ml-auto">
+<span class="px-2 py-1 bg-primary text-on-primary rounded-full font-label-sm">Aktif</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full px-margin-mobile py-stack-lg space-y-base flex flex-col max-w-lg mx-auto">
+<button class="w-full h-[52px] bg-primary text-on-primary rounded-xl font-label-lg flex items-center justify-center shadow-md active:scale-[0.98] transition-all duration-150">
+            Lihat Daftar Promo
+        </button>
+<button class="w-full h-touch-target text-primary font-label-lg flex items-center justify-center hover:bg-surface-container-low rounded-xl transition-colors active:scale-95 duration-200">
+            Kembali ke Beranda
+        </button>
+</footer>
+<script>
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 60;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 8 + 4;
+                this.speed = Math.random() * 3 + 2;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = Math.random() * 0.2 - 0.1;
+                const colors = ['#006a42', '#258459', '#ff7a2b', '#996a47', '#ffdcc5'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.shape = Math.random() > 0.5 ? 'circle' : 'rect';
+            }
+            update() {
+                this.y += this.speed;
+                this.angle += this.spin;
+                if (this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.fillStyle = this.color;
+                if (this.shape === 'circle') {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                }
+                ctx.restore();
+            }
+        }
+
+        function init() {
+            resize();
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+        animate();
+    </script>
+</body></html>

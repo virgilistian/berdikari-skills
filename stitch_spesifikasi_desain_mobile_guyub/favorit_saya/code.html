@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Favorit Saya - Pasar Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f8",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#9af5c1",
+                        "outline-variant": "#bec9bf",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7d5231",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-tint": "#006c44",
+                        "surface-variant": "#e4e2e2",
+                        "on-primary-fixed-variant": "#005232",
+                        "on-primary-fixed": "#002111",
+                        "surface-container-low": "#f5f3f3",
+                        "on-background": "#1b1c1c",
+                        "secondary-fixed": "#ffdbcb",
+                        "secondary-fixed-dim": "#ffb692",
+                        "tertiary-container": "#996a47",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#3f4942",
+                        "on-primary-container": "#f6fff6",
+                        "on-secondary-fixed-variant": "#793100",
+                        "primary-container": "#258459",
+                        "inverse-surface": "#303030",
+                        "surface-bright": "#fbf9f8",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#7ed9a6",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "primary": "#006a42",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#602500",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-container-highest": "#e4e2e2",
+                        "outline": "#6f7a71",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "surface-container": "#efeded",
+                        "surface-dim": "#dbd9d9",
+                        "secondary-container": "#ff7a2b",
+                        "secondary": "#9f4200",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "surface-container-high": "#eae8e7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary-fixed": "#301400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "44px",
+                        "stack-md": "16px",
+                        "gutter-mobile": "12px",
+                        "stack-lg": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .favorite-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm w-full sticky top-0 z-40">
+<div class="flex items-center justify-between px-margin-mobile h-touch-target w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Favorit Saya</h1>
+</div>
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-stack-md space-y-stack-md max-w-2xl mx-auto">
+<!-- Summary Chip -->
+<div class="flex items-center justify-between py-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant">3 Barang Tersimpan</span>
+<button class="text-primary font-label-lg text-label-lg flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                Urutkan
+            </button>
+</div>
+<!-- Favorite List -->
+<div class="space-y-stack-md" id="favorites-list">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl p-3 shadow-sm border border-outline-variant/30 group">
+<div class="flex gap-4">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A professional studio product shot of a 2 liter bottle of clear golden palm cooking oil on a warm kitchen counter. Soft natural morning sunlight streams through a nearby window, creating a domestic and cozy atmosphere. The label features traditional Indonesian batik patterns and local illustrations, reflecting a neighborhood brand identity. High-end lifestyle photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO_Z73Sjd5UbsWdO7ZmrifQPjFfTsfWyTQ0g6MMjhACzbxClfjXrsAG6e0-ow5IHD9t1g9tTIpaTDGL5s5GvaxeEYW1th_e993fd79hUWM1bfbR6uS65ZqEH8r91Iz5W4ce6jooV_l7QA4a6DcKm5geKhUjAnhM0QMPsY-XgTwgh0Is_F1Nmk2aEvfoJEtNzkcqmawetECoro6Z3owzLEhzsJBjqsGFm3rXpBsWxKLgAMqSijh6f5cQQ"/>
+<button class="absolute -top-1 -right-1 bg-white shadow-md rounded-full p-1.5 text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined favorite-active" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md leading-tight">Minyak Goreng 2L</h3>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<p class="font-body-md text-body-md">Warung Bu Leti</p>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<p class="font-price-lg text-price-lg text-primary">Rp 34.500</p>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary h-11 rounded-lg font-label-lg text-label-lg hover:brightness-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        Pindahkan ke Keranjang
+                    </button>
+<button class="w-11 h-11 border border-outline-variant rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl p-3 shadow-sm border border-outline-variant/30">
+<div class="flex gap-4">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A high-quality product photo of fresh organic red onions piled in a small woven bamboo basket on a wooden table. The lighting is warm and directional, emphasizing the texture of the onion skins. The background shows a blurred local market scene with warm earthy tones, evoking a sense of hyper-local freshness and communal trust. Corporate modern style with soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlYclfPrr1hqPzkfGTI6o0xV67IWwW21PDGNQM3YumxybCxOvfHt31bWouf-tn1lxrVQKPGfXqs8auD3mey5yWl6fKtnOLJC8b9Lu7I10d0ndwwdOvWKLcsZkQY8J78vyzOaj50Xptu4E2Soi82mwVlZpNbw4rsN7np8QIvYkotONQQ_T2UP-8qcBcHx0Vy6njo-31AElRAgm3T53V9cg3p3zvpLQ4WmNwmyVALOMRi03Udk35yRGndA"/>
+<button class="absolute -top-1 -right-1 bg-white shadow-md rounded-full p-1.5 text-error">
+<span class="material-symbols-outlined favorite-active" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Bawang Merah 500g</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<p class="font-body-md text-body-md">Sembako Pak Haji</p>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<p class="font-price-lg text-price-lg text-primary">Rp 18.000</p>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary h-11 rounded-lg font-label-lg text-label-lg hover:brightness-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        Pindahkan ke Keranjang
+                    </button>
+<button class="w-11 h-11 border border-outline-variant rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl p-3 shadow-sm border border-outline-variant/30">
+<div class="flex gap-4">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A macro photograph of high-quality organic local rice grains held in a wooden scoop. The lighting is bright and clean, highlighting the purity and texture of the grains. The scene is set in a modern, organized local market stall with soft green and white tones in the background. The visual style is reliable and approachable, perfect for a hyper-local neighborhood app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhDpBl1eoCG7iP3qP6wqmFpV_av-PjdKKu27hZwNr-frgqnDQDSWLY0sTrcdxEb70BpLs6jb8wDF1W6lMQEz1TbrJmJcMovz4b2Sk-3SPvs_gg2oZs0oUdn7UNSKNpbQM8sKynozU7r-Sn8xwb-YXiUXMK3jiiOpwB2XYbiZWHRYRjZULUApQ05ldPIqnJCCZlL1iYmGiArswX8ah0OW78b62bg9XPgcsSSry3GB0Z5lWbzeyHA7fXsQ"/>
+<button class="absolute -top-1 -right-1 bg-white shadow-md rounded-full p-1.5 text-error">
+<span class="material-symbols-outlined favorite-active" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Beras Pandan Wangi 5kg</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+<p class="font-body-md text-body-md">Toko Beras Jaya</p>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<p class="font-price-lg text-price-lg text-primary">Rp 72.000</p>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 bg-primary text-on-primary h-11 rounded-lg font-label-lg text-label-lg hover:brightness-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        Pindahkan ke Keranjang
+                    </button>
+<button class="w-11 h-11 border border-outline-variant rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section Spacer -->
+<div class="h-24"></div>
+<!-- Empty State Preview (Hidden or optional) -->
+<section class="hidden text-center py-stack-lg max-w-xs mx-auto" id="empty-state-section">
+<img alt="Favorit Kosong" class="w-full h-auto mb-6 opacity-90 mx-auto rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjhT7fYli_TSZFnXxd5aCSj-_WpQYE1T0TQTOkpoHcdyaJJR4rlVjkUm4QA83w3w-CO3JO_mrwdPba7vJ1oa85hVsx5jbUIrYvgSzLGVDdRN3fr_mudtEvi-YGwosBdl8pJxlSlk4EZ0TWuBAwPAkUeBpMSzl49qC_DKvbnrGrXhgUzuMibJpJwsMIrGJ7a2lTFs2hQZomT7UNivYhoPfhD-bMT7gVf1InEcFd9bXK3IcTNTq15oIYSg"/>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Belum ada favorit</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                Yuk, kumpulin barang-barang kesukaan kamu di sini supaya belanja jadi lebih cepat!
+            </p>
+<button class="w-full bg-primary text-on-primary h-touch-target rounded-full font-label-lg text-label-lg shadow-lg active:scale-95 transition-transform">
+                Cari Produk Sekarang
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-lowest dark:bg-surface-container-low shadow-[0_-2px_10px_rgba(125,82,49,0.08)] rounded-t-xl">
+<!-- Beranda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Favorit (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm text-label-sm">Favorit</span>
+</a>
+<!-- Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors px-4 py-1 rounded-full active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for favorite toggling
+        document.querySelectorAll('.favorite-active').forEach(icon => {
+            icon.parentElement.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                if (isFilled) {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                    icon.closest('.shadow-sm').classList.add('opacity-50', 'grayscale-[0.5]');
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    icon.closest('.shadow-sm').classList.remove('opacity-50', 'grayscale-[0.5]');
+                }
+            });
+        });
+
+        // Toggle Empty State Logic (For demonstration)
+        function toggleEmptyState() {
+            const list = document.getElementById('favorites-list');
+            const empty = document.getElementById('empty-state-section');
+            if(list.children.length > 0) {
+                // To trigger empty state, you can clear the innerHTML of list
+                // list.innerHTML = '';
+                // list.classList.add('hidden');
+                // empty.classList.remove('hidden');
+            }
+        }
+    </script>
+</body></html>

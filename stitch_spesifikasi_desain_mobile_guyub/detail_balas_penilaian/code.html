@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Detail &amp; Balas Penilaian</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f3f3;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c1c",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-dim": "#dbd9d9",
+                    "outline": "#6f7a71",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-container": "#f6fff6",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-container": "#ff7a2b",
+                    "on-secondary-container": "#602500",
+                    "inverse-primary": "#7ed9a6",
+                    "primary-container": "#258459",
+                    "surface-container": "#efeded",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container-high": "#eae8e7",
+                    "surface-variant": "#e4e2e2",
+                    "tertiary-container": "#996a47",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-background": "#1b1c1c",
+                    "surface-tint": "#006c44",
+                    "primary-fixed": "#9af5c1",
+                    "background": "#fbf9f8",
+                    "primary": "#006a42",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed-dim": "#ffb692",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "tertiary": "#7d5231",
+                    "outline-variant": "#bec9bf",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#303030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 bg-surface-container-low shadow-sm z-40 transition-transform active:scale-95">
+<div class="flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Penilaian Toko</h1>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Review Focus Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<!-- User Info & Rating Header -->
+<div class="p-4 flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A profile headshot of a friendly Indonesian woman smiling warmly, high-quality digital photography with soft natural lighting and a blurred neighborhood background. The visual style is clean and corporate modern, reflecting a trusted local community member with natural features and a professional yet approachable aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx4-j9spRt_-N6HXIn7cjgLpKW_sHoDBp19ufROL2Ef-HfKfQKbNRgCDgebaEH57h086UMreoA6FoJiLS9VGHDBVuzC7sLoMUWzrCyKaT14nBB8gWTtFsW__5OT_aWhjF4khGaLsjGNdmQssol0swRJBHeJgedjF07WvKWnfTSSlM9S1PlSM0FqegrWFOCt8z5Y51I6VNf7eCoIm7fWJq0sIoqPDi4dnroFiBCoQWf0bER7eHu5OXp5Q">
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Siti Aminah</p><div class="flex flex-wrap gap-1 mt-1">
+    <div class="inline-flex items-center gap-1 bg-secondary/10 px-2 py-0.5 rounded-full">
+        <span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+        <span class="text-[10px] font-label-lg text-secondary uppercase tracking-wider">Lokal Hero</span>
+    </div>
+    <div class="inline-flex items-center gap-1 bg-primary/10 px-2 py-0.5 rounded-full">
+        <span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+        <span class="text-[10px] font-label-lg text-primary uppercase tracking-wider">Ulasan Detail</span>
+    </div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Kemarin • 14:20</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-primary-container/10 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-price-lg text-price-lg text-secondary">5.0</span>
+</div>
+</div>
+<!-- Review Content -->
+<div class="px-4 pb-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Ayam Geprek sambal koreknya mantap banget! Pedesnya pas, ayamnya masih crispy walaupun dibawa pulang. Porsinya juga mengenyangkan buat makan siang. Makasih ya, langganan terus pokoknya!
+                </p>
+<!-- Enlarged Photo Gallery -->
+<div class="mt-stack-md grid grid-cols-2 gap-2">
+<div class="aspect-square rounded-xl overflow-hidden cursor-zoom-in group relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional close-up of a crispy Indonesian Ayam Geprek dish with vibrant red sambal on top, served in a clean brown craft box. The lighting is warm and appetizing, highlighting the texture of the fried chicken and the freshness of the chili. Corporate modern food photography with a soft focus on a clean wooden table background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCopiG8Oa_m_6-uBobHDZ1g-8SArfzQcipxZZ00D7_esll1mJdT1rtr-MflvHIMw1kokr7A95J8JFElwg6Lr_OWt_yBZPePxbcqror3DeuOfIEi0vi_fhP-XvpgQnXa7h8BeLJ7zuhUJi42hFAJiq-qgeJZ1OVShJBGOEDa7VltMpqtFCNvqLT2-JBM-qvRUvLe8kIv43I8sosptM-1ZjKqNQafzOfsCcdTt80e4LeZmolpWmMzGlu4rQ">
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden cursor-zoom-in group relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle shot of a local Indonesian food stall interior, looking clean, organized, and welcoming. Soft morning light enters through a window, illuminating the green-themed brand elements and neatly arranged seating. The mood is Santai but professional, emphasizing cleanliness and reliability in a neighborhood market setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAry_HFM_hL9naoxEv7NnavVCvjPVsw4pCSxa4mqvj7tKFRcrgchQEpoRfma-UD25hEONGNW7gkVJB83gv_JFIvNN0RdeP9DWP4Mu9ve0DPs9sLqV1LAFPLylFueGFpg__oWCC0pg3_vYSLDRhj_5JWmvQyW0s800LydyJP6rpn6lcu8LGY5fHAEwLsFYBW9AKwfvWqZ5Te6dWEqrkq352wsJuBlk65ZN3eNR966mlEuN5McO1HBv-iXw">
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<!-- Product Tag -->
+<div class="mt-stack-md inline-flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">shopping_bag</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ayam Geprek Sambal Korek (Paket Hemat)</span>
+</div>
+</div>
+</section>
+<!-- Interaction History (Previous Replies) -->
+<section class="space-y-stack-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant px-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">history</span>
+                Riwayat Interaksi
+            </h2>
+<!-- Threading logic -->
+<div class="relative pl-6 space-y-4">
+<div class="absolute left-[11px] top-2 bottom-2 w-[2px] bg-outline-variant/30"></div>
+<!-- History Item 1 -->
+<div class="relative bg-surface-container-low p-4 rounded-xl border border-outline-variant/20">
+<div class="absolute -left-[19px] top-5 w-4 h-4 rounded-full bg-primary border-4 border-surface"></div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-primary">Dibalas oleh Kamu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 jam lalu</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Halo Kak Siti! Senang banget kalau suka. Kami selalu pakai cabai segar setiap hari biar rasa sambalnya nendang. Ditunggu orderan berikutnya ya!</p>
+</div>
+</div>
+</section>
+<!-- Reply Input Area -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-4 space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">reply</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Kirim Balasan Baru</h3>
+</div>
+<div class="relative group">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 ml-1" for="merchant-reply">Pesan untuk pelanggan</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-lg p-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none custom-scrollbar" id="merchant-reply" placeholder="Tulis ucapan terima kasih atau informasi tambahan..." rows="4"></textarea>
+<div class="absolute bottom-3 right-3 text-[10px] font-label-sm text-on-surface-variant/50">0/500</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="">Kirim Balasan</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+<button class="w-full h-touch-target bg-transparent text-primary font-label-lg text-label-lg rounded-full border border-primary/20 hover:bg-primary/5 transition-colors">
+                    Gunakan Template Balasan
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)]">
+<div class="flex justify-around items-center h-16 px-gutter-mobile">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all duration-200 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span class="font-label-sm text-label-sm">Ulasan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</div>
+</nav>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('merchant-reply');
+            const counter = textarea.nextElementSibling;
+            
+            textarea.addEventListener('input', (e) => {
+                const len = e.target.value.length;
+                counter.textContent = `${len}/500`;
+                
+                if (len > 450) {
+                    counter.classList.add('text-secondary');
+                } else {
+                    counter.classList.remove('text-secondary');
+                }
+            });
+
+            // Ripple-like effect on button
+            const primaryBtn = document.querySelector('button.bg-primary');
+            primaryBtn.addEventListener('click', function(e) {
+                if (textarea.value.trim() === "") {
+                    textarea.classList.add('border-error');
+                    textarea.focus();
+                    setTimeout(() => textarea.classList.remove('border-error'), 500);
+                    return;
+                }
+                
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Mengirim...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Terkirim';
+                    this.classList.replace('bg-primary', 'bg-primary-container');
+                    this.classList.replace('text-on-primary', 'text-on-primary-container');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.classList.replace('bg-primary-container', 'bg-primary');
+                        this.classList.replace('text-on-primary-container', 'text-on-primary');
+                        this.disabled = false;
+                        textarea.value = "";
+                        counter.textContent = "0/500";
+                    }, 2000);
+                }, 1200);
+            });
+        });
+    </script>
+
+
+</body></html>

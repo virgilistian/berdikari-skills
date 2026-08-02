@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#eae8e7",
+                    "tertiary": "#7d5231",
+                    "on-primary-fixed-variant": "#005232",
+                    "background": "#fbf9f8",
+                    "surface": "#fbf9f8",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-surface-variant": "#3f4942",
+                    "primary": "#006a42",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container": "#efeded",
+                    "surface-dim": "#dbd9d9",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-container": "#f6fff6",
+                    "surface-variant": "#e4e2e2",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#006c44",
+                    "primary-fixed": "#9af5c1",
+                    "on-surface": "#1b1c1c",
+                    "outline-variant": "#bec9bf",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#602500",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline": "#6f7a71",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-container": "#996a47",
+                    "surface-container-low": "#f5f3f3",
+                    "inverse-primary": "#7ed9a6",
+                    "secondary-container": "#ff7a2b",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed": "#301400",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-background": "#1b1c1c",
+                    "primary-container": "#258459",
+                    "on-secondary-fixed": "#341100",
+                    "on-tertiary-fixed-variant": "#653d1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .receipt-zoom-container {
+            touch-action: pinch-zoom;
+            overflow: auto;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for immersive feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-black/90 selection:bg-primary-container selection:text-on-primary-container antialiased overflow-hidden">
+<!-- Modal Layout Wrapper -->
+<div class="relative w-full h-screen flex flex-col items-center justify-center">
+<!-- TopAppBar Navigation -->
+<!-- Based on COMPONENT_229 logic: bg-black/60, close icon, download action -->
+<header class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile h-touch-target bg-black/60 transition-opacity duration-200">
+<button class="material-symbols-outlined text-on-primary p-2 transition-opacity duration-200 active:scale-95 hover:bg-white/10 rounded-full" data-icon="close">
+                close
+            </button>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-on-primary p-2 transition-opacity duration-200 active:scale-95 hover:bg-white/10 rounded-full" data-icon="share">
+                    share
+                </button>
+<button class="material-symbols-outlined text-on-primary p-2 transition-opacity duration-200 active:scale-95 hover:bg-white/10 rounded-full" data-icon="download">
+                    download
+                </button>
+</div>
+</header>
+<!-- Main Content: High-Resolution Receipt -->
+<main class="w-full h-full flex items-center justify-center overflow-auto p-4 md:p-8 receipt-zoom-container">
+<div class="relative max-w-full max-h-full transition-transform duration-300 ease-out origin-center" id="receipt-wrapper">
+<img alt="Struk Transaksi Guyub" class="shadow-2xl rounded-lg max-h-[85vh] w-auto object-contain cursor-zoom-in" id="receipt-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClz0uDWfQVDdpqefLKRMGeLD5TcRl2pqAO18jF8C0qw7sZuA6WRswkJD-kUFK76hNG851aFmNZhVjxGwzngIgWPVxlGUMCh6nMeoHz3Gxk8OU9X8dOCptCk-AutAbxWFeKblv1kywMnwb5ZDvv4TktHlTETaUguxnSOIUPOuxLEOs80ypysjNlv_X6R1oxS2Uyls-FKrpxtKpFrWtoDW-yXYzSU7w2JziPXezrIaFgyYGMTBWJ2wbBnQ"/>
+</div>
+</main>
+<!-- Visual Cue: Pinch to Zoom -->
+<div class="fixed bottom-12 flex justify-center w-full pointer-events-none px-margin-mobile">
+<div class="bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 animate-bounce">
+<span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 0;">zoom_in</span>
+<span class="font-label-sm text-label-sm text-on-primary">Cubit untuk perbesar</span>
+</div>
+</div>
+<!-- Background Atmospheric Element (Subtle Gradient) -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-transparent to-black opacity-40"></div>
+</div>
+<!-- Interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const img = document.getElementById('receipt-img');
+            const wrapper = document.getElementById('receipt-wrapper');
+            let scale = 1;
+            let initialDist = 0;
+
+            // Simple micro-interaction for visual feedback on click/tap
+            img.addEventListener('click', () => {
+                if (scale === 1) {
+                    scale = 1.5;
+                    img.style.cursor = 'zoom-out';
+                } else {
+                    scale = 1;
+                    img.style.cursor = 'zoom-in';
+                }
+                wrapper.style.transform = `scale(${scale})`;
+            });
+
+            // Native pinch-to-zoom is supported by 'touch-action: pinch-zoom' on the container,
+            // but we can add a simple drag behavior for mobile if needed.
+            // For this high-fidelity prototype, we rely on browser-level high-res rendering.
+        });
+
+        // Close action simulation
+        const closeBtn = document.querySelector('[data-icon="close"]');
+        closeBtn.addEventListener('click', () => {
+            // Visual exit animation
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
+            setTimeout(() => {
+                console.log('Closing Modal...');
+                // In a real app, this would trigger navigation back or window.history.back()
+            }, 300);
+        });
+    </script>
+</body></html>

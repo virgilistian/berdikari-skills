@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Komplain &amp; Solusi - Guyub Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "background": "#fbf9f8",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-tint": "#006c44",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#bec9bf",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-container": "#f6fff6",
+                    "on-secondary-fixed": "#341100",
+                    "surface": "#fbf9f8",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-highest": "#e4e2e2",
+                    "tertiary-container": "#996a47",
+                    "primary-container": "#258459",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-dim": "#dbd9d9",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary-fixed": "#002111",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "secondary-container": "#ff7a2b",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary-container": "#602500",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-container": "#efeded",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "tertiary-fixed": "#ffdcc5",
+                    "outline": "#6f7a71",
+                    "inverse-surface": "#303030",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-variant": "#e4e2e2",
+                    "primary": "#006a42",
+                    "on-surface-variant": "#3f4942",
+                    "secondary": "#9f4200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "base": "4px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim shadow-sm z-50 flex items-center px-margin-mobile h-touch-target">
+<button class="mr-4 text-primary p-2 hover:bg-surface-container-high transition-colors active:scale-95 duration-150 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Detail Komplain</h1>
+</header>
+<main class="max-w-md mx-auto p-margin-mobile space-y-stack-lg">
+<!-- Status Banner -->
+<section class="bg-secondary-fixed text-on-secondary-fixed px-4 py-3 rounded-xl flex items-center justify-between shadow-sm border-l-4 border-secondary transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined filled-icon text-secondary" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<div>
+<p class="font-label-lg text-label-lg">Menunggu Tanggapan</p>
+<p class="font-label-sm text-label-sm opacity-80">Segera berikan solusi untuk pembeli</p>
+</div>
+</div>
+</section>
+<!-- Complaint Info Section -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm space-y-stack-md">
+<!-- Customer Profile -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A friendly close-up portrait of a local Indonesian man named Budi Santoso, wearing a casual polo shirt. He has a warm, approachable smile, reflecting the neighborly and communal spirit of the Guyub application. The photography is soft and well-lit with natural daylight, shot in a high-quality lifestyle portrait style against a soft-focus garden background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8KnZa5HhE53CTTBoP08pORpZHrdz0LR0VqtSwjRsOKIBDEpiBaAizosGLKXwIsRBSbfyfyUy7rWn1Jlejp6XJZ6TWbjVm0qcKRy2igtZdhDI6G7_a2ccQmzmou3ikGDgy7aByosDVRUOxrBHuTSwj1PBQvYgGnJ4DCnb8bLHkNUugWIQ0RlLdUl1y-BHOVzUVurl7udAu7rjsB9Db37R2oR3EDQhaoBE5fIPEto8wUvJRsPhgPAZHg"/>
+</div>
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface">Budi Santoso</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                            Order #G-8821 <span class="text-outline">•</span> 10 menit yang lalu
+                        </p>
+</div>
+</div>
+<div class="px-3 py-1 bg-error-container text-on-error-container rounded-full font-label-sm text-label-sm">
+                    Makanan Tumpah
+                </div>
+</div>
+<!-- Description -->
+<div class="bg-surface-container-low p-3 rounded-lg border-l-2 border-primary-container">
+<p class="font-body-md text-body-md text-on-surface italic">
+                    "Saus sambal tumpah di dalam plastik, jadi semua kemasan kotor. Minta tolong diperhatikan lagi pengemasannya."
+                </p>
+</div>
+<!-- Photo Evidence Grid -->
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-high relative group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A realistic top-down photo showing a clear plastic delivery bag where a container of Indonesian food has leaked. Bright red chili sauce (sambal) is smeared across the inner walls of the plastic bag and over a white styrofoam food container. The lighting is realistic, emphasizing the messiness of the spill to provide visual evidence for a merchant complaint, set in a bright light-mode interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMsKTrBrHwIcQj2aDKRTZQqoNILZNnv9LbSrhZ-LQsas7j0LfJ5lVb3tbUbIvdZ8b1BfhGN9BxLordB_crzwuKgBGoLuhkbvgymRtY0pBeGNAmu2hOirjNB_JIjBuulUt7Mx8QMi-OnH9zqpUJ8sSvFXDUhDHel5yRmpa-ClUttHOfd4WJF_aQoiZ-hwYUYVztjvm1qlfxWNEaqzZrFB-_XQQ5dxdOITVd7Y1zqO_XBcfqGzPXPMfRGA"/>
+<div class="absolute inset-0 bg-black/10 group-active:bg-black/20 transition-colors"></div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-high relative group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A detailed close-up shot of a messy food delivery container. A pool of orange-red sauce has leaked out of its paper bowl onto a white plastic surface, with oily residues visible. The scene captures the frustration of a damaged order, using sharp focus on the spilled sauce and high-key lighting to maintain the clean, corporate modern aesthetic of the Guyub app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3bSe-RfOgUcqTHNIBgQRKHWGohZ2CSl45YQ4OhruzfQCuEIwC8uNKsUUhwQbMh9PCOLK8wvtKCjeZQ_ls3EHqa7ZROQYn6QU-TBOOzR0TVQmFzrXsQrshJP-156S3V1OnkJ7w7VIrqwoRuG-gf34aYPOIEdYIkfSqihR5J91ucO6t8jvdlgp2NuTyykQpeSD6Udy2MHX1rw2kqCiaMfWvYewNewtDWrkrs4S-YR01hHPnVoHUnj1JjA"/>
+<div class="absolute inset-0 bg-black/10 group-active:bg-black/20 transition-colors"></div>
+</div>
+</div>
+</section>
+<!-- Order Items Involved -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+                Item Terkait
+            </h3>
+<div class="flex items-center gap-4 py-2 border-t border-surface-variant">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A professional food photography shot of Nasi Goreng Spesial (Indonesian Fried Rice) on a ceramic plate. The rice is golden-brown, topped with a perfectly fried sunny-side-up egg, sliced cucumbers, and tomatoes. The lighting is warm and appetizing, highlighting the texture of the rice and the fresh garnishes, consistent with a high-end merchant app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNUK-h51w1eKp68AvTu-loNF-h0TbMPSLfay6WXawgTE8X_04EN5U03HopFcT74qOF6UT06jC3iSrjzHxEQgvhcds3ibhKSJfLGirl5pdxz7G9gL1VngaR5nIU9eiOm9NckBLauNpFO1N2cW6TLGxuQ1A0JX8nSM45f29W1CLZ93k61FccfqNghFBkKQS1JdHQ4a82CLiMQY7exH9Mq7vv0vK6hhb_9tEnBenIWUwSWFw6Gkdg5FXKnw"/>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Nasi Goreng Spesial</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1x</p>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-price-lg text-primary">Rp 25.000</p>
+</div>
+</div>
+</section>
+<!-- Solution Options Section -->
+<section class="space-y-3">
+<h3 class="font-label-lg text-label-lg text-on-surface px-1">Tawarkan Solusi</h3>
+<div class="grid grid-cols-1 gap-3">
+<!-- Primary Action -->
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:brightness-95 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="rebase_edit">rebase_edit</span>
+                    Kirim Pesanan Ulang
+                </button>
+<!-- Secondary Action -->
+<button class="w-full h-touch-target bg-surface-container-lowest text-secondary border border-secondary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-secondary/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Kembalikan Dana
+                </button>
+<!-- Chat Action -->
+<button class="w-full h-touch-target bg-tertiary-fixed text-on-tertiary-fixed rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 hover:brightness-95 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                    Chat dengan Pembeli
+                </button>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant pt-4 px-4">
+                Pilih solusi terbaik untuk menjaga kepercayaan tetangga. Guyub mendukung setiap langkah baikmu.
+            </p>
+</section>
+</main>
+<!-- BottomNavBar (Filtered Visibility: Hidden on detail pages, but following rule for persistent shells) -->
+<!-- Determined active: "Komplain" as this is a complaint detail -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter-mobile py-2 bg-surface dark:bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined filled-icon" data-icon="report_problem" style="font-variation-settings: 'FILL' 1;">report_problem</span>
+<span class="font-label-sm text-label-sm">Komplain</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

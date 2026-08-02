@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#996a47",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container": "#efeded",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-tint": "#006c44",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-secondary-fixed": "#341100",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "primary": "#006a42",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-surface": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e4e2e2",
+                    "surface-dim": "#dbd9d9",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "outline": "#6f7a71",
+                    "inverse-surface": "#303030",
+                    "on-primary-fixed-variant": "#005232",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#3f4942",
+                    "on-secondary-fixed-variant": "#793100",
+                    "outline-variant": "#bec9bf",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-container": "#258459",
+                    "on-secondary-container": "#602500",
+                    "on-background": "#1b1c1c",
+                    "inverse-primary": "#7ed9a6",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-fixed": "#9af5c1",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-bright": "#fbf9f8",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary": "#9f4200",
+                    "background": "#fbf9f8",
+                    "surface": "#fbf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .switch-checkbox:checked + .switch-label {
+            background-color: #006a42;
+        }
+        .switch-checkbox:checked + .switch-label .switch-ball {
+            transform: translateX(20px);
+            background-color: #ffffff;
+        }
+
+        .day-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .time-picker-focus:focus-within {
+            border-color: #006a42;
+            box-shadow: 0 0 0 1px #006a42;
+        }
+        
+        /* Custom hide scrollbar */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim shadow-sm z-[60] flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Atur Jam Operasional</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="check">check</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-stack-md flex flex-col gap-stack-lg">
+<!-- Bulk Action Banner -->
+<section class="bg-primary-container/10 border border-primary-fixed-dim rounded-xl p-4 flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary">Jadwal Seragam?</span>
+<p class="text-body-md font-body-md text-on-surface-variant">Klik tombol di samping untuk menyamakan semua jam operasional.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-4 py-2 rounded-full shadow-sm active:scale-95 transition-transform whitespace-nowrap" onclick="applyToAll()">
+                Terapkan Semua
+            </button>
+</section>
+<!-- Operating Hours List -->
+<section class="flex flex-col gap-stack-md" id="days-container">
+<!-- Monday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Senin">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md">Senin</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Senin" name="toggle-Senin" onchange="toggleDay('Senin')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Senin"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Selasa">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md">Selasa</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Selasa" name="toggle-Selasa" onchange="toggleDay('Selasa')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Selasa"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Rabu">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md">Rabu</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Rabu" name="toggle-Rabu" onchange="toggleDay('Rabu')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Rabu"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Kamis">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md">Kamis</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Kamis" name="toggle-Kamis" onchange="toggleDay('Kamis')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Kamis"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Friday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Jumat">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md">Jumat</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Jumat" name="toggle-Jumat" onchange="toggleDay('Jumat')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Jumat"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="day-card bg-surface-container-lowest p-4 rounded-xl shadow-[0_2px_10px_rgba(125,82,49,0.06)] border border-outline-variant/30" data-day="Sabtu">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md text-secondary">Sabtu</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Buka</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Sabtu" name="toggle-Sabtu" onchange="toggleDay('Sabtu')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Sabtu"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-40">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="09:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="15:00"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Sunday -->
+<div class="day-card bg-surface-container-low p-4 rounded-xl shadow-sm border border-outline-variant/30" data-day="Minggu">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-headline-md text-headline-md text-error">Minggu</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant status-label">Tutup</span>
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 border-outline-variant appearance-none cursor-pointer z-10" id="toggle-Minggu" name="toggle-Minggu" onchange="toggleDay('Minggu')" type="checkbox"/>
+<label class="switch-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="toggle-Minggu"></label>
+<span class="switch-ball absolute block w-4 h-4 mt-1 ml-1 rounded-full bg-white transition-transform duration-200 ease-in z-20 pointer-events-none"></span>
+</div>
+</div>
+</div>
+<div class="time-inputs grid grid-cols-2 gap-4 transition-all duration-300 overflow-hidden max-h-0 opacity-0">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Buka</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-primary text-[20px] mr-2">schedule</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-open" type="time" value="08:00"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Jam Tutup</label>
+<div class="time-picker-focus flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 h-touch-target">
+<span class="material-symbols-outlined text-tertiary text-[20px] mr-2">history</span>
+<input class="bg-transparent border-none p-0 text-body-lg font-body-lg w-full focus:ring-0 time-close" type="time" value="17:00"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Info -->
+<div class="flex gap-3 bg-surface-container p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-body-md font-body-md text-on-surface-variant">Pastikan jam operasional akurat agar pembeli tidak kecewa saat datang ke tokomu.</p>
+</div>
+</main>
+<!-- Fixed Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest p-margin-mobile border-t border-outline-variant/20 z-[70] shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+<button class="w-full bg-primary text-on-primary font-headline-md py-4 rounded-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="save-btn">
+<span class="material-symbols-outlined">save</span>
+            Simpan Jadwal
+        </button>
+</div>
+<!-- Success Feedback Overlay (Hidden by default) -->
+<div class="fixed inset-0 bg-black/40 z-[100] hidden flex items-center justify-center p-8 backdrop-blur-sm" id="success-overlay">
+<div class="bg-surface-container-lowest rounded-2xl p-8 flex flex-col items-center text-center max-w-xs shadow-2xl animate-in zoom-in duration-300">
+<div class="w-20 h-20 bg-primary-container/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-5xl">check_circle</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">Berhasil Disimpan!</h3>
+<p class="text-body-md text-on-surface-variant mb-6">Jam operasional tokomu telah diperbarui secara otomatis.</p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-lg" onclick="closeSuccess()">Tutup</button>
+</div>
+</div>
+<script>
+        function toggleDay(day) {
+            const card = document.querySelector(`.day-card[data-day="${day}"]`);
+            const checkbox = document.getElementById(`toggle-${day}`);
+            const timeInputs = card.querySelector('.time-inputs');
+            const statusLabel = card.querySelector('.status-label');
+            
+            if (checkbox.checked) {
+                timeInputs.classList.remove('max-h-0', 'opacity-0');
+                timeInputs.classList.add('max-h-40', 'opacity-100');
+                statusLabel.innerText = 'Buka';
+                statusLabel.classList.remove('text-on-surface-variant');
+                statusLabel.classList.add('text-primary');
+                card.classList.remove('bg-surface-container-low');
+                card.classList.add('bg-surface-container-lowest');
+            } else {
+                timeInputs.classList.add('max-h-0', 'opacity-0');
+                timeInputs.classList.remove('max-h-40', 'opacity-100');
+                statusLabel.innerText = 'Tutup';
+                statusLabel.classList.add('text-on-surface-variant');
+                statusLabel.classList.remove('text-primary');
+                card.classList.add('bg-surface-container-low');
+                card.classList.remove('bg-surface-container-lowest');
+            }
+        }
+
+        function applyToAll() {
+            // Get values from Monday (Senin)
+            const mondayCard = document.querySelector('.day-card[data-day="Senin"]');
+            const openTime = mondayCard.querySelector('.time-open').value;
+            const closeTime = mondayCard.querySelector('.time-close').value;
+            const isOpen = document.getElementById('toggle-Senin').checked;
+
+            const allCards = document.querySelectorAll('.day-card');
+            
+            allCards.forEach(card => {
+                const day = card.getAttribute('data-day');
+                // Skip Monday itself
+                if (day === 'Senin') return;
+
+                const checkbox = document.getElementById(`toggle-${day}`);
+                const openInput = card.querySelector('.time-open');
+                const closeInput = card.querySelector('.time-close');
+
+                checkbox.checked = isOpen;
+                openInput.value = openTime;
+                closeInput.value = closeTime;
+                
+                toggleDay(day);
+            });
+
+            // Brief visual feedback
+            const btn = document.querySelector('button[onclick="applyToAll()"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Berhasil!';
+            btn.classList.add('bg-secondary');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-secondary');
+            }, 1500);
+        }
+
+        document.getElementById('save-btn').addEventListener('click', function() {
+            const btn = this;
+            const originalContent = btn.innerHTML;
+            
+            // Loading state
+            btn.innerHTML = `<span class="animate-spin material-symbols-outlined">progress_activity</span> Menyimpan...`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('success-overlay').classList.remove('hidden');
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+            }, 1200);
+        });
+
+        function closeSuccess() {
+            document.getElementById('success-overlay').classList.add('hidden');
+        }
+
+        // Initialize state for Sunday (which is closed by default in HTML)
+        toggleDay('Minggu');
+    </script>
+</body></html>

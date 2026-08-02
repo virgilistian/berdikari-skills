@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(10deg); }
+            50% { transform: translateY(-10px) rotateX(12deg); }
+            100% { transform: translateY(0px) rotateX(10deg); }
+        }
+
+        .ar-card {
+            perspective: 1000px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .camera-feed-blur {
+            backdrop-filter: blur(2px);
+        }
+
+        /* Scanline effect for AR feel */
+        .ar-overlay::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#002111",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "outline-variant": "#bec9bf",
+                        "on-primary-container": "#f6fff6",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "outline": "#6f7a71",
+                        "primary-container": "#258459",
+                        "on-secondary-fixed-variant": "#793100",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#ff7a2b",
+                        "surface-container": "#efeded",
+                        "inverse-surface": "#303030",
+                        "on-background": "#1b1c1c",
+                        "tertiary": "#7d5231",
+                        "secondary": "#9f4200",
+                        "background": "#fbf9f8",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary": "#006a42",
+                        "secondary-fixed": "#ffdbcb",
+                        "inverse-primary": "#7ed9a6",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#9af5c1",
+                        "surface-container-low": "#f5f3f3",
+                        "on-secondary-container": "#602500",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-container": "#996a47",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-primary-fixed-variant": "#005232",
+                        "surface-container-high": "#eae8e7",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf9f8",
+                        "surface": "#fbf9f8",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface-variant": "#3f4942",
+                        "surface-tint": "#006c44",
+                        "on-surface": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "touch-target": "44px",
+                        "gutter-mobile": "12px",
+                        "stack-lg": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black overflow-hidden select-none">
+<!-- AR Camera View Container -->
+<div class="relative w-full h-screen overflow-hidden ar-overlay">
+<!-- Live Camera Feed (Simulated Background) -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A POV perspective of a bustling Indonesian residential neighborhood street during a bright, sunny morning. Warm golden sunlight filters through leafy tropical trees, illuminating traditional local architecture and colorful storefronts. The atmosphere is vibrant and communal with soft-focus residents in the background. The visual style is crisp and photorealistic, maintaining a clean corporate-modern aesthetic with warm, saturated tones that align with a high-end travel or neighborhood app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1x929Wu-c0wm730ncrnDPBwIU5tXM64SG7zktHBJGCNtnC9DyAuPrg-L18yqVGy1ik05DXnT7s5_wBomit-sSsKBgkHS4BNnPvhnrKn5KIs43WmBFT0xSotgv1dGGhlT0es6FMIXqm2okVSuoDazIrodYSWlpStD-p2fOvGSKTuHC0KZMInuHA-5UEO-WULczgaCeSDK7uW7gWEsbY7-xBLwI-O_szSZyxheOSzo-BZC0uU0yvVP_5w')"></div>
+</div>
+<!-- Interface Layer -->
+<div class="relative z-10 w-full h-full flex flex-col pointer-events-none">
+<!-- Top App Bar (Custom Implementation based on JSON Anchors) -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-touch-target mt-4 pointer-events-auto">
+<button class="w-11 h-11 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="bg-black/30 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-lg text-label-lg text-white">Pangkalan, Tegalwaru</span>
+</div>
+<button class="w-11 h-11 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+</header>
+<!-- Floating AR Content Area -->
+<main class="flex-grow relative px-margin-mobile">
+<!-- AR Pin 1: Bakso Pak Min -->
+<div class="ar-card absolute top-[25%] left-[10%] pointer-events-auto group">
+<div class="relative flex flex-col items-center">
+<!-- Floating Card -->
+<div class="bg-white/95 backdrop-blur-xl p-3 rounded-xl shadow-2xl border border-white flex flex-col gap-1 w-48 group-hover:scale-105 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-[16px] text-on-surface line-clamp-1">Bakso Pak Min</h3>
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">directions_walk</span>
+<span class="font-label-sm text-label-sm">50m • 2 menit</span>
+</div>
+<div class="mt-2 flex gap-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[10px]">REKOMENDASI</span>
+</div>
+</div>
+<!-- Connection Line & Dot -->
+<div class="w-0.5 h-12 bg-gradient-to-b from-white to-transparent opacity-60"></div>
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(0,106,66,0.6)] border-2 border-white"></div>
+</div>
+</div>
+<!-- AR Pin 2: Warung Jajanan Bulet -->
+<div class="ar-card absolute top-[40%] right-[15%] pointer-events-auto group" style="animation-delay: -1s;">
+<div class="relative flex flex-col items-center">
+<!-- Floating Card -->
+<div class="bg-white/95 backdrop-blur-xl p-3 rounded-xl shadow-2xl border border-white flex flex-col gap-1 w-44 group-hover:scale-105 transition-transform duration-300">
+<h3 class="font-headline-md text-[16px] text-on-surface line-clamp-1">Warung Jajanan Bulet</h3>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">local_offer</span>
+<span class="font-label-sm text-label-sm font-bold">Promo 20%</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">near_me</span>
+<span class="font-label-sm text-label-sm">120m</span>
+</div>
+</div>
+<!-- Connection Line & Dot -->
+<div class="w-0.5 h-16 bg-gradient-to-b from-white to-transparent opacity-60"></div>
+<div class="w-4 h-4 rounded-full bg-secondary shadow-[0_0_15px_rgba(159,66,0,0.6)] border-2 border-white"></div>
+</div>
+</div>
+<!-- Scanning Reticle -->
+<div class="absolute inset-0 flex items-center justify-center opacity-40">
+<div class="w-64 h-64 border-2 border-dashed border-white/30 rounded-full flex items-center justify-center">
+<div class="w-24 h-24 border border-white/50 rounded-full animate-ping"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Section: Carousel of Nearby Places -->
+<footer class="w-full pb-8 pt-4 px-4 pointer-events-auto bg-gradient-to-t from-black/60 to-transparent">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label-lg text-white">8 tempat di sekitar kamu</span>
+</div>
+<button class="font-label-sm text-white/80 underline">Lihat Semua</button>
+</div>
+<!-- Horizontal Carousel -->
+<div class="flex overflow-x-auto gap-4 hide-scrollbar snap-x pb-4">
+<!-- Place Card 1 -->
+<div class="snap-center shrink-0 w-[240px] bg-white rounded-xl overflow-hidden shadow-lg flex border border-white/10">
+<div class="w-20 h-full bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up shot of a steaming bowl of traditional Indonesian bakso meatball soup, served in a ceramic bowl with clear broth, yellow noodles, and fresh celery garnishes. The lighting is warm and natural, suggesting an authentic outdoor street stall setting. The photography is clean and high-end, focusing on appetizing textures and vibrant colors in a modern Indonesian culinary style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCd7re1jWX4qL3BRUjzkmNdAW219GmsGZZtQO4w490YWAHWQ0CHaFz7qSddIK6aO1Wu-ABVh2dp8mxktjB4hpxUxDAOf3yPkSCyIQFuqaVzJxUqTYOtH54ggRTKCFh2x-YfvUAM3fLyuCQ_f1aAzgQ_8ARmGC5EWffEVnonXB4aCv_GX_WAHrbApPYcdJt7Vel99E0S0hILeOZjTeH-19ieGlpRsBu34S5-MglZyJ9JNoYxtk2UgCx9ng')"></div>
+</div>
+<div class="flex-1 p-3 flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-primary mb-1">Makan Siang</p>
+<h4 class="font-headline-md text-[14px] leading-tight text-on-surface">Bakso Pak Min</h4>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-on-surface-variant">50m</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Place Card 2 -->
+<div class="snap-center shrink-0 w-[240px] bg-white rounded-xl overflow-hidden shadow-lg flex border border-white/10">
+<div class="w-20 h-full bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="A colorful display of traditional Indonesian market snacks, known as jajanan pasar, featuring various textures and vibrant natural colors like green from pandan and pink. The snacks are neatly arranged on a banana leaf tray in a bright, modern shop setting. High-quality commercial food photography with a soft focus background and warm, neighborly lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAptZ--0LUazqCqOh2g0jLb6SnnClWC-jqJIQWYgxoXv0NkYKq1zi2Sf6IR4PeCbLFQefVeArVwkoWbWQmD_03vZr3Kw4dvOPwFEzCanalS7qXQEvavYsl5MCNlua76N3b3pmhcLhSIcmqrbwZI5R40cbrfrPdd6o9EizHLBt5AnulaPMiRluKNb4yX3czqbiKfNMzhALqGB_JK-uia0qSo9MzocuIuP1MmJmAcF6f7DbWHNNt7QaDPYA')"></div>
+</div>
+<div class="flex-1 p-3 flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-secondary mb-1">Camilan</p>
+<h4 class="font-headline-md text-[14px] leading-tight text-on-surface">Warung Jajanan Bulet</h4>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-on-surface-variant">120m</span>
+<button class="w-8 h-8 rounded-full bg-secondary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Place Card 3 -->
+<div class="snap-center shrink-0 w-[240px] bg-white rounded-xl overflow-hidden shadow-lg flex border border-white/10">
+<div class="w-20 h-full bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cozy and modern neighborhood coffee shop interior in Pangkalan, featuring wooden furniture, potted plants, and warm ambient lighting. A barista is seen in the background. The visual style is clean, welcoming, and captures a high-quality urban-local vibe with soft brown and green tones consistent with the Guyub brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUX8k9HlIQqswXZXMBrXmUd4FoGJ8784Oks3reNQqVLkuS6Gxe_LdUp0KDI80JWcoSb7X6TBKpE4jVCgBMIRIHTggk6KhdTn0JwmTQZiRRBc1OX97dzWMHMwLOPO_0qu83X9_RJE6cdqM4M01cppr38piEu9JFE0J2RTaXJfb6wS4WWUX5BAoFpKG-74xZOvozaQcTTGcWRRwPB4n2fYGG_1Nfn1yLL16SE0xDUmvZwPeScX8Tzg3_hw')"></div>
+</div>
+<div class="flex-1 p-3 flex flex-col justify-between">
+<div>
+<p class="font-label-sm text-tertiary mb-1">Kopi & Teh</p>
+<h4 class="font-headline-md text-[14px] leading-tight text-on-surface">Kopi Senja Pangkalan</h4>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-on-surface-variant">200m</span>
+<button class="w-8 h-8 rounded-full bg-tertiary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<!-- AR Toast / Info Overlay -->
+<div class="absolute bottom-40 left-1/2 -translate-x-1/2 w-[85%] z-50 pointer-events-none">
+<div class="bg-black/60 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/10 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px] animate-pulse">visibility</span>
+</div>
+<p class="text-white text-label-sm font-label-sm flex-1">Gerakkan kamera perlahan untuk mendeteksi lebih banyak tempat menarik.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell (From JSON) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-low dark:bg-surface-dim rounded-t-xl shadow-md border-t border-outline-variant dark:border-outline">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-colors p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-sm text-label-sm">Bantuan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-highest dark:hover:bg-inverse-surface transition-colors p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm">Syarat & Ketentuan</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for AR Cards
+        document.querySelectorAll('.ar-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(1.1) rotateX(0deg)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Simple carousel dragging effect logic (simulated for mobile feel)
+        const carousel = document.querySelector('.snap-x');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        carousel.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>

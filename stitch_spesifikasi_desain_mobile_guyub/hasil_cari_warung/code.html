@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cari di GUYUB - Sembako</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#7ed9a6",
+                      "on-background": "#1b1c1c",
+                      "outline": "#6f7a71",
+                      "on-primary-fixed": "#002111",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#3f4942",
+                      "secondary": "#9f4200",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#005232",
+                      "on-surface": "#1b1c1c",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "surface-container-low": "#f5f3f3",
+                      "on-secondary-fixed": "#341100",
+                      "surface-dim": "#dbd9d9",
+                      "surface-container-high": "#eae8e7",
+                      "surface-bright": "#fbf9f8",
+                      "on-secondary-fixed-variant": "#793100",
+                      "outline-variant": "#bec9bf",
+                      "inverse-on-surface": "#f2f0f0",
+                      "secondary-container": "#ff7a2b",
+                      "inverse-primary": "#7ed9a6",
+                      "primary-container": "#258459",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#7d5231",
+                      "background": "#fbf9f8",
+                      "on-secondary-container": "#602500",
+                      "tertiary-container": "#996a47",
+                      "on-tertiary-fixed": "#301400",
+                      "surface-variant": "#e4e2e2",
+                      "inverse-surface": "#303030",
+                      "surface": "#fbf9f8",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#efeded",
+                      "primary-fixed": "#9af5c1",
+                      "on-tertiary-container": "#fffbff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdcc5",
+                      "primary": "#006a42",
+                      "on-primary-container": "#f6fff6",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed-dim": "#ffb692",
+                      "secondary-fixed": "#ffdbcb",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e4e2e2",
+                      "surface-tint": "#006c44"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "44px",
+                      "stack-lg": "24px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low w-full top-0 sticky z-40">
+<div class="flex items-center justify-between px-margin-mobile py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-surface-container-highest rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim">Sembako</h1>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Hasil pencarian</span>
+</div>
+</div>
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-surface-container-highest rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">tune</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Tabs) -->
+<nav class="bg-surface dark:bg-surface-container-low border-b border-outline-variant w-full sticky top-[72px] z-30">
+<div class="flex w-full justify-around pt-4 px-4">
+<button class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-2 flex-1 text-center transition-all opacity-80">
+<div class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="text-label-lg font-label-lg">Warung</span>
+</div>
+</button>
+<button class="text-on-surface-variant dark:text-outline-variant pb-2 flex-1 text-center hover:text-primary-container">
+<div class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="text-label-lg font-label-lg">Produk</span>
+</div>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile pt-stack-md space-y-stack-md">
+<!-- Results Info -->
+<div class="flex items-center justify-between">
+<p class="text-label-lg font-label-lg text-on-surface">Menampilkan 12 warung</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-label-sm font-label-sm text-on-surface-variant">Terdekat</span>
+</div>
+</div>
+<!-- Bento/Asymmetric Results Grid -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Featured Card (Haji Salim) -->
+<div class="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A warm, inviting local Indonesian grocery shop storefront named Toko Haji Salim. The shop is filled with neatly organized sacks of rice, stacks of egg crates, and colorful rows of household goods. The lighting is bright and natural, capturing a neighborhood morning vibe. The style is clean, modern photography with a focus on local community trust and vibrant primary colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7EsFbiap0_dZZm-tzg2rw5MwnDlWEXAGC0LjwLTLDkRzAbocl19Z2qNQWySVdfcTrsrZPbw0xok3Rq5kTIicbHqUB2bmc039vjzR27qJ7yJPGbQHNG6c8cS-g-JotB-z1EfUPO39dccVJHGzu9B8WW3H7AJdl-Z5zTDSVq1gsNpuDBuRJdAS1xlPNyjZWJvdeSqWsHTdtA0kNJcsm2l3flpD4rchuVBz1zWUdPlepanRCCao6hBcr-g"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 bg-primary text-on-primary rounded-full text-label-sm font-label-sm shadow-lg">Paling Populer</span>
+</div>
+<div class="absolute bottom-3 right-3 glass-card px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-background">Toko Haji Salim</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Sembako &amp; Kebutuhan Harian</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold text-label-lg">300m</span>
+<span class="text-label-sm text-outline">Pangkalan</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-primary-fixed-dim/20 text-primary border border-primary/10 rounded-lg text-label-sm font-label-sm">Beras Cianjur</span>
+<span class="px-2 py-1 bg-primary-fixed-dim/20 text-primary border border-primary/10 rounded-lg text-label-sm font-label-sm">Minyak Goreng</span>
+</div>
+<div class="pt-2 border-t border-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-primary">Buka hingga 21:00</span>
+</div>
+<button class="text-primary font-bold text-label-lg flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Lihat Toko <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Second Result (Asymmetric Layout) -->
+<div class="flex gap-4 bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-28 h-28 flex-shrink-0 relative">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Close up photography of a traditional Indonesian 'Warung' shelf featuring neatly arranged spices, instant noodles, and bottled drinks. The lighting is soft and golden, suggesting an late afternoon atmosphere. The visual aesthetic is professional yet approachable, emphasizing cleanliness and community reliability in a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5mtvc-5wJIC9paso-uuqQzk2oCpeimck-lKjDAtXs2wAkOBW7PS5ciWr8KhFGUa4UUtaArMGqaRE4yG7cthwEEMJ6Jdg-zQgiboHfNC3TEsw2VLTAZxVpLBW47_pW48b1dSkj-B5Jv3-n3usf3znDpZMdIehkJ3PSl9UlLlF4wJatDS6ptZlKpui6YqfoR03kxMxGSGW8jETQPPxtvKB5iIZBhgzJQesbBaiZ9pHWrxIzfh9wnCoR3A"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-white p-1 rounded-full shadow-md">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-label-lg font-headline-md text-on-background">Warung Bu Eti</h3>
+<p class="text-label-sm text-on-surface-variant">Sembako, Telur, Susu</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">location_on</span>
+<span class="text-label-sm text-on-surface-variant">800m</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">schedule</span>
+<span class="text-label-sm text-on-surface-variant">Tutup jam 20:00</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold">4.5</span>
+<span class="text-label-sm text-outline-variant font-normal">(120+)</span>
+</div>
+</div>
+</div>
+<!-- Third Result -->
+<div class="flex gap-4 bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-28 h-28 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Interior of a modern neighborhood mini-market in Indonesia, showing clean white tiles and bright LED lighting. The focus is on a section of basic commodities like sugar, flour, and cooking oil. The style is bright, airy, and high-quality commercial photography, conveying a sense of efficiency and freshness for the Guyub brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADcWbcNnGSoHZQUKBiT25oRPZBwITzsqZatAfA09HAXKAMvb1Z8sdK0E01EHkhww74y8nGkgp1Pbno4ZELs21tCBhq-BZzWZuMtWwelUYdblz4ZLuocSpn72g73nfKIf-Rg2MN9wXsxfnuGLf9ZgNtxl909VF_8EPELFvyryz8zRXwCU4uMX96-4A2INkb-ejl-e0W3PUuif8um_-NZWfnx7QutJr84397Mz-fkuSrdmReLzquS-BRKA"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-label-lg font-headline-md text-on-background">Agen Sembako Makmur</h3>
+<p class="text-label-sm text-on-surface-variant">Grosir &amp; Eceran</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">location_on</span>
+<span class="text-label-sm text-on-surface-variant">1.2km</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">schedule</span>
+<span class="text-label-sm text-on-surface-variant">24 Jam</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold">4.9</span>
+<span class="text-label-sm text-outline-variant font-normal">(340+)</span>
+</div>
+</div>
+</div>
+<!-- Promo Banner -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-primary-container p-6 text-on-primary">
+<div class="relative z-10 space-y-2">
+<h4 class="text-headline-md font-headline-md">Belanja Sembako Hemat?</h4>
+<p class="text-body-md opacity-90 max-w-[200px]">Dapatkan promo ongkir gratis di Toko Haji Salim hari ini!</p>
+<button class="mt-2 px-6 py-2 bg-white text-primary font-bold rounded-full text-label-lg shadow-lg active:scale-95 transition-transform">
+                        Cek Sekarang
+                    </button>
+</div>
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+<span class="material-symbols-outlined absolute right-6 top-1/2 -translate-y-1/2 text-white/20 text-[120px] pointer-events-none">shopping_cart_checkout</span>
+</div>
+<!-- Fourth Result -->
+<div class="flex gap-4 bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="w-28 h-28 flex-shrink-0 opacity-70">
+<img class="w-full h-full object-cover rounded-lg grayscale-[20%]" data-alt="A modest but clean neighborhood store in a rural Indonesian setting at sunset. The shop has a traditional wooden structure with a modern sign. The lighting is warm and dimming as the day ends. The photography is authentic and heartwarming, focusing on the local community aspect of the 'Santai tapi pasti' philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxBUnGoevdCO1zPBAiNwqftsctVjWKhG8ZRgs3jKA4vE9qeUsFIIgzijPdoUv5J6-4lzX9jMkvX6CKXSszSbWRmCyOzEEgWtSCQvYg-sXAe4xcAV6LjJAKRFhCOucQ93t8U29E5JnxPUT2PieM1zCvSbS110tnu8lHjnPnE311MOXqnzT9b7JueLkv_QSIT4-HFa8SsNe8Et7biOS8xzZP_NNQmIVbK0H0NvXlMFbjcd8Cv-4fjU2hkA"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-label-lg font-headline-md text-on-background">Toko Mandiri Pangkalan</h3>
+<p class="text-label-sm text-on-surface-variant">Sembako &amp; Pakan Ternak</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">location_on</span>
+<span class="text-label-sm text-on-surface-variant">1.5km</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-error text-[14px]">error</span>
+<span class="text-label-sm text-error">Tutup</span>
+</div>
+</div>
+<p class="text-label-sm text-outline-variant">Buka besok jam 07:00</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface dark:bg-surface-container-lowest z-50 shadow-[0_-1px_3px_0_rgba(0,0,0,0.08)]">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-label-sm font-label-sm">Pesanan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-sm font-label-sm">Notifikasi</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Akun</span>
+</button>
+</nav>
+<script>
+        // Simple ripple-like effect for search items
+        document.querySelectorAll('.hover\\:shadow-md').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.style.transform = 'scale(0.98)';
+            });
+            item.addEventListener('mouseup', () => {
+                item.style.transform = 'scale(1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Tab switching simulation (visual only)
+        const tabs = document.querySelectorAll('nav button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'dark:text-primary-fixed-dim', 'border-b-2', 'border-primary', 'dark:border-primary-fixed-dim', 'opacity-80');
+                    t.classList.add('text-on-surface-variant', 'dark:text-outline-variant');
+                });
+                this.classList.remove('text-on-surface-variant', 'dark:text-outline-variant');
+                this.classList.add('text-primary', 'dark:text-primary-fixed-dim', 'border-b-2', 'border-primary', 'dark:border-primary-fixed-dim', 'opacity-80');
+            });
+        });
+    </script>
+</body></html>

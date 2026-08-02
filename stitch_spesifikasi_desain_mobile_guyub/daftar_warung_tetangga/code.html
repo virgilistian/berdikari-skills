@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warung Tetangga - Jelajahi Warung Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb692",
+                    "tertiary-container": "#996a47",
+                    "on-secondary-container": "#602500",
+                    "surface-container": "#efeded",
+                    "secondary-fixed": "#ffdbcb",
+                    "primary": "#006a42",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "on-secondary-fixed": "#341100",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-bright": "#fbf9f8",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container-high": "#eae8e7",
+                    "inverse-surface": "#303030",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-fixed-variant": "#005232",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#7d5231",
+                    "tertiary-fixed": "#ffdcc5",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#3f4942",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary-fixed": "#002111",
+                    "primary-fixed": "#9af5c1",
+                    "outline-variant": "#bec9bf",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-container": "#f6fff6",
+                    "surface-dim": "#dbd9d9",
+                    "surface": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-fixed": "#301400",
+                    "inverse-primary": "#7ed9a6",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#006c44",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#9f4200",
+                    "inverse-on-surface": "#f2f0f0",
+                    "background": "#fbf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-50 shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Warung Tetangga</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform p-2 hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile py-stack-md">
+<!-- Welcome Hero Section (Asymmetric Bento style for professional look) -->
+<section class="mb-stack-lg">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-primary-container rounded-xl p-4 text-on-primary-container relative overflow-hidden h-32 flex flex-col justify-end">
+<div class="absolute -top-4 -right-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<p class="font-label-lg text-label-lg opacity-90 mb-1">Selamat datang, Kamu!</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight">Belanja di Tetangga Jadi Lebih Mudah.</h2>
+</div>
+<div class="bg-secondary-container rounded-xl p-4 text-on-secondary-container flex items-center justify-between active:scale-95 transition-all">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm">Saldo Kamu</span>
+<span class="font-price-lg text-price-lg">Rp 125rb</span>
+</div>
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="bg-surface-container-high rounded-xl p-4 flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">redeem</span>
+<span class="font-label-lg text-label-lg">Tukar Poin</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter Chips -->
+<section class="mb-stack-md">
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full whitespace-nowrap font-label-lg text-label-lg flex items-center gap-1">
+                    Semua
+                </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full whitespace-nowrap font-label-lg text-label-lg">
+                    Sembako
+                </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full whitespace-nowrap font-label-lg text-label-lg">
+                    Makanan
+                </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full whitespace-nowrap font-label-lg text-label-lg">
+                    Pulsa
+                </button>
+<button class="bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full whitespace-nowrap font-label-lg text-label-lg">
+                    Warung Kopi
+                </button>
+</div>
+</section>
+<!-- List Title -->
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-md text-headline-md">Warung Terdekat</h3>
+<span class="text-primary font-label-lg text-label-lg">Lihat Semua</span>
+</div>
+<!-- Warung List Container -->
+<div class="space-y-4">
+<!-- Merchant Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 active:scale-[0.98] transition-transform duration-200">
+<div class="flex p-3 gap-4">
+<div class="relative flex-shrink-0">
+<img class="w-24 h-24 rounded-lg object-cover" data-alt="A warm and inviting interior shot of a traditional Indonesian warung bu leti, filled with organized stacks of colorful snacks and household goods. Soft golden morning light streams through the wooden storefront, creating a welcoming local atmosphere. The focus is on the rich textures of the merchandise and the clean, organized wooden shelves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT_bPz67uuvr88AQlFyi996FNzN3z9712S6OC6hR3OzkPoqD55SfelFuXqn_N_XjEy3YXhaO2Pg9FsghKnttSG5pnXWSvqVkKbq4g79OsK_lCuQ5yVxplG3o8yEhVpYS861Da0MyAtAsnWsBzojjACiO5yeWGFZ5oEPWEKowpn3MhDNo-Kl5O1l6SFjB6CeoQ2BChSj_iGbnW3962S9BaWKkDH7y3v6Kk8R8p0KmUAakKvKm3r9hhS_g"/>
+<div class="absolute top-1 left-1 bg-primary/90 text-white px-2 py-0.5 rounded-full text-[10px] font-bold">TERLARIS</div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[18px] text-on-surface">Warung Bu Leti</h4>
+<span class="flex items-center gap-1 bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold">Buka</span>
+</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-sm">4.8</span>
+<span class="text-on-surface-variant font-label-sm text-[11px]">(120+ ulasan)</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm">0.5 km dari kamu</span>
+</div>
+</div>
+<div class="mt-2 text-primary font-label-lg text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                            Gratis ongkir min. 20rb
+                        </div>
+</div>
+</div>
+</article>
+<!-- Merchant Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 active:scale-[0.98] transition-transform duration-200">
+<div class="flex p-3 gap-4">
+<div class="relative flex-shrink-0">
+<img class="w-24 h-24 rounded-lg object-cover" data-alt="A clean and spacious entrance of Sembako Pak Haji, a local grocery shop in a suburban Indonesian neighborhood. Large sacks of rice and neatly arranged gallons of water are visible. The aesthetic is practical and trustworthy, featuring soft natural daylight and a slightly muted, professional color palette of greens and neutrals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7F0i4z9Z7LBWqhk2C3nuxbE2urcSYhYQ0aByWNOZ_rMV1VTTjZlThipRD1ev5_LyQatDxAYo0ULvaBLiFTmJpajTt1XjIbr1z8Wic4sjAT4EvJ1Et0UkbHQvQctXVOQ2QwTSAsti9nj-eh2XQCtzSIbYJDHFlDFcxuiTlBu2L5LLY3FGhezgF81OZFlcGfOaM5C3JjleS4DOKmwBB6DloUrrSKL389p0hw6-KwoDy-7C9EN4-sMH9sw"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[18px] text-on-surface">Sembako Pak Haji</h4>
+<span class="flex items-center gap-1 bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold">Buka</span>
+</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-sm">4.9</span>
+<span class="text-on-surface-variant font-label-sm text-[11px]">(85 ulasan)</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm">0.8 km dari kamu</span>
+</div>
+</div>
+<p class="mt-2 text-on-surface-variant text-label-sm truncate">Beras, Minyak, Gula, Terigu...</p>
+</div>
+</div>
+</article>
+<!-- Merchant Card 3 (Closed State) -->
+<article class="bg-surface-container-low/50 rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 grayscale-[0.3] opacity-80">
+<div class="flex p-3 gap-4">
+<div class="relative flex-shrink-0">
+<img class="w-24 h-24 rounded-lg object-cover" data-alt="A cozy, slightly rustic outdoor coffee stall Kedai Kopi Pak Joko during twilight. Wooden benches are neatly stacked, and the warm glow of a single interior bulb highlights the artisanal feel. The scene is quiet and peaceful, representing a closed but well-maintained local business in a quiet neighborhood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxXYPo1z9yv1QhAd4h0KA0jXoNBkdWXvKpwUUjHrMhYwRotk8lRMlAfbMy5gwCSPF76XmefgdTRUXZxPXXR-t00c5TBw0UBTbalKCQhWnq6dotGxJhVmVMFqrbuMhvAHXpiXzAOziqxagxVPJTtA7byiZu6DOTl3gQCMT8ynCZILEKLF8k90EWzdCy8jqePhjKpeqgtjDH8NweRp7GT07PjtIeP-2GbFaWFvsG5mX_3bszrpIZpeCwag"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[18px] text-on-surface">Kedai Kopi Pak Joko</h4>
+<span class="flex items-center gap-1 bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-[10px] font-bold">Tutup</span>
+</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-outline-variant text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-sm">4.7</span>
+<span class="text-on-surface-variant font-label-sm text-[11px]">(240+ ulasan)</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm">1.2 km dari kamu</span>
+</div>
+</div>
+<div class="mt-2 text-outline font-label-sm">Buka kembali jam 16:00</div>
+</div>
+</div>
+</article>
+<!-- Merchant Card 4 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 active:scale-[0.98] transition-transform duration-200">
+<div class="flex p-3 gap-4">
+<div class="relative flex-shrink-0">
+<img class="w-24 h-24 rounded-lg object-cover" data-alt="A brightly lit local snack stall specializing in traditional Indonesian crackers and cookies. Large glass jars are filled with golden fried snacks, and colorful packaging creates a vibrant, high-energy visual. The lighting is crisp and modern, emphasizing the freshness of the products in a clean market setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFtqWDjd6zHiSC5fwaxulp59A-WTaj_hTzyVSGIUzSs30TGtZp3_csg8UHmSq_HSGg33ZlGh4I8ceOs72deA5POfuqEbt6VpmfeR-E-1_cNAygZWAzxtt4ofcm7MMmAV0P3k5cYQZSRA37d2cZzUTpOBqJ1WmTUNDyYfegzJ8G0wWxOSj1bbfLCScZUL7Mro0sQ0Lkz89KmygL8J2AC6N5ghSW0rSJ0fuQOHoL7wvHpVG6hjtI8ghbTg"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[18px] text-on-surface">Cemilan Teh Imas</h4>
+<span class="flex items-center gap-1 bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold">Buka</span>
+</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-sm">4.6</span>
+<span class="text-on-surface-variant font-label-sm text-[11px]">(45 ulasan)</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm">1.5 km dari kamu</span>
+</div>
+</div>
+<div class="mt-2 text-secondary font-label-lg text-label-sm">Promo Hari Ini: Diskon 10%</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface-container-lowest dark:bg-surface-container-highest shadow-[0_-2px_10px_rgba(0,0,0,0.08)] rounded-t-xl h-20">
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-full px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-90 transition-all duration-200 hover:bg-surface-container-high dark:hover:bg-surface-variant">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-90 transition-all duration-200 hover:bg-surface-container-high dark:hover:bg-surface-variant">
+<span class="material-symbols-outlined">local_offer</span>
+<span class="font-label-sm text-label-sm">Promo</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-90 transition-all duration-200 hover:bg-surface-container-high dark:hover:bg-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</button>
+</nav>
+<!-- Micro-interaction script -->
+<script>
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('click', () => {
+                // Future navigation logic
+                console.log('Navigating to merchant details...');
+            });
+        });
+    </script>
+</body></html>

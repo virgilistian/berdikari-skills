@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pilih Alamat Pengiriman</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary": "#ffffff",
+                    "background": "#fbf9f8",
+                    "tertiary": "#7d5231",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary-container": "#f6fff6",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-background": "#1b1c1c",
+                    "inverse-surface": "#303030",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-container": "#efeded",
+                    "secondary": "#9f4200",
+                    "outline-variant": "#bec9bf",
+                    "surface-dim": "#dbd9d9",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002111",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e7",
+                    "surface-tint": "#006c44",
+                    "primary": "#006a42",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary-container": "#996a47",
+                    "error": "#ba1a1a",
+                    "primary-container": "#258459",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-container": "#602500",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-primary": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary-fixed-dim": "#ffb692",
+                    "primary-fixed": "#9af5c1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #fbf9f8; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full bg-background flex items-center px-margin-mobile h-touch-target z-50">
+<button aria-label="Kembali" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="ml-2 font-headline-md text-headline-md text-primary">Pilih Alamat Pengiriman</h1>
+</header>
+<main class="pt-touch-target pb-32 min-h-screen">
+<!-- Map Section -->
+<section class="relative w-full h-[320px] md:h-[400px] overflow-hidden">
+<div class="w-full h-full bg-surface-container" data-alt="A detailed digital map view of the Pangkalan and Tegalwaru rural area, Karawang. The map shows simplified street layouts with lush green patches representing rice fields and local settlements. A central red location pin is placed precisely in a residential cluster. The visual style is clean and corporate modern, with soft pastels and a friendly neighborhood market vibe." data-location="Pangkalan, Karawang, Indonesia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApVB7CN0ReYbB42Rd8IHc1gQNWOvBYqoXEnXZS333Y32oI8wu2msRqVi3mwSb-dogG5aFdj1sjxsLfO25lXaVxP7IIBygC-Nm1LlgYYP5dSLrWhLk1cclvfRb-3kxnHGfqi9ndpWTshuvFrFND0Z4JQP1nh-R1A-8gZTy2tFd8YhiZzU8UZvwBozilDLiuTMma_0xRiOeK5y0Pbo_wnpOOpZPfR6oy45ouXwx-R0YOfVlHGO4V2ur82A')">
+</div>
+<!-- Map Overlay Controls -->
+<div class="absolute inset-0 pointer-events-none flex flex-col justify-between p-4">
+<div class="self-end pointer-events-auto">
+<button class="bg-surface shadow-sm p-3 rounded-xl flex items-center justify-center hover:bg-surface-container-high active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">fullscreen</span>
+</button>
+</div>
+<!-- Central Pin Animation Placeholder -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="w-4 h-1 bg-on-surface/20 rounded-full blur-[1px] mt-[-4px]"></div>
+</div>
+<!-- Floating Button: Gunakan Lokasi Saat Ini -->
+<button class="pointer-events-auto mx-auto mb-4 bg-primary text-on-primary px-6 py-3 rounded-full flex items-center gap-2 shadow-lg hover:bg-primary-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+<span class="font-label-lg text-label-lg">Gunakan Lokasi Saat Ini</span>
+</button>
+</div>
+</section>
+<!-- Addresses List Section -->
+<section class="px-margin-mobile mt-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Alamat Saya</h2>
+</div>
+<div class="space-y-stack-md">
+<!-- Address Card: Rumah -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm cursor-pointer hover:border-primary transition-colors group">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Rumah</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">check_circle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Krajan, RT 02/01, depan Mushola</p>
+</div>
+</div>
+</div>
+<!-- Address Card: Kantor -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm cursor-pointer hover:border-primary transition-colors group">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Kantor</span>
+<span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">check_circle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Jl. Raya Pangkalan No. 12</p>
+</div>
+</div>
+</div>
+<!-- Additional Empty/Recent States or History could go here -->
+<div class="flex items-center gap-2 py-4 opacity-50 justify-center">
+<div class="h-[1px] bg-outline-variant flex-grow"></div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Alamat Tersimpan Lainnya</span>
+<div class="h-[1px] bg-outline-variant flex-grow"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Section -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)] px-margin-mobile py-4 z-50">
+<button class="w-full bg-surface-container-lowest border-2 border-dashed border-primary text-primary font-headline-md text-headline-md h-14 rounded-xl flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">add</span>
+            Tambah Alamat Baru
+        </button>
+</footer>
+<!-- Interaction Script -->
+<script>
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active state from all
+                document.querySelectorAll('.cursor-pointer').forEach(c => {
+                    c.classList.remove('border-primary', 'bg-primary-fixed/20');
+                    c.querySelector('.material-symbols-outlined[style*="FILL"]').parentElement.classList.replace('bg-primary', 'bg-primary-fixed');
+                    c.querySelector('.material-symbols-outlined[style*="FILL"]').parentElement.classList.replace('text-on-primary', 'text-primary');
+                });
+                
+                // Add to current
+                this.classList.add('border-primary');
+            });
+        });
+    </script>
+</body></html>

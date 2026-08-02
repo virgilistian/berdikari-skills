@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#efeded",
+                    "outline": "#6f7a71",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-variant": "#e4e2e2",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-container": "#996a47",
+                    "surface-dim": "#dbd9d9",
+                    "secondary-container": "#ff7a2b",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-tint": "#006c44",
+                    "background": "#fbf9f8",
+                    "tertiary": "#7d5231",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-low": "#f5f3f3",
+                    "primary": "#006a42",
+                    "secondary-fixed-dim": "#ffb692",
+                    "primary-container": "#258459",
+                    "on-surface-variant": "#3f4942",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#7ed9a6",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#9f4200",
+                    "on-surface": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-background": "#1b1c1c",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "on-secondary-container": "#602500",
+                    "inverse-surface": "#303030",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-primary-fixed": "#002111",
+                    "on-primary-fixed-variant": "#005232",
+                    "primary-fixed": "#9af5c1",
+                    "on-secondary-fixed-variant": "#793100"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "base": "4px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for drawer */
+        .drawer-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .drawer-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .drawer-scroll::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+        .tap-highlight-transparent {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- BACKGROUND HOME SCREEN (DIMMED/BLURRED) -->
+<main class="relative h-screen w-full blur-[2px] brightness-75 transition-all duration-500 overflow-hidden">
+<!-- Mock Top Bar -->
+<header class="flex items-center justify-between px-margin-mobile h-touch-target bg-surface shadow-sm">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary">Menu Utama</h1>
+<span class="material-symbols-outlined text-primary">notifications</span>
+</header>
+<!-- Mock Dashboard Content -->
+<div class="px-margin-mobile py-stack-lg space-y-stack-lg">
+<!-- Promo Banner -->
+<div class="w-full h-40 rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A lush aerial view of a tropical Indonesian neighborhood in Pangkalan, featuring terracotta tiled roofs and vibrant green gardens. The lighting is soft morning sunlight, casting gentle shadows over a communal market area. The style is professional commercial photography with a warm, welcoming, and high-contrast color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBUIPj1_Xnv2X1mDUzU53JXIFzD3bcaP6RFfltSczGegbJmKAu7WFKdoRGQt1KIO-EZAYkdX--y6Y-onre1iRSzdBT2L0oxlvG7enzMmMJPk-TTU9NYv_ZN8z863OwyxwWP6lEC23_aINPKB4QhbmV0p4omCYdIgCoIA8QuhIRF0cG7kDP5kDqmNI1eBGfIZkwD8qef9sOD0ipzoCTiCu4uSBO2jZtW5iVAeNR4brXOafyEd9nYkSpBg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white font-headline-md">Diskon Tetangga 50%</p>
+</div>
+</div>
+<!-- Bento Grid Mockup -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">shopping_basket</span>
+</div>
+<span class="font-label-lg">Belanja Rutin</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-2">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">delivery_dining</span>
+</div>
+<span class="font-label-lg">Kirim Paket</span>
+</div>
+<div class="col-span-2 bg-tertiary-fixed p-4 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-on-tertiary-fixed font-headline-md">Guyub Pay</p>
+<p class="text-on-tertiary-fixed-variant text-label-sm">Saldo: Rp 150.000</p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-fixed text-4xl">account_balance_wallet</span>
+</div>
+</div>
+<!-- Recent Activity Card -->
+<div class="bg-surface-container p-4 rounded-xl">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md">Pesanan Terakhir</h3>
+<span class="text-primary font-label-sm">Lihat Semua</span>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-16 h-16 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro shot of delicious traditional Indonesian street food, specifically satay with rich peanut sauce, served on a banana leaf. The lighting is warm and organic, emphasizing the texture of the grill marks. The aesthetic is clean and appetizing, fitting a modern food delivery app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJVVT0ZxEqN3ic_7BoGq1pjK5PK9MC0IwsSJ1OilNE3TwTAr8WJBQxQ1j6bdy7HUT0eEQkjYt1pLwKTHCSDOmKbeEKT1jge_o5uPLMXkdHhAvXpcp_vdn4fZg818hgb3jSHozURX1g1NSqmeLqudTRxFqRQ_2UUGnFBUf8BY3Ce2K-v44MN8lzDYSOhGqcTBbLuX1nZK6mr_XaLWFM3UPPv8W8M-CHDl_Q5qUKrR6wbq5C0oa_xO-GGA"/>
+</div>
+<div>
+<p class="font-label-lg">Sate Maranggi Pak H. Ahmad</p>
+<p class="text-label-sm text-on-surface-variant">Selesai • Kemarin</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- DRAWER OVERLAY (SCRIM) -->
+<div class="fixed inset-0 bg-on-surface/40 z-[60] transition-opacity duration-300" id="drawer-scrim"></div>
+<!-- SIDE NAVIGATION DRAWER -->
+<!-- Applying style_bg_color, style_component_shape, style_separation_logic from JSON -->
+<nav class="fixed left-0 top-0 h-full w-[280px] rounded-r-xl bg-surface-container dark:bg-surface-container shadow-sm z-[70] transform translate-x-0 transition-transform duration-300 ease-out flex flex-col py-stack-lg" id="side-drawer">
+<!-- Header Section: style_brand_logo and profile identity -->
+<div class="px-6 pb-stack-lg border-b border-outline-variant/30">
+<div class="flex flex-col gap-4">
+<!-- Profile Avatar -->
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container p-0.5">
+<img class="w-full h-full object-cover rounded-full" data-alt="A friendly and approachable portrait of a middle-aged Indonesian man smiling warmly, representing a 'neighborhood neighbor' persona. He is wearing a clean, casual green polo shirt. The background is a soft-focus garden scene with warm sunlight, creating a high-end yet trustworthy local feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8qDyjRcVcYSokDa7Zg9SIPN8n7mqRCn75H9-Zw4gbNEsFcTIjjcn-BJc5v0M6HzvNTbKbUosdCG9GbpTq3LxeTzPZdqbdoIqQHeWbughdrVVUpBK0DO7SAE4SLNuhE2j0hVrY0eV6vUYzuBEUXgozT3rW7seYRmIk4e9v3piigZ7iCNFObvNK5QbkqEn8TTJ2naL7sfWHmtnsM4ymRGCZDoRCFrJKR5GIU6S_tAvD7wLQRWvgf-Ehag"/>
+</div>
+<!-- Profile Info -->
+<div class="space-y-0.5">
+<h2 class="text-headline-lg font-headline-lg text-primary">Halo, Tetangga!</h2>
+<p class="text-label-lg text-on-surface-variant">Pangkalan &amp; Tegalwaru</p>
+</div>
+</div>
+</div>
+<!-- Navigation List: Vertical Stack -->
+<div class="flex-grow overflow-y-auto drawer-scroll py-stack-md flex flex-col gap-1">
+<!-- Profil Saya (Active as per instruction hierarchy - most likely screen if drawer is open) -->
+<a class="bg-secondary-container text-on-secondary-container rounded-full mx-2 px-4 py-3 flex items-center gap-4 transition-transform active:scale-95 duration-100 tap-highlight-transparent group" href="#">
+<span class="material-symbols-outlined active-icon" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-lg text-label-lg">Profil Saya</span>
+</a>
+<!-- Alamat Tersimpan -->
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-4 hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 tap-highlight-transparent group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">location_on</span>
+<span class="font-label-lg text-label-lg">Alamat Tersimpan</span>
+</a>
+<!-- Metode Pembayaran -->
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-4 hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 tap-highlight-transparent group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">payments</span>
+<span class="font-label-lg text-label-lg">Metode Pembayaran</span>
+</a>
+<!-- Pengaturan -->
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-4 hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 tap-highlight-transparent group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="font-label-lg text-label-lg">Pengaturan</span>
+</a>
+<div class="mx-6 my-4 border-t border-outline-variant/20"></div>
+<!-- Help & Support (Extra context) -->
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-4 hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 tap-highlight-transparent group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">help</span>
+<span class="font-label-lg text-label-lg">Pusat Bantuan</span>
+</a>
+</div>
+<!-- Footer: Sign Out & Version -->
+<div class="px-6 pt-4 mt-auto">
+<button class="w-full flex items-center gap-4 py-3 text-error font-label-lg tap-highlight-transparent active:scale-95 transition-transform">
+<span class="material-symbols-outlined">logout</span>
+<span>Keluar Akun</span>
+</button>
+<p class="mt-4 text-center text-label-sm text-outline-variant">Guyub App v2.4.0 • 2024</p>
+</div>
+</nav>
+<script>
+        // Simple Interaction Logic for the Demo
+        const drawer = document.getElementById('side-drawer');
+        const scrim = document.getElementById('drawer-scrim');
+        const main = document.querySelector('main');
+
+        function closeDrawer() {
+            drawer.style.transform = 'translateX(-100%)';
+            scrim.style.opacity = '0';
+            setTimeout(() => {
+                scrim.style.display = 'none';
+                main.classList.remove('blur-[2px]', 'brightness-75');
+            }, 300);
+        }
+
+        scrim.addEventListener('click', closeDrawer);
+
+        // Handle navigation clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Visual feedback only for demo
+                console.log('Navigating to:', link.textContent.trim());
+            });
+        });
+        
+        // Initial state is open as per prompt "Create a side-drawer... visible over a dimmed background"
+        // But let's ensure it can be toggled if we added a button.
+    </script>
+</body></html>

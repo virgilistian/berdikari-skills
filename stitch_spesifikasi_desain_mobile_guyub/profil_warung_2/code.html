@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Warung Nasi Bu Asep - GUYUB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .active-scale:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#9af5c1",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-primary-container": "#f6fff6",
+                        "surface-dim": "#dbd9d9",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "surface-variant": "#e4e2e2",
+                        "outline-variant": "#bec9bf",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#793100",
+                        "secondary": "#9f4200",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "surface-tint": "#006c44",
+                        "on-primary-fixed-variant": "#005232",
+                        "on-secondary-container": "#602500",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed": "#002111",
+                        "secondary-fixed": "#ffdbcb",
+                        "tertiary": "#7d5231",
+                        "background": "#fbf9f8",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3f4942",
+                        "secondary-container": "#ff7a2b",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#7ed9a6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-high": "#eae8e7",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-surface": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "outline": "#6f7a71",
+                        "surface": "#fbf9f8",
+                        "primary-container": "#258459",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#301400",
+                        "primary": "#006a42",
+                        "tertiary-container": "#996a47",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter-mobile": "12px",
+                        "base": "4px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "touch-target": "44px"
+                    },
+                    "fontFamily": {
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed">
+<!-- Top AppBar (from Shared Components JSON) -->
+<header class="fixed top-0 left-0 w-full z-40 bg-surface flex items-center justify-between px-margin-mobile h-14 w-full">
+<div class="flex items-center gap-3">
+<button class="active-scale h-10 w-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary font-bold">GUYUB</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active-scale h-10 w-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="active-scale h-10 w-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</button>
+</div>
+</header>
+<main class="pt-14 pb-32">
+<!-- Hero Merchant Banner -->
+<div class="relative h-60 w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A warm and inviting traditional Sundanese food stall in Pangkalan, West Java. The scene features a clean, wooden counter filled with steaming dishes of authentic Indonesian cuisine. Natural sunlight filters through, highlighting the vibrant greens of banana leaves and the rich oranges of sambal. The atmosphere is communal and neighborly, with soft lighting and a rustic but organized layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMA2SJhKEs9DCRRPgMF-_ZIaca_AzZCouCZoxX4pt2ofAxY1sAG16P4uWZ_XmCI2mRRQS4pF4_iR7OhSmzaRh4Il5ZY7qidFLfe1s_6cmeP0Z23e_RPDnIJoLMgMwzY6Jjwud3msubuK0NoIQGzzHTdLXuzDzIxCkv9PHtupujtfm-4PI4vrohCol_-_MmOHQulFC23_gjcncM0543jEBRKEPcbAIUZmztAld3fJBWt7HL_WKfKsSwNA"/>
+<div class="absolute bottom-0 left-0 p-margin-mobile z-20 w-full">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Verified</span>
+</div>
+<h2 class="text-white font-headline-lg text-headline-lg">Warung Nasi Bu Asep</h2>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex items-center gap-1 bg-white/20 backdrop-blur-md px-2 py-1 rounded-lg border border-white/30">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span class="text-white font-label-sm text-label-sm">Buka · Tutup jam 21:00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Merchant Info Section -->
+<section class="px-margin-mobile mt-6">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">schedule</span>
+<p class="font-label-lg text-label-lg text-on-surface">Estimasi ±20–30 menit</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Dusun Krajan, Tegalwaru</p>
+</div>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant/50 mx-2"></div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-price-lg text-price-lg">4.8</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">200+ Rating</span>
+</div>
+</div>
+<!-- Welcome Message -->
+<div class="mt-6 p-4 bg-primary-container/10 border-l-4 border-primary rounded-r-xl">
+<p class="font-headline-md text-headline-md text-primary italic leading-relaxed">
+                    "Wilujeng sumping! Masakan sunda asli, haneut keneh."
+                </p>
+</div>
+</section>
+<!-- Menu Navigation -->
+<nav class="sticky top-14 z-30 bg-surface py-4 mt-6 border-b border-outline-variant/20">
+<div class="flex gap-4 px-margin-mobile overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap font-label-lg text-label-lg px-4 py-2 rounded-full bg-primary text-on-primary">
+                    Makanan
+                </button>
+<button class="whitespace-nowrap font-label-lg text-label-lg px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant">
+                    Minuman
+                </button>
+<button class="whitespace-nowrap font-label-lg text-label-lg px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant">
+                    Paket Hemat
+                </button>
+<button class="whitespace-nowrap font-label-lg text-label-lg px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant">
+                    Cemilan
+                </button>
+</div>
+</nav>
+<!-- Product List Section -->
+<section class="px-margin-mobile mt-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Paling Laris</h3>
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Product Card 1 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-outline-variant/10 active-scale">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A professional food photography shot of Nasi Liwet, a traditional Indonesian fragrant rice dish, served on a green banana leaf with fried anchovies, salted egg, and aromatic herbs. The lighting is warm and natural, casting soft shadows. The overall aesthetic is rustic, authentic, and appetizing, emphasizing the rich textures and communal feel of local Sundanese cuisine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBos4Re0-d9z-y4tWcYkckO3z9ji2nuzug6wIOqPgN-SOInUeXeSx1-5lUG3v8FAKiojFbWCpzWu2IdUsdx7_XDLUz3Gu84q-jL2x4m0ekQEH9rRIk2Cm3mSKeY-QskrMWAeGkp__yrPEuxnAElUCOp-vg2bD_KVE8Mm7_0pTOKdlQamQaDZjnRhEHrnKhaD6xPZw3B_1jtpr0Zgv6KEMvjN3AEMZ9w9kf44tbug4xNsb9xHqKk2x7Csw"/>
+<div class="absolute -top-1 -left-1 bg-secondary text-on-secondary text-[8px] font-bold px-1.5 py-0.5 rounded-sm uppercase">Laris</div>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24">
+<div>
+<h4 class="font-headline-md text-[16px] leading-tight text-on-surface">Nasi Liwet Spesial</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant line-clamp-2 mt-0.5">Nasi gurih dengan teri, petai, dan rempah pilihan.</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 18.000</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-fixed text-on-primary-fixed active-scale">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-outline-variant/10 active-scale">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Appetizing Indonesian fried chicken (Ayam Goreng) seasoned with traditional galangal spices, served with a side of fresh cucumber and spicy sambal. The chicken is golden brown and crispy, presented on a minimalist white ceramic plate. The lighting is bright and clean, reflecting a high-quality food photography style with a warm, local touch." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDjVunC1xIDWqDKR6AZga43_TmJq1XLZyDVUZY1BzFqERDEKqG3FhUGDdxH_vruyn7sm7QNDds30GE00ESs4mf_gadlpFVYrs4zfagcSExOdE82SU7iiQvBhk_hDQSx71ud8vL-tavP8xjV9iGaSp4pKHI5jqVBAVaIf-T29PIxk7GFQ8jhoVKPg37uCd4hWjbHLgddjS4J1GDraNxj8IdIiwqSHhqA3WdYiFOUsT5HVRMgx16_SSh9g"/>
+<div class="absolute -top-1 -left-1 bg-secondary text-on-secondary text-[8px] font-bold px-1.5 py-0.5 rounded-sm uppercase">Laris</div>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24">
+<div>
+<h4 class="font-headline-md text-[16px] leading-tight text-on-surface">Ayam Goreng Serundeng</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant line-clamp-2 mt-0.5">Ayam kampung empuk dengan bumbu lengkuas melimpah.</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 22.000</span>
+<button class="flex items-center gap-1 px-2 h-8 rounded-lg bg-surface-container-high border border-outline-variant">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+<span class="font-label-lg text-label-lg px-2">2</span>
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-outline-variant/10 active-scale">
+<div class="relative w-24 h-24 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A macro shot of Sambal Dadak, a fresh Indonesian chili paste made with bird's eye chilies, shrimp paste, and lime. The texture is chunky and vibrant red, served in a traditional stone mortar (cobek). The background is softly blurred, highlighting the freshness of the ingredients. The lighting is crisp, emphasizing the spicy and zesty nature of the condiment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY74uDHPgjse2V4nPtdhbiEhaPY0ozOrEPGwfXHxaYe2HUJgSSgkn56Cg6Sqv5W4Ih4pB6P2pOtoGPTbp5XJ2SdmOKm-j2rbgnsd7ZVDShyLBNRBqRUGGnWR6RYRQJIM-2srU3NGlgUkSPdq4ydE-i3qs10uIp8tPUHrq-yMirKRPYtVKiuvsDNDYHtFqVG7JEb5n0P8B5uv_mxxJzGljXjUYzD9502w1ipUK1iV0_709yppMyUerkow"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-24">
+<div>
+<h4 class="font-headline-md text-[16px] leading-tight text-on-surface">Sambal Dadak Pedas</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant line-clamp-2 mt-0.5">Sambal ulek dadakan yang segar dan menantang.</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-price-lg text-price-lg text-primary">Rp 5.000</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-fixed text-on-primary-fixed active-scale">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB: Floating Cart (Contextual) -->
+<div class="fixed bottom-margin-mobile left-margin-mobile right-margin-mobile z-50">
+<button class="w-full bg-primary text-on-primary h-14 rounded-2xl flex items-center justify-between px-6 shadow-xl active:scale-[0.98] transition-all" onclick="location.reload()">
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="absolute -top-2 -right-2 bg-secondary text-on-secondary text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-primary font-bold">2</span>
+</div>
+<div class="flex flex-col items-start">
+<span class="font-label-lg text-label-lg leading-tight">Keranjang (2)</span>
+<span class="font-label-sm text-[10px] opacity-90">Warung Nasi Bu Asep</span>
+</div>
+</div>
+<span class="font-price-lg text-price-lg">Rp 45.000</span>
+</button>
+</div>
+<!-- Bottom Navigation Shell (from Shared Components JSON) -->
+<!-- Suppressed on this detail screen per Shell Visibility rules (Transactional/Task-focused) -->
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.active-scale').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 100);
+            });
+        });
+
+        // Simple scroll behavior for TopAppBar
+        let lastScroll = 0;
+        const topAppBar = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                topAppBar.classList.add('shadow-md');
+                topAppBar.classList.add('bg-surface/95');
+                topAppBar.classList.add('backdrop-blur-sm');
+            } else {
+                topAppBar.classList.remove('shadow-md');
+                topAppBar.classList.remove('bg-surface/95');
+                topAppBar.classList.remove('backdrop-blur-sm');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

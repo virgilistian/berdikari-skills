@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pending-glow {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e4e2e2",
+                        "surface-container-high": "#eae8e7",
+                        "secondary-container": "#ff7a2b",
+                        "outline": "#6f7a71",
+                        "surface-bright": "#fbf9f8",
+                        "on-primary": "#ffffff",
+                        "secondary": "#9f4200",
+                        "on-secondary-fixed-variant": "#793100",
+                        "on-primary-fixed-variant": "#005232",
+                        "inverse-surface": "#303030",
+                        "error": "#ba1a1a",
+                        "tertiary": "#7d5231",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-highest": "#e4e2e2",
+                        "tertiary-container": "#996a47",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#602500",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "primary-container": "#258459",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed": "#341100",
+                        "secondary-fixed": "#ffdbcb",
+                        "outline-variant": "#bec9bf",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container": "#efeded",
+                        "on-primary-container": "#f6fff6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-background": "#1b1c1c",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#9af5c1",
+                        "on-surface": "#1b1c1c",
+                        "surface-tint": "#006c44",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#7ed9a6",
+                        "on-primary-fixed": "#002111",
+                        "surface-dim": "#dbd9d9",
+                        "on-surface-variant": "#3f4942",
+                        "primary": "#006a42",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "12px",
+                        "stack-md": "16px",
+                        "base": "4px",
+                        "touch-target": "44px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center px-margin-mobile h-touch-target">
+<button aria-label="Kembali" class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150 mr-4">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Detail Transaksi</h1>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-lg space-y-stack-lg">
+<!-- Status Indicator -->
+<div class="flex flex-col items-center justify-center space-y-stack-sm py-4">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center pending-glow shadow-sm">
+<span class="material-symbols-outlined text-on-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">pending</span>
+</div>
+<p class="font-headline-md text-headline-md text-secondary">Menunggu Verifikasi</p>
+</div>
+<!-- Main Content Card (Bento-style primary info) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-lg border border-surface-variant p-stack-md text-center relative before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-transparent before:via-outline-variant before:to-transparent">
+<div class="space-y-base">
+<p class="font-label-sm text-on-surface-variant">Total Pembayaran</p>
+<p class="font-headline-lg text-headline-lg text-primary text-4xl">Rp 128.500</p>
+</div>
+<div class="mt-stack-md pt-stack-md border-t border-surface-variant flex items-center justify-center space-x-stack-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                    SA
+                </div>
+<div class="text-left">
+<p class="font-label-sm text-on-surface-variant">Pelanggan</p>
+<p class="font-body-lg text-body-lg font-semibold">Siti Aminah</p>
+</div>
+</div>
+</div>
+<!-- Timer / Refresh Action -->
+<div class="flex flex-col items-center space-y-stack-sm bg-surface-container-low p-stack-md rounded-xl border border-outline-variant">
+<p class="font-body-md text-on-surface-variant">Mengecek status pembayaran...</p>
+<div class="flex items-center space-x-2 text-secondary font-mono text-xl font-bold" id="countdown">
+                02:59
+            </div>
+<button class="flex items-center space-x-2 text-primary font-label-lg hover:underline transition-all" onclick="this.classList.add('animate-spin')">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span>Refresh Status</span>
+</button>
+</div>
+<!-- Transaction Details -->
+<section class="space-y-stack-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant px-1">Informasi Transaksi</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant p-stack-md space-y-4 divide-y divide-surface-variant">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">ID Pesanan</span>
+<span class="font-label-lg text-on-surface">#G-8822</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Metode Pembayaran</span>
+<div class="flex items-center space-x-2">
+<img class="h-4" data-alt="Official QRIS logo icon, clean vector graphic with high contrast on a white background, representing Indonesian standard digital payments, professional and trustworthy corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGUxo8lafHp-SiES5OmwTgVLtQVhVWLgsVFV2QTmPUVcypw-UDnt4KCcits6M4oubW6MBNoI2n6mqiD_A5O1vAiqL_ofyNEBSzgt2s8HZ1Ta5TkhSMNTn79ONuvitekk0mI8DVuhpF9IhH0bc-p_JfrkJxSCOeA1IPZNtwfTk2V27VUYI4Zuuyq0eZ-xn5ckBZ4oUsnofrRs_KVy3MNF1mD9LnbsB5Z7v1hMjIKyqyeNeAPKS3zY1RJQ"/>
+<span class="font-label-lg text-on-surface">QRIS</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">No. Ref QRIS</span>
+<span class="font-label-lg text-on-surface">QRS-992837465</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Waktu</span>
+<span class="font-label-lg text-on-surface">Hari ini, 14:15</span>
+</div>
+</div>
+</section>
+<!-- Guide Section -->
+<div class="bg-surface-container-high text-on-surface-variant p-stack-md rounded-xl flex items-start space-x-stack-sm border border-outline-variant">
+<span class="material-symbols-outlined mt-0.5">info</span>
+<div class="space-y-1">
+<p class="font-label-lg">Panduan</p>
+<p class="font-body-md leading-snug">Mohon tunggu sejenak. Jika status tidak berubah dalam 5 menit, silakan hubungi bantuan.</p>
+</div>
+</div>
+</main>
+<!-- Fixed Action Buttons -->
+<div class="fixed bottom-0 left-0 right-0 p-margin-mobile bg-gradient-to-t from-background via-background to-transparent pt-8 max-w-md mx-auto z-40">
+<div class="space-y-stack-sm">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg rounded-full shadow-lg active:scale-95 transition-transform flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined">refresh</span>
+<span>Refresh Status</span>
+</button>
+<button class="w-full h-touch-target bg-surface-container-lowest text-primary border border-primary font-label-lg rounded-full active:scale-95 transition-transform flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined">support_agent</span>
+<span>Hubungi Bantuan</span>
+</button>
+</div>
+</div>
+<!-- Bottom Nav Bar (Suppressed on Details page as per UX Goal, but provided as a stub if needed for top-level) -->
+<!-- The prompt implies a focus/sub-page, so shell is hidden to prioritize content canvas -->
+<script>
+        // Simple micro-interaction for countdown
+        let time = 179; // 3 minutes minus 1 sec
+        const countdownEl = document.getElementById('countdown');
+        
+        setInterval(() => {
+            if (time <= 0) return;
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownEl.innerText = `0${minutes}:${seconds}`;
+            time--;
+        }, 1000);
+    </script>
+</body></html>

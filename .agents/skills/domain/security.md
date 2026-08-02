@@ -2,6 +2,8 @@
 
 Load when: always loaded for modes `feature`, `bugfix`, `refactor`, `review` — or when keywords security/auth/authorization/permission/validation/xss/csrf/ssrf/injection/upload/secret/token/password/rate-limit/sanitize appear. Assumes core/* loaded.
 
+**Layer**: this is the *implementation* checklist (bug classes in the diff). The *architecture* gate is `skills/domain/security-architecture.md` and runs **before** this one — it decides whether the design is safe at all. Load both; do not substitute one for the other.
+
 ## Contract
 
 **Run this checklist BEFORE implementing anything.** Identify vulnerabilities first; then implement with only the minimum security changes required. Do not change architecture, business logic, or code unless a security issue demands it.

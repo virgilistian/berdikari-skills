@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .progress-pulse {
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(0, 106, 66, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 106, 66, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 106, 66, 0); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#9af5c1",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-primary-container": "#f6fff6",
+                        "surface-dim": "#dbd9d9",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "surface-variant": "#e4e2e2",
+                        "outline-variant": "#bec9bf",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#793100",
+                        "secondary": "#9f4200",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "surface-tint": "#006c44",
+                        "on-primary-fixed-variant": "#005232",
+                        "on-secondary-container": "#602500",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed": "#002111",
+                        "secondary-fixed": "#ffdbcb",
+                        "tertiary": "#7d5231",
+                        "background": "#fbf9f8",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3f4942",
+                        "secondary-container": "#ff7a2b",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#7ed9a6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-high": "#eae8e7",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-surface": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "outline": "#6f7a41",
+                        "surface": "#fbf9f8",
+                        "primary-container": "#258459",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#301400",
+                        "primary": "#006a42",
+                        "tertiary-container": "#996a47",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter-mobile": "12px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary-fixed min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-40 flex items-center justify-between px-margin-mobile h-14 w-full">
+<div class="flex items-center gap-3">
+<button aria-label="Back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">GUYUB</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-stack-md space-y-stack-lg max-w-md mx-auto">
+<!-- Order Progress Header -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Pesanan sedang disiapkan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Warung Nasi Bu Asep lagi masakin buat kamu.</p>
+</div>
+<div class="w-12 h-12 bg-primary-container/20 rounded-full flex items-center justify-center progress-pulse">
+<span class="material-symbols-outlined text-primary text-3xl">restaurant</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="relative h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-label-sm text-label-sm text-primary font-bold">Dimasak</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Diantar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Selesai</span>
+</div>
+</section>
+<!-- ETA & Countdown -->
+<div class="flex items-center gap-stack-md">
+<div class="flex-1 bg-secondary-fixed text-on-secondary-fixed p-stack-md rounded-xl flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider opacity-80">Estimasi Tiba</p>
+<p class="font-headline-lg text-headline-lg">08:20</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="material-symbols-outlined text-3xl mb-1">schedule</span>
+<p class="font-label-sm text-label-sm font-bold">8 Menit lagi</p>
+</div>
+</div>
+</div>
+<!-- Driver Info -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A friendly Indonesian male delivery driver in his 40s wearing a clean green uniform and a helmet, smiling warmly at the camera. The background is a soft-focus residential neighborhood in Pangkalan, captured in bright morning sunlight with a professional portrait photography style. High clarity and warm, communal colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8sJaibbdRbXK1t289AlOUvmtOTgIZr9DsRdpJ9qFYxguWepTlZ5QgNx1V-bp89tRdk9e07HIMTFDqliwNMZVmCs-ifW6sE-KeSOr-WbIW8I27Ri9pQnlcrgoX4h5cohONS0Adp9QB866lT2E8CdFr2zebEHJYxhco8fLxLr02sX0Mo01kai9Dw4KQwRR1GpPYgyP7B6SN3L-6iaDJLLVRRB6R-u9Y8fqZG240g8FW5XaKV7ytnnshjw"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Mang Dadang</h3>
+<span class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">T 1234 XY</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Honda Vario • Hitam</p>
+</div>
+<a class="h- touch-target w- touch-target flex items-center justify-center bg-primary text-on-primary rounded-full shadow-lg active:scale-95 transition-transform" href="tel:08123456789">
+<span class="material-symbols-outlined">call</span>
+</a>
+</div>
+<!-- Quick Message Bar -->
+<div class="mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-2">Kirim pesan cepat ke driver:</p>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container text-on-surface rounded-full font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all">Udah dikirim?</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container text-on-surface rounded-full font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all">Makasih ya!</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container text-on-surface rounded-full font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all">Sesuai titik ya</button>
+</div>
+</div>
+</section>
+<!-- Merchant Info Card -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">storefront</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] text-on-surface leading-tight">Warung Nasi Bu Asep</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm fill-icon">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.8 • Pangkalan</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-primary-container border border-primary-container/20 rounded-full active:scale-95">
+<span class="material-symbols-outlined">info</span>
+</button>
+</section>
+<!-- Order Summary -->
+<section class="space-y-3">
+<h3 class="font-headline-md text-headline-md text-on-surface">Ringkasan Pesanan</h3>
+<div class="bg-surface-container-lowest rounded-xl p-stack-md border border-outline-variant/30 divide-y divide-outline-variant/10">
+<div class="flex justify-between py-3">
+<div class="flex gap-3">
+<span class="font-bold text-primary font-body-md">2x</span>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Nasi Campur Spesial</p>
+<p class="text-[12px] text-on-surface-variant italic">Pedas, Ayam Suwir</p>
+</div>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp40.000</p>
+</div>
+<div class="flex justify-between py-3">
+<div class="flex gap-3">
+<span class="font-bold text-primary font-body-md">1x</span>
+<p class="font-body-md text-on-surface font-semibold">Es Teh Manis</p>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp5.000</p>
+</div>
+<div class="pt-3 space-y-1">
+<div class="flex justify-between">
+<p class="font-body-md text-on-surface-variant">Subtotal</p>
+<p class="font-body-md text-on-surface">Rp45.000</p>
+</div>
+<div class="flex justify-between">
+<p class="font-body-md text-on-surface-variant">Ongkir (Promo)</p>
+<p class="font-body-md text-primary font-semibold">Gratis</p>
+</div>
+<div class="flex justify-between pt-2">
+<p class="font-headline-md text-headline-md text-on-surface">Total</p>
+<p class="font-headline-md text-headline-md text-primary">Rp45.000</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-tertiary-fixed-variant bg-tertiary-fixed px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-sm">payments</span>
+<p class="font-label-sm text-label-sm">Dibayar dengan GUYUB Pay</p>
+</div>
+</section>
+<!-- Help & Support -->
+<footer class="flex flex-col items-center gap-4 py-8">
+<button class="flex items-center gap-2 px-6 py-2 border border-outline text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+                Ada masalah? Hubungi Bantuan
+            </button>
+<p class="text-[11px] text-outline text-center uppercase tracking-widest">Order ID: GYB-88291039</p>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (BottomNavBar) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-all duration-200 active:scale-90" href="#">
+<div class="relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="font-label-sm text-label-sm">Notifikasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Haptic-like feedback logic could go here
+            });
+        });
+
+        // Horizontal scrolling for message pills with drag support
+        const scrollContainer = document.querySelector('.overflow-x-auto');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>

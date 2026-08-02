@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - GUYUB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-container": "#602500",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "secondary-fixed": "#ffdbcb",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3f4942",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#ff7a2b",
+                        "secondary": "#9f4200",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002111",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "primary-fixed": "#9af5c1",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-container": "#996a47",
+                        "outline": "#6f7a71",
+                        "tertiary": "#7d5231",
+                        "outline-variant": "#bec9bf",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary": "#006a42",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "on-surface": "#1b1c1c",
+                        "background": "#fbf9f8",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-tint": "#006c44",
+                        "surface-container": "#efeded",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-variant": "#e4e2e2",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#793100",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-fixed": "#341100",
+                        "inverse-primary": "#7ed9a6",
+                        "surface": "#fbf9f8",
+                        "on-primary-container": "#f6fff6",
+                        "primary-container": "#258459",
+                        "on-primary-fixed-variant": "#005232"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "base": "4px",
+                        "touch-target": "44px",
+                        "gutter-mobile": "12px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .blob-bg {
+            filter: blur(40px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen w-screen flex flex-col items-center justify-center">
+<!-- Organic Background Patterns -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="blob-bg absolute -top-20 -left-20 w-80 h-80 bg-primary rounded-full animate-float"></div>
+<div class="blob-bg absolute top-1/2 -right-40 w-96 h-96 bg-secondary-container rounded-full animate-float" style="animation-delay: -2s;"></div>
+<div class="blob-bg absolute -bottom-20 left-1/4 w-72 h-72 bg-tertiary rounded-full animate-float" style="animation-delay: -4s;"></div>
+</div>
+<!-- Onboarding Container -->
+<main class="relative w-full max-w-md h-full flex flex-col bg-transparent overflow-hidden">
+<!-- Header Actions -->
+<header class="flex justify-end p-margin-mobile pt-8 z-20">
+<button class="px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors active:scale-95" id="skipBtn">
+                Lewati
+            </button>
+</header>
+<!-- Carousel -->
+<div class="flex-1 relative overflow-hidden">
+<div class="carousel-track h-full" id="carouselTrack">
+<!-- Slide 1 -->
+<section class="carousel-slide flex flex-col items-center justify-start px-margin-mobile pt-4 text-center">
+<div class="w-full aspect-[3/4] mb-8 relative rounded-3xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb7YFYdgBM6u_WJnUu9cVTkAtFUrJK9xGy1K4cbELMSesIiJ5OapkrrZj6-iYQofYrUpYt-h8eLH6UGUvTckeHAtyKzdLVDiMotVVpeYAbaOsN4Qv6JVvdD-W8G5zQz5GVTMVxOB6Mwkuq2FNmj_tmh_P0J4-s5IewIYGeV5Oig1JCOEFvVgA6JD_MhAvXHWI6ozzGTbL4SIwWvOkrNJ-FJ4mBYwJpzVpNly-ZmZTiGIWmekHN0mGkaw"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm px-4">
+                        Cari Warung Terdekat
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant px-6">
+                        Temukan ribuan produk dari warung-warung di sekitar rumahmu.
+                    </p>
+</section>
+<!-- Slide 2 -->
+<section class="carousel-slide flex flex-col items-center justify-start px-margin-mobile pt-4 text-center">
+<div class="w-full aspect-[3/4] mb-8 relative rounded-3xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg9mOMWA75wewfWysucRu8dVTVJrjoop_8G1YYD5JXB3aXb1SIsoU6v2nVOXGFGI072XNE2FvCrO3CeXRxHYH-34w7gQ9AQungoDDJo8QeqfjPS_c-G6V8B_KljDnM-UNK_KXL0TRJnTHz81cQ4yEnRIGdeLewVZ8VWQ9iRCGnop1UUion7YaXMR5bXg-nBTbU5c2K1ZEmhbtJf1FJO_hd5M18QvYUkCDx4JfNFZN0D_cnDP4iaStO8A"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm px-4">
+                        Pesan dengan Mudah
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant px-6">
+                        Pesan kebutuhan harianmu langsung dari aplikasi dengan satu sentuhan.
+                    </p>
+</section>
+<!-- Slide 3 -->
+<section class="carousel-slide flex flex-col items-center justify-start px-margin-mobile pt-4 text-center">
+<div class="w-full aspect-[3/4] mb-8 relative rounded-3xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG157T9qMICxIfazhA6kwUFlyxnIffDTZ9VCBE_lnrzJyhkuUZUkiUPLBG5pR_O2GpSGFWSfKfy7HlWfL-SxEUB4x3ma9kDNPowjIiFeBcGIU_0LkgJBx-h65TRsskGSLyraUMcRhGEiPRk0G8-dQiiJoMlwM7EaRjotCE5maIZZQZxGStsmOW0NILTH7mFr2Y4keIPQ7i13X4y6ty7CO0dVXm7gkV9hSBs7i0hjuMTsSHkyBSJU4YIA"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm px-4">
+                        Terima di Depan Pintu
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant px-6">
+                        Kurir lokal siap mengantarkan pesananmu sampai ke depan rumah dengan ramah.
+                    </p>
+</section>
+</div>
+</div>
+<!-- Footer Controls -->
+<footer class="p-margin-mobile pb-12 flex flex-col items-center gap-stack-lg z-20">
+<!-- Pagination Dots -->
+<div class="flex gap-2">
+<div class="dot w-6 h-2 rounded-full bg-primary transition-all duration-300"></div>
+<div class="dot w-2 h-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="dot w-2 h-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+</div>
+<!-- Main Action Button -->
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="nextBtn">
+<span id="nextBtnText">Selanjutnya</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</footer>
+</main>
+<script>
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+        const nextBtn = document.getElementById('nextBtn');
+        const nextBtnText = document.getElementById('nextBtnText');
+        const skipBtn = document.getElementById('skipBtn');
+        
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            // Slide transition
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Dot updates
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('w-2', 'bg-outline-variant');
+                    dot.classList.add('w-6', 'bg-primary');
+                } else {
+                    dot.classList.remove('w-6', 'bg-primary');
+                    dot.classList.add('w-2', 'bg-outline-variant');
+                }
+            });
+
+            // Button text updates
+            if (currentSlide === totalSlides - 1) {
+                nextBtnText.textContent = 'Mulai Belanja';
+                skipBtn.style.opacity = '0';
+                skipBtn.style.pointerEvents = 'none';
+            } else {
+                nextBtnText.textContent = 'Selanjutnya';
+                skipBtn.style.opacity = '1';
+                skipBtn.style.pointerEvents = 'auto';
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            } else {
+                // Final action
+                alert('Selamat datang di GUYUB!');
+            }
+        });
+
+        skipBtn.addEventListener('click', () => {
+            currentSlide = totalSlides - 1;
+            updateCarousel();
+        });
+
+        // Touch handling (Simple Swipe)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        track.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) { // Swipe Left
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+            if (touchEndX > touchStartX + 50) { // Swipe Right
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+        }
+    </script>
+</body></html>

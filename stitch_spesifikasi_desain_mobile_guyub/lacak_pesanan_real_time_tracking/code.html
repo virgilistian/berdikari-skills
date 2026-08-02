@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lacak Pesanan - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#258459",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "outline-variant": "#bec9bf",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container": "#efeded",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "secondary": "#9f4200",
+                    "tertiary": "#7d5231",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#602500",
+                    "surface-tint": "#006c44",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-container": "#f6fff6",
+                    "tertiary-container": "#996a47",
+                    "on-error-container": "#93000a",
+                    "outline": "#6f7a71",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-high": "#eae8e7",
+                    "background": "#fbf9f8",
+                    "surface": "#fbf9f8",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-secondary-fixed-variant": "#793100",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-surface": "#303030",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-container": "#ff7a2b",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-fixed": "#301400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .timeline-line {
+            width: 2px;
+            background-color: #bec9bf;
+            position: absolute;
+            top: 24px;
+            bottom: 0;
+            left: 11px;
+        }
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .map-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* Custom scrollbar suppression for a clean UI */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low dark:bg-surface-container-lowest flex justify-between items-center px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Lacak Pesanan</h1>
+</div>
+<button class="active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined">help</span>
+</button>
+</header>
+<!-- Content Area -->
+<main class="pt-touch-target pb-16 flex flex-col min-h-screen">
+<!-- Map Section (40% Viewport Height approx) -->
+<section class="relative w-full h-[353px] overflow-hidden bg-surface-container">
+<!-- Simulated Map Image -->
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean and modern map illustration of a peaceful Indonesian neighborhood in Pangkalan, featuring soft green trees and beige paved roads. A minimalist dotted line shows a route from a cozy traditional warung to a modern residential house. A small, friendly 3D-style courier icon on a motorcycle is mid-route, captured in bright daylight with soft ambient shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMEymtRMAiI0QfaLWvVGYFuYUyKQyeJ5bvUBY3fLz1ZieLgIDDC7p0FNmxxw--qzLmaNGZI5QlGQ3NECIHgakMn1MMfdDebx95R5wdx58dtnG1-5eYwMtSzquQ_4bTz5CpMLS9xGET221Mikh_jVIaxnVhvVBiD7upaOKnS3auKruis8NhMCCYvZoJLh13Kh1PAs-A36Fmz_vn__D9n6BaJf2QJ_-H5N4TUpqQsue-lXY8LqXMPlaIhQ')">
+</div>
+<!-- Map Overlay UI -->
+<div class="absolute inset-0 pointer-events-none p-margin-mobile">
+<!-- Courier Marker (Simulated) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg border-2 border-white relative">
+<span class="material-symbols-outlined text-[20px]">moped</span>
+<div class="absolute -inset-1 bg-primary opacity-30 rounded-full map-pulse"></div>
+</div>
+</div>
+<!-- Destination Marker -->
+<div class="absolute bottom-12 right-12 flex flex-col items-center">
+<div class="bg-secondary text-white p-2 rounded-lg shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-[20px]">home</span>
+</div>
+</div>
+<!-- Origin Marker -->
+<div class="absolute top-12 left-12 flex flex-col items-center">
+<div class="bg-tertiary-container text-white p-2 rounded-lg shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-[20px]">store</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Status Card Section (Bottom Container) -->
+<section class="flex-grow bg-surface-container-lowest -mt-6 rounded-t-[24px] shadow-2xl z-20 px-margin-mobile py-stack-lg border-t border-surface-variant/20">
+<div class="max-w-md mx-auto">
+<!-- Order Title & ID -->
+<div class="flex justify-between items-start mb-stack-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Paket Nasi Padang</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ID Pesanan: #GYB-99210</p>
+</div>
+<div class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-sm text-label-sm">
+                        Sedang Diantar
+                    </div>
+</div>
+<!-- Timeline / Stepper -->
+<div class="space-y-0 relative pb-stack-lg">
+<!-- Step 1: Completed -->
+<div class="relative pl-9 pb-stack-lg">
+<div class="timeline-line bg-primary"></div>
+<div class="absolute left-0 top-0 timeline-dot bg-primary text-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Pesanan Dikemas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Warung sedang menyiapkan menu spesialmu.</p>
+</div>
+<!-- Step 2: Active -->
+<div class="relative pl-9 pb-stack-lg">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-0 timeline-dot bg-primary-container text-on-primary-container ring-4 ring-primary-fixed">
+<span class="material-symbols-outlined text-[16px] animate-bounce">moped</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-primary font-bold">Sedang Diantar</h3>
+<p class="font-body-md text-body-md text-on-surface">Kurir sedang dalam perjalanan ke lokasimu.</p>
+<div class="mt-2 text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                            Tiba dalam ~12 menit
+                        </div>
+</div>
+<!-- Step 3: Pending -->
+<div class="relative pl-9">
+<div class="absolute left-0 top-0 timeline-dot bg-surface-variant text-outline">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-outline">Tiba di Lokasi</h3>
+<p class="font-body-md text-body-md text-outline-variant">Tunggu pesananmu di titik jemput.</p>
+</div>
+</div>
+<!-- Courier Details Section -->
+<div class="mt-stack-lg pt-stack-lg border-t border-surface-variant">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A friendly, smiling Indonesian courier named Bang Jaka, middle-aged with a warm expression, wearing a neat green polo shirt. The portrait is high-quality with soft natural lighting, showing a trusted neighborhood service provider aesthetic with a clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYrJxIKodHVZXxIRhc-6m8Dts1ZFABJNM0xa_UBvEGFsRkFDGzdu-kIsVELj-0-BMmA6PtnhRlylOMIUW5H9DOukLayITjQWSRCZbS8Ptik209wK-YqSRz0Fvh5Cyj0oc_lPCqeZ2qs-F4lpY0bSrfRpAUryhET4q4mbNH2W6fmeQ9oiIfTgrDt5A10hO-DsqQH7lPbT37vqp1dCGTR4fiBHbEjYoCtVeKPB_uqnmybokjun6OkhUtoQ"/>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Bang Jaka</h4>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm ml-1 text-on-surface-variant">4.9 • Mitra Terpercaya</span>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-2 bg-primary text-white px-5 h-11 rounded-full font-label-lg text-label-lg active:scale-95 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+                            Hubungi
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-low dark:bg-surface-container-lowest shadow-md flex justify-around items-center h-16 px-gutter-mobile pb-safe">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Pesan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for the "Hubungi" button
+        document.querySelector('button.bg-primary').addEventListener('click', function() {
+            this.classList.add('bg-primary-container');
+            setTimeout(() => {
+                this.classList.remove('bg-primary-container');
+            }, 200);
+        });
+
+        // Dynamic status check (simulated)
+        const updateEta = () => {
+            const etaElement = document.querySelector('.text-secondary');
+            if (etaElement) {
+                // Just a decorative effect to show liveness
+                const now = new Date();
+                if (now.getSeconds() % 15 === 0) {
+                    etaElement.classList.add('animate-pulse');
+                    setTimeout(() => etaElement.classList.remove('animate-pulse'), 1000);
+                }
+            }
+        };
+        setInterval(updateEta, 1000);
+    </script>
+</body></html>

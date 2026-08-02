@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Produk - Telur Ayam Negeri</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#7ed9a6",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-fixed": "#002111",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-container": "#ff7a2b",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "tertiary": "#7d5231",
+                    "secondary": "#9f4200",
+                    "primary": "#006a42",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface": "#fbf9f8",
+                    "on-primary-fixed-variant": "#005232",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-variant": "#e4e2e2",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "primary-container": "#258459",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-container": "#602500",
+                    "on-tertiary-fixed": "#301400",
+                    "outline": "#6f7a71",
+                    "surface-container-high": "#eae8e7",
+                    "on-secondary-fixed": "#341100",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "inverse-surface": "#303030",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#006c44",
+                    "surface-container": "#efeded",
+                    "tertiary-fixed": "#ffdcc5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tonal-layer {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased mb-24">
+<!-- TopAppBar -->
+<nav class="bg-surface dark:bg-surface-dim docked full-width top-0 fixed w-full z-50 flex items-center justify-between px-margin-mobile h-touch-target">
+<button aria-label="Kembali" class="active:scale-95 transition-transform hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full p-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Detail Produk</h1>
+<button aria-label="Bagikan" class="active:scale-95 transition-transform hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full p-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">share</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-touch-target">
+<!-- Hero Product Image -->
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-surface-container-low">
+<img alt="Telur Ayam Negeri Segar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr-tazrOEXog-rCDY_OFZn44dt2XrUGP4kQ5ydNxYmpvi5LZhtyDvn6lg3rHh4MzLTF1RiddzBZqBuSm1RVQSHZYK01WFN25rD1P0tWDzoCYF8rMJ_dKUnvsvk0nObP_mz_dp_euEdaoROrugJL28xzcgA_x78E4a_OgOz7NRqv02Pqy9qBY-GeJm_Q3YcH6OEmaurrJBDXG0BcuXg5GI7h2eUjncSmXmRaeUICRfXDi_h3oHPL2aysQ"/>
+<div class="absolute bottom-0 left-0 w-full h-24 tonal-layer pointer-events-none"></div>
+</div>
+<!-- Product Header Section -->
+<section class="px-margin-mobile py-stack-md bg-surface-container-lowest -mt-8 relative z-10 rounded-t-3xl shadow-sm">
+<div class="flex justify-between items-start mb-base">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-base">Telur Ayam Negeri 1kg</h2>
+<div class="flex items-center gap-2">
+<span class="font-price-lg text-price-lg text-secondary">Rp 28.000</span>
+<span class="font-body-md text-body-md text-outline line-through">Rp 32.000</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm">-12%</span>
+</div>
+</div>
+<!-- Quantity Selector -->
+<div class="flex items-center bg-surface-container border border-outline-variant rounded-full p-1 shadow-sm">
+<button class="w-8 h-8 flex items-center justify-center rounded-full active:bg-surface-container-high transition-colors" onclick="decrement()">
+<span class="material-symbols-outlined text-on-surface text-lg">remove</span>
+</button>
+<span class="font-label-lg text-label-lg w-8 text-center text-on-surface" id="quantity">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full active:bg-surface-container-high transition-colors" onclick="increment()">
+<span class="material-symbols-outlined text-on-surface text-lg">add</span>
+</button>
+</div>
+</div>
+<!-- Merchant Info -->
+<div class="flex items-center gap-3 mt-stack-md py-stack-sm border-y border-surface-variant">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, approachable portrait of an Indonesian woman shop owner named Bu Siti in her clean, organized neighborhood grocery store. She is smiling kindly, wearing a simple apron. The lighting is soft and natural, emphasizing a community-focused, trustworthy atmosphere with warm wooden textures in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC67mPOAdgGMj5CeWnhUT5je8TIL1PkgY2DD9KBuAL75qLy7S-5J7Wn1ORADeyaHfZVH_Xj74t9-NWwGdBvg7noFXi32wisIOWuq1jjOk4JrC-32VRPzCnW44fdwtK9sjkRQqf2-cXpVh9AAqXGGmm78NnVJBL7aOlcw1BWritZWeokhvSeWD-4PzfwFlJQdad6g2FpXwcmlHVcyBxCAMcjBYn7CEhfpO5S-9Jwbyl0-0-VeI6lDNjlKw"/>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Warung Bu Siti</p>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8 (200+ ulasan)</span>
+<span class="mx-1 text-outline-variant">•</span>
+<span class="text-primary font-semibold flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Buka
+                        </span>
+</div>
+</div>
+<button class="text-primary font-label-lg px-4 py-2 hover:bg-primary/5 transition-colors rounded-full border border-primary">
+                    Lihat Toko
+                </button>
+</div>
+</section>
+<!-- Details Section -->
+<section class="px-margin-mobile py-stack-lg space-y-stack-md">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface mb-base">Deskripsi Produk</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                    Telur segar setiap hari langsung dari peternak lokal. Dijamin kualitas dan kebersihannya untuk keluarga Tetangga. Pilihan terbaik untuk kebutuhan protein harian kamu dengan harga yang tetap terjangkau.
+                </p>
+</div>
+<!-- Features Grid -->
+<div class="grid grid-cols-2 gap-stack-sm">
+<div class="bg-surface-container-low p-stack-sm rounded-xl flex items-center gap-3 border border-surface-variant/50">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Kualitas</p>
+<p class="font-label-lg text-label-lg">Grade A</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-stack-sm rounded-xl flex items-center gap-3 border border-surface-variant/50">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Pengiriman</p>
+<p class="font-label-lg text-label-lg">Sangat Cepat</p>
+</div>
+</div>
+</div>
+<!-- Review Snapshot -->
+<div class="bg-surface-container-lowest p-stack-md rounded-2xl shadow-sm border border-surface-variant/30 mt-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-label-lg text-label-lg text-on-surface">Apa kata tetangga?</h3>
+<span class="text-primary font-label-sm">Lihat semua</span>
+</div>
+<div class="space-y-stack-md">
+<div class="pb-stack-sm border-b border-surface-variant/30">
+<div class="flex items-center gap-2 mb-1">
+<div class="flex text-secondary scale-75 origin-left">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">Ananda R.</span>
+</div>
+<p class="text-body-md italic text-on-surface-variant">"Telurnya besar-besar dan bersih banget. Langganan di sini!"</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(0,0,0,0.08)] flex justify-between items-center px-4 py-stack-md rounded-t-xl gap-4">
+<!-- Chat/Support Button -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:opacity-80 active:scale-98 transition-all">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-lg text-label-lg">Bantuan</span>
+</button>
+<!-- Main CTA -->
+<button class="flex-1 bg-primary text-on-primary font-headline-md h-12 rounded-full flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-md hover:bg-primary-container" id="addToCartBtn">
+<span class="material-symbols-outlined">shopping_cart</span>
+            Tambah ke Keranjang
+        </button>
+</div>
+<!-- Notification Toast (Hidden by default) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-on-surface text-surface px-6 py-3 rounded-full shadow-2xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-[100] flex items-center gap-2" id="toast">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span class="font-label-lg">Berhasil ditambahkan!</span>
+</div>
+<script>
+        let count = 1;
+        const qtyDisplay = document.getElementById('quantity');
+        const toast = document.getElementById('toast');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+
+        function increment() {
+            count++;
+            qtyDisplay.innerText = count;
+        }
+
+        function decrement() {
+            if (count > 1) {
+                count--;
+                qtyDisplay.innerText = count;
+            }
+        }
+
+        addToCartBtn.addEventListener('click', () => {
+            // Simple animation and feedback
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 2000);
+        });
+    </script>
+</body></html>

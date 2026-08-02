@@ -1,0 +1,254 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Guyub Merchant - Onboarding</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-background": "#1b1c1c",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container": "#efeded",
+                    "secondary": "#9f4200",
+                    "on-primary-container": "#f6fff6",
+                    "background": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary-fixed": "#9af5c1",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-surface-variant": "#3f4942",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#002111",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#602500",
+                    "on-secondary-fixed": "#341100",
+                    "on-tertiary-fixed": "#301400",
+                    "primary": "#006a42",
+                    "outline": "#6f7a71",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary-container": "#996a47",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bec9bf",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006c44",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-surface": "#1b1c1c",
+                    "surface-variant": "#e4e2e2",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-container-high": "#eae8e7",
+                    "surface": "#fbf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .bento-pattern {
+            background-image: radial-gradient(circle at 2px 2px, #bec9bf 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(251, 249, 248, 0) 0%, rgba(251, 249, 248, 1) 90%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- Top AppBar (Identity Anchor) -->
+<header class="w-full top-0 sticky bg-surface flex items-center justify-between px-margin-mobile h-touch-target z-50">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">Guyub</span>
+<span class="bg-primary-container text-on-primary-container text-label-sm px-2 py-0.5 rounded-full">Merchant</span>
+</div>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95">close</button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start overflow-y-auto">
+<!-- Hero Section: Illustration Canvas -->
+<section class="relative w-full aspect-[4/5] md:aspect-video flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bento-pattern opacity-30"></div>
+<!-- Animated Background Shader (Ambient Growth) -->
+
+<!-- Hero Illustration & Data-Alt -->
+<div class="relative z-10 w-full h-full flex items-center justify-center p-8">
+<div class="relative w-full max-w-md h-full">
+<!-- Main Storefront Illustration -->
+<div class="w-full h-full bg-contain bg-center bg-no-repeat drop-shadow-2xl" data-alt="A warm and inviting modern digital storefront illustration with a friendly local merchant holding a smartphone, smiling confidently. The scene is bathed in soft, morning sunlight with a professional yet neighborly aesthetic. Surrounding the merchant are floating 3D icons of shopping carts, stock levels, and gold coins, symbolizing business growth and efficiency. The color palette features vibrant Guyub green and earthy terracotta tones, presented in a clean, corporate-modern vector art style." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDIbeJlbYJ-N-2qOPK3OTe3QcNrGoYl6r2srfwSgKHo-8nOTVeEWMsqa8kPjGh6yVbipYt9qEDP4kx_lPJeNqa8vsFMdIP-1rnF5A619nyeJHpG9x3Ytx41MvGdi08pBJ_bUQzwjEhapSGYveO2RLnSzGytH4BgZOp4uMASYNVDIWSdBhSigdnTrxhhuVkC9C5WnG0_etMBXw-NtoqqkKUIr_Kj5jSxNRWHu0ADDwXKQ7ZzQcugAoCGCA&quot;);">
+</div>
+<!-- Floating Stat UI Glass Card (Asymmetric Layout) -->
+<div class="absolute bottom-1/4 -right-2 glass-card rounded-xl p-3 shadow-lg transform rotate-3 animate-bounce-slow">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: &quot;FILL&quot; 1;">trending_up</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Penjualan Hari Ini</p>
+<p class="font-price-lg text-price-lg text-primary">+Rp2.450k</p>
+</div>
+</div>
+</div>
+<!-- Floating Stock UI Card -->
+<div class="absolute top-1/4 -left-4 glass-card rounded-xl p-3 shadow-lg transform -rotate-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1;">inventory_2</span>
+<span class="font-label-sm text-label-sm text-on-surface">Stok Aman: 98%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Fade for Text Contrast -->
+<div class="absolute bottom-0 left-0 w-full h-32 hero-gradient"></div>
+</section>
+<!-- Content Section -->
+<section class="w-full px-margin-mobile flex flex-col items-center text-center -mt-8 pb-32">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight max-w-[280px] mb-stack-md">
+                Bawa Warungmu ke Digital
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mb-stack-lg leading-relaxed">
+                Kelola pesanan, stok, dan pelanggan dengan lebih efisien di ekosistem Guyub.
+            </p>
+<!-- Interactive Features Grid (Bento Style Lite) -->
+<div class="grid grid-cols-3 gap-3 w-full mb-stack-lg">
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">orders</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1;">box</span>
+<span class="font-label-sm text-label-sm">Stok</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: &quot;FILL&quot; 1;">group</span>
+<span class="font-label-sm text-label-sm">Pelanggan</span>
+</div>
+</div>
+<!-- Action Buttons Container -->
+<div class="w-full flex flex-col gap-3">
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-full font-label-lg text-label-lg shadow-md hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Daftar Sekarang<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full h-touch-target bg-surface-container-highest text-on-surface rounded-full font-label-lg text-label-lg hover:bg-surface-variant active:scale-95 transition-all">
+                    Masuk
+                </button>
+</div>
+<p class="mt-8 font-label-sm text-label-sm text-outline">
+                Dibuat untuk masyarakat Pangkalan &amp; Tegalwaru
+            </p>
+</section>
+</main>
+<!-- Success Message Snackbar (Hidden by default) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-on-surface text-surface px-6 py-3 rounded-full shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4" id="welcomeToast">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span class="font-label-lg text-label-lg">Selamat bergabung, Mitra!</span>
+</div>
+<!-- Bottom Navigation Shell (Relevance Check: Suppressed for Onboarding as per instructions) -->
+<!-- Navigation is hidden to prioritize onboarding canvas flow -->
+<script>
+        // Micro-interactions
+        document.querySelector('button.bg-primary').addEventListener('click', () => {
+            const toast = document.getElementById('welcomeToast');
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        });
+
+        // Simple animation for the stock card to feel "alive"
+        const cards = document.querySelectorAll('.glass-card');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth - 0.5;
+            const y = e.clientY / window.innerHeight - 0.5;
+            cards.forEach((card, index) => {
+                const depth = (index + 1) * 10;
+                card.style.transform = `translate(${x * depth}px, ${y * depth}px) rotate(${index === 0 ? 3 : -3}deg)`;
+            });
+        });
+
+        // Add bounce-slow animation via style tag for performance
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes bounce-slow {
+                0%, 100% { transform: translateY(0) rotate(3deg); }
+                50% { transform: translateY(-10px) rotate(3deg); }
+            }
+            .animate-bounce-slow {
+                animation: bounce-slow 4s ease-in-out infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+
+</body></html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi QRIS - Merchant App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-chip {
+            background-color: #258459;
+            color: #f6fff6;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#7ed9a6",
+                      "outline-variant": "#bec9bf",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-background": "#1b1c1c",
+                      "on-secondary-fixed-variant": "#793100",
+                      "background": "#fbf9f8",
+                      "tertiary": "#7d5231",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container-highest": "#e4e2e2",
+                      "primary-container": "#258459",
+                      "primary": "#006a42",
+                      "secondary-fixed": "#ffdbcb",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "surface-dim": "#dbd9d9",
+                      "secondary-container": "#ff7a2b",
+                      "on-surface": "#1b1c1c",
+                      "on-primary-fixed": "#002111",
+                      "outline": "#6f7a71",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "surface-container-high": "#eae8e7",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "on-secondary-fixed": "#341100",
+                      "on-secondary-container": "#602500",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-container": "#efeded",
+                      "on-primary-fixed-variant": "#005232",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#006c44",
+                      "surface-bright": "#fbf9f8",
+                      "tertiary-container": "#996a47",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#f6fff6",
+                      "surface": "#fbf9f8",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e4e2e2",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#ffb692",
+                      "tertiary-fixed": "#ffdcc5",
+                      "secondary": "#9f4200",
+                      "primary-fixed": "#9af5c1",
+                      "on-surface-variant": "#3f4942",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#301400"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "touch-target": "44px",
+                      "stack-sm": "8px"
+              },
+              "fontFamily": {
+                      "label-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface flex items-center px-margin-mobile h-touch-target w-full transition-colors">
+<button class="material-symbols-outlined text-primary p-2 active:scale-95 transition-transform" data-icon="arrow_back">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-on-surface ml-4">Verifikasi QRIS</h1>
+</header>
+<main class="px-margin-mobile pt-stack-md space-y-stack-md">
+<!-- Search Bar Section -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-[48px] pl-10 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Cari Order ID atau Nama Pelanggan" type="text"/>
+</div>
+<!-- Filter Chips (Asymmetric Layout Feel) -->
+<div class="flex overflow-x-auto pb-2 gap-2 no-scrollbar">
+<button class="active-chip px-5 py-2 rounded-full font-label-lg whitespace-nowrap transition-all shadow-sm active:scale-95">Semua</button>
+<button class="bg-surface-container-low text-on-surface-variant px-5 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-container-high transition-all active:scale-95">Berhasil</button>
+<button class="bg-surface-container-low text-on-surface-variant px-5 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-container-high transition-all active:scale-95">Menunggu</button>
+<button class="bg-surface-container-low text-on-surface-variant px-5 py-2 rounded-full font-label-lg whitespace-nowrap hover:bg-surface-container-high transition-all active:scale-95">Gagal</button>
+</div>
+<!-- Transactions List -->
+<div class="space-y-4">
+<!-- Card 1: Berhasil (Prominent) -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-[0_4px_12px_rgba(45,138,94,0.08)] border-l-4 border-primary transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Budi Santoso</h3>
+<p class="font-label-sm text-label-sm text-outline-variant tracking-wider uppercase">#G-8821</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-[#e7f5ed] text-primary px-3 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            Berhasil
+                        </span>
+<p class="font-label-sm text-label-sm text-outline-variant mt-2">Hari ini, 14:20</p>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-surface-variant pt-3 mt-1">
+<p class="font-body-md text-on-surface-variant">Total Pembayaran</p>
+<p class="font-price-lg text-price-lg text-primary">Rp 45.000</p>
+</div>
+</div>
+<!-- Card 2: Menunggu -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Siti Aminah</h3>
+<p class="font-label-sm text-label-sm text-outline-variant tracking-wider uppercase">#G-8822</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-[#fff4e6] text-secondary px-3 py-1 rounded-full font-label-sm">Menunggu</span>
+<p class="font-label-sm text-label-sm text-outline-variant mt-2">Hari ini, 14:15</p>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-surface-variant pt-3 mt-1">
+<p class="font-body-md text-on-surface-variant">Total Pembayaran</p>
+<p class="font-price-lg text-price-lg text-on-surface">Rp 128.500</p>
+</div>
+</div>
+<!-- Card 3: Gagal -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Rahmat Hidayat</h3>
+<p class="font-label-sm text-label-sm text-outline-variant tracking-wider uppercase">#G-8823</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-[#fdeaea] text-error px-3 py-1 rounded-full font-label-sm">Gagal</span>
+<p class="font-label-sm text-label-sm text-outline-variant mt-2">Hari ini, 13:45</p>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-surface-variant pt-3 mt-1 opacity-60">
+<p class="font-body-md text-on-surface-variant">Total Pembayaran</p>
+<p class="font-price-lg text-price-lg text-error">Rp 15.000</p>
+</div>
+</div>
+<!-- Card 4: Berhasil -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-surface-variant transition-transform active:scale-[0.98]">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Dewi Lestari</h3>
+<p class="font-label-sm text-label-sm text-outline-variant tracking-wider uppercase">#G-8824</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-[#e7f5ed] text-primary px-3 py-1 rounded-full font-label-sm">Berhasil</span>
+<p class="font-label-sm text-label-sm text-outline-variant mt-2">Hari ini, 12:10</p>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-surface-variant pt-3 mt-1">
+<p class="font-body-md text-on-surface-variant">Total Pembayaran</p>
+<p class="font-price-lg text-price-lg text-primary">Rp 210.000</p>
+</div>
+</div>
+</div>
+<!-- Illustration Empty State (Hidden, for logic demonstration) -->
+<div class="hidden flex flex-col items-center justify-center py-12 text-center" id="empty-state">
+<div class="w-48 h-48 mb-6 overflow-hidden rounded-full bg-surface-container-low flex items-center justify-center">
+<div class="bg-cover bg-center w-32 h-32 opacity-80" data-alt="A warm, hand-drawn illustration of a friendly local market merchant looking at a smartphone screen with a magnifying glass. The style is cozy and communal, featuring soft organic lines and a palette of forest greens and earthy browns. Soft morning sunlight filters through, creating a trusted and approachable atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2zDFricZobHSNWWLQrwNGBqvzmct8AnnZtuLoPqa59jHogjuSVcZ5gEsK-9YwuEKERLZmUozPbr_wcM_SIJaCtR-NjA2Vlh_n6jtHQm8aIW440G3GzH73Yp-0CpZIXU-UiKuXt2J1PltQjKJvrvJH2222J943-yifb7cWODwl6BdHl0UL8FiCZc4Rxm8Gw8ViGJRhoSb3L6-ThhJDTVmKySFLWE2A2s-KZF4SR-NoZqrT352VTqf_mw')"></div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Belum ada transaksi</h4>
+<p class="font-body-md text-on-surface-variant px-8 mb-6">Coba ganti kata kunci pencarian atau filter status untuk menemukan apa yang kamu cari.</p>
+<button class="bg-primary text-on-primary px-8 h-touch-target rounded-full font-label-lg shadow-md active:scale-95 transition-all">Segarkan List</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface shadow-[0_-4px_12px_rgba(125,82,49,0.08)] flex justify-around items-center px-4 py-2 w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Transaksi</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm mt-1">QRIS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Akun</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for filter chips
+        const chips = document.querySelectorAll('button[class*="rounded-full"]');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('active-chip');
+                    c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+                    c.classList.remove('text-on-primary-container');
+                });
+                chip.classList.add('active-chip');
+                chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+            });
+        });
+
+        // Simple search feedback
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('input', (e) => {
+            const list = document.querySelector('.space-y-4');
+            const empty = document.getElementById('empty-state');
+            if(e.target.value.length > 10) { // Simulating no results
+                list.classList.add('hidden');
+                empty.classList.remove('hidden');
+            } else {
+                list.classList.remove('hidden');
+                empty.classList.add('hidden');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Persiapan Pesanan - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#006a42",
+                    "background": "#fbf9f8",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary-container": "#f6fff6",
+                    "tertiary-container": "#996a47",
+                    "on-secondary-container": "#602500",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container": "#efeded",
+                    "on-tertiary-container": "#fffbff",
+                    "outline": "#6f7a71",
+                    "surface-bright": "#fbf9f8",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary": "#9f4200",
+                    "inverse-surface": "#303030",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "surface-tint": "#006c44",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-container": "#ff7a2b",
+                    "outline-variant": "#bec9bf",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "primary-container": "#258459",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary-fixed": "#9af5c1",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-secondary-fixed-variant": "#793100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface": "#fbf9f8",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#341100",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-container-high": "#eae8e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite ease-in-out;
+        }
+        .bento-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px 0 rgba(0,0,0,0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-on-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Persiapan Pesanan</h1>
+</div>
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">help</span>
+</button>
+</header>
+<main class="px-margin-mobile py-stack-md flex flex-col gap-stack-md max-w-lg mx-auto">
+<!-- Timer Card -->
+<div class="bento-card p-stack-md border-l-4 border-primary bg-on-primary-container/10">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Estimasi Waktu Siap</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">12:00 <span class="text-label-lg font-label-lg">menit</span></span>
+</div>
+<div class="relative flex items-center justify-center w-12 h-12">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-pulse-soft"></div>
+<span class="material-symbols-outlined text-primary text-3xl">timer</span>
+</div>
+</div>
+<div class="mt-stack-sm flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Sedang Dimasak</span>
+</div>
+</div>
+<!-- Order ID & Notes Summary -->
+<div class="bento-card p-stack-md flex flex-col gap-3">
+<div class="flex justify-between items-center pb-2 border-b border-surface-variant">
+<span class="font-label-lg text-label-lg text-on-surface-variant">ID Pesanan</span>
+<span class="font-headline-md text-headline-md text-on-surface">#GP-9921</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1">sticky_note_2</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Catatan Pelanggan</span>
+<p class="font-body-md text-body-md text-on-surface font-medium italic">"Pedas sedang, telur ceplok"</p>
+</div>
+</div>
+</div>
+<!-- Menu List Card -->
+<div class="bento-card overflow-hidden">
+<div class="bg-surface-container-low px-stack-md py-3 flex items-center justify-between border-b border-surface-variant">
+<h2 class="font-headline-md text-[18px] text-on-surface">Daftar Menu Pesanan</h2>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full text-label-sm font-label-sm">5 Item</span>
+</div>
+<div class="divide-y divide-surface-variant">
+<!-- Item 1: Checked -->
+<label class="flex items-center gap-stack-md p-stack-md hover:bg-surface-variant/20 transition-colors cursor-pointer group">
+<input checked="" class="w-6 h-6 rounded-md border-outline text-primary focus:ring-primary" type="checkbox"/>
+<div class="w-16 h-16 rounded-lg bg-cover bg-center flex-shrink-0" data-alt="A close-up high-definition shot of authentic Indonesian Nasi Goreng Spesial with a sunny-side-up egg on top, served on a traditional plate. The lighting is warm and inviting, highlighting the steam rising from the rice. The color palette features rich earthy browns and bright yellows, maintaining a welcoming neighborhood kitchen aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS-1bHNUCgsyoQypN_zZoM08DSDPbmahhduiwx79s6sRBBkZdjGQlMnHr7HvRmSkzGXS06XRgc90qrzffVqd0drB5GjSCX3-29Ds2Q__sD65YoJAH00Nz_Qb9N6iVWhxGQvgt1B3wRh3_6ddHYOcl-pn-YXf6DtlDPaPpeCahbFUnw234b3TE4sKmqOUhR1brRfa5WgtoLSFMMMzZ9BRb9wNsOASyUuaIsgw5fS_cPd6YvTwkOXnW7xw')">
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-headline-md text-[16px] text-on-surface line-through decoration-on-surface-variant/50">3x Nasi Goreng Spesial</span>
+<span class="font-label-sm text-label-sm text-primary">Sudah Siap</span>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</label>
+<!-- Item 2: Unchecked -->
+<label class="flex items-center gap-stack-md p-stack-md hover:bg-surface-variant/20 transition-colors cursor-pointer group">
+<input class="w-6 h-6 rounded-md border-outline text-primary focus:ring-primary" type="checkbox"/>
+<div class="w-16 h-16 rounded-lg bg-cover bg-center flex-shrink-0" data-alt="Two glasses of chilled Indonesian Es Teh Manis with condensation droplets on the exterior and mint leaves on top. The background is a soft-focus wooden table in a bright, airy cafe setting. The lighting is bright and crisp, emphasizing the refreshing nature of the drink, using warm amber tones for the tea." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7FsdHUuI2hmoj7ZT6FJRRHvxOqu2Li7zE4U1kGDkTVRvzMKgIqughn1xcOqLvC1tSZAHiRtEnA8lI_gMh37h2aGq4NFAKq8MDBlvM7Cx8zKtvp3Yfyf7IuLD_k_o0VLResK6N4fzhlV1ENexE6SK3SYtZ73i73icY4dPIy3GHS8ruDrUhHIC61jkHKHYq37scsOKySc4RVRs8GtWYqlG2nIrx5LaSEKjeGXgp1t1jSS-pTySDocg_3Q')">
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-headline-md text-[16px] text-on-surface">2x Es Teh Manis</span>
+<span class="font-label-sm text-label-sm text-secondary">Sedang Disiapkan</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">radio_button_unchecked</span>
+</label>
+</div>
+</div>
+<!-- Additional Assistance / Contact -->
+<div class="flex gap-stack-md">
+<button class="flex-1 bento-card p-3 flex flex-col items-center justify-center gap-1 active:scale-95 transition-all text-tertiary">
+<span class="material-symbols-outlined">call</span>
+<span class="font-label-sm text-label-sm">Hubungi Pembeli</span>
+</button>
+<button class="flex-1 bento-card p-3 flex flex-col items-center justify-center gap-1 active:scale-95 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-sm text-label-sm">Chat Driver</span>
+</button>
+</div>
+</main>
+<!-- Bottom Action & Navigation -->
+<div class="fixed bottom-0 w-full z-50 bg-surface dark:bg-on-surface px-margin-mobile pb-6 pt-4 rounded-t-xl shadow-[0_-4px_12px_0_rgba(0,0,0,0.08)]">
+<button class="w-full h-touch-target bg-primary text-on-primary font-headline-md rounded-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined">check_box</span>
+            Pesanan Siap Diambil
+        </button>
+<!-- Navigation Section (Filtered for Active context) -->
+<nav class="flex justify-around items-center w-full">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">Riwayat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</div>
+</nav>
+</div>
+<script>
+        // Simple logic for the checkboxes to update item styles (visual only)
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const text = this.closest('label').querySelector('span.font-headline-md');
+                const status = this.closest('label').querySelector('span.font-label-sm');
+                const icon = this.closest('label').querySelector('.material-symbols-outlined:last-child');
+                
+                if (this.checked) {
+                    text.classList.add('line-through', 'decoration-on-surface-variant/50');
+                    status.textContent = 'Sudah Siap';
+                    status.classList.replace('text-secondary', 'text-primary');
+                    icon.textContent = 'check_circle';
+                    icon.classList.replace('text-outline-variant', 'text-primary');
+                } else {
+                    text.classList.remove('line-through', 'decoration-on-surface-variant/50');
+                    status.textContent = 'Sedang Disiapkan';
+                    status.classList.replace('text-primary', 'text-secondary');
+                    icon.textContent = 'radio_button_unchecked';
+                    icon.classList.replace('text-primary', 'text-outline-variant');
+                }
+            });
+        });
+    </script>
+</body></html>

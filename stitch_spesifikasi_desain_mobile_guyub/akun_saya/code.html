@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub - Profil Saya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#f6fff6",
+                      "surface-container-highest": "#e4e2e2",
+                      "on-primary-fixed": "#002111",
+                      "tertiary": "#7d5231",
+                      "surface-container": "#efeded",
+                      "on-primary-fixed-variant": "#005232",
+                      "surface-container-high": "#eae8e7",
+                      "surface": "#fbf9f8",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dbd9d9",
+                      "outline-variant": "#bec9bf",
+                      "surface-variant": "#e4e2e2",
+                      "on-secondary-fixed": "#341100",
+                      "secondary-container": "#ff7a2b",
+                      "on-surface": "#1b1c1c",
+                      "primary-container": "#258459",
+                      "surface-container-low": "#f5f3f3",
+                      "inverse-primary": "#7ed9a6",
+                      "secondary-fixed": "#ffdbcb",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-secondary-container": "#602500",
+                      "secondary-fixed-dim": "#ffb692",
+                      "on-secondary-fixed-variant": "#793100",
+                      "tertiary-container": "#996a47",
+                      "primary": "#006a42",
+                      "on-tertiary-fixed": "#301400",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "background": "#fbf9f8",
+                      "secondary": "#9f4200",
+                      "on-tertiary-container": "#fffbff",
+                      "on-background": "#1b1c1c",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fbf9f8",
+                      "tertiary-fixed": "#ffdcc5",
+                      "on-surface-variant": "#3f4942",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#303030",
+                      "primary-fixed": "#9af5c1",
+                      "surface-tint": "#006c44",
+                      "outline": "#6f7a71",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "gutter-mobile": "12px",
+                      "base": "4px",
+                      "touch-target": "44px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="bg-surface sticky top-0 z-40 w-full shadow-sm flex justify-between items-center px-margin-mobile py-base h-16">
+<h1 class="font-headline-md text-headline-md text-primary">Kurir Lokal</h1>
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Indonesian man in his 30s wearing a clean green uniform. He is smiling warmly against a soft-focus neighborhood market background. The lighting is natural and bright, conveying reliability and local connection consistent with the Kurir Lokal brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt490EZXo-7e2IsES-mexOQXMs12-tD24AqPoRjJDM6wYuRxYcBpGZHTyCiZmbvcQoW_dhjsqjPlArIp1vDRAcIXmfTaczGXpdoy0VBvqh326V6Yrdp9Gr8BKxCvz2NsKForkkRuIQDW--SI3hKG2FZ1omsiCGnYLITTdB32Wkk831NDNr2MyoHmz-_RZHM4pslC8ERdM4ABrlNrAVZOOP8dydq93KIGNiD942_35dQjoTA7Mjl-rUDA"/>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Profile Header Section -->
+<section class="flex items-center gap-stack-md bg-surface-container-lowest p-stack-md rounded-xl shadow-sm">
+<div class="relative">
+<div class="w-20 h-20 rounded-full overflow-hidden ring-4 ring-primary-container/10">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of Budi Santoso, a middle-aged Indonesian male courier with a kind and trustworthy face. He wears a subtle green polo shirt. The image is bright with high-key lighting, maintaining a soft, approachable aesthetic typical of a community-focused mobile app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdst52OsxFJjtjTLQ9tC_P7izlxMX5y8_r1yQbDiVaTv767fdNuqPbG4AnH9dRhWs-5n2XhjLNhwCRgLGf9e3ISc_8FBc_t40Z6g-M6w8lpefuZZj0r3SWTDm7Cwpw6FVjnWEiHSB4CPSgLdRV4vnZhogXGPs6ZpjwbL1rZ9O-_imoNvCExJdDdj4LtU898nc1T3U_Ulh30TBQ5NhRRYZY6Rg0Y5WA69Mm7G_136nZ4h-md1AVi6LuuA"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Budi Santoso</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 bg-primary-container/10 text-primary rounded-full font-label-sm text-label-sm">Mitra Kurir</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">ID: 482910</span>
+</div>
+</div>
+</section>
+<!-- Loyalty / Points Card -->
+<section class="grid grid-cols-2 gap-stack-md">
+<div class="bg-secondary-container p-stack-md rounded-xl text-on-secondary-container relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex flex-col h-full justify-between relative z-10">
+<span class="font-label-lg text-label-lg opacity-90">Poin Saya</span>
+<div class="mt-2">
+<p class="font-headline-lg text-headline-lg">1.250</p>
+<p class="font-label-sm text-label-sm opacity-80 mt-1">Sangat Bagus</p>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container p-stack-md rounded-xl text-on-tertiary-container relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="flex flex-col h-full justify-between relative z-10">
+<span class="font-label-lg text-label-lg opacity-90">Level Kurir</span>
+<div class="mt-2">
+<p class="font-headline-lg text-headline-lg">Emas</p>
+<p class="font-label-sm text-label-sm opacity-80 mt-1">8 Transaksi lagi ke Platinum</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu List -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-surface-container-high">
+<div class="divide-y divide-surface-container">
+<!-- Edit Profil -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-surface-variant transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined">edit</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-on-surface">Edit Profil</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Lokasi Saya -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-surface-variant transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-on-surface">Daftar Alamat / Lokasi Saya</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Pengaturan -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-surface-variant transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-on-surface">Pengaturan</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Pusat Bantuan -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-surface-variant transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-on-surface">Pusat Bantuan</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Syarat & Ketentuan -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-surface-variant transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-on-surface">Syarat & Ketentuan</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<!-- Logout -->
+<button class="w-full flex items-center gap-stack-md px-stack-md py-stack-md hover:bg-error-container/30 transition-colors duration-150 active:scale-[0.98]">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-error-container text-error">
+<span class="material-symbols-outlined">logout</span>
+</div>
+<span class="flex-1 text-left font-label-lg text-label-lg text-error">Keluar</span>
+<span class="material-symbols-outlined text-error/50">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Footer Info -->
+<footer class="text-center pb-8">
+<p class="font-label-sm text-label-sm text-outline-variant">Versi Aplikasi 2.1.0-guyub</p>
+</footer>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)]">
+<div class="flex justify-around items-center w-full h-[64px] px-2 pb-safe">
+<!-- Beranda -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150 hover:opacity-80">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</button>
+<!-- Order -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150 hover:opacity-80">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</button>
+<!-- Pendapatan -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150 hover:opacity-80">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</button>
+<!-- Akun (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150 hover:opacity-80">
+<span class="material-symbols-outlined active-icon">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</button>
+</div>
+</nav>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('opacity-70');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('opacity-70');
+            });
+        });
+    </script>
+</body></html>

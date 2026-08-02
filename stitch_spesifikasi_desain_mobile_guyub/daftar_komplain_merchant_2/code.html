@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar Komplain Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            view-transition-name: active-tab;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "outline-variant": "#bec9bf",
+                        "on-primary-container": "#f6fff6",
+                        "on-surface-variant": "#3f4942",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#602500",
+                        "tertiary": "#7d5231",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary": "#9f4200",
+                        "on-secondary-fixed": "#341100",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#258459",
+                        "surface-tint": "#006c44",
+                        "primary": "#006a42",
+                        "on-primary-fixed-variant": "#005232",
+                        "on-primary-fixed": "#002111",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#996a47",
+                        "on-error-container": "#93000a",
+                        "outline": "#6f7a71",
+                        "inverse-on-surface": "#f2f0f0",
+                        "primary-fixed": "#9af5c1",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed": "#ffdbcb",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-fixed-variant": "#793100",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-bright": "#fbf9f8",
+                        "surface-dim": "#dbd9d9",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container-low": "#f5f3f3",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "surface-variant": "#e4e2e2",
+                        "secondary-container": "#ff7a2b",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#7ed9a6",
+                        "surface-container-high": "#eae8e7",
+                        "background": "#fbf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "12px",
+                        "touch-target": "44px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 transition-transform">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary">Daftar Komplain</h1>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95 transition-transform">history</button>
+</header>
+<main class="max-w-xl mx-auto px-margin-mobile pt-stack-md space-y-stack-md">
+<!-- Search Bar -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface border border-outline rounded-xl font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Cari ID Pesanan (misal: #G-8821)" type="text"/>
+</div>
+<!-- Filter Navigation (NavigationDrawer style logic applied to horizontal tabs) -->
+<div class="flex bg-surface-container-high p-1 rounded-full gap-1">
+<button class="flex-1 bg-secondary-container text-on-secondary-container rounded-full px-4 py-2 font-bold text-center transition-all active:opacity-80 font-label-lg text-label-lg" id="tab-pending" onclick="switchTab('pending')">
+                Perlu Ditangani
+            </button>
+<button class="flex-1 text-on-surface-variant px-4 py-2 text-center transition-all hover:bg-surface-container-highest rounded-full active:opacity-80 font-label-lg text-label-lg" id="tab-resolved" onclick="switchTab('resolved')">
+                Selesai
+            </button>
+</div>
+<!-- Complaint List Container -->
+<div class="space-y-stack-md" id="complaint-list">
+<!-- Pending Item 1 -->
+<div class="complaint-card bg-surface rounded-xl shadow-sm border border-outline-variant p-stack-md flex flex-col gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/10" data-alt="A friendly and authentic profile portrait of a smiling Indonesian local customer, captured in warm natural lighting with a soft neighborhood background. The style is modern corporate but with a soft, community-focused feel, using a clean color palette of whites and greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVGpZF_-iINDYA2ap10AjsgekSw8ICWFtrVcIkeuxs83foG4UQeA4ZgyU85cjXPnke8emfd56GcdUf5MfLSBUM0ydQNGVvDJh1ZDO2k2fehaQOn6Wn1DujJx_nQlfx_bN6wDAT_TRFYSfANerf3grF3scE873LlYrce0nK8ALW8GA76ApxivMk3M4Fd_bpD1GfcYtAt-t5ysRltLCOlvAtPCXo_a--C43mDvEWgPou2a5qmC9OcRA63w"/>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Budi Santoso</p>
+<p class="font-label-sm text-label-sm text-primary font-bold">#G-8821</p>
+</div>
+</div>
+<span class="bg-error/15 text-error px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                        Urgent
+                    </span>
+</div>
+<div class="space-y-1">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">report_problem</span>
+<span class="font-semibold text-on-surface">Makanan tumpah</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic leading-snug">"Saus sambalnya tumpah di dalam plastik, jadi semua kemasan kotor."</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-variant">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm">10 menit yang lalu</span>
+</div>
+<button class="bg-primary text-on-primary px-5 h- touch-target rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all">
+                        Tanggapi
+                    </button>
+</div>
+</div>
+<!-- Pending Item 2 -->
+<div class="complaint-card bg-surface rounded-xl shadow-sm border border-outline-variant p-stack-md flex flex-col gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/10" data-alt="A candid profile photo of a young Indonesian woman customer, looking towards the camera with a gentle expression. The image has a warm, high-key lighting aesthetic with a professional yet neighborly vibe. The colors are soft, focusing on neutral tones and light green accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQ_PAgp9p8yyWQFnXYXCaQsHmQxsOyFMo0t_F6LBmO6A69EoDuTyvRJY6YOUGzOGJLJ56DN2IMH-umBYW4A1qB9QHe1-9vVQgz0zYuCXXu9Q5FToPLyMjNycwwqsv5kCXnux956KFqJVT_83Lc-AYkkecCM6YbisokEVz_ZHw42VUidFy7qa-MuXvme-o84Zeha9J7mxZTnWwctP6IP7qXtF4Yhufc4aMv8WkrY6sN5Fqw5OiCW7Mow"/>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Siti Aminah</p>
+<p class="font-label-sm text-label-sm text-primary font-bold">#G-8845</p>
+</div>
+</div>
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-3 py-1 rounded-full font-label-sm text-label-sm">
+                        Baru
+                    </span>
+</div>
+<div class="space-y-1">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+<span class="font-semibold text-on-surface">Item kurang</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic leading-snug">"Pesan 3 nasi ayam tapi yang datang cuma 2 porsi saja."</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-variant">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm">25 menit yang lalu</span>
+</div>
+<button class="bg-primary text-on-primary px-5 h- touch-target rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all">
+                        Tanggapi
+                    </button>
+</div>
+</div>
+<!-- Empty State (Hidden by default) -->
+<div class="hidden flex flex-col items-center justify-center py-20 text-center space-y-4" id="empty-state">
+<div class="w-48 h-48 bg-surface-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-primary/20">task_alt</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Semua Beres!</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Belum ada komplain baru yang perlu ditangani.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface shadow-lg flex justify-around items-center px-gutter-mobile py-2 rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 transition-all duration-200 p-2 rounded-xl">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 transition-all duration-200 p-2 rounded-xl">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-label-sm text-label-sm">Menu</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="font-label-sm text-label-sm">Komplain</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed-dim/20 transition-all duration-200 p-2 rounded-xl">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</button>
+</nav>
+<script>
+        const complaintsData = {
+            pending: [
+                {
+                    name: "Budi Santoso",
+                    id: "#G-8821",
+                    reason: "Makanan tumpah",
+                    desc: "\"Saus sambalnya tumpah di dalam plastik, jadi semua kemasan kotor.\"",
+                    time: "10 menit yang lalu",
+                    badge: "Urgent",
+                    badgeStyle: "bg-error/15 text-error",
+                    hasPulse: true,
+                    img: "placeholder"
+                },
+                {
+                    name: "Siti Aminah",
+                    id: "#G-8845",
+                    reason: "Item kurang",
+                    desc: "\"Pesan 3 nasi ayam tapi yang datang cuma 2 porsi saja.\"",
+                    time: "25 menit yang lalu",
+                    badge: "Baru",
+                    badgeStyle: "bg-secondary-container/20 text-on-secondary-fixed-variant",
+                    hasPulse: false,
+                    img: "placeholder"
+                }
+            ],
+            resolved: [
+                {
+                    name: "Agus Hermawan",
+                    id: "#G-8790",
+                    reason: "Salah menu",
+                    desc: "Sudah dikirim ulang menu yang benar via kurir toko.",
+                    time: "Kemarin, 14:20",
+                    badge: "Selesai",
+                    badgeStyle: "bg-primary-fixed text-on-primary-fixed-variant",
+                    hasPulse: false,
+                    img: "placeholder"
+                },
+                {
+                    name: "Dewi Lestari",
+                    id: "#G-8755",
+                    reason: "Pesanan lama",
+                    desc: "Diselesaikan dengan pemberian voucher diskon 10%.",
+                    time: "2 hari yang lalu",
+                    badge: "Selesai",
+                    badgeStyle: "bg-primary-fixed text-on-primary-fixed-variant",
+                    hasPulse: false,
+                    img: "placeholder"
+                }
+            ]
+        };
+
+        function switchTab(type) {
+            const pendingBtn = document.getElementById('tab-pending');
+            const resolvedBtn = document.getElementById('tab-resolved');
+            const container = document.getElementById('complaint-list');
+            const emptyState = document.getElementById('empty-state');
+
+            // UI Update for Tabs
+            if (type === 'pending') {
+                pendingBtn.className = "flex-1 bg-secondary-container text-on-secondary-container rounded-full px-4 py-2 font-bold text-center transition-all active:opacity-80 font-label-lg text-label-lg";
+                resolvedBtn.className = "flex-1 text-on-surface-variant px-4 py-2 text-center transition-all hover:bg-surface-container-highest rounded-full active:opacity-80 font-label-lg text-label-lg";
+            } else {
+                resolvedBtn.className = "flex-1 bg-secondary-container text-on-secondary-container rounded-full px-4 py-2 font-bold text-center transition-all active:opacity-80 font-label-lg text-label-lg";
+                pendingBtn.className = "flex-1 text-on-surface-variant px-4 py-2 text-center transition-all hover:bg-surface-container-highest rounded-full active:opacity-80 font-label-lg text-label-lg";
+            }
+
+            // Render Logic
+            const items = complaintsData[type];
+            container.innerHTML = '';
+            
+            if (items.length === 0) {
+                container.appendChild(emptyState);
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "complaint-card bg-surface rounded-xl shadow-sm border border-outline-variant p-stack-md flex flex-col gap-3 relative overflow-hidden group hover:shadow-md transition-all animate-in fade-in slide-in-from-bottom-2 duration-300";
+                
+                const badgeHtml = `
+                    <span class="${item.badgeStyle} px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+                        ${item.hasPulse ? '<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>' : ''}
+                        ${item.badge}
+                    </span>
+                `;
+
+                const btnHtml = type === 'pending' 
+                    ? `<button class="bg-primary text-on-primary px-5 h-touch-target rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all">Tanggapi</button>`
+                    : `<button class="text-primary font-label-lg text-label-lg px-4 h-touch-target flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">visibility</span> Lihat Detail</button>`;
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.img}" data-alt="A detailed profile portrait of an Indonesian person with a warm, neighborly expression, fitting a local merchant app's clean and corporate-modern style. Lighting is soft and bright, using the primary green and off-white color tokens from the brand." class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/10">
+                            <div>
+                                <p class="font-label-lg text-label-lg text-on-surface">${item.name}</p>
+                                <p class="font-label-sm text-label-sm text-primary font-bold">${item.id}</p>
+                            </div>
+                        </div>
+                        ${badgeHtml}
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">${type === 'pending' ? 'report_problem' : 'check_circle'}</span>
+                            <span class="font-semibold text-on-surface">${item.reason}</span>
+                        </p>
+                        <p class="font-body-md text-body-md text-on-surface-variant italic leading-snug">${item.desc}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-surface-variant">
+                        <div class="flex items-center gap-1 text-outline">
+                            <span class="material-symbols-outlined text-[16px]">schedule</span>
+                            <span class="font-label-sm text-label-sm">${item.time}</span>
+                        </div>
+                        ${btnHtml}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body></html>

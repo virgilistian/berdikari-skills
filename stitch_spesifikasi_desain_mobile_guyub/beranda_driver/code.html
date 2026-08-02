@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kurir Lokal - Beranda Driver</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-container": "#f6fff6",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-fixed": "#9af5c1",
+                    "surface-tint": "#006c44",
+                    "surface-container": "#efeded",
+                    "tertiary-container": "#996a47",
+                    "primary": "#006a42",
+                    "surface-bright": "#fbf9f8",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "tertiary": "#7d5231",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "surface": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "surface-dim": "#dbd9d9",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary-container": "#602500",
+                    "on-primary-fixed-variant": "#005232",
+                    "primary-container": "#258459",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary": "#ffffff",
+                    "background": "#fbf9f8",
+                    "outline-variant": "#bec9bf",
+                    "outline": "#6f7a71",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-surface": "#303030",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ff7a2b",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .status-pill-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card {
+            background-color: #ffffff;
+            transition: transform 0.2s ease;
+        }
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm flex justify-between items-center px-margin-mobile py-base h-[64px]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border-2 border-primary-fixed shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A close-up professional portrait of a friendly local delivery driver wearing a clean uniform, set against a blurred neighborhood market background. The lighting is warm and natural, emphasizing a trustworthy and approachable persona. The style is clean, modern, and high-quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC37_AqES94hGgT0pgaTgkmJUMHqJzFCIX79gi-ybf1u8P4BFFoCSarg_wNaB5DVkH452GwGGEL69IxunsECbwxHj07m9oWjwQUHM_jfwphgU8snF7dyZE1wLe9KVur6cUTv-RkUOya5Jr49EmgYIrH2a-cQFcXTPGvGoQeTEwwvTWvsqy_aoxVVSlYYu5slh-Fmi0_GgBzfBy3-wMSFeA1dTDPMnXaZteff2SZWA66YeJ57z4iueTPlw"/>
+</div>
+<span class="font-headline-md text-headline-md text-primary">Kurir Lokal</span>
+</div>
+<button class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-stack-md flex flex-col gap-stack-lg">
+<!-- Online/Offline Toggle Switch Section -->
+<section class="flex flex-col items-center">
+<div class="w-full max-w-sm rounded-[32px] p-2 bg-surface-container-high shadow-inner flex relative overflow-hidden" id="statusContainer">
+<div class="absolute h-[calc(100%-16px)] w-[calc(50%-8px)] bg-primary rounded-full top-2 left-2 status-pill-transition shadow-lg z-10" id="statusKnob"></div>
+<button class="relative z-20 flex-1 py-3 flex items-center justify-center gap-2 transition-colors duration-300" onclick="setStatus(true)">
+<span class="font-label-lg text-label-lg text-on-primary" id="labelOnline">ONLINE</span>
+</button>
+<button class="relative z-20 flex-1 py-3 flex items-center justify-center gap-2 transition-colors duration-300" onclick="setStatus(false)">
+<span class="font-label-lg text-label-lg text-on-surface-variant" id="labelOffline">OFFLINE</span>
+</button>
+</div>
+<p class="mt-stack-sm font-label-sm text-label-sm text-primary animate-pulse" id="statusHint">Menunggu pesanan baru...</p>
+</section>
+<!-- Alerts Section -->
+<section class="bg-error-container text-on-error-container p-stack-md rounded-xl flex items-start gap-3 shadow-sm border border-red-100" id="alertBanner">
+<span class="material-symbols-outlined text-error">warning</span>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg leading-tight">Perhatian Dokumen!</p>
+<p class="font-body-md text-body-md opacity-90 mt-1">SIM C akan kedaluwarsa dalam 5 hari. Segera perbarui ya!</p>
+</div>
+<button class="material-symbols-outlined text-[18px]" onclick="this.parentElement.remove()">close</button>
+</section>
+<!-- Daily Summary Bento Grid -->
+<section class="grid grid-cols-2 gap-stack-md">
+<div class="col-span-2 bento-card p-stack-md rounded-2xl shadow-sm flex flex-col justify-between border border-surface-container-high bg-gradient-to-br from-white to-surface-container-low">
+<div class="flex justify-between items-center mb-stack-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pendapatan Hari Ini</span>
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface">Rp 150.000</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center mt-1">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> 15% dari kemarin
+                    </span>
+</div>
+</div>
+<div class="bento-card p-stack-md rounded-2xl shadow-sm border border-surface-container-high flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary-container">task_alt</span>
+<div>
+<p class="font-headline-md text-headline-md">12</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Order Selesai</p>
+</div>
+</div>
+<div class="bento-card p-stack-md rounded-2xl shadow-sm border border-surface-container-high flex flex-col gap-2">
+<span class="material-symbols-outlined text-tertiary-container">schedule</span>
+<div>
+<p class="font-headline-md text-headline-md">5j 30m</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Jam Aktif</p>
+</div>
+</div>
+</section>
+<!-- Wallet / Plafon Section -->
+<section class="bg-primary-container p-stack-md rounded-2xl shadow-md text-on-primary-container relative overflow-hidden">
+<!-- Subtle decorative circle -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full"></div>
+<div class="flex justify-between items-center mb-4 relative z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<h3 class="font-label-lg text-label-lg">Plafon Titip Beli</h3>
+</div>
+<span class="bg-white/20 px-2 py-0.5 rounded-full font-label-sm text-label-sm">Aktif</span>
+</div>
+<div class="flex justify-between items-end relative z-10">
+<div>
+<p class="font-label-sm opacity-80">Sisa Limit</p>
+<p class="font-headline-lg text-headline-lg">Rp 320.000</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm opacity-80">Total Plafon</p>
+<p class="font-label-lg">Rp 500.000</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="mt-4 w-full bg-white/20 h-2 rounded-full overflow-hidden relative z-10">
+<div class="bg-white h-full" style="width: 64%;"></div>
+</div>
+</section>
+<!-- Empty State / Placeholder Area -->
+<section class="flex flex-col items-center py-stack-lg text-center opacity-100 transition-opacity duration-300" id="mainContent">
+<div class="w-48 h-48 mb-stack-md rounded-full bg-surface-container flex items-center justify-center border-4 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-outline-variant text-[64px]" id="contentIcon">delivery_dining</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2" id="contentHeadline">Beres, Tetangga!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]" id="contentSubline">Tetap standby ya, orderan di daerah Pangkalan sedang ramai.</p>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-[64px] px-2 pb-safe">
+<!-- Beranda (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Order -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</a>
+<!-- Pendapatan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</a>
+<!-- Akun -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        function setStatus(isOnline) {
+            const knob = document.getElementById('statusKnob');
+            const labelOnline = document.getElementById('labelOnline');
+            const labelOffline = document.getElementById('labelOffline');
+            const statusHint = document.getElementById('statusHint');
+            const mainContent = document.getElementById('mainContent');
+            const contentIcon = document.getElementById('contentIcon');
+            const contentHeadline = document.getElementById('contentHeadline');
+            const contentSubline = document.getElementById('contentSubline');
+            const statusContainer = document.getElementById('statusContainer');
+
+            if (isOnline) {
+                // Online State
+                knob.style.left = '8px';
+                knob.style.backgroundColor = '#006a42'; // primary
+                labelOnline.classList.replace('text-on-surface-variant', 'text-on-primary');
+                labelOffline.classList.replace('text-on-primary', 'text-on-surface-variant');
+                statusHint.classList.remove('hidden');
+                statusHint.innerText = "Menunggu pesanan baru...";
+                statusHint.classList.add('animate-pulse');
+                
+                // Content Switch
+                contentIcon.innerText = "delivery_dining";
+                contentHeadline.innerText = "Beres, Tetangga!";
+                contentSubline.innerText = "Tetap standby ya, orderan di daerah Pangkalan sedang ramai.";
+                mainContent.style.opacity = "1";
+            } else {
+                // Offline State
+                knob.style.left = 'calc(50% + 0px)';
+                knob.style.backgroundColor = '#6f7a71'; // outline
+                labelOffline.classList.replace('text-on-surface-variant', 'text-on-primary');
+                labelOnline.classList.replace('text-on-primary', 'text-on-surface-variant');
+                statusHint.classList.add('hidden');
+                
+                // Empty state logic
+                contentIcon.innerText = "nights_stay";
+                contentHeadline.innerText = "Istirahat dulu?";
+                contentSubline.innerText = "Aktifkan untuk mulai terima order, Tetangga!";
+                mainContent.style.opacity = "0.7";
+            }
+        }
+
+        // Add some interaction sounds or haptics simulation via JS if needed
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+    </script>
+</body></html>

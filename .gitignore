@@ -31,3 +31,6 @@ vendor/
 !/skills-lock.json
 !/AGENTS.md
 !/CLAUDE.md
+
+# Contains API keys / secrets, keep local-only
+/.mcp.json

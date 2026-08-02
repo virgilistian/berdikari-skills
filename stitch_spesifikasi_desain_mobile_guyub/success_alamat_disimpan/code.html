@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        .animate-scale-up {
+            animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "outline-variant": "#bec9bf",
+                    "inverse-surface": "#303030",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-container": "#996a47",
+                    "surface-container-low": "#f5f3f3",
+                    "primary-container": "#258459",
+                    "surface-container-highest": "#e4e2e2",
+                    "background": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary": "#7d5231",
+                    "inverse-primary": "#7ed9a6",
+                    "secondary": "#9f4200",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-high": "#eae8e7",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "surface-bright": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#341100",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "inverse-on-surface": "#f2f0f0",
+                    "primary": "#006a42",
+                    "surface-variant": "#e4e2e2",
+                    "secondary-container": "#ff7a2b",
+                    "outline": "#6f7a71",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-secondary-container": "#602500",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#006c44",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container": "#efeded"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar (Shared Component Strategy) -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm flex items-center px-margin-mobile h-touch-target">
+<div class="flex items-center w-full gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary">Alamat Saya</h1>
+</div>
+</header>
+<!-- Background Content (Simulated Address Detail Page) -->
+<main class="flex-1 px-margin-mobile py-stack-lg space-y-stack-lg">
+<section class="space-y-stack-md">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Nama Penerima</label>
+<div class="w-full p-3 bg-surface-container rounded-xl border border-outline-variant text-on-surface opacity-50">Budi Santoso</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Nomor Telepon</label>
+<div class="w-full p-3 bg-surface-container rounded-xl border border-outline-variant text-on-surface opacity-50">0812 3456 7890</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Alamat Lengkap</label>
+<div class="w-full p-3 bg-surface-container rounded-xl border border-outline-variant text-on-surface h-24 opacity-50">Jl. Raya Pangkalan No. 45, RT 02/RW 03, Tegalwaru, Karawang, Jawa Barat 41362</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Lokasi Map</label>
+<div class="w-full h-40 bg-surface-container-highest rounded-xl overflow-hidden opacity-50">
+<div class="w-full h-full bg-cover bg-center" data-location="Tegalwaru, Karawang" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAl64YpQoelx6CPaoziuXDnfeqHJOimbyDz-Z0aPycYC3cF56Irg55YAKcZooKlxIMtyqscwL52eW_ZWpcL_Y7JwdGbNyQslT0rMS2EOPlLLRO4XXad0DOBuEcm8ibUt9Zr_dFhX6iOVAg1cncNdMTeJYYnXboc7dzhzMlbOV9Haa3U9sLMDadUXvw_WmSFW5Qfrbgpa_uWjk4Oc8u66PKcDJg-tkdEjvRvQ4maKXm-nW45t8VogP1wYw')"></div>
+</div>
+</div>
+</section>
+<button class="w-full h-12 bg-primary text-on-primary rounded-full font-label-lg opacity-50 cursor-default">Simpan Alamat</button>
+</main>
+<!-- Success Overlay Layer -->
+<div class="fixed inset-0 z-50 flex items-center justify-center px-margin-mobile bg-on-surface/40 backdrop-blur-[2px] animate-fade-in">
+<!-- Success Modal -->
+<div class="bg-surface-container-lowest w-full max-w-sm p-8 rounded-[32px] shadow-2xl flex flex-col items-center text-center animate-scale-up border border-outline-variant/30">
+<!-- Animated Checkmark Placeholder -->
+<div class="w-24 h-24 mb-stack-lg flex items-center justify-center">
+<!-- STITCH_SVG_START:ANIMATION_223 class="w-full h-full text-primary" --><div class="w-full h-full text-primary" id="animated-svg-ANIMATION_223" style="display:block;"><svg fill="none" height="80" viewbox="0 0 80 80" width="80" xmlns="http://www.w3.org/2000/svg">
+<circle cx="40" cy="40" fill="#2d8a5e" r="38"></circle>
+<path d="M25 42L35 52L55 32" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" style="stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck 0.6s ease-out forwards 0.2s;"></path>
+<style>
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_223 -->
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm tracking-tight leading-tight">
+                Alamat Berhasil Disimpan!
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant px-2 leading-relaxed mb-stack-lg">
+                Alamat kamu telah berhasil ditambahkan ke daftar alamat tersimpan.
+            </p>
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-full font-label-lg active:scale-95 transition-all duration-200 shadow-md hover:bg-primary-container" onclick="window.location.reload()">
+                Selesai
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Shared Component Strategy) -->
+<nav class="fixed bottom-0 w-full z-40 rounded-t-xl bg-surface-container-lowest border-t border-outline-variant shadow-lg flex justify-around items-center h-16 px-2">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</div>
+<!-- Active Tab: Alamat (Identified as closest match to current task context) -->
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm text-label-sm">Alamat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the close/done button
+        document.querySelector('button.bg-primary').addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.96)';
+        });
+        document.querySelector('button.bg-primary').addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body></html>

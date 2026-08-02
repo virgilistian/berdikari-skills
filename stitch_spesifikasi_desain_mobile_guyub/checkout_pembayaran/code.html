@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1b1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-fixed": "#002111",
+                    "surface-container-high": "#eae8e7",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary-fixed": "#341100",
+                    "error": "#ba1a1a",
+                    "tertiary": "#7d5231",
+                    "outline": "#6f7a71",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-tint": "#006c44",
+                    "inverse-surface": "#303030",
+                    "on-surface": "#1b1c1c",
+                    "on-surface-variant": "#3f4942",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "tertiary-container": "#996a47",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-primary-fixed-variant": "#005232",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "secondary-container": "#ff7a2b",
+                    "on-primary-container": "#f6fff6",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#258459",
+                    "surface-container": "#efeded",
+                    "on-secondary-fixed-variant": "#793100",
+                    "background": "#fbf9f8",
+                    "surface-variant": "#e4e2e2",
+                    "surface-bright": "#fbf9f8",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-dim": "#dbd9d9",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary-container": "#602500",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .payment-radio:checked + .payment-card {
+            border-color: #006a42;
+            background-color: #f6fff6;
+        }
+        .payment-radio:checked + .payment-card .radio-indicator {
+            background-color: #006a42;
+            border-color: #006a42;
+        }
+        .payment-radio:checked + .payment-card .radio-indicator::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased pb-32">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 flex items-center px-margin-mobile w-full h-touch-target">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform p-2 -ml-2" data-icon="arrow_back">arrow_back</button>
+<h1 class="ml-4 font-headline-md text-headline-md text-on-surface">Checkout</h1>
+</header>
+<main class="px-margin-mobile pt-stack-md space-y-stack-lg">
+<!-- Order Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl p-stack-md shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant/30">
+<h2 class="font-label-lg text-label-lg text-primary mb-stack-md">Ringkasan Pesanan</h2>
+<div class="space-y-stack-md">
+<!-- Item 1 -->
+<div class="flex items-center gap-stack-md">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-variant" data-alt="A macro photography shot of fresh local organic vegetables including vibrant green spinach and crunchy carrots, arranged artistically on a clean white ceramic plate. The lighting is soft and natural, emphasizing the 'Santai tapi pasti' neighborhood vibe. The background is a warm, light neutral off-white, reflecting a modern light-mode interface aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuR5Vy1YQ108Zuwp2237avV7FkCAVdqImWIeU83TigggRgaZugVw5yVm0mSBAy4Mf2-Ocq-U4kPW-fF3q6UhgeRV6hKchSiRi70Azx4MzQCPObHgBPjnwHnKpXruJNuQ-vs3_-7GpPGRQsZDfZHOEam6k7taY07BdOW12sO07-dnABPcZ81mFBzUYEi38I6XKKEmSsg1Lo1Suywx9IkRn6srPXF9zrkITsbwLIfuaSwgHlifOC14p2-w"/>
+<div class="flex-1 min-w-0">
+<p class="font-label-lg text-on-surface truncate">Sawi Hijau Segar</p>
+<p class="text-label-sm text-on-surface-variant">2 Ikat</p>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp12.000</p>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-stack-md">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-variant" data-alt="A high-quality product photo of a carton of local farm-fresh eggs on a minimalist wooden surface. The scene is bright and airy with high-key lighting, capturing the clean and reliable 'Corporate Modern' essence of the Guyub app. Soft shadows and a warm color palette of browns and creams create an approachable, neighborly feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1-zfn9U4Iy6us0S9kbSnLNKIjoV7kq3b-_MlJ5CazPbrBGh-r6lHG5IOXu5GBFdTTwnra5tVoir46HXorEnPNGeCjcorWmuhIPRACBD5WAfD74zI9jNx8T_0vnBrnnaoXPWxzVwDjfOD1PqJ8yMHQcm6R5VWA7OwCAwVjK3-Gh-1VpuFniThgidgI1u8fPoJZy3Q00cRxjgfvp4wORDPmbdXjyLFmjUANhwHXn1cVtbD0HKbtJGasng"/>
+<div class="flex-1 min-w-0">
+<p class="font-label-lg text-on-surface truncate">Telur Ayam Kampung</p>
+<p class="text-label-sm text-on-surface-variant">1 Pack (10 butir)</p>
+</div>
+<p class="font-price-lg text-price-lg text-on-surface">Rp28.500</p>
+</div>
+</div>
+<div class="mt-stack-lg pt-stack-md border-t border-surface-variant/50">
+<div class="flex justify-between items-center text-on-surface-variant mb-base">
+<span class="text-body-md">Subtotal</span>
+<span class="text-body-md">Rp40.500</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant mb-stack-sm">
+<span class="text-body-md">Biaya Layanan</span>
+<span class="text-body-md">Rp2.000</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-on-surface">Total Harga</span>
+<span class="font-headline-md text-headline-md text-primary">Rp42.500</span>
+</div>
+</div>
+</section>
+<!-- Payment Methods -->
+<section class="space-y-stack-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant px-1">Metode Pembayaran</h2>
+<div class="space-y-stack-sm">
+<!-- Guyub Balance -->
+<label class="relative cursor-pointer block">
+<input checked="" class="payment-radio sr-only" name="payment" type="radio" value="balance"/>
+<div class="payment-card border border-surface-variant rounded-xl p-stack-md flex items-center gap-stack-md transition-all active:scale-[0.98]">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-on-surface">Saldo Guyub</p>
+<p class="text-label-sm text-primary">Saldo: Rp150.000</p>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors"></div>
+</div>
+</label>
+<!-- QRIS -->
+<label class="relative cursor-pointer block">
+<input class="payment-radio sr-only" name="payment" type="radio" value="qris"/>
+<div class="payment-card border border-surface-variant rounded-xl p-stack-md flex items-center gap-stack-md transition-all active:scale-[0.98]">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="qr_code_2">qr_code_2</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-on-surface">QRIS</p>
+<p class="text-label-sm text-on-surface-variant">Dana, OVO, GoPay, LinkAja</p>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors"></div>
+</div>
+</label>
+<!-- Bank Transfer -->
+<label class="relative cursor-pointer block">
+<input class="payment-radio sr-only" name="payment" type="radio" value="transfer"/>
+<div class="payment-card border border-surface-variant rounded-xl p-stack-md flex items-center gap-stack-md transition-all active:scale-[0.98]">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-on-surface">Transfer Bank</p>
+<p class="text-label-sm text-on-surface-variant">Mandiri, BCA, BRI</p>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors"></div>
+</div>
+</label>
+</div>
+</section>
+<!-- Delivery Note Pattern -->
+<section class="bg-surface-container-low rounded-xl p-stack-md border border-dashed border-outline-variant">
+<div class="flex items-start gap-stack-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-base mt-0.5" data-icon="info">info</span>
+<div>
+<p class="font-label-sm text-on-surface">Estimasi Pengiriman</p>
+<p class="text-body-md text-on-surface-variant">Pesanan kamu akan sampai dalam 30-45 menit. Driver kami akan segera menuju lokasi kamu.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 bg-surface px-margin-mobile py-stack-md shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<div class="max-w-md mx-auto">
+<div class="flex justify-between items-center mb-stack-sm px-1">
+<span class="text-label-lg text-on-surface-variant">Total Pembayaran</span>
+<span class="font-price-lg text-price-lg text-on-surface">Rp42.500</span>
+</div>
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg rounded-full shadow-lg active:scale-95 transition-all duration-200 flex items-center justify-center gap-stack-sm" onclick="handlePayment()">
+<span>Bayar Sekarang</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+<script>
+        function handlePayment() {
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            
+            // Interaction feedback
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> <span>Memproses...</span>';
+            btn.disabled = true;
+            btn.classList.add('opacity-80');
+
+            // Simulate transaction
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> <span>Pembayaran Berhasil</span>';
+                btn.classList.remove('bg-primary');
+                btn.classList.add('bg-primary-container', 'text-on-primary-container');
+                
+                // Refresh after success
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+            }, 1500);
+        }
+
+        // Add visual feedback to radio selection
+        document.querySelectorAll('.payment-radio').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // Potential haptic feedback trigger or sound could go here
+                console.log('Payment method changed to:', e.target.value);
+            });
+        });
+    </script>
+</body></html>

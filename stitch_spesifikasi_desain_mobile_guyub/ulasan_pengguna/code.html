@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ulasan Pengguna - Minyak Goreng Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-bright": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary": "#7d5231",
+                    "primary-container": "#258459",
+                    "surface-variant": "#e4e2e2",
+                    "surface-dim": "#dbd9d9",
+                    "on-error": "#ffffff",
+                    "primary": "#006a42",
+                    "inverse-surface": "#303030",
+                    "surface-container": "#efeded",
+                    "surface-container-low": "#f5f3f3",
+                    "outline-variant": "#bec9bf",
+                    "on-primary-fixed": "#002111",
+                    "tertiary-container": "#996a47",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "background": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "primary-fixed": "#9af5c1",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-surface-variant": "#3f4942",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#602500",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-container": "#f6fff6",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-tertiary-fixed": "#301400",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-tint": "#006c44",
+                    "on-tertiary-container": "#fffbff",
+                    "surface": "#fbf9f8",
+                    "on-surface": "#1b1c1c",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "outline": "#6f7a71"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9bf;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex items-center px-margin-mobile h-touch-target">
+<button class="mr-4 active:scale-95 transition-transform p-1 hover:bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Ulasan Pengguna</h1>
+</header>
+<main class="flex-1 mt-[44px] mb-[70px] overflow-y-auto px-margin-mobile pt-stack-lg">
+<!-- Product Context -->
+<div class="mb-stack-lg flex items-center gap-stack-md bg-surface-container-lowest p-stack-sm rounded-xl">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional studio product shot of a 2-liter bottle of golden, clear cooking oil named Minyak Goreng Guyub. The lighting is warm and natural, emphasizing the liquid's clarity. The background is a clean, minimalist kitchen setting with soft focus, maintaining a corporate yet neighborly aesthetic with green and white accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMjT_WZL5j3FlTQ7b8xc-jkpyEhkGXGkS9PtWek5V2pQaRL0lCoNJmB6pRH-C7Lr_Yi20pzl0jQrlPVwsXuOzd2Lq0bUYG1iEE_-Zqp7J0LdC6Appjg-NRjVBcaKQsy8jIfvXV_qJwRU65C3gVOuQp6NF0r8GFqlKz8Ighu0CyBhGDaw5axZvZkkn9iNnsrq08F4fCjmNBsbqOB-jPk5fKeY5miEk8Au8uXramUWTmD7ZQmj7GqkwSxg"/>
+</div>
+<div>
+<h2 class="font-headline-md text-body-lg text-on-surface">Minyak Goreng Guyub 2L</h2>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined fill-icon text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 font-label-lg text-label-lg">4.9</span>
+<span class="ml-2 text-on-surface-variant font-body-md">(120+ Penilaian)</span>
+</div>
+</div>
+</div>
+<!-- Rating Overview Card -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm mb-stack-lg border border-outline-variant/30">
+<div class="flex items-center gap-stack-lg">
+<div class="text-center flex-shrink-0">
+<div class="text-[48px] font-headline-lg leading-none text-primary">4.9</div>
+<div class="mt-1 flex justify-center text-secondary">
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="mt-2 font-label-sm text-on-surface-variant">120+ Penilaian</div>
+</div>
+<div class="flex-1 space-y-2">
+<!-- Progress Bars -->
+<div class="flex items-center gap-stack-sm">
+<span class="font-label-sm w-4">5</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-label-sm w-4">4</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[6%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-label-sm w-4">3</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[1%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-label-sm w-4">2</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[0.5%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="font-label-sm w-4">1</span>
+<div class="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[0.5%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-stack-md no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-lg">Semua</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-lg">Terbaru</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-lg">Dengan Foto</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-lg">Rating 5</button>
+</div>
+<!-- Review List -->
+<div class="space-y-stack-md pb-stack-lg">
+<!-- Review Item 1 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/20 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">TB</div>
+<div>
+<div class="font-label-lg text-on-surface">Tetangga Budi</div>
+<div class="flex text-secondary text-[12px]">
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant font-label-sm">2 hari yang lalu</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-stack-sm leading-relaxed">
+                    Minyaknya jernih banget, cocok buat goreng bakwan. Pengiriman juga cepet banget nyampenya ke rumah. Seller ramah pisan!
+                </p>
+<div class="flex gap-2">
+<div class="w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A high-angle, close-up photo of crispy, golden-brown 'bakwan' vegetable fritters on a plate, reflecting a warm morning sunlight. The lighting is soft and inviting, highlighting the crunchy texture. The image evokes a sense of home-cooked local snacks, maintaining the communal 'Santai' brand feel with subtle warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3C9fXakrJMd1x_NKHaoHyguQmfVtwLPRFPIzeBVbUdNih7Eq43-n9nNSQAj1-wdj0xEm0SZgEDaWuTqugMQV8aD_QA4HW7xO4L85NMgvYdE8woPPSHWF_j_aInzfu7auCvZhc4X1UnxNva1Ji7AX8KBMJATB3G-_MsuZphpg-olGAjuOp5qfQj6No9aXh-I_0x6mcFGvQxg0xyMswfnc_zPDgg4KgqT82jafFJ4dZiJsln0UPk41new"/>
+</div>
+</div>
+</article>
+<!-- Review Item 2 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/20 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed font-bold">AS</div>
+<div>
+<div class="font-label-lg text-on-surface">Ani Surani</div>
+<div class="flex text-secondary text-[12px]">
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="star">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant font-label-sm">4 hari yang lalu</span>
+</div>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Kualitas oke, harga bersahabat buat tetangga. Cuma packaging luarnya agak penyok dikit pas sampe, tapi isinya aman. Langganan terus pokoknya.
+                </p>
+</article>
+<!-- Review Item 3 -->
+<article class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/20 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">KP</div>
+<div>
+<div class="font-label-lg text-on-surface">Kang Parjo</div>
+<div class="flex text-secondary text-[12px]">
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-icon text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant font-label-sm">Seminggu lalu</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-stack-sm leading-relaxed">
+                    Mantap buat jualan gorengan. Hasilnya garing dan nggak cepet item minyaknya. Joss tenan!
+                </p>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.08)] rounded-t-xl flex justify-around items-center pt-2 pb-safe px-4">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="rate_review" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span class="font-label-sm text-label-sm mt-1">Ulasan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for chips
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.classList.contains('rounded-full')) {
+                    const siblings = this.parentElement.querySelectorAll('button');
+                    siblings.forEach(s => {
+                        s.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                        s.classList.add('border', 'border-outline-variant', 'text-on-surface-variant');
+                    });
+                    this.classList.remove('border', 'border-outline-variant', 'text-on-surface-variant');
+                    this.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                }
+            });
+        });
+    </script>
+</body></html>

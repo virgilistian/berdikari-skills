@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pangkalan Terdekat - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#dbd9d9",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#3f4942",
+                    "on-secondary-container": "#602500",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-bright": "#fbf9f8",
+                    "outline": "#6f7a71",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "background": "#fbf9f8",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-tint": "#006c44",
+                    "on-background": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "tertiary": "#7d5231",
+                    "secondary": "#9f4200",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#301400",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#ff7a2b",
+                    "on-primary-fixed": "#002111",
+                    "surface-variant": "#e4e2e2",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#258459",
+                    "outline-variant": "#bec9bf",
+                    "surface-container": "#efeded",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary-container": "#996a47",
+                    "primary": "#006a42"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Pangkalan Terdekat</h1>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Content: Merchant List -->
+<main class="pb-24 px-margin-mobile pt-stack-md flex flex-col gap-stack-md">
+<!-- Filter Chips (Bonus for High-End Feel) -->
+<div class="flex gap-stack-sm overflow-x-auto pb-stack-sm no-scrollbar">
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-full font-label-lg whitespace-nowrap active:scale-95 duration-150">Semua</button>
+<button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap active:scale-95 duration-150 border border-outline-variant">Kuliner</button>
+<button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap active:scale-95 duration-150 border border-outline-variant">Sembako</button>
+<button class="bg-surface-container text-on-surface-variant px-4 py-2 rounded-full font-label-lg whitespace-nowrap active:scale-95 duration-150 border border-outline-variant">Terdekat</button>
+</div>
+<!-- Merchant Cards -->
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex gap-stack-md hover:shadow-md transition-shadow cursor-pointer active:scale-[0.98] duration-150"><div class="w-24 h-24 rounded-lg overflow-hidden shrink-0"><img alt="Kedai Titik Temu" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCSKmX-O8EHUSjgSC6GEcc93r1vWY-YfZtsB2AViaI2eGTXDe1I61JjGSiCM9e728xtz6eejgBDEFKrU1qB52Mm23g0fK0tfAJuUwinyfhKS1C0m0h93j0lDcZU6UcTEO76Z1jf54OwTfKwVwPxaeDUaWeJc-wZkUyfH8XkO6Y1w9QmRpADoXBl1WksdOJkryg6cNXUn1H1aXA6ul1u4oNGJL9ubcXR5C_MWOoryDSPGGO2MqNCPtcPQ"/></div><div class="flex flex-col justify-between py-1 flex-1"><div><div class="flex justify-between items-start"><h2 class="font-headline-md text-headline-md text-on-surface">Kedai Titik Temu</h2><span class="bg-green-100 text-primary px-2 py-0.5 rounded-full font-label-sm flex items-center gap-1 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Buka</span></div><p class="text-on-surface-variant font-body-md">Kuliner • <span class="font-medium">Sop Iga &amp; Mont Blanc</span></p></div><div class="flex items-center justify-between mt-2"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span><span class="font-label-lg text-on-surface">4.8</span><span class="text-on-surface-variant font-label-sm">(120+)</span></div><button class="text-primary font-label-lg flex items-center gap-1">Pesan <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span></button></div></div></div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex gap-stack-md hover:shadow-md transition-shadow cursor-pointer active:scale-[0.98] duration-150"><div class="w-24 h-24 rounded-lg overflow-hidden shrink-0"><img alt="ESM The Coffenary" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp3EjlyvFB2mLzEXY8-tTTM1xNQlQEPCKCb8Kua-CuBbzfs38s-DFSSdwKqnyJTLNkYRsnOEXsnBPkkSTf9Vo3l-DjlcwKsprnKqtGpJQjyRfnbf1bL0g_ZL2tEToFcqaJW9PLKCRSj7h0HEkDZj4C6gG6EluVIFW9XxSuwd0oTb-3NoRY0O8z61xZbqKeDI1a7_0tW3CBpTXPPAOXwW8dDFlVy4FtH4rxfKoirvzYi5g3SM8XiV4WZw"/></div><div class="flex flex-col justify-between py-1 flex-1"><div><div class="flex justify-between items-start"><h2 class="font-headline-md text-headline-md text-on-surface">ESM The Coffenary</h2><span class="bg-green-100 text-primary px-2 py-0.5 rounded-full font-label-sm flex items-center gap-1 shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Buka</span></div><p class="text-on-surface-variant font-body-md">Kuliner • <span class="font-medium">Kopi &amp; Snacks</span></p></div><div class="flex items-center justify-between mt-2"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span><span class="font-label-lg text-on-surface">4.5</span><span class="text-on-surface-variant font-label-sm">(85)</span></div><button class="text-primary font-label-lg flex items-center gap-1">Lihat <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span></button></div></div></div>
+<!-- Card 3 (Tutup Status) -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex gap-stack-md opacity-75 grayscale-[0.5]"><div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 relative"><img alt="Angkringan 45" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPzi7lIYaWttmj67xPAD8nkdx6mb8mAJPeykBr1qEiuCHtLbCuomK5283FZB7VmjOF5AfEJaHW1vdL_sRG_vrijm5CBAxr_RfJVnTtxSmkSHD16hMe6X5z7Ets6Q1rfoO8Wn-XVJaGYhs44IMPIvOADTYvu-lf1Dc6ATbtWUsoovm0tBdFNVWFtXxUESC4AdnTg6V3RHL_RrM6BfL-OOd8puekOK1UNO6GkBtNykSRe-BUdVXASlSBnw"/><div class="absolute inset-0 bg-black/20 flex items-center justify-center"><span class="bg-surface/90 text-on-surface-variant px-2 py-1 rounded-lg font-label-sm">Tutup</span></div></div><div class="flex flex-col justify-between py-1 flex-1"><div><div class="flex justify-between items-start"><h2 class="font-headline-md text-headline-md text-on-surface">Angkringan 45</h2><span class="bg-surface-container text-on-surface-variant px-2 py-0.5 rounded-full font-label-sm shrink-0">Tutup</span></div><p class="text-on-surface-variant font-body-md">Kuliner • <span class="font-medium">Nasi Bakar &amp; Sate</span></p></div><div class="flex items-center justify-between mt-2"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span><span class="font-label-lg text-on-surface-variant">4.9</span><span class="text-on-surface-variant font-label-sm">(210)</span></div><p class="text-on-surface-variant font-label-sm italic">Buka jam 17:00</p></div></div></div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex gap-stack-md hover:shadow-md transition-shadow cursor-pointer active:scale-[0.98] duration-150">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="An inviting display of traditional Indonesian market snacks or Jajanan Pasar. Vibrant colors of pandan green, coconut white, and palm sugar brown are presented in a clean, minimalist contemporary layout. The lighting is soft and bright, creating an approachable and cheerful neighborhood dialogue. The visual style avoids high-tech coldness, opting for warmth and authentic community feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9CfkFGaEN9Z54-W18abQEhlNUnv9DvTk6ne3DbESZVflVsPyPvcaIjsR4CWJa0A-KI-wc0WsAOl4DxnBHHZcYXpkLnNq89YUTqX1rr1fprJ3qhjbeSV8BJw_eAwIAg_R2s3_7ZRyk1xTbfVhHdFdWuI-rD1x6KfkYq4tt5XhEwUE4YtMQSUyhF1LdjiZczFuE6dwTMWFguIZyI1RINlOpDjRKxNkOOerdOpiIJnqb_oim_ituXyJDQ"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-1">
+<div>
+<div class="flex justify-between items-start">
+<h2 class="font-headline-md text-headline-md text-on-surface">Jajanan Pasar Mbak Yani</h2>
+<span class="bg-green-100 text-primary px-2 py-0.5 rounded-full font-label-sm flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            Buka
+                        </span>
+</div>
+<p class="text-on-surface-variant font-body-md">Kuliner • <span class="font-medium">0.8 km</span></p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-on-surface">4.7</span>
+<span class="text-on-surface-variant font-label-sm">(42)</span>
+</div>
+<button class="text-primary font-label-lg flex items-center gap-1">
+                        Pesan <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 bg-surface-container-lowest shadow-[0_-4px_12px_rgba(125,82,49,0.08)] flex justify-around items-center px-2 py-2">
+<!-- Beranda (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active-nav hover:opacity-80 transition-opacity active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Notifikasi -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150 relative" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm">Notifikasi</span>
+<div class="absolute top-0 right-1 w-2 h-2 bg-error rounded-full border-2 border-surface-container-lowest"></div>
+</a>
+<!-- Akun -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:opacity-80 transition-opacity active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<!-- Script for interactive micro-interactions -->
+<script>
+        // Simple scroll behavior for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Add ripple-like effect on merchant card clicks (Visual only)
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // This would normally navigate, but we show a small interaction feel
+                console.log('Merchant selected');
+            });
+        });
+    </script>
+</body></html>

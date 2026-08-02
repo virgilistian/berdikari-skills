@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi Kode - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb692",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "inverse-surface": "#303030",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "background": "#fbf9f8",
+                    "tertiary-fixed": "#ffdcc5",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-tint": "#006c44",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-container": "#602500",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-primary-fixed": "#002111",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-variant": "#e4e2e2",
+                    "surface": "#fbf9f8",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-background": "#1b1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#6f7a71",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#3f4942",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container": "#efeded",
+                    "secondary-container": "#ff7a2b",
+                    "secondary": "#9f4200",
+                    "surface-dim": "#dbd9d9",
+                    "outline-variant": "#bec9bf",
+                    "tertiary-container": "#996a47",
+                    "on-tertiary-container": "#fffbff",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#9af5c1",
+                    "surface-container-high": "#eae8e7",
+                    "primary-container": "#258459",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container-highest": "#e4e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "touch-target": "44px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .otp-input:focus {
+            outline: none;
+            border-color: #006a42;
+            box-shadow: 0 0 0 2px rgba(0, 106, 66, 0.1);
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md">
+<!-- Top App Bar (As per JSON Blueprint - Minimalized for transactional screen) -->
+<header class="w-full top-0 sticky bg-surface flex items-center justify-between px-margin-mobile h-touch-target z-10">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary">Guyub</h1>
+<div class="w-11"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="flex-grow flex items-center justify-center px-margin-mobile py-stack-lg">
+<div class="max-w-md w-full flex flex-col items-center text-center">
+<!-- Animation Header Section -->
+<div class="mb-stack-lg w-full max-w-[280px]">
+<!-- STITCH_SVG_START:ANIMATION_249 class="w-full h-48" --><div class="w-full h-48" id="animated-svg-ANIMATION_249" style="display:block;"><svg fill="none" height="200" viewbox="0 0 200 200" width="200" xmlns="http://www.w3.org/2000/svg">
+<!-- Smartphone Body -->
+<rect fill="#FBF9F8" height="140" rx="12" stroke="#2D8A5E" stroke-width="4" width="80" x="60" y="30"></rect>
+<rect fill="#E8F5E9" height="110" rx="4" width="70" x="65" y="40"></rect>
+<circle cx="100" cy="160" fill="#2D8A5E" r="5"></circle>
+<!-- Animated Message Icon -->
+<g id="message">
+<rect fill="#2D8A5E" height="30" rx="4" width="40" x="80" y="80">
+<animate attributename="opacity" dur="2s" repeatcount="indefinite" values="0;1;1;0"></animate>
+<animatetransform attributename="transform" dur="2s" repeatcount="indefinite" type="translate" values="0,20; 0,0; 0,0; 0,-20"></animatetransform>
+</rect>
+<path d="M85 88L100 95L115 88" stroke="white" stroke-linecap="round" stroke-width="2">
+<animate attributename="opacity" dur="2s" repeatcount="indefinite" values="0;1;1;0"></animate>
+<animatetransform attributename="transform" dur="2s" repeatcount="indefinite" type="translate" values="0,20; 0,0; 0,0; 0,-20"></animatetransform>
+</path>
+</g>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_249 -->
+</div>
+<!-- Content Section -->
+<section class="w-full space-y-stack-md">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Verifikasi Kode</h2>
+<p class="font-body-md text-body-md text-on-surface-variant px-4">
+                        Masukkan 6 digit kode yang telah kami kirimkan ke nomor HP kamu.
+                    </p>
+</div>
+<!-- OTP Input Group -->
+<div class="flex justify-center gap-2 sm:gap-3 py-stack-md" id="otp-container">
+<input autocomplete="one-time-code" class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+<input class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+<input class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+<input class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+<input class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+<input class="otp-input w-11 h-14 sm:w-14 sm:h-16 text-center text-headline-md font-headline-md border border-outline-variant bg-surface-container-lowest rounded-xl focus:border-primary transition-all duration-200" maxlength="1" pattern="\d*" type="text"/>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary h-[48px] rounded-full font-label-lg text-label-lg shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200">
+                    Verifikasi
+                </button>
+</section>
+<!-- Footer Section -->
+<footer class="mt-stack-lg w-full flex flex-col items-center gap-2">
+<div class="flex flex-col items-center gap-1">
+<button class="text-secondary font-label-lg text-label-lg hover:underline transition-all">
+                        Kirim Ulang Kode
+                    </button>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Kirim ulang dalam <span class="text-secondary-container font-medium" id="timer">01:55</span></span>
+</div>
+</div>
+</footer>
+</div>
+</main>
+<!-- Empty Nav Space for consistency with layout rules -->
+<div class="h-16 md:hidden"></div>
+<script>
+        // OTP Auto-focus Logic
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        let timeLeft = 115; // 01:55 in seconds
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                timerElement.parentElement.innerHTML = "Kode sekarang dapat dikirim ulang.";
+            }
+        }
+
+        updateTimer();
+    </script>
+</body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kurir Lokal - Antar Pesanan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-surface-variant": "#3f4942",
+                "on-primary-container": "#f6fff6",
+                "on-background": "#1b1c1c",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed": "#301400",
+                "primary-fixed": "#9af5c1",
+                "surface-tint": "#006c44",
+                "surface-container": "#efeded",
+                "tertiary-container": "#996a47",
+                "primary": "#006a42",
+                "surface-bright": "#fbf9f8",
+                "surface-variant": "#e4e2e2",
+                "secondary-fixed": "#ffdbcb",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "tertiary": "#7d5231",
+                "inverse-on-surface": "#f2f0f0",
+                "error": "#ba1a1a",
+                "surface": "#fbf9f8",
+                "secondary": "#9f4200",
+                "surface-dim": "#dbd9d9",
+                "on-error": "#ffffff",
+                "surface-container-low": "#f5f3f3",
+                "on-tertiary-container": "#fffbff",
+                "on-tertiary": "#ffffff",
+                "surface-container-high": "#eae8e7",
+                "secondary-fixed-dim": "#ffb692",
+                "on-secondary-container": "#602500",
+                "on-primary-fixed-variant": "#005232",
+                "primary-container": "#258459",
+                "inverse-primary": "#7ed9a6",
+                "tertiary-fixed": "#ffdcc5",
+                "on-secondary-fixed-variant": "#793100",
+                "on-primary-fixed": "#002111",
+                "on-secondary": "#ffffff",
+                "background": "#fbf9f8",
+                "outline-variant": "#bec9bf",
+                "outline": "#6f7a71",
+                "surface-container-highest": "#e4e2e2",
+                "inverse-surface": "#303030",
+                "tertiary-fixed-dim": "#f4bb92",
+                "primary-fixed-dim": "#7ed9a6",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#341100",
+                "on-surface": "#1b1c1c",
+                "on-primary": "#ffffff",
+                "secondary-container": "#ff7a2b",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-sm": "8px",
+                "base": "4px",
+                "touch-target": "44px",
+                "stack-md": "16px",
+                "gutter-mobile": "12px",
+                "margin-mobile": "16px",
+                "stack-lg": "24px"
+            },
+            "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"],
+                "label-lg": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-sm": ["Inter"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #fbf9f8;
+        font-family: 'Inter', sans-serif;
+        color: #1b1c1c;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+      }
+      .active-pill {
+        animation: pulse-soft 2s infinite ease-in-out;
+      }
+      @keyframes pulse-soft {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(0.98); }
+      }
+      .bottom-sheet {
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.06);
+        border-radius: 24px 24px 0 0;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-40 w-full shadow-sm flex justify-between items-center px-margin-mobile py-base">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a friendly Indonesian male delivery driver wearing a clean green uniform. He is smiling warmly against a soft-focus background of a neighborhood street in Indonesia. The lighting is natural and bright, conveying reliability and communal trust in a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChjY5m-XxYtt48q4YOvsFEh1o5NrU2xLjYuRYIcS2EiA_q1Csg6NcS1fVd4SdFR68GvU1ye2OvfoxqV3NgiG_MNkPLVNeaH5lwFIq2DzOZS5lH2-fCpEDVihwwctc7wbvRcxfmBEZQ-hX0Zh978boOcnFlTTbmOERxx-cejO8h9F5MCBYw4plD_7L1SDd7arPsY7JvUSjOtGZ-yvxSZmhM_osv9TN2QoiaYevH3Ps-usm47Py3mF_r6g"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary">Kurir Lokal</h1>
+</div>
+<button class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content: Map & Active Order Stage -->
+<main class="flex-grow relative w-full overflow-hidden">
+<!-- Interactive Map Placeholder -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-surface-container-high" data-location="Pangkalan, Tegalwaru" style="">
+<img class="w-full h-full object-cover opacity-80" data-alt="A clean, minimalist digital map view showing a local neighborhood route in Pangkalan, Tegalwaru. The map features soft green and cream tones for parks and residential areas, with a clear blue line tracing the delivery route. Small friendly icons represent the driver's location and the destination pin near a small mosque. The style is modern, approachable, and highly legible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKrqPMkLnV9sWc2k4F1D7P466Fkp6SO9nu0nHNLYFJnvpT5xBk48uMhqWqPMjlx2rixNMbm_ujOsDQAurSowsBBE4ZXi73EDDA29rIQcGpbfXpq46j8Z7hs6brtG9_YhjvHq0x-UJndqhfZdo49zgGDMaPakq6m1ykGusyuQ8e3bIptPmPLEAuLiXzYrYPP-4EJMTFkxr_CpKX0aDqWSXV1U8iUqF7Qcjru5om06wCmXF85gzuFXqU8Q"/>
+</div>
+</div>
+<!-- Floating Status Banner -->
+<div class="absolute top-margin-mobile left-margin-mobile right-margin-mobile z-10">
+<div class="bg-primary-container text-on-primary-container px-4 py-3 rounded-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-white/20 p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delivery_dining</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm opacity-90">Pesanan Aktif</p>
+<h2 class="font-label-lg text-label-lg">Langkah 4: Antar Pesanan</h2>
+</div>
+</div>
+<div class="bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase active-pill">
+                    Menuju Customer
+                </div>
+</div>
+</div>
+<!-- Interactive Navigation Options (Floating Overlay) -->
+<div class="absolute bottom-[340px] right-margin-mobile z-10 flex flex-col gap-3">
+<button class="w-14 h-14 bg-surface rounded-full shadow-lg flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">my_location</span>
+</button>
+</div>
+<!-- Bottom Sheet Contextual UI -->
+<div class="absolute bottom-0 left-0 right-0 z-20 bg-surface bottom-sheet p-margin-mobile space-y-stack-md border-t border-outline-variant/10">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto -mt-2 mb-2"></div>
+<!-- Customer Identity -->
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[32px]" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Ratna</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Krajan, depan Mushola</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+<button class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+</div>
+</div>
+<!-- Address Specifics Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex gap-3">
+<span class="material-symbols-outlined text-secondary">explore</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Patokan:</p>
+<p class="font-label-lg text-label-lg text-secondary">Pagar cat biru</p>
+</div>
+</div>
+<!-- Action Grid -->
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary text-primary font-label-lg text-label-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-base">map</span>
+                    Buka Peta
+                </button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary text-primary font-label-lg text-label-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-base">phone_android</span>
+                    Telepon Ratna
+                </button>
+</div>
+<!-- Quick Messages -->
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-variant/50 text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors">
+                    Pesanan sudah diantar
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-variant/50 text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors">
+                    Sesuai titik ya
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-variant/50 text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors">
+                    Sudah sampai
+                </button>
+</div>
+<!-- Collapsible Order Summary -->
+<details class="group bg-surface-container-low rounded-2xl overflow-hidden border border-transparent open:border-outline-variant/20 transition-all duration-300">
+<summary class="list-none flex justify-between items-center p-4 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">receipt_long</span>
+<span class="font-label-lg text-label-lg text-on-surface">Detail Pesanan</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-price-lg text-price-lg text-primary">Rp 45.000</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</div>
+</summary>
+<div class="px-4 pb-4 space-y-2 border-t border-outline-variant/10 pt-3">
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>2x Nasi Goreng Spesial</span>
+<span>Rp 30.000</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>1x Es Jeruk</span>
+<span>Rp 5.000</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Ongkir Hyper-lokal</span>
+<span>Rp 10.000</span>
+</div>
+</div>
+</details>
+<!-- Final Action Button -->
+<button class="w-full bg-primary text-white py-4 rounded-2xl font-headline-md text-headline-md shadow-lg shadow-primary/20 active:scale-95 transition-all duration-150 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+                Sampai di Tujuan
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Hidden on this transactional focused screen as per Shell Visibility & Relevance mandate) -->
+<!-- But we'll provide the semantic anchor for navigation context -->
+<nav class="hidden fixed bottom-0 w-full z-50 flex justify-around items-center w-full h-[64px] px-2 pb-safe bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the "Sampai di Tujuan" button
+        const mainAction = document.querySelector('button.bg-primary');
+        mainAction.addEventListener('click', function() {
+            this.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Memproses...`;
+            setTimeout(() => {
+                this.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Selesai!`;
+                this.classList.replace('bg-primary', 'bg-secondary');
+            }, 1000);
+        });
+
+        // Quick Message Toast simulation
+        const pills = document.querySelectorAll('.whitespace-nowrap');
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const originalText = pill.innerText;
+                pill.innerText = "Terkirim!";
+                pill.classList.replace('bg-surface-variant/50', 'bg-primary-fixed');
+                pill.classList.add('text-on-primary-fixed');
+                setTimeout(() => {
+                    pill.innerText = originalText;
+                    pill.classList.replace('bg-primary-fixed', 'bg-surface-variant/50');
+                    pill.classList.remove('text-on-primary-fixed');
+                }, 2000);
+            });
+        });
+    </script>
+</body></html>

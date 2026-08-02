@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pengaturan - Kurir Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed": "#002111",
+                    "tertiary": "#7d5231",
+                    "surface-container": "#efeded",
+                    "on-primary-fixed-variant": "#005232",
+                    "surface-container-high": "#eae8e7",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "outline-variant": "#bec9bf",
+                    "surface-variant": "#e4e2e2",
+                    "on-secondary-fixed": "#341100",
+                    "secondary-container": "#ff7a2b",
+                    "on-surface": "#1b1c1c",
+                    "primary-container": "#258459",
+                    "surface-container-low": "#f5f3f3",
+                    "inverse-primary": "#7ed9a6",
+                    "secondary-fixed": "#ffdbcb",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-secondary-container": "#602500",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary-fixed-variant": "#793100",
+                    "tertiary-container": "#996a47",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "background": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-tertiary-container": "#fffbff",
+                    "on-background": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-surface-variant": "#3f4942",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "primary-fixed": "#9af5c1",
+                    "surface-tint": "#006c44",
+                    "outline": "#6f7a71",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "touch-target": "44px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-toggle { transform: translateX(1.25rem); }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #006a42;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-on-background shadow-sm flex justify-between items-center px-margin-mobile py-base h-[64px]">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-variant dark:hover:bg-on-surface-variant rounded-full transition-colors duration-200" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Pengaturan</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant">notifications</span>
+</div>
+</header>
+<main class="px-margin-mobile pt-stack-lg space-y-stack-lg">
+<!-- App Settings Section -->
+<section class="space-y-stack-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Pengaturan Aplikasi</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-surface-container">
+<!-- Notifikasi Toggle -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg">Notifikasi</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Terima info pesanan terbaru</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px bg-surface-container mx-stack-md"></div>
+<!-- Mode Gelap Toggle -->
+<div class="flex items-center justify-between p-stack-md hover:bg-surface-container-low transition-colors duration-200 cursor-pointer">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">dark_mode</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg">Mode Gelap</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sesuaikan tampilan layar</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Driver Preferences Section -->
+<section class="space-y-stack-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Preferensi Driver</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-stack-md border border-surface-container space-y-stack-lg">
+<!-- Volume Control -->
+<div class="space-y-stack-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg">Volume Suara Notifikasi</label>
+<span class="text-primary font-label-lg" id="volume-label">Sedang</span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer slider-thumb" max="2" min="0" oninput="updateVolume(this.value)" step="1" type="range" value="1"/>
+<div class="flex justify-between text-on-surface-variant font-label-sm px-1">
+<span>Pelan</span>
+<span>Sedang</span>
+<span>Keras</span>
+</div>
+</div>
+<div class="h-px bg-surface-container"></div>
+<!-- Alert Tone -->
+<div class="space-y-stack-sm">
+<label class="font-label-lg text-label-lg">Jenis Suara</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center p-3 rounded-lg border border-surface-container bg-surface-container-low cursor-pointer active:scale-[0.98] transition-transform">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="tone" type="radio"/>
+<span class="ml-3 font-body-md text-on-surface">Default Guyub Tone</span>
+<span class="ml-auto material-symbols-outlined text-on-surface-variant">volume_up</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-surface-container hover:bg-surface-container-low cursor-pointer active:scale-[0.98] transition-transform">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="tone" type="radio"/>
+<span class="ml-3 font-body-md text-on-surface">Modern Ping</span>
+<span class="ml-auto material-symbols-outlined text-on-surface-variant">volume_up</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-surface-container hover:bg-surface-container-low cursor-pointer active:scale-[0.98] transition-transform">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="tone" type="radio"/>
+<span class="ml-3 font-body-md text-on-surface">Deep Alert</span>
+<span class="ml-auto material-symbols-outlined text-on-surface-variant">volume_up</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Safety Section -->
+<section class="space-y-stack-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Keselamatan</h2>
+<div class="bg-primary-container text-on-primary-container p-stack-md rounded-xl shadow-sm border border-primary/20 flex items-start gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-on-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg mb-1">Deklarasi Helm SNI</h3>
+<p class="font-body-md text-sm opacity-90 leading-snug">Kamu telah mengonfirmasi penggunaan helm berstandar SNI selama bertugas.</p>
+<div class="mt-stack-md flex items-center gap-2">
+<span class="bg-on-primary-container text-primary-container font-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                            Tervalidasi
+                        </span>
+<button class="text-on-primary-container text-label-sm underline">Ubah Status</button>
+</div>
+</div>
+</div>
+</section>
+<!-- App Info Section -->
+<section class="pt-stack-lg space-y-4">
+<div class="bg-surface-container-low rounded-xl p-stack-md text-center border border-surface-container">
+<p class="font-label-lg text-on-surface-variant">Kurir Lokal</p>
+<p class="font-body-md text-sm text-outline mb-4">Versi 2.4.0 (Stable Build)</p>
+<button class="w-full py-touch-target bg-on-surface text-surface rounded-xl font-label-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">update</span>
+                    Periksa Pembaruan
+                </button>
+</div>
+<button class="w-full py-stack-md text-error font-label-lg flex items-center justify-center gap-2 hover:bg-error-container/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">logout</span>
+                Keluar dari Akun
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-on-background shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-[64px] px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        function updateVolume(val) {
+            const label = document.getElementById('volume-label');
+            const values = ['Pelan', 'Sedang', 'Keras'];
+            label.innerText = values[val];
+            
+            // Interaction feedback
+            label.classList.add('scale-110');
+            setTimeout(() => label.classList.remove('scale-110'), 200);
+        }
+
+        // Toggle micro-interaction
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const parent = this.closest('.cursor-pointer');
+                if(this.checked) {
+                    parent.classList.add('bg-primary-container/5');
+                } else {
+                    parent.classList.remove('bg-primary-container/5');
+                }
+            });
+        });
+
+        // Dark mode simulation (visual only for the toggle)
+        document.querySelector('input[type="checkbox"][peer-checked\\:bg-primary]').addEventListener('change', function() {
+            if(this.closest('.flex').innerText.includes('Mode Gelap')) {
+                // If this were a real app, we'd toggle document.documentElement.classList.toggle('dark');
+            }
+        });
+    </script>
+</body></html>

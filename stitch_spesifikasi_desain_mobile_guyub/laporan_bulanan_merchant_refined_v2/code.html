@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Laporan Bisnis Merchant - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary": "#2d8a5e",
+                "surface-tint": "#2d8a5e",
+                "on-background": "#1b1c1c",
+                "tertiary-fixed": "#ffdcc5",
+                "secondary-container": "#ff7a2b",
+                "on-primary-fixed-variant": "#005232",
+                "on-error": "#ffffff",
+                "surface-variant": "#e4e2e2",
+                "primary-fixed-dim": "#7ed9a6",
+                "tertiary": "#7d5231",
+                "on-secondary-fixed": "#341100",
+                "on-primary": "#ffffff",
+                "on-primary-fixed": "#002111",
+                "on-primary-container": "#f6fff6",
+                "surface-bright": "#fbf9f8",
+                "secondary": "#9f4200",
+                "background": "#fbf9f8",
+                "outline-variant": "#bec9bf",
+                "on-surface": "#1b1c1c",
+                "inverse-surface": "#303030",
+                "secondary-fixed": "#ffdbcb",
+                "inverse-on-surface": "#f2f0f0",
+                "surface-container-highest": "#e4e2e2",
+                "surface-container-high": "#eae8e7",
+                "surface-container": "#efeded",
+                "surface": "#fbf9f8",
+                "primary-fixed": "#9af5c1",
+                "tertiary-fixed-dim": "#f4bb92",
+                "error-container": "#ffdad6",
+                "on-surface-variant": "#3f4942",
+                "outline": "#6f7a71",
+                "on-secondary": "#ffffff",
+                "tertiary-container": "#996a47",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#ffb692",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#301400",
+                "on-secondary-container": "#602500",
+                "on-error-container": "#93000a",
+                "surface-container-low": "#f5f3f3",
+                "on-tertiary": "#ffffff",
+                "surface-dim": "#dbd9d9",
+                "inverse-primary": "#7ed9a6",
+                "on-secondary-fixed-variant": "#793100",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "on-tertiary-container": "#fffbff",
+                "primary-container": "#258459"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px",
+                "round-eight": "0.5rem"
+            },
+            "spacing": {
+                "stack-sm": "8px",
+                "touch-target": "44px",
+                "gutter-mobile": "12px",
+                "stack-md": "16px",
+                "margin-mobile": "16px",
+                "stack-lg": "24px",
+                "base": "4px"
+            },
+            "fontFamily": {
+                "headline-md": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "body-md": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+        }
+        .bento-card {
+            background: #ffffff;
+            border-radius: 0.5rem; /* round-eight */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(111, 122, 113, 0.1);
+        }
+        .chart-bar {
+            transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 w-full px-margin-mobile flex items-center justify-between h-14 bg-surface shadow-sm">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary">Laporan Bisnis</h1>
+</div>
+<div class="flex items-center">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-full">
+<span class="material-symbols-outlined">calendar_month</span>
+</button>
+</div>
+</header>
+<main class="pt-4 pb-32 px-margin-mobile max-w-xl mx-auto space-y-6">
+<!-- Date Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-primary/5 rounded-lg border border-primary/10">
+<span class="material-symbols-outlined text-primary text-[18px]">event</span>
+<span class="font-label-lg text-primary">Oktober 2023</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">Update: Hari ini, 08:30</p>
+</div>
+<!-- Hero Card: Total Penjualan -->
+<section class="bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-surface-variant/20 relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-80 mb-1">Total Penjualan</p>
+<h2 class="font-headline-lg text-[32px] leading-tight text-on-surface tracking-tight">Rp 12.450.000</h2>
+</div>
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="text-[12px] font-bold">+15.0%</span>
+</div>
+<p class="text-[12px] text-on-surface-variant">vs. bulan lalu</p>
+</div>
+</div>
+</section>
+<!-- Metric Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bento-card p-4 flex flex-col justify-between min-h-[100px]">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">shopping_bag</span>
+</div>
+<div class="mt-4">
+<p class="text-label-sm text-on-surface-variant mb-0.5">Total Pesanan</p>
+<p class="font-headline-md text-on-surface">342</p>
+</div>
+</div>
+<div class="bento-card p-4 flex flex-col justify-between min-h-[100px]">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+</div>
+<div class="mt-4">
+<p class="text-label-sm text-on-surface-variant mb-0.5">Rata-rata Pesanan</p>
+<p class="font-headline-md text-on-surface">Rp 36rb</p>
+</div>
+</div>
+<!-- Full Width Stat -->
+<div class="bento-card col-span-2 p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="absolute inset-0 transform -rotate-90" viewbox="0 0 36 36">
+<circle class="text-surface-container-high" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="18" cy="18" fill="transparent" r="16" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<span class="text-[11px] font-bold text-primary">94%</span>
+</div>
+<div>
+<p class="font-label-lg text-on-surface">Penyelesaian Pesanan</p>
+<p class="text-[12px] text-on-surface-variant">Sangat Bagus</p>
+</div>
+</div>
+<div class="px-2 py-1 bg-primary/10 rounded-lg">
+<span class="text-[11px] font-bold text-primary">STABIL</span>
+</div>
+</div>
+</section>
+<!-- Tren Penjualan -->
+<section class="bento-card p-5">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="font-headline-md text-on-surface text-[18px]">Tren Mingguan</h3>
+<p class="text-[11px] text-on-surface-variant">Penghasilan stabil di Minggu ke-4</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Peak Sales</p>
+<p class="text-label-lg font-bold text-primary">M4</p>
+</div>
+</div>
+<div class="flex items-end justify-between h-32 gap-3 px-1 mt-4">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container rounded-t-lg chart-bar" style="height: 40%;"></div>
+<span class="text-[10px] text-on-surface-variant font-medium">M1</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container rounded-t-lg chart-bar" style="height: 65%;"></div>
+<span class="text-[10px] text-on-surface-variant font-medium">M2</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container rounded-t-lg chart-bar" style="height: 85%;"></div>
+<span class="text-[10px] text-on-surface-variant font-medium">M3</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary rounded-t-lg chart-bar shadow-lg shadow-primary/20" style="height: 100%;"></div>
+<span class="text-[10px] text-on-surface font-bold">M4</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container rounded-t-lg chart-bar" style="height: 55%;"></div>
+<span class="text-[10px] text-on-surface-variant font-medium">M5</span>
+</div>
+</div>
+</section>
+<!-- Produk Terlaris -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-on-surface">Produk Terlaris</h3>
+<button class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+                    Lihat Semua
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="bento-card p-3 flex items-center gap-4 hover:bg-surface-container-low transition-colors active:scale-[0.99]">
+<div class="w-14 h-14 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvOHO-jchdL6EDeLd7C4HsgUxnLcWesr2szhuSQ1WvxOPEnBlJVzkFHYzBliZd8nDv2tC6h7WnF_EwWwfx17HnNTD9lZz2AtuRGmk2Wgy2N6S6eooD7XhYpFnB7zGtTBJr2QrDbYuKKFmWEh5pioW9Zbbn0OfV7003LuLjPYLqq_K2sUD6hqmBLlue5rgHn91_UPwzuxIrs-I7YwKQ2FOM1lpzT5G119xf2bG3SP_B69nNrb7wunDpQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-on-surface truncate">Nasi Goreng Spesial</h4>
+<p class="text-[11px] text-on-surface-variant">84 Terjual</p>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-primary text-[16px]">Rp 2.1jt</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bento-card p-3 flex items-center gap-4 hover:bg-surface-container-low transition-colors active:scale-[0.99]">
+<div class="w-14 h-14 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc0yDA8b98sPk-RHXS-VD4Wg7WlS1GImgt6KV1VAK3ERzAW965enC5dvmtVc4RW6W9ZeOu1EI66nGHOnuFxtqLFJH2MxtGBa4oqUUrrH8EN9YEdd6OSRtxC9ad524W7PcWEeKv7_BckaJ7rk2s3qRYB4hZa0dP9Y5K_6UjAp0_BusPDBNwlklDY79t6vur4muwBAZdDKIk2uQQXvdRiDfbmuEYxn-RhIfihMJdR3KZEeihFBWv4ptzRg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-on-surface truncate">Es Jeruk Peras</h4>
+<p class="text-[11px] text-on-surface-variant">62 Terjual</p>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-primary text-[16px]">Rp 930rb</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bento-card p-3 flex items-center gap-4 hover:bg-surface-container-low transition-colors active:scale-[0.99]">
+<div class="w-14 h-14 rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvzPRFsL6soHwsMUsfiMCgAEmWdW0AOhYkY7FGlbNDx7FYoQX_WImIv7W-DUaDDa0RI3IOILLVL2vM2uDYxnQ5J3a48fCLWE01K4UeXhpPb76qLD2dhS4DNd0gWlfe7VX9S3qNcAy8klRQCmG5_Bf3N0TzqfbrYKGYZ2P3iwAk9NzQHujzuN3-x8qH9_Fu9AnaHXhxAdxnwsIWUSW-Ahjs6OqyAW6mflfVMH-qnyuO7hEqWeygm5euPA"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-on-surface truncate">Ayam Bakar Madu</h4>
+<p class="text-[11px] text-on-surface-variant">45 Terjual</p>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-primary text-[16px]">Rp 1.3jt</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Saran Bisnis -->
+<section class="bg-secondary-container/10 p-6 rounded-2xl border border-secondary-container/20 relative overflow-hidden">
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-secondary-container/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-secondary-container rounded-xl flex items-center justify-center text-white shadow-lg shadow-secondary-container/20">
+<span class="material-symbols-outlined text-[24px]">lightbulb</span>
+</div>
+<h3 class="font-headline-md text-on-secondary-container text-[18px]">Wawasan Bisnis</h3>
+</div>
+<p class="text-body-md text-on-surface-variant mb-5 leading-relaxed">
+                    Penjualanmu naik pesat di <span class="font-bold text-secondary">Minggu ke-4</span>. Pastikan ketersediaan <span class="font-medium">Nasi Goreng Spesial</span> lebih awal di periode ini.
+                </p>
+<button class="w-full py-3.5 bg-secondary text-white font-label-lg rounded-xl shadow-lg shadow-secondary/20 hover:brightness-110 active:scale-[0.98] transition-all"> 
+                    Pelajari Strategi Lanjut 
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-white border-t border-surface-variant/20 shadow-lg">
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[10px] font-medium mt-0.5">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="text-[10px] font-medium mt-0.5">Pesanan</span>
+</a>
+<!-- Laporan (ACTIVE) -->
+<a class="flex flex-col items-center justify-center py-1 text-primary min-w-[64px]" href="#">
+<div class="bg-primary/10 px-4 py-1 rounded-full mb-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<span class="text-[10px] font-bold">Laporan</span>
+</a>
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium mt-0.5">Profil</span>
+</a>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 300);
+            });
+
+            document.querySelectorAll('button, a').forEach(el => {
+                el.addEventListener('click', () => {
+                    if (window.navigator && window.navigator.vibrate) {
+                        window.navigator.vibrate(8);
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

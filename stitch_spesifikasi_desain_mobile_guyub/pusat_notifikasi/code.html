@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub - Notifikasi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3f4942",
+                    "primary-container": "#258459",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#996a47",
+                    "surface-dim": "#dbd9d9",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#efeded",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-fixed": "#002111",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-bright": "#fbf9f8",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdbcb",
+                    "outline-variant": "#bec9bf",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#301400",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-container": "#ff7a2b",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary": "#9f4200",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "surface-tint": "#006c44",
+                    "surface-container-high": "#eae8e7",
+                    "tertiary": "#7d5231",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-variant": "#e4e2e2",
+                    "on-secondary-container": "#602500",
+                    "inverse-surface": "#303030",
+                    "outline": "#6f7a71",
+                    "on-primary-container": "#f6fff6",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-background": "#1b1c1c",
+                    "primary": "#006a42",
+                    "background": "#fbf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .notification-card {
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        .notification-card:active {
+            transform: scale(0.98);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 27px;
+            top: 48px;
+            bottom: 0;
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, #bec9bf 0%, #bec9bf 50%, transparent 50%, transparent 100%);
+            background-size: 2px 8px;
+        }
+        .unread-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #006a42;
+            box-shadow: 0 0 0 4px rgba(0, 106, 66, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface flex items-center px-margin-mobile h-touch-target">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim mr-4 hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-200">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Notifikasi</h1>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-md">
+<!-- Section: Belum Dibaca -->
+<section class="mb-stack-lg relative">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Belum Dibaca</h2>
+<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded-full font-bold">3 Baru</span>
+</div>
+<!-- Unread Cards -->
+<div class="space-y-stack-md relative">
+<!-- Timeline decorative element -->
+<div class="timeline-line opacity-20"></div>
+<!-- Notification Item 1 -->
+<div class="notification-card bg-surface-container-low p-stack-md rounded-xl shadow-sm border-l-4 border-primary relative overflow-hidden">
+<div class="flex gap-4">
+<div class="z-10 bg-primary-container text-on-primary-container w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-label-lg text-label-lg text-on-surface">Pesanan Diterima</h3>
+<div class="unread-indicator mt-1"></div>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                                Pesanan <span class="font-semibold text-primary">#GP-9921</span> dari Warung Pak Haji sedang diproses oleh penjual.
+                            </p>
+<span class="text-label-sm text-on-surface-variant mt-3 block opacity-70">Baru saja</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="notification-card bg-surface-container-low p-stack-md rounded-xl shadow-sm border-l-4 border-primary relative">
+<div class="flex gap-4">
+<div class="z-10 bg-secondary-container text-on-secondary-container w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-label-lg text-label-lg text-on-surface">Update Sistem</h3>
+<div class="unread-indicator mt-1"></div>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                                Kami telah memperbarui fitur keamanan untuk kenyamanan Anda bertransaksi di Pangkalan.
+                            </p>
+<span class="text-label-sm text-on-surface-variant mt-3 block opacity-70">45 menit yang lalu</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 3 -->
+<div class="notification-card bg-surface-container-low p-stack-md rounded-xl shadow-sm border-l-4 border-primary relative">
+<div class="flex gap-4">
+<div class="z-10 bg-tertiary-container text-on-tertiary-container w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-label-lg text-label-lg text-on-surface">Saldo Masuk</h3>
+<div class="unread-indicator mt-1"></div>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                                Cashback sebesar <span class="font-semibold text-tertiary">Rp 5.000</span> dari transaksi kemarin telah masuk.
+                            </p>
+<span class="text-label-sm text-on-surface-variant mt-3 block opacity-70">2 jam yang lalu</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Sudah Dibaca -->
+<section class="relative">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant mb-stack-md uppercase tracking-wider">Sudah Dibaca</h2>
+<div class="space-y-stack-md">
+<!-- Read Notification Item 1 -->
+<div class="notification-card bg-surface-container p-stack-md rounded-xl opacity-80">
+<div class="flex gap-4">
+<div class="bg-surface-container-highest text-on-surface-variant w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Pesanan Selesai</h3>
+<p class="text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                                Pesanan sayur mayur dari Ibu Siti telah kamu terima dengan baik. Berikan ulasan?
+                            </p>
+<span class="text-label-sm text-on-surface-variant mt-3 block opacity-60">Kemarin, 14:20</span>
+</div>
+</div>
+</div>
+<!-- Read Notification Item 2 -->
+<div class="notification-card bg-surface-container p-stack-md rounded-xl opacity-80">
+<div class="flex gap-4">
+<div class="bg-surface-container-highest text-on-surface-variant w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-lg text-label-lg text-on-surface">Info Lingkungan</h3>
+<p class="text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                                Kerja bakti warga Pangkalan akan diadakan hari Minggu besok jam 07:00 pagi.
+                            </p>
+<span class="text-label-sm text-on-surface-variant mt-3 block opacity-60">3 hari yang lalu</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty State Helper (Hidden by default, for demo logic) -->
+<div class="hidden flex flex-col items-center justify-center py-20 text-center" id="empty-state">
+<div class="w-48 h-48 mb-6 opacity-80">
+<div class="bg-cover bg-center w-full h-full rounded-full" data-alt="A warm, hand-drawn illustration of a friendly local market stall in a village setting, with soft sunlight and muted organic colors. The scene is calm and peaceful, representing a quiet neighborhood afternoon with no pending activities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmBG9Zkrdc11Eqc6bFsotZaQUpCfwMB4K9LxrfZLlUqf-K7N_qbkJp_NikhJrXx_V9emfCvb5ULPhgR6Uwd7mB7jQcN6t6CKHIgN-TLJPH4tsppelj8qWxMf9idZlWHlgxMmVG0NT4czQjI5HaNjlWCFHm6BZ9RdGFH7BwPLsQvAiH6wpsGAQCupBogqrjd6pe6aftYsab8iYes4QtVap-gsVAtpqX72o8d6XnIFcBLe1xpFc1H2IHHw')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Belum ada kabar baru</h3>
+<p class="text-body-md text-on-surface-variant mt-2 max-w-xs">
+                Tenang saja, kami akan memberi tahu kamu jika ada pesanan atau update penting.
+            </p>
+<button class="mt-stack-lg bg-primary text-on-primary font-label-lg px-stack-lg py-3 rounded-full hover:bg-on-primary-fixed-variant transition-colors active:scale-95">
+                Cek Pesanan Saya
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-container-lowest shadow-[0_-2px_8px_rgba(0,0,0,0.08)] flex justify-around items-center px-gutter-mobile py-2">
+<!-- Beranda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Notifikasi (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-stack-md py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">notifications</span>
+<span class="font-label-sm text-label-sm">Notifikasi</span>
+</a>
+<!-- Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for notification cards
+        document.querySelectorAll('.notification-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const indicator = this.querySelector('.unread-indicator');
+                if (indicator) {
+                    // Simulate marking as read
+                    this.classList.remove('bg-surface-container-low', 'border-l-4', 'border-primary');
+                    this.classList.add('bg-surface-container', 'opacity-80');
+                    indicator.classList.add('hidden');
+                    
+                    // Update counter (simulation)
+                    const counter = document.querySelector('.bg-primary.text-on-primary');
+                    if (counter) {
+                        let count = parseInt(counter.textContent) - 1;
+                        if (count > 0) {
+                            counter.textContent = count + ' Baru';
+                        } else {
+                            counter.remove();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Pull-to-refresh simulation logic can be added here
+    </script>
+</body></html>

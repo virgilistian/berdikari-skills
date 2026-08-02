@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-surface": "#1b1c1c",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#996a47",
+                "on-secondary": "#ffffff",
+                "primary-fixed-dim": "#7ed9a6",
+                "on-secondary-fixed": "#341100",
+                "on-primary-fixed": "#002111",
+                "on-background": "#1b1c1c",
+                "secondary": "#9f4200",
+                "error-container": "#ffdad6",
+                "secondary-fixed-dim": "#ffb692",
+                "tertiary-fixed-dim": "#f4bb92",
+                "on-tertiary-fixed-variant": "#653d1e",
+                "surface-dim": "#dbd9d9",
+                "primary-container": "#258459",
+                "primary": "#006a42",
+                "surface-variant": "#e4e2e2",
+                "primary-fixed": "#9af5c1",
+                "inverse-primary": "#7ed9a6",
+                "surface": "#fbf9f8",
+                "on-tertiary-fixed": "#301400",
+                "surface-container-highest": "#e4e2e2",
+                "secondary-container": "#ff7a2b",
+                "outline-variant": "#bec9bf",
+                "surface-container-high": "#eae8e7",
+                "secondary-fixed": "#ffdbcb",
+                "on-surface-variant": "#3f4942",
+                "error": "#ba1a1a",
+                "tertiary-fixed": "#ffdcc5",
+                "on-tertiary-container": "#fffbff",
+                "on-error": "#ffffff",
+                "outline": "#6f7a71",
+                "surface-tint": "#006c44",
+                "on-secondary-fixed-variant": "#793100",
+                "on-error-container": "#93000a",
+                "background": "#fbf9f8",
+                "on-primary-container": "#f6fff6",
+                "on-secondary-container": "#602500",
+                "inverse-surface": "#303030",
+                "surface-container-low": "#f5f3f3",
+                "inverse-on-surface": "#f2f0f0",
+                "tertiary": "#7d5231",
+                "on-primary": "#ffffff",
+                "surface-container": "#efeded",
+                "surface-bright": "#fbf9f8",
+                "on-primary-fixed-variant": "#005232"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-sm": "8px",
+                "margin-mobile": "16px",
+                "stack-md": "16px",
+                "stack-lg": "24px",
+                "touch-target": "44px",
+                "gutter-mobile": "12px",
+                "base": "4px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "price-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        .asymmetric-shape {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm flex items-center px-margin-mobile h-touch-target">
+<button class="flex items-center justify-center w-touch-target h-touch-target active:scale-95 duration-150 hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-2 font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Detail Transaksi</h1>
+</header>
+<main class="flex-1 pb-32">
+<!-- Error Header Section -->
+<section class="pt-8 pb-16 px-margin-mobile flex flex-col items-center text-center"><div class="relative w-32 h-32 flex items-center justify-center mb-stack-md"><div class="absolute inset-0 bg-error/10 rounded-full scale-150 blur-2xl opacity-60"></div><div class="w-24 h-24 bg-error rounded-full flex items-center justify-center text-white shadow-lg z-10"><span class="material-symbols-outlined text-[56px]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span></div></div><h2 class="font-headline-lg text-headline-lg text-error mb-1">Pembayaran Gagal</h2><p class="font-body-md text-on-surface-variant max-w-[280px]">Pembayaran kedaluwarsa atau dibatalkan oleh sistem.</p></section>
+<!-- Transaction Card (Floating Effect) -->
+<div class="px-margin-mobile -mt-8">
+<div class="relative bg-surface-container-lowest rounded-t-xl p-stack-md shadow-sm border border-surface-variant/30 border-b-0 text-center"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Pembayaran</span><div class="font-headline-lg text-[32px] text-on-surface mt-1">Rp 128.500</div><div class="flex items-center justify-center mt-2 gap-2"><span class="font-label-sm px-3 py-1 bg-error text-white rounded-full">Gagal</span><span class="font-label-sm px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full">QRIS</span></div><div class="absolute -bottom-1 left-0 right-0 h-2 flex justify-around overflow-hidden"><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div><div class="w-4 h-4 bg-background rounded-full -mt-2 border border-surface-variant/30"></div></div></div>
+<div class="bg-surface-container-lowest rounded-b-xl p-stack-md shadow-sm border border-surface-variant/30 border-t-0"><div class="space-y-stack-sm"><div class="flex justify-between items-center border-b border-surface-variant/20 pb-2"><span class="font-body-md text-on-surface-variant">Pelanggan</span><span class="font-body-md font-medium text-on-surface">Siti Aminah</span></div><div class="flex justify-between items-center border-b border-surface-variant/20 pb-2"><span class="font-body-md text-on-surface-variant">ID Transaksi</span><span class="font-body-md font-medium text-on-surface">TXN-992834710</span></div><div class="flex justify-between items-center border-b border-surface-variant/20 pb-2"><span class="font-body-md text-on-surface-variant">Status</span><span class="font-body-md font-medium text-error">Gagal</span></div><div class="flex justify-between items-center"><span class="font-body-md text-on-surface-variant">Metode</span><span class="font-body-md font-medium text-on-surface">QRIS - E-Wallet</span></div></div></div></div>
+<!-- Guidance Section -->
+<section class="mt-stack-lg px-margin-mobile">
+<div class="bg-surface-container-high rounded-xl p-stack-md">
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="lightbulb">lightbulb</span>
+<h3 class="font-label-lg text-label-lg text-tertiary">Panduan Tindak Lanjut</h3>
+</div>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="flex-shrink-0 w-6 h-6 bg-tertiary/10 text-tertiary rounded-full flex items-center justify-center font-bold text-[12px]">1</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Informasikan kepada pelanggan bahwa sesi pembayaran telah berakhir.</p>
+</li>
+<li class="flex gap-3">
+<span class="flex-shrink-0 w-6 h-6 bg-tertiary/10 text-tertiary rounded-full flex items-center justify-center font-bold text-[12px]">2</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Minta pelanggan untuk melakukan scan ulang kode QR yang baru.</p>
+</li>
+<li class="flex gap-3">
+<span class="flex-shrink-0 w-6 h-6 bg-tertiary/10 text-tertiary rounded-full flex items-center justify-center font-bold text-[12px]">3</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Pastikan koneksi internet pelanggan stabil sebelum mencoba kembali.</p>
+</li>
+</ul>
+</div>
+</section>
+<!-- Illustration/Decorative Area -->
+</main>
+<!-- Bottom Action Sheet -->
+<div class="fixed bottom-0 left-0 right-0 p-margin-mobile bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] flex flex-col gap-3 rounded-t-3xl border-t border-surface-variant">
+<button class="w-full h-12 bg-primary text-on-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+            Minta Bayar Ulang
+        </button>
+<button class="w-full h-12 border-2 border-primary text-primary rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+            Hubungi Bantuan
+        </button>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+<style>
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            margin-top: -50px;
+            pointer-events: none;
+        }
+    </style>
+</body></html>

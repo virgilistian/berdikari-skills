@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keluar dari Akun? - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbcb",
+                    "outline": "#6f7a71",
+                    "outline-variant": "#bec9bf",
+                    "background": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-bright": "#fbf9f8",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#7d5231",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary-container": "#996a47",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary-fixed": "#301400",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-fixed": "#002111",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#7ed9a6",
+                    "error": "#ba1a1a",
+                    "primary": "#006a42",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container": "#efeded",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary-container": "#f6fff6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#602500",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "inverse-surface": "#303030",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#006c44"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "stack-lg": "24px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-hidden">
+<!-- Mock Background Page (Settings/Profile) -->
+<main class="relative min-h-screen bg-background p-4 flex flex-col gap-y-stack-lg filter blur-sm">
+<!-- Profile Header -->
+<header class="flex items-center gap-x-4 px-base">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a smiling Indonesian woman in her late 20s, wearing modest, modern attire. She stands in a sunlit neighborhood garden with soft, blurred greenery in the background, creating a neighborly and trustworthy atmosphere. The lighting is golden hour, highlighting a friendly and approachable persona for a local community app profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8WyjxJrlprGdtYJ3w1i_ahPICgn78h23Utp1Oa1ryhDmcBr6RYqFx0HDiQFqCoL0_j6TELuRZx4NfYhvjUn9n8u1kRwOt2X2P-wW3NFm6nd7AmBJPnp-N4ljlI-ivMV9XIrezM6nr9CoVPgx3oSnKQNOSnTs89q2gwvf-dQWzNo_LZznhvpo6TR4LUax9HyF3CxCTFuLmeIPHjn5sKRnCQY2DK_hQmpVBiJxSdilF4XfWjTKt9eSJhw"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md">Siti Aminah</h1>
+<p class="font-body-md text-on-surface-variant">Pangkalan Residence, Blok C4</p>
+</div>
+</header>
+<!-- Settings List Mockup -->
+<div class="flex flex-col gap-y-stack-md">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-x-3">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="font-label-lg text-label-lg">Edit Profil</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-x-3">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span class="font-label-lg text-label-lg">Riwayat Pesanan</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-x-3">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="font-label-lg text-label-lg">Notifikasi</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-x-3">
+<span class="material-symbols-outlined text-error">logout</span>
+<span class="font-label-lg text-label-lg text-error">Keluar Akun</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-margin-mobile">
+<!-- Modal Card -->
+<section class="bg-surface-container-lowest w-full max-w-sm rounded-xl p-stack-lg shadow-xl animate-in fade-in zoom-in duration-300">
+<!-- Header Icon -->
+<div class="flex justify-center mb-stack-md">
+<div class="w-16 h-16 bg-error-container/40 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<!-- Content -->
+<div class="text-center flex flex-col gap-y-stack-sm mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Keluar dari Akun?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Apakah Anda yakin ingin keluar? Anda perlu masuk kembali untuk melihat pesanan dan promo terbaru dari tetangga.
+                </p>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-y-stack-sm">
+<!-- Primary Exit Button -->
+<button class="w-full h-touch-target bg-error text-on-error font-label-lg text-label-lg rounded-full flex items-center justify-center transition-transform active:scale-95 shadow-md">
+                    Keluar
+                </button>
+<!-- Ghost Cancel Button -->
+<button class="w-full h-touch-target bg-transparent text-outline font-label-lg text-label-lg rounded-full flex items-center justify-center transition-colors hover:bg-surface-container-high active:scale-95">
+                    Batal
+                </button>
+</div>
+</section>
+</div>
+<!-- Bottom Navigation Bar (Visual Shell) -->
+<nav class="fixed bottom-0 w-full z-40 flex justify-around items-center px-4 py-2 bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(125,82,49,0.08)] rounded-t-xl blur-sm pointer-events-none">
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Pesan</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // In a real app, this would handle state
+                console.log('Action performed: ' + btn.innerText);
+            });
+        });
+    </script>
+</body></html>

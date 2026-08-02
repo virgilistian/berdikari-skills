@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Stok Toko - Kelola Inventaris</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e4e2e2",
+                    "error": "#ba1a1a",
+                    "on-background": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fffbff",
+                    "surface": "#fbf9f8",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-container": "#ff7a2b",
+                    "on-surface-variant": "#3f4942",
+                    "primary": "#006a42",
+                    "outline-variant": "#bec9bf",
+                    "surface-container": "#efeded",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-dim": "#dbd9d9",
+                    "outline": "#6f7a71",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary": "#7d5231",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-tint": "#006c44",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container-highest": "#e4e2e2",
+                    "inverse-surface": "#303030",
+                    "inverse-primary": "#7ed9a6",
+                    "on-secondary-container": "#602500",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f6fff6",
+                    "on-surface": "#1b1c1c",
+                    "background": "#fbf9f8",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed": "#ffdbcb",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#258459",
+                    "surface-bright": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container-high": "#eae8e7",
+                    "tertiary-container": "#996a47",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .active-filter {
+            background-color: #006a42;
+            color: white;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 bg-surface dark:bg-surface-dim shadow-sm flex items-center justify-between px-margin-mobile h-14">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">inventory</span>
+<h1 class="font-headline-lg text-headline-lg text-primary">Stok Toko</h1>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95 duration-150 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</header>
+<main class="px-margin-mobile pt-stack-md">
+<!-- Search Section -->
+<section class="mb-stack-md">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline">search</span>
+<input class="w-full h-12 pl-10 pr-4 bg-white border border-outline-variant rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-on-surface" placeholder="Cari produk kamu..." type="text"/>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="mb-stack-lg -mx-margin-mobile px-margin-mobile overflow-x-auto hide-scrollbar flex gap-2">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant bg-white text-on-surface-variant font-label-lg active-filter">Semua</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant bg-white text-on-surface-variant font-label-lg hover:bg-surface-container-low transition-colors">Sembako</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant bg-white text-on-surface-variant font-label-lg hover:bg-surface-container-low transition-colors">Minuman</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant bg-white text-on-surface-variant font-label-lg hover:bg-surface-container-low transition-colors">Cemilan</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant bg-white text-on-surface-variant font-label-lg hover:bg-surface-container-low transition-colors">Bumbu</button>
+</section>
+<!-- Inventory Summary (Bento-lite) -->
+<section class="grid grid-cols-2 gap-3 mb-stack-lg">
+<div class="bg-primary-container/10 p-4 rounded-2xl border border-primary/10">
+<p class="text-label-sm text-primary mb-1">Total Produk</p>
+<h3 class="text-headline-md font-headline-md text-primary">124</h3>
+</div>
+<div class="bg-error-container/10 p-4 rounded-2xl border border-error/10">
+<p class="text-label-sm text-error mb-1">Stok Habis</p>
+<h3 class="text-headline-md font-headline-md text-error">12</h3>
+</div>
+</section>
+<!-- Inventory List -->
+<div class="space-y-4">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-surface-variant/50">
+<div class="p-3 flex gap-4">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional high-angle studio photograph of a golden bottle of vegetable cooking oil, placed on a rustic wooden table with soft morning light coming from a nearby window. The atmosphere is warm and neighborly, reflecting a local market aesthetic. The colors are dominated by rich ambers and soft greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKrdsMgtVV22unzLv4zNn2iM4oljRO9CgJLSuVB1QdPgeLaCz1L3-vgKMvisaIAJw6YiTFEUra3r58D9bluU4Juvoo4eCkdnhNlQ6BXK6_4Nxuvy3rlFIF1A_1hEQD1b3snRkMXJG96cdrzjoSzeEhqsrBOj0vj9WhBb3txGA6yKKkX0-fep7vqDgSHHQVOXtNPpC31oXFzUscdiNB7pDo8qu9Um4ppK_DBctMDgGU9V8GuXyv0UoKug"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-on-surface leading-tight">Minyak Goreng 2L</h4>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Hampir Habis</span>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-1">Sembako • Rp 34.500</p>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-medium">Sisa 5 pcs</span>
+<span class="text-label-sm text-on-surface-variant">Kapasitas 50</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-surface-variant">
+<button class="flex items-center justify-center gap-2 py-3 text-primary font-label-lg active:bg-primary/5 transition-colors border-r border-surface-variant">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        Tambah Stok
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-on-surface-variant font-label-lg active:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                        Tandai Habis
+                    </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-surface-variant/50">
+<div class="p-3 flex gap-4">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up shot of fresh brown chicken eggs neatly arranged in a traditional cardboard egg tray. The lighting is soft and natural, emphasizing the organic texture of the shells. The scene is set in a clean, brightly lit local grocery store with a friendly, communal vibe. Muted earthy tones and soft whites dominate the palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoBpC_F5S7tbZ6OdtvxpEPlTsj4_M6CcJHdmiFkaP39JLIgFR470SYOQb381qu9CCasrHKKvGG2wQJakoyYTnqVBgaFUmUJKmEhZotSbe_uZ935wkdJ7GrZUYQ3Hr8GNhgijuda9JTqzKwqSKZGkDEt8OyXei8-Rjv3HnQPOSTrVgrS1tvFMESUaaWkuNeffuL4iJR3Zmsyg2DDuJ1cqfzdRu6nIIYlETZmDx6wgQ_Ut0AAys1rrYz3g"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-on-surface leading-tight">Telur Ayam 1kg</h4>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Tersedia</span>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-1">Sembako • Rp 28.000</p>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-medium">Sisa 42 kg</span>
+<span class="text-label-sm text-on-surface-variant">Kapasitas 100</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-surface-variant">
+<button class="flex items-center justify-center gap-2 py-3 text-primary font-label-lg active:bg-primary/5 transition-colors border-r border-surface-variant">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        Tambah Stok
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-on-surface-variant font-label-lg active:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                        Tandai Habis
+                    </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-surface-variant/50">
+<div class="p-3 flex gap-4">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cold, condensation-covered plastic bottle of mineral water standing against a blurred background of a modern convenience store. The visual style is crisp and refreshing, with bright lighting and a focus on clarity. The color palette is composed of cool blues and clean whites, aligning with the corporate modern with a soft touch brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUidnAaorjXbjO9gJBZUN2HbD_k1QdiOVG6p6Q_ShVHmJjEWQOBD8Ebw80d_1zVC31C_qPbF4N3E4HjADo01IQaMmUYqWeI0SyIOAoVMc85bjPWqsdFS3glb1_W3tlHZsmJIXD_VGxFRLGUrNgyBDbHxWRE-RSZ3GUzNxJ0BQascdBKjmpC-xuKq6MrxitIgWLoYxaWMCRyp6QMnTFFMbsi8m2ZENjqyyqA1zcGMhkohishrmn-dNjKQ"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-on-surface leading-tight">Air Mineral 600ml</h4>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Tersedia</span>
+</div>
+<p class="text-label-sm text-on-surface-variant mt-1">Minuman • Rp 4.000</p>
+</div>
+<div class="mt-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-sm font-medium">Sisa 88 pcs</span>
+<span class="text-label-sm text-on-surface-variant">Kapasitas 120</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 73%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 border-t border-surface-variant">
+<button class="flex items-center justify-center gap-2 py-3 text-primary font-label-lg active:bg-primary/5 transition-colors border-r border-surface-variant">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        Tambah Stok
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 text-on-surface-variant font-label-lg active:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                        Tandai Habis
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for adding new product -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-2xl shadow-lg flex items-center justify-center active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined" style="font-size: 32px;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(125,82,49,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-label-sm text-label-sm mt-1">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-sm text-label-sm mt-0.5">Produk</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Akun</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Micro-interaction ripple effect could be added here
+                console.log('Button clicked: ' + this.innerText.trim());
+            });
+        });
+
+        // Filter selection logic
+        const filterBtns = document.querySelectorAll('section[class*="overflow-x-auto"] button');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active-filter'));
+                btn.classList.add('active-filter');
+            });
+        });
+    </script>
+</body></html>

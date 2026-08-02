@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Titip Beli - Sedang Belanja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface": "#fbf9f8",
+                    "on-surface-variant": "#3f4942",
+                    "secondary-fixed": "#ffdbcb",
+                    "tertiary": "#7d5231",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-variant": "#e4e2e2",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030",
+                    "surface-dim": "#dbd9d9",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-container": "#ff7a2b",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container": "#efeded",
+                    "tertiary-container": "#996a47",
+                    "outline-variant": "#bec9bf",
+                    "outline": "#6f7a71",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "on-secondary-container": "#602500",
+                    "primary": "#006a42",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#258459",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#f6fff6",
+                    "primary-fixed": "#9af5c1",
+                    "on-primary-fixed": "#002111",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-tint": "#006c44",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-background": "#1b1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "base": "4px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrolling-touch { -webkit-overflow-scrolling: touch; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- Top Navigation Anchor (As per JSON) -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm flex justify-between items-center px-margin-mobile py-base">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a friendly Indonesian delivery driver wearing a clean green uniform. The lighting is bright and warm, reflecting a neighborly and trustworthy persona. The background is a soft-focus urban neighborhood in Pangkalan, maintaining a local community feel with modern corporate clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaITlrfBsvZW95MkwbSkk8CNeNiAAapcEmBRIwfMcTgc_sb_FvkjleaurNXtkwFdYUe8-iUMwmYp33WZwa_FujqsNijd_wzGSGtObBTYbRIOxGfubiUlTrq8yz7UH-UyUPMmQkUXRbw2nr1a2w2CzIh5xhTOi6D3Kxbb_Z6EekF8wOeY-RlhpOuk5ZXmB_laLv8r3zwBIWib8rZYSxrCLBPAplpTI0zo0sYkXRtvzdhEygllANM45P5A"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary">Kurir Lokal</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors duration-200 text-on-surface">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="px-margin-mobile py-stack-md space-y-stack-lg max-w-md mx-auto">
+<!-- Status Header Card -->
+<section class="bg-primary-container text-on-primary-container p-stack-md rounded-xl shadow-sm space-y-base">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm opacity-90 uppercase tracking-wider">Status Pesanan</p>
+<h2 class="font-headline-md text-headline-md">Driver sedang belanja</h2>
+</div>
+<div class="bg-white/20 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-bold">LIVE</span>
+</div>
+</div>
+<div class="pt-stack-sm border-t border-white/10 flex justify-between items-center">
+<span class="font-body-md text-body-md">Sisa Plafon Kamu:</span>
+<span class="font-headline-md text-headline-md">Rp 450.000</span>
+</div>
+</section>
+<!-- Shopping List Section -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_basket</span>
+                    Daftar Belanja
+                </h3>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">3 Item</span>
+</div>
+<div class="space-y-stack-sm">
+<!-- Shopping Item 1 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex items-center justify-between group active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A pack of fresh organic milk on a wooden table, illuminated by soft natural morning sunlight. The style is clean, editorial photography with a focus on fresh, high-quality local produce. Soft pastel colors and warm tones reflect the neighborhood market aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR9w-p7ovLs0dtMC_D0B_YgMbdcEalBrJE9QcRUPM30bBATQhvqWfVsN--fDmHmX_hwvli4QHr3aPIpo_0C7Lm7bfl0chJI_BFVdXrUQT2HkPCeJYGlKyzJvyA2RDiAhxkde25hmtjuo8m5K2eKsythWzvT_Q4doYkTqsAIC4EKh26qtl3lJzPBckTK87J6F9EKbE52B9YsD3L-_W39lAxWZ_Kwxs_SNbW3To4l2AX1rbpeTqYPWk-XQ"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg">Susu UHT Full Cream 1L</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Est: Rp 18.500</p>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<!-- Shopping Item 2 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A pile of fresh, ripe bananas with vibrant yellow skins, captured in a bright and airy kitchen setting. The lighting is soft and diffused, emphasizing the natural texture and appetizing appearance of the fruit. The overall mood is fresh, healthy, and inviting, aligning with a premium local market feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGfFu0-p2Er7HxG_G6r6RIjejnTOwpPJCZcPuyowstpmcJCxJPPuW2j7eBnBMshaV43VB1s1BkHW-JSUX2X0CL2iJ6f785cAawNEw4l1sRgkCDm_tbvZNmOulOqUUNF6E4oB5QEvBOEZdUBwohh5vnuJeY6WF3CVVsQdAr2YPoLR1D11eiued_u5L1YheS_nLbegqQYaYurtFneQ2iBd1mZ1SZrBW7MrAF46Xm2et8N843JQTKr5yK8A"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg">Pisang Sunpride (1 Sisir)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Est: Rp 25.000</p>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+</div>
+<!-- Shopping Item 3 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a transparent bag of premium white rice, showing the clean and uniform grains clearly. The lighting is bright and high-key, suggesting quality and purity. The background is a clean, neutral surface that makes the product pop, maintaining a modern and trustworthy visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsYehaH5ss-N906neZ66A01FW4kLTIlfiS-vQcRDV51L0cLn58z9PEflM_Ts9Bdb2c3gNeMPJOrolqDKLW_YN6kmcO_F8K3C_Z-_3jWR6a5tUWYvRZ246mEHlsC3Mf1G9mppbzKMqQlBHJDQH6Q9-SHcZSvQIBHIwLz6WjZTBGU37yyK3j48y-nZev2bptGg3IHwyBEGAVDQgbLaxSleolQLJ9UTYhCDqUuFyXCW-rdvabCuVAqn5yog"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg">Beras Premium 5kg</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Est: Rp 72.000</p>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<!-- Quick Action Button -->
+<button class="w-full py-3 flex items-center justify-center gap-2 text-secondary font-label-lg border-2 border-secondary/20 rounded-xl active:bg-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">contact_support</span>
+                Barang tidak ada / harga beda
+            </button>
+</section>
+<!-- Finalization Section (Bento Style) -->
+<section class="bg-surface-container rounded-2xl p-stack-md space-y-stack-md border border-outline-variant">
+<h3 class="font-headline-md text-headline-md">Selesaikan Belanja</h3>
+<div class="grid grid-cols-1 gap-stack-md">
+<!-- Upload Struk -->
+<div class="relative group cursor-pointer" onclick="document.getElementById('receipt-upload').click()">
+<input class="hidden" id="receipt-upload" type="file"/>
+<div class="w-full aspect-video rounded-xl border-2 border-dashed border-outline bg-surface-container-low flex flex-col items-center justify-center space-y-base group-hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">receipt_long</span>
+<p class="font-label-lg text-label-lg">Upload Foto Struk</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Wajib untuk verifikasi</p>
+</div>
+</div>
+<!-- Input Total -->
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant block ml-1" for="total-price">Total Belanja di Struk</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-headline-md text-on-surface-variant">Rp</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border-outline focus:border-primary focus:ring-primary bg-surface-container-lowest font-price-lg text-price-lg" id="total-price" placeholder="0" type="number"/>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                Selesai &amp; Antar
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Shell (As per JSON) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.08)] flex justify-around items-center h-[64px] px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm">Order</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pendapatan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:opacity-80 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the upload area
+        const uploadBox = document.querySelector('.relative.group.cursor-pointer');
+        const fileInput = document.getElementById('receipt-upload');
+
+        fileInput.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadBox.innerHTML = `
+                        <div class="w-full aspect-video rounded-xl overflow-hidden relative">
+                            <img src="${e.target.result}" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                <span class="text-white font-label-lg">Ganti Foto</span>
+                            </div>
+                        </div>
+                    `;
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        // Toggle checkbox state visualization
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const container = this.closest('.bg-surface-container-lowest');
+                if(this.checked) {
+                    container.classList.add('opacity-60', 'bg-surface-container');
+                } else {
+                    container.classList.remove('opacity-60', 'bg-surface-container');
+                }
+            });
+        });
+    </script>
+</body></html>

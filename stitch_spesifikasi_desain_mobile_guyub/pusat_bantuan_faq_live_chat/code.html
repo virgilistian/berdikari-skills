@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bantuan Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#005232",
+                    "secondary": "#9f4200",
+                    "surface-tint": "#006c44",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#996a47",
+                    "on-secondary-fixed-variant": "#793100",
+                    "secondary-fixed": "#ffdbcb",
+                    "outline-variant": "#bec9bf",
+                    "surface-bright": "#fbf9f8",
+                    "inverse-primary": "#7ed9a6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "primary-container": "#258459",
+                    "outline": "#6f7a71",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-container": "#602500",
+                    "on-background": "#1b1c1c",
+                    "secondary-container": "#ff7a2b",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "primary-fixed": "#9af5c1",
+                    "on-primary-fixed": "#002111",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fffbff",
+                    "on-surface": "#1b1c1c",
+                    "surface": "#fbf9f8",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-variant": "#e4e2e2",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-surface": "#303030",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "background": "#fbf9f8",
+                    "on-error": "#ffffff",
+                    "primary": "#006a42",
+                    "tertiary": "#7d5231",
+                    "surface-container": "#efeded",
+                    "on-primary-container": "#f6fff6",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-item[open] .faq-arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container dark:bg-surface-container-high flex items-center justify-between px-margin-mobile h-touch-target shadow-sm">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Bantuan Guyub</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">support_agent</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-margin-mobile max-w-lg mx-auto">
+<!-- Search Section -->
+<section class="mb-stack-lg">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-md text-on-surface" placeholder="Cari kendala kamu..." type="text"/>
+</div>
+</section>
+<!-- Illustration / Hero Section -->
+<section class="mb-stack-lg flex flex-col items-center text-center">
+<div class="w-full aspect-[16/9] mb-stack-md rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A friendly, warm, and professional digital illustration in a soft corporate style. A customer support representative with a headset is shown smiling and interacting with a floating digital chat bubble. The color palette features Guyub green and warm terracotta accents on a clean off-white background, creating a neighborly and helpful atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJw-Id-JJhnRjMBSPm-3TKINK7ogYfx0sl-v2W4_lruIDuTq2gW_BM3-phb0uqzmyn2d1CDgXNYun_MxsZJ3nw54GqWz-c9avxu67ARRhHJYfm9HiJ5vHJ8kuU-eIunJqdtOKiKp375xY8ktM2SEktzw_ONZDLmMVfwzKpmcgNdE5ifPoNXdSo09zxvUBmZwM2D7LilY_-W3OzKJwnlFwLkKA30kaE6ITw1Rx8BMeIR8W3nUzjw-8mWg"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-base">Ada yang bisa kami bantu?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Temukan jawaban cepat untuk kendala pengiriman dan pesanan kamu.</p>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="mb-stack-lg space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider px-1">Pertanyaan Populer</h3>
+<details class="faq-item group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-surface-container transition-colors">
+<span class="font-label-lg text-on-surface">Kurir tidak menemukan alamat</span>
+<span class="material-symbols-outlined faq-arrow text-outline transition-transform duration-300">expand_more</span>
+</summary>
+<div class="px-4 pb-4 font-body-md text-on-surface-variant leading-relaxed">
+                    Pastikan titik koordinat di peta sudah sesuai. Kamu juga bisa menambahkan "Catatan Alamat" yang lebih detail atau menghubungi kurir langsung melalui fitur chat di detail pesanan.
+                </div>
+</details>
+<details class="faq-item group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-surface-container transition-colors">
+<span class="font-label-lg text-on-surface">Pesanan terlambat datang</span>
+<span class="material-symbols-outlined faq-arrow text-outline transition-transform duration-300">expand_more</span>
+</summary>
+<div class="px-4 pb-4 font-body-md text-on-surface-variant leading-relaxed">
+                    Keterlambatan bisa terjadi karena cuaca atau kepadatan pesanan di area Pangkalan. Jika pesanan melewati estimasi lebih dari 30 menit, silakan hubungi layanan pelanggan kami.
+                </div>
+</details>
+<details class="faq-item group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-surface-container transition-colors">
+<span class="font-label-lg text-on-surface">Ubah alamat pengiriman</span>
+<span class="material-symbols-outlined faq-arrow text-outline transition-transform duration-300">expand_more</span>
+</summary>
+<div class="px-4 pb-4 font-body-md text-on-surface-variant leading-relaxed">
+                    Alamat pengiriman hanya dapat diubah sebelum penjual memproses pesanan. Cek status pesanan kamu sekarang di menu "Pesanan".
+                </div>
+</details>
+</section>
+<!-- Contact Support Section -->
+<section class="mt-stack-lg">
+<button class="w-full flex items-center justify-center gap-3 bg-primary text-on-primary h-[56px] rounded-xl font-label-lg shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                Hubungi Layanan Pelanggan
+            </button>
+<p class="text-center mt-stack-sm font-label-sm text-on-surface-variant">
+                Layanan aktif setiap hari: 08:00 - 21:00 WIB
+            </p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.08)] bg-surface-container-low dark:bg-inverse-surface flex justify-around items-center px-4 py-2">
+<!-- Beranda -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-1 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Beranda</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-1 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Pesanan</span>
+</a>
+<!-- Bantuan (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="font-label-sm text-label-sm">Bantuan</span>
+</a>
+<!-- Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high p-1 rounded-lg transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction for details/accordion
+        const details = document.querySelectorAll('details');
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener('click', () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+            });
+        });
+
+        // Search Bar Micro-interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.01]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.01]');
+        });
+    </script>
+</body></html>

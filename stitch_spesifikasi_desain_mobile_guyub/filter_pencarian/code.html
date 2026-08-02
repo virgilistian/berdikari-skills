@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cari di GUYUB - Filter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#7ed9a6",
+                    "on-background": "#1b1c1c",
+                    "outline": "#6f7a71",
+                    "on-primary-fixed": "#002111",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "secondary": "#9f4200",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-surface": "#1b1c1c",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-high": "#eae8e7",
+                    "surface-bright": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "outline-variant": "#bec9bf",
+                    "inverse-on-surface": "#f2f0f0",
+                    "secondary-container": "#ff7a2b",
+                    "inverse-primary": "#7ed9a6",
+                    "primary-container": "#258459",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "background": "#fbf9f8",
+                    "on-secondary-container": "#602500",
+                    "tertiary-container": "#996a47",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-variant": "#e4e2e2",
+                    "inverse-surface": "#303030",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efeded",
+                    "primary-fixed": "#9af5c1",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "primary": "#006a42",
+                    "on-primary-container": "#f6fff6",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffb692",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-tint": "#006c44"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bottom-sheet-overlay {
+            background: rgba(0,0,0,0.4);
+            transition: opacity 0.3s ease;
+        }
+        .bottom-sheet {
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bottom-sheet.active {
+            transform: translateY(0);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .tap-scale:active {
+            transform: scale(0.96);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface flex items-center justify-between px-margin-mobile py-2 w-full z-40">
+<div class="flex items-center gap-4">
+<button class="tap-scale flex items-center justify-center w-touch-target h-touch-target">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-primary">Cari di GUYUB</h1>
+</div>
+<button class="tap-scale flex items-center justify-center w-touch-target h-touch-target bg-surface-container-high rounded-full" id="openFilter">
+<span class="material-symbols-outlined text-primary">tune</span>
+</button>
+</header>
+<!-- Content Placeholder (Mock Results) -->
+<main class="px-margin-mobile pt-stack-sm pb-32">
+<!-- Search Category Tabs -->
+<nav class="flex w-full justify-around pt-4 bg-surface border-b border-outline-variant">
+<button class="text-primary border-b-2 border-primary pb-2 font-label-lg text-label-lg tap-scale">Warung</button>
+<button class="text-on-surface-variant pb-2 font-label-lg text-label-lg tap-scale">Produk</button>
+</nav>
+<!-- Result Stats -->
+<div class="mt-stack-md flex justify-between items-center">
+<p class="text-on-surface-variant text-label-sm font-label-sm">Menampilkan 24 warung di sekitarmu</p>
+</div>
+<!-- Asymmetric Bento-ish Grid for Results -->
+<div class="mt-stack-md grid grid-cols-1 gap-stack-md">
+<!-- Merchant Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 flex flex-col">
+<div class="w-full h-40 bg-cover bg-center" data-alt="A vibrant, high-quality photograph of a local Indonesian 'Warung' or small grocery store. The shop is tidy and well-stocked with colorful snacks, hanging sachets, and fresh produce. Warm afternoon sunlight filters through the awning, creating an inviting, communal atmosphere. The colors are lush and saturated, emphasizing a friendly, neighborhood market feel with deep greens and earthy browns." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0nBvoLXUaCeVg-QPVjvCD-cby5mVy31ifaVnNIUrerTeOKM7jcWcT-Dscx7M409gAqwMd4SjQLox7RvWRxC-JNsxB-v8xfaC4dLyTxeq_h7Nl4UEDRMk_BfuVkFfMTZOH2j0D-S7XRSklvG0zOOtE36YpFjD5TCBnZ6KNr40kfNQaqvjOJC_Y2vACGaOctZGoqqx2skpSiTCSl7QOxjS_s5mDJmWNLP-mHkHrZeAIFJqJR2uyhivcLg')"></div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Warung Bu Endang</h3>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-lg font-label-lg">4.8</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm ml-1">• Sembako &amp; Jajanan</span>
+</div>
+</div>
+<div class="bg-primary-container/20 px-2 py-1 rounded text-primary text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Buka
+                        </div>
+</div>
+<div class="mt-stack-sm flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[18px]">distance</span>
+<span>450m • Pangkalan</span>
+</div>
+</div>
+</div>
+<!-- Merchant Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 flex flex-col">
+<div class="w-full h-40 bg-cover bg-center" data-alt="A professional and appetizing close-up of a local Indonesian food stall specializing in Bakso or Mie Ayam. The scene is bright and clean, showing steaming bowls of soup with fresh vegetables and condiments arranged neatly. The lighting is soft and natural, emphasizing the freshness of the ingredients. The aesthetic is modern-corporate yet warm and approachable, using a palette of soft whites and rich culinary tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBff0l4OU3BV5PzMips7_FcEYx2jLgFOB26wy_wOLHr2YZtz7drEl1pg-AeqjFUKJg_8R3IJ39JEweKiJezjhprzDZrGiIMRFIzMtqVFV1Y7F8cp8XPvTLRlEJlvIirjNRUhq3flR36aZuJMaMeOXqMsYUh4O9R1x_AqLBgPWfFq-biFxi5GKRzxooNQlBv-UD2F2nAVtvgeBItM1YlOVeMRd8eefQw9Dy8Goxn6jQUqamxFRIHd68bNQ')"></div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Kedai Sedap Malam</h3>
+<div class="flex items-center gap-1 text-primary mt-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-lg font-label-lg">4.5</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm ml-1">• Kuliner</span>
+</div>
+</div>
+<div class="bg-surface-variant px-2 py-1 rounded text-on-surface-variant text-label-sm font-label-sm flex items-center gap-1">
+                            Buka jam 16:00
+                        </div>
+</div>
+<div class="mt-stack-sm flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[18px]">distance</span>
+<span>1.2km • Tegalwaru</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface shadow-[0_-1px_3px_0_rgba(0,0,0,0.08)] z-30">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 tap-scale">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-scale">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-label-sm font-label-sm">Pesanan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-scale">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-sm font-label-sm">Notifikasi</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-scale">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Akun</span>
+</div>
+</nav>
+<!-- Filter Bottom Sheet Overlay -->
+<div class="fixed inset-0 z-[60] bottom-sheet-overlay opacity-0 pointer-events-none" id="filterOverlay">
+<!-- Backdrop Closer -->
+<div class="absolute inset-0" id="closeFilterBackdrop"></div>
+<!-- Sheet -->
+<div class="absolute bottom-0 left-0 right-0 bg-surface rounded-t-[28px] bottom-sheet flex flex-col max-h-[795px]" id="filterSheet">
+<!-- Handle -->
+<div class="w-full flex justify-center py-4">
+<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-margin-mobile flex justify-between items-center pb-stack-md">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Filter Pencarian</h2>
+<button class="text-primary font-label-lg text-label-lg px-4 py-2 hover:bg-primary-container/10 rounded-full transition-colors" id="resetFilter">Atur Ulang</button>
+</div>
+<!-- Scrollable Content -->
+<div class="overflow-y-auto px-margin-mobile pb-stack-lg custom-scrollbar">
+<!-- Section: Jarak -->
+<section class="mb-stack-lg">
+<h3 class="text-label-lg font-label-lg text-on-surface-variant mb-stack-sm">Jarak Terdekat</h3>
+<div class="flex flex-wrap gap-2">
+<button class="filter-chip active border-2 border-primary bg-primary-container/10 text-primary px-4 py-2 rounded-full font-label-lg text-label-lg tap-scale transition-all">
+                            Terdekat
+                        </button>
+<button class="filter-chip border-2 border-outline-variant bg-transparent text-on-surface-variant px-4 py-2 rounded-full font-label-lg text-label-lg tap-scale transition-all">
+                            &lt;1km
+                        </button>
+<button class="filter-chip border-2 border-outline-variant bg-transparent text-on-surface-variant px-4 py-2 rounded-full font-label-lg text-label-lg tap-scale transition-all">
+                            &lt;3km
+                        </button>
+</div>
+</section>
+<!-- Section: Kategori -->
+<section class="mb-stack-lg">
+<h3 class="text-label-lg font-label-lg text-on-surface-variant mb-stack-sm">Kategori</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="cat-toggle flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface tap-scale transition-all">
+<span class="material-symbols-outlined text-primary">shopping_basket</span>
+<span class="font-label-lg text-label-lg">Sembako</span>
+</button>
+<button class="cat-toggle flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface tap-scale transition-all">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+<span class="font-label-lg text-label-lg">Kuliner</span>
+</button>
+<button class="cat-toggle flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface tap-scale transition-all">
+<span class="material-symbols-outlined text-primary">build</span>
+<span class="font-label-lg text-label-lg">Layanan</span>
+</button>
+<button class="cat-toggle flex items-center gap-3 p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low text-on-surface tap-scale transition-all">
+<span class="material-symbols-outlined text-primary">more_horiz</span>
+<span class="font-label-lg text-label-lg">Lainnya</span>
+</button>
+</div>
+</section>
+<!-- Section: Status -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Buka Sekarang</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Hanya tampilkan warung yang buka</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</section>
+</div>
+<!-- Footer Action -->
+<div class="p-margin-mobile border-t border-outline-variant bg-surface sticky bottom-0">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-md tap-scale hover:opacity-90 transition-opacity" id="applyFilter">
+                    Terapkan Filter
+                </button>
+</div>
+</div>
+</div>
+<script>
+        const overlay = document.getElementById('filterOverlay');
+        const sheet = document.getElementById('filterSheet');
+        const openBtn = document.getElementById('openFilter');
+        const closeBackdrop = document.getElementById('closeFilterBackdrop');
+        const applyBtn = document.getElementById('applyFilter');
+        const resetBtn = document.getElementById('resetFilter');
+
+        function openSheet() {
+            overlay.classList.remove('pointer-events-none', 'opacity-0');
+            overlay.classList.add('opacity-100');
+            sheet.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSheet() {
+            overlay.classList.add('opacity-0');
+            sheet.classList.remove('active');
+            setTimeout(() => {
+                overlay.classList.add('pointer-events-none');
+                overlay.classList.remove('opacity-100');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        openBtn.addEventListener('click', openSheet);
+        closeBackdrop.addEventListener('click', closeSheet);
+        applyBtn.addEventListener('click', closeSheet);
+
+        // Chip selection logic
+        const chips = document.querySelectorAll('.filter-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('active', 'border-primary', 'bg-primary-container/10', 'text-primary');
+                    c.classList.add('border-outline-variant', 'bg-transparent', 'text-on-surface-variant');
+                });
+                chip.classList.remove('border-outline-variant', 'bg-transparent', 'text-on-surface-variant');
+                chip.classList.add('active', 'border-primary', 'bg-primary-container/10', 'text-primary');
+            });
+        });
+
+        // Category toggle logic
+        const catToggles = document.querySelectorAll('.cat-toggle');
+        catToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('bg-primary-container/20');
+                toggle.classList.toggle('border-primary');
+                toggle.classList.toggle('bg-surface-container-low');
+            });
+        });
+
+        resetBtn.addEventListener('click', () => {
+            // Logic to clear selections
+            chips.forEach((c, i) => {
+                if(i === 0) {
+                    c.classList.add('active', 'border-primary', 'bg-primary-container/10', 'text-primary');
+                    c.classList.remove('border-outline-variant', 'bg-transparent', 'text-on-surface-variant');
+                } else {
+                    c.classList.remove('active', 'border-primary', 'bg-primary-container/10', 'text-primary');
+                    c.classList.add('border-outline-variant', 'bg-transparent', 'text-on-surface-variant');
+                }
+            });
+            catToggles.forEach(t => {
+                t.classList.remove('bg-primary-container/20', 'border-primary');
+                t.classList.add('bg-surface-container-low');
+            });
+        });
+
+        // Micro-interaction: Automatic open for demo purposes
+        window.onload = () => {
+            setTimeout(openSheet, 800);
+        };
+    </script>
+</body></html>

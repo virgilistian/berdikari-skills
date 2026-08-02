@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#002111",
+                    "surface-tint": "#006c44",
+                    "surface-container-highest": "#e4e2e2",
+                    "background": "#fbf9f8",
+                    "secondary": "#9f4200",
+                    "secondary-container": "#ff7a2b",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-surface": "#303030",
+                    "tertiary-container": "#996a47",
+                    "surface-dim": "#dbd9d9",
+                    "primary-fixed": "#9af5c1",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-high": "#eae8e7",
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-container": "#602500",
+                    "on-background": "#1b1c1c",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "primary": "#006a42",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "outline-variant": "#bec9bf",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-container": "#efeded",
+                    "primary-container": "#258459",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "on-primary-container": "#f6fff6",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary": "#7d5231",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-tertiary-fixed": "#301400",
+                    "outline": "#6f7a71",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "touch-target": "44px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .login-canvas {
+            min-height: 100vh;
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .transition-soft {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ambient-glow {
+            filter: blur(80px);
+            z-index: -1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md">
+<!-- Background Decorative Elements (Organic/Soft Touch) -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-10%] w-64 h-64 bg-primary/5 rounded-full ambient-glow"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-80 h-80 bg-secondary/5 rounded-full ambient-glow"></div>
+</div>
+<div class="login-canvas flex flex-col">
+<!-- TopAppBar (Transactional - Shell Filter Applied: No BottomNav) -->
+<header class="fixed top-0 w-full bg-background flex items-center px-margin-mobile h-touch-target z-50">
+<button aria-label="Back" class="w-touch-target h-touch-target flex items-center justify-start text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary ml-2">Masuk</h1>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 px-margin-mobile pb-10 flex flex-col">
+<!-- Branding/Illustration Section -->
+<div class="mb-stack-lg text-center md:text-left">
+<div class="w-20 h-20 bg-primary-container rounded-2xl flex items-center justify-center mb-stack-md shadow-sm mx-auto md:mx-0">
+<span class="material-symbols-outlined text-on-primary-container text-[40px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Selamat Datang Kembali!</h2>
+<p class="text-on-surface-variant font-body-md">Silakan masukkan nomor telepon kamu untuk mulai belanja kebutuhan harian.</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-stack-md" id="loginForm">
+<div class="flex flex-col space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="phone">Nomor Telepon</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="font-body-md">+62</span>
+</div>
+<input class="w-full h-touch-target pl-12 pr-4 bg-surface-container-lowest border-outline border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-soft outline-none text-body-lg" id="phone" placeholder="812 3456 7890" required="" type="tel"/>
+</div>
+<div class="flex justify-end pt-1">
+<a class="font-label-lg text-label-lg text-secondary hover:text-secondary-container transition-colors" href="#">Lupa nomor?</a>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary text-on-primary font-headline-md rounded-full shadow-lg shadow-primary/20 active:scale-[0.98] transition-soft flex items-center justify-center gap-2 mt-4" type="submit">
+                    Masuk
+                </button>
+</form>
+<!-- Alternative Methods Divider -->
+<div class="my-stack-lg flex items-center gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Atau masuk dengan</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<!-- Social/Alt Login Buttons (Bento-lite Layout) -->
+<div class="grid grid-cols-2 gap-stack-md">
+<button class="h-touch-target bg-surface-container border border-outline-variant rounded-xl flex items-center justify-center gap-3 hover:bg-surface-container-high active:scale-95 transition-soft">
+<div class="w-6 h-6 flex items-center justify-center">
+<img class="w-5 h-5" data-alt="A clean, minimalist vector icon of the Google logo on a white circular background, rendered in professional corporate style with high-quality gradients and soft shadows, symbolizing modern digital authentication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfI63DwTKPxdGIHrWC_FhGUDEgk83RxkYfg4Jxopq67VgAgaFQpDUGpXXV6HG3F_BWkK1Dklk18tPg5bYfWla4vy1a7KCUp-fNX67JPYvt1cpHB24RRhCJurvM52NXaexAV9dNIGKbTww9G9GKzV6DvFBFYVk2qkzPWVKKjlwOEf12haeJo3fcNXYcn9D_-fO6Wr4I52tTLKWWySnczLfzDHpkIOu5gQCyPm4cxUaKEAvkWEDXwFXqkw"/>
+</div>
+<span class="font-label-lg">Google</span>
+</button>
+<button class="h-touch-target bg-surface-container border border-outline-variant rounded-xl flex items-center justify-center gap-3 hover:bg-surface-container-high active:scale-95 transition-soft">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+<span class="font-label-lg">Email</span>
+</button>
+</div>
+<!-- Registration Link -->
+<div class="mt-auto pt-stack-lg text-center">
+<p class="font-body-md text-on-surface-variant">
+                    Belum punya akun? 
+                    <a class="font-headline-md text-headline-md text-primary ml-1 hover:underline underline-offset-4" href="#">Daftar Akun</a>
+</p>
+</div>
+</main>
+<!-- Visual Anchor (Handmade Illustration Pattern at Bottom) -->
+<div class="w-full h-32 relative overflow-hidden opacity-40 pointer-events-none">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-full flex justify-around items-end">
+<div class="w-16 h-20 bg-secondary-fixed rounded-t-full"></div>
+<div class="w-24 h-28 bg-primary-fixed rounded-t-full"></div>
+<div class="w-20 h-24 bg-tertiary-fixed rounded-t-full"></div>
+<div class="w-28 h-32 bg-secondary-fixed rounded-t-full"></div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneInput = document.getElementById('phone');
+            const loginForm = document.getElementById('loginForm');
+
+            // Format phone number with spaces
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 13) value = value.slice(0, 13);
+                
+                // Add spacing for readability (e.g., 812 345 678)
+                const parts = [];
+                for (let i = 0; i < value.length; i += 4) {
+                    parts.push(value.substring(i, i + 4));
+                }
+                e.target.value = parts.join(' ');
+            });
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                
+                // Simple loading state
+                btn.disabled = true;
+                btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Memproses...';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    alert('Melanjutkan ke verifikasi OTP...');
+                }, 1500);
+            });
+        });
+    </script>
+</body></html>

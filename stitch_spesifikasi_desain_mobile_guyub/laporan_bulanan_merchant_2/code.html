@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laporan Bulanan - Warung Kita</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar-transition {
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#f6fff6",
+                    "on-secondary-fixed": "#341100",
+                    "primary-fixed": "#9af5c1",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb692",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "inverse-surface": "#303030",
+                    "primary-container": "#258459",
+                    "primary": "#006a42",
+                    "outline-variant": "#bec9bf",
+                    "background": "#fbf9f8",
+                    "tertiary-container": "#996a47",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1b1c1c",
+                    "tertiary": "#7d5231",
+                    "surface-tint": "#006c44",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-primary-fixed-variant": "#005232",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "surface-bright": "#fbf9f8",
+                    "on-primary-fixed": "#002111",
+                    "on-surface-variant": "#3f4942",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-high": "#eae8e7",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "secondary": "#9f4200",
+                    "on-tertiary-container": "#fffbff",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface": "#fbf9f8",
+                    "on-secondary-fixed-variant": "#793100",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efeded",
+                    "secondary-container": "#ff7a2b",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-error-container": "#93000a",
+                    "outline": "#6f7a71",
+                    "on-secondary-container": "#602500",
+                    "inverse-primary": "#7ed9a6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "gutter-mobile": "12px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 shadow-sm bg-surface flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h1 class="text-headline-md font-headline-md text-primary">Warung Kita</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full p-2">notifications</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional merchant profile picture showing a friendly local business owner in a clean, modern market stall environment. The lighting is bright and natural, emphasizing a trust-worthy and neighborhood-friendly atmosphere. The color palette incorporates soft greens and warm wood tones, consistent with the Guyub Narrative brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Jk7d3fQZcSAk6sKt9yt-0FSgdEj4_pJGokqF0lzO-elAyfzObnPq1a1uA5Z0PEFlym0ajh7FSV-q5OhGNcoxreeLfukmajjeHlN2Fmsi-BSVvwL0mT5mPFwY31kI5B-etYWnCFIW1IwpEw0OZs7tLMR-YkZ2tzr-jVwzw7kK2hbtobfn9E9WKs1DfOhqWcayClylrL2_S3BE4kFwzgLGnnVGLUHgKSNSK69ZHFMa4gStwie69THnpw"/>
+</div>
+</div>
+</header>
+<main class="mt-16 px-margin-mobile max-w-4xl mx-auto py-stack-lg">
+<!-- Header & Month Selector -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-stack-lg">
+<div class="flex flex-col">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Laporan Bulanan</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Ringkasan performa bisnismu bulan ini.</p>
+</div>
+<div class="relative inline-block">
+<button class="flex items-center justify-between gap-2 bg-surface border border-outline-variant px-4 py-2 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:border-primary transition-all" id="monthSelector">
+<span>Mei 2024</span>
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Performance Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-stack-lg">
+<!-- Pendapatan -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] border border-white">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Pendapatan</span>
+<div class="p-2 bg-primary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+</div>
+</div>
+<div class="text-price-lg font-price-lg text-primary">Rp 12.450.000</div>
+<div class="mt-2 flex items-center gap-1 text-label-sm font-label-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>12% dari bulan lalu</span>
+</div>
+</div>
+<!-- Total Pesanan -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] border border-white">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Total Pesanan</span>
+<div class="p-2 bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">receipt_long</span>
+</div>
+</div>
+<div class="text-price-lg font-price-lg text-on-surface">842</div>
+<div class="mt-2 flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>5.4% dari bulan lalu</span>
+</div>
+</div>
+<!-- Average Order Value -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] border border-white">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Rata-rata Pesanan</span>
+<div class="p-2 bg-tertiary-fixed rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">avg_time</span>
+</div>
+</div>
+<div class="text-price-lg font-price-lg text-on-surface">Rp 14.786</div>
+<div class="mt-2 flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+<span>Stabil</span>
+</div>
+</div>
+</section>
+<!-- Visual Chart: Weekly Trends -->
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] mb-stack-lg border border-white">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-label-lg font-label-lg text-on-surface">Tren Pendapatan Mingguan</h3>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Mei</span>
+</div>
+</div>
+</div>
+<div class="relative h-48 w-full flex items-end justify-between px-2 md:px-8 gap-2">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+<div class="border-t border-on-surface w-full"></div>
+</div>
+<!-- Bars -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[48px] bg-primary-container rounded-t-lg chart-bar-transition hover:bg-primary cursor-pointer relative group" style="height: 60%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">2.4jt</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Minggu 1</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[48px] bg-primary-container rounded-t-lg chart-bar-transition hover:bg-primary cursor-pointer relative group" style="height: 85%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">3.2jt</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Minggu 2</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[48px] bg-primary-container rounded-t-lg chart-bar-transition hover:bg-primary cursor-pointer relative group" style="height: 70%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">2.8jt</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Minggu 3</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[48px] bg-primary-container rounded-t-lg chart-bar-transition hover:bg-primary cursor-pointer relative group" style="height: 95%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-label-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">4.0jt</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Minggu 4</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-stack-lg">
+<!-- Insights: Top Produk -->
+<section class="bg-surface-container-lowest p-5 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] border border-white">
+<h3 class="text-label-lg font-label-lg text-on-surface mb-4">Top Produk</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro close-up of a delicious and freshly prepared Indonesian Nasi Goreng with a perfectly fried egg on top. The photo is taken in professional food photography style with soft warm lighting and a clean, minimalist white plate. High color saturation on the greens and reds to reflect a fresh, high-quality merchant offering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI9ahjWKi8cmvXd4VQoMbV08r8hDANz52BrT7f7sTPTtUB_2oUUpO8mf1DaZ212ZJ3VKjL8fw5ioateNDo8eUv1LISdgpPP2V5v870rLJ35Vkbn3uDwLG0nImb0JTBUYBpvEDGwU3KsMRGAbRIwahmHCqKje7zg2Qr_o9E4dWtmsStKteQQkNYl-cNlm_oOx3HIsjgQ1uySOxaErqTl1GUuKOY_oW1ETWP52lKmQxdN4eJ2lytwpgXew"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-body-md font-medium text-on-surface">Nasi Goreng Spesial</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">245 Terjual</p>
+</div>
+<div class="text-label-lg font-label-lg text-primary">+15%</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional beverage photography shot of iced jasmine tea in a clear glass with condensation, featuring fresh mint leaves and a slice of lemon. Bright, refreshing light-mode aesthetic with clean lines and natural light. Vibrant green and citrus tones consistent with a high-end local cafe menu." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXAGQ4fRldHvLtWAFYu1dS2z-T7JdJfRhNAM_v6Iex-da0wPtK-R5ybF3-Ti50x0WqjCEi8bq3ShfHy1jBphbM8pMXw8RigLnJhHcJl2jYc1HxCzz6Agl2oHIX6sc_CtzwvKZG_EojW1aksntIp8GliaeFK9na0dqATCcJLENVAEuDN5msd7M_hrIEt7jbcuKK0Cu1ctG7y7RoI_3MthsNjmg_4imtOFx7pB-ld3Sh0vZDhyYiqvBYOw"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-body-md font-medium text-on-surface">Es Teh Manis</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">198 Terjual</p>
+</div>
+<div class="text-label-lg font-label-lg text-primary">+8%</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-quality top-down shot of a traditional Indonesian Ayam Bakar with sambal and fresh vegetables. The plate is artisanal ceramic, and the lighting is soft and inviting. The scene feels communal and authentic, adhering to the 'Santai tapi pasti' design principle with warm earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrI3RVBJ8HWQUAM2DHz8XaVK2hb9i7Fcrcbv0-ZJR9epqe60uoJklZ33aqpFaf-eeZaNhVutnKxEEPdjGfJxtkWRunTnzvp6i-dc0H_3Nv-6kNOQ1o1Lr6ATmouDL3ytkXqMNbdqs-D4sQyAM0iMfu9J-_L-5y2Mg_A-uraqKfrYyZCDnK4Mq44mMQj7y0hgSEu-vobjfgwaLibL2nzQulQHxxFrlP2muKv0Cxmk8Qh5GYQfCuDr9B7w"/>
+</div>
+<div class="flex-1">
+<p class="text-body-md font-body-md font-medium text-on-surface">Ayam Bakar Madu</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">156 Terjual</p>
+</div>
+<div class="text-label-lg font-label-lg text-secondary">-2%</div>
+</div>
+</div>
+</section>
+<!-- Operational Metrics -->
+<section class="bg-surface-container-lowest p-5 rounded-xl shadow-[0_4px_20px_rgba(0,106,66,0.06)] border border-white flex flex-col gap-6">
+<div>
+<h3 class="text-label-lg font-label-lg text-on-surface mb-3">Metrik Operasional</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span class="text-body-md font-body-md">Rata-rata Persiapan</span>
+</div>
+<div class="text-label-lg font-label-lg text-on-surface">12.5 mnt</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-on-surface mb-3">Kepuasan Pelanggan</h3>
+<div class="flex items-end gap-3">
+<div class="text-[32px] font-bold text-on-surface leading-none">4.8</div>
+<div class="flex flex-col gap-1">
+<div class="flex gap-0.5 text-secondary">
+<span class="material-symbols-outlined fill text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]">star_half</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Berdasarkan 320 ulasan</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Download Action -->
+<div class="mt-stack-lg">
+<button class="w-full md:w-auto md:min-w-[200px] flex items-center justify-center gap-2 bg-primary text-on-primary font-label-lg text-label-lg py-3 px-6 rounded-full shadow-lg hover:bg-primary-container transition-all active:scale-95 mx-auto">
+<span class="material-symbols-outlined">download</span>
+<span>Unduh PDF</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-gutter-mobile bg-surface-container shadow-[0_-1px_3px_0_rgba(0,0,0,0.1)] rounded-t-xl z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Laporan</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the month selector
+        const monthSelector = document.getElementById('monthSelector');
+        monthSelector.addEventListener('click', () => {
+            // This would normally open a menu, let's just toggle a visual state
+            monthSelector.classList.toggle('border-primary');
+        });
+
+        // Simple animation trigger for chart bars
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar-transition');
+            bars.forEach((bar, index) => {
+                const finalHeight = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = finalHeight;
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

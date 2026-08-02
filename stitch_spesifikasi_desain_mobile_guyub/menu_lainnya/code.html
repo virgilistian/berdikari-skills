@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lainnya - Guyub App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1b1c1c",
+                    "tertiary-container": "#996a47",
+                    "surface-container-low": "#f5f3f3",
+                    "secondary-fixed": "#ffdbcb",
+                    "on-secondary-fixed": "#341100",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdcc5",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-tint": "#006c44",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-surface": "#1b1c1c",
+                    "inverse-on-surface": "#f2f0f0",
+                    "surface-container": "#efeded",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "surface": "#fbf9f8",
+                    "on-surface-variant": "#3f4942",
+                    "on-primary-container": "#f6fff6",
+                    "primary-fixed": "#9af5c1",
+                    "on-primary-fixed": "#002111",
+                    "surface-dim": "#dbd9d9",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#602500",
+                    "outline-variant": "#bec9bf",
+                    "inverse-primary": "#7ed9a6",
+                    "tertiary": "#7d5231",
+                    "surface-bright": "#fbf9f8",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb692",
+                    "on-secondary": "#ffffff",
+                    "background": "#fbf9f8",
+                    "primary-container": "#258459",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "on-primary-fixed-variant": "#005232",
+                    "secondary": "#9f4200",
+                    "outline": "#6f7a71",
+                    "error": "#ba1a1a",
+                    "primary": "#006a42",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed-variant": "#793100",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "24px",
+                    "gutter-mobile": "12px",
+                    "touch-target": "44px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .menu-item-transition {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased pb-24">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface dark:bg-surface-dim flex items-center justify-between px-margin-mobile h-touch-target">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim active:scale-95 transition-transform duration-200 h-touch-target w-touch-target flex items-center justify-center">
+                menu
+            </button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Lainnya</h1>
+</div>
+<div class="w-touch-target"></div> <!-- Spacer for balance -->
+</header>
+<main class="max-w-md mx-auto px-margin-mobile pt-stack-md flex flex-col gap-stack-lg">
+<!-- Profile Header Section -->
+<section class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl p-stack-md shadow-sm border border-outline-variant/20 flex items-center gap-4 active:scale-[0.98] transition-transform duration-200">
+<div class="relative">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-primary" data-alt="A warm, professional headshot of a smiling Indonesian neighbor in their 30s, wearing casual communal attire. The lighting is soft and natural, suggesting a bright morning in a friendly neighborhood setting. The image uses the Guyub app's primary green and warm brown tones to create a welcoming, communal atmosphere, consistent with a clean and modern digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnIAf-OgYv7NU9SSr6EqTeguNyT8GNdXwhWbdCKPtP5eNREn9xWR8wRSuyB56ZZtqLF4RB6TlncjbFMx_Jei-ZYbjTsq2zN5xm01VnptaEQpNY1TIi7pMTsOWdb8xYCA47vnbTE86h-0NVp-9mXwYpWN-2pjhQYV2ztCnxmagbs6HX1kPXUIDTTN0ou6ra3TVeqXh1wmTDK1gpGMGQpur71Z52C_K_FJIb_G6OBTaRbmR2UPJdOCznXA"/>
+<div class="absolute bottom-0 right-0 bg-primary w-5 h-5 rounded-full border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface">Halo, Tetangga!</h2>
+<p class="font-body-md text-on-surface-variant">Lihat profil kamu di sini</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant">chevron_right</span>
+</section>
+<!-- Account Section -->
+<section class="flex flex-col gap-2">
+<h3 class="font-label-lg text-label-lg text-primary px-1">Akun</h3>
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+<!-- Menu Item: Akun Saya -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Akun Saya</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<div class="mx-4 h-px bg-outline-variant/20"></div>
+<!-- Menu Item: Alamat Saya -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Alamat Saya</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Support & Info Section -->
+<section class="flex flex-col gap-2">
+<h3 class="font-label-lg text-label-lg text-primary px-1">Bantuan &amp; Informasi</h3>
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+<!-- Menu Item: Pusat Bantuan -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">help_outline</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Pusat Bantuan</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<div class="mx-4 h-px bg-outline-variant/20"></div>
+<!-- Menu Item: Syarat & Ketentuan -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">description</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Syarat &amp; Ketentuan</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<div class="mx-4 h-px bg-outline-variant/20"></div>
+<!-- Menu Item: Kebijakan Privasi -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">shield</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Kebijakan Privasi</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<div class="mx-4 h-px bg-outline-variant/20"></div>
+<!-- Menu Item: Masukan & Saran -->
+<button class="w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-[0.99]">
+<span class="material-symbols-outlined text-primary">rate_review</span>
+<span class="font-body-lg text-body-lg text-on-surface flex-1 text-left">Masukan &amp; Saran</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Logout Action -->
+<section class="mt-4">
+<button class="w-full flex items-center justify-center gap-3 px-4 py-4 bg-error-container text-on-error-container rounded-xl font-label-lg text-label-lg active:scale-95 transition-transform duration-150 shadow-sm border border-error/10 hover:bg-error-container/80">
+<span class="material-symbols-outlined">logout</span>
+                Keluar
+            </button>
+</section>
+<!-- Version Info -->
+<div class="text-center py-stack-md flex flex-col items-center gap-1 opacity-50">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Guyub - Versi 1.2.0</span>
+<div class="w-8 h-1 bg-outline-variant rounded-full"></div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0_-4px_12px_rgba(125,82,49,0.08)] bg-surface-container-lowest dark:bg-surface-container-low flex justify-around items-center px-2 py-3">
+<!-- Beranda -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-70 hover:opacity-100 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</button>
+<!-- Pesanan -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-70 hover:opacity-100 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</button>
+<!-- Pesan -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-70 hover:opacity-100 transition-opacity active:scale-90 duration-150">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Pesan</span>
+</button>
+<!-- Lainnya (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-fixed text-on-secondary-container dark:text-on-secondary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">more_horiz</span>
+<span class="font-label-sm text-label-sm">Lainnya</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for menu items
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Potential navigation logic
+                console.log('Navigating to:', btn.textContent.trim());
+            });
+        });
+    </script>
+</body></html>

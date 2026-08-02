@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ubah Menu - Kurir Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#fbf9f8",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#7d5231",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary": "#9f4200",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary-fixed-variant": "#793100",
+                    "secondary-container": "#ff7a2b",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#7ed9a6",
+                    "primary-container": "#258459",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-primary-fixed-variant": "#005232",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-container": "#fffbff",
+                    "background": "#fbf9f8",
+                    "inverse-primary": "#7ed9a6",
+                    "surface-tint": "#006c44",
+                    "inverse-on-surface": "#f2f0f0",
+                    "outline-variant": "#bec9bf",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-surface-variant": "#3f4942",
+                    "inverse-surface": "#303030",
+                    "surface-variant": "#e4e2e2",
+                    "on-secondary-container": "#602500",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#dbd9d9",
+                    "primary-fixed": "#9af5c1",
+                    "tertiary-container": "#996a47",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed": "#ffdbcb",
+                    "surface-container-high": "#eae8e7",
+                    "secondary-fixed-dim": "#ffb692",
+                    "outline": "#6f7a71",
+                    "primary": "#006a42",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002111",
+                    "surface-container-low": "#f5f3f3",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-container": "#f6fff6",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efeded"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter-mobile": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "touch-target": "44px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "price-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .touch-target { min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center; }
+        .ambient-shadow { box-shadow: 0 4px 20px -2px rgba(125, 82, 49, 0.08); }
+        body { background-color: #fbf9f8; -webkit-tap-highlight-color: transparent; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #006a42; ring: 0; }
+        
+        /* Toggle Switch Styling */
+        .switch { position: relative; display: inline-block; width: 48px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #bec9bf; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #006a42; }
+        input:checked + .slider:before { transform: translateX(24px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface min-h-screen pb-32">
+<!-- Top Navigation (Shell suppressed because this is a Task-Focused sub-page) -->
+<header class="w-full top-0 sticky z-40 bg-surface flex justify-between items-center px-margin-mobile py-4 shadow-sm">
+<div class="flex items-center gap-4">
+<button class="touch-target text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Ubah Menu</h1>
+</div>
+<button class="touch-target text-error hover:bg-error-container/20 rounded-full transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</header>
+<main class="px-margin-mobile mt-stack-lg max-w-md mx-auto">
+<!-- Photo Upload Section -->
+<section class="mb-stack-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-base">Foto Produk</p>
+<div class="relative group">
+<div class="w-full aspect-square rounded-xl overflow-hidden bg-surface-container ambient-shadow">
+<img class="w-full h-full object-cover" data-alt="A professional studio photograph of a traditional Indonesian Ayam Geprek dish, served with spicy red sambal on top, fresh cucumber slices, and steaming white rice. The lighting is warm and natural, highlighting the crispy texture of the fried chicken. The composition is clean and minimalist, set against a neutral, light-mode background that emphasizes the vibrant colors of the food, aligning with a premium neighborhood market aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvdEgGY4l6B1FN7z-QcGpjyJ3COONWW3kUqq6JT1t4xQbCkC58ppU1-OeSQ9OG3l57gEnxTxaHavKp0D9jc0brTVnW0bgkBa74Qt5VdABjG6Gp4OE1K93evq7CC7LPNjeTei3fCjJllh0qnKzg6blBDaUbFcmltlYvQ-R2TK8l88JJ3_N9gjjcXdLZBDW2iSZun3jYvD2_xfqLoxYq23GYhhEO4oCbJ_O-r4tI5sTHA4UfqwnuUUM8fA"/>
+</div>
+<label class="absolute bottom-4 right-4 bg-primary text-on-primary p-3 rounded-full shadow-lg cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined">photo_camera</span>
+<input class="hidden" type="file"/>
+</label>
+</div>
+<p class="text-center mt-2 font-label-sm text-label-sm text-on-surface-variant">Klik ikon kamera untuk ganti foto</p>
+</section>
+<!-- Form Fields -->
+<form class="space-y-stack-md">
+<!-- Nama Menu -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-base ml-1" for="menu_name">Nama Menu</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg font-body-lg text-body-lg text-on-surface focus:border-primary transition-all shadow-sm" id="menu_name" placeholder="Contoh: Nasi Goreng Spesial" type="text" value="Ayam Geprek Sambal Korek"/>
+</div>
+<!-- Deskripsi -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-base ml-1" for="description">Deskripsi</label>
+<textarea class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:border-primary transition-all shadow-sm" id="description" placeholder="Ceritakan kelezatan menu ini..." rows="3">Ayam goreng krispi yang digeprek dengan sambal korek bawang asli yang pedasnya nampol. Disajikan dengan nasi hangat dan lalapan segar.</textarea>
+</div>
+<!-- Kategori & Harga Grid -->
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-base ml-1" for="category">Kategori</label>
+<div class="relative">
+<select class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface appearance-none focus:border-primary transition-all shadow-sm pr-10" id="category">
+<option selected="" value="makanan_berat">Makanan Berat</option>
+<option value="minuman">Minuman</option>
+<option value="cemilan">Cemilan</option>
+<option value="paket_hemat">Paket Hemat</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-base ml-1" for="price">Harga (Rp)</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg font-price-lg text-price-lg text-on-surface focus:border-primary transition-all shadow-sm" id="price" placeholder="0" type="number" value="18000"/>
+</div>
+</div>
+<!-- Status Stok Toggle -->
+<div class="bg-surface-container-low p-4 rounded-xl flex justify-between items-center ambient-shadow border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Status Stok</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant" id="stock-status-text">Tersedia untuk dipesan</p>
+</div>
+</div>
+<label class="switch">
+<input checked="" onchange="updateStockStatus(this)" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</div>
+</form>
+<!-- Tip for Merchant -->
+<div class="mt-stack-lg p-4 bg-tertiary-fixed rounded-xl border border-tertiary-container/20 flex gap-3">
+<span class="material-symbols-outlined text-tertiary-container">info</span>
+<p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant italic">
+                "Pastikan foto menu terlihat menarik ya, Kak! Foto yang cerah biasanya lebih cepat laku di Kurir Lokal."
+            </p>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md text-headline-md shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+                Simpan Perubahan
+            </button>
+</div>
+</div>
+<script>
+        function updateStockStatus(checkbox) {
+            const statusText = document.getElementById('stock-status-text');
+            if (checkbox.checked) {
+                statusText.innerText = "Tersedia untuk dipesan";
+                statusText.classList.remove('text-secondary');
+                statusText.classList.add('text-on-surface-variant');
+            } else {
+                statusText.innerText = "Stok habis sementara";
+                statusText.classList.remove('text-on-surface-variant');
+                statusText.classList.add('text-secondary');
+            }
+        }
+
+        // Add some micro-interactions for input fields
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

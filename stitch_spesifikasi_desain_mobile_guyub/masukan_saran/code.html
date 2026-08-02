@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Masukan & Saran - Kurir Lokal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f8",
+                        "surface-container-high": "#eae8e7",
+                        "surface-dim": "#dbd9d9",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "inverse-on-surface": "#f2f0f0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#f6fff6",
+                        "on-secondary-container": "#602500",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f5f3f3",
+                        "tertiary": "#7d5231",
+                        "secondary-fixed-dim": "#ffb692",
+                        "surface-container": "#efeded",
+                        "surface-bright": "#fbf9f8",
+                        "secondary-fixed": "#ffdbcb",
+                        "outline-variant": "#bec9bf",
+                        "inverse-surface": "#303030",
+                        "secondary-container": "#ff7a2b",
+                        "surface": "#fbf9f8",
+                        "secondary": "#9f4200",
+                        "surface-container-highest": "#e4e2e2",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e2e2",
+                        "surface-tint": "#006c44",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#3f4942",
+                        "tertiary-container": "#996a47",
+                        "outline": "#6f7a71",
+                        "on-secondary-fixed-variant": "#793100",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "on-surface": "#1b1c1c",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#005232",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#9af5c1",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary-container": "#258459",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "primary": "#006a42",
+                        "on-background": "#1b1c1c",
+                        "inverse-primary": "#7ed9a6",
+                        "on-primary-fixed": "#002111"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "44px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "gutter-mobile": "12px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "price-lg": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .category-chip input:checked + label {
+            background-color: #258459;
+            color: #ffffff;
+            border-color: #258459;
+        }
+
+        .feedback-textarea:focus {
+            border-color: #006a42;
+            box-shadow: 0 0 0 2px rgba(0, 106, 66, 0.1);
+        }
+
+        .santai-shadow {
+            box-shadow: 0 4px 20px -2px rgba(125, 82, 49, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface shadow-sm flex justify-between items-center px-margin-mobile py-base h-[64px]">
+<div class="flex items-center gap-4">
+<button aria-label="Kembali" class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Masukan & Saran</h1>
+</div>
+<div class="w-touch-target h-touch-target flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="chat_bubble">chat_bubble</span>
+</div>
+</header>
+<main class="flex-1 px-margin-mobile py-stack-lg pb-32">
+<div class="max-w-md mx-auto space-y-stack-lg">
+<!-- Hero Illustration / Welcome Section -->
+<section class="text-center space-y-base">
+<div class="relative w-full h-40 rounded-xl overflow-hidden mb-stack-md">
+<div class="absolute inset-0 bg-primary-fixed opacity-20"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[64px]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Bantu Kami Berkembang</h2>
+<p class="font-body-md text-on-surface-variant">Halo! Suaramu sangat berarti untuk kemajuan Guyub di Pangkalan & Tegalwaru.</p>
+</section>
+<!-- Category Selection -->
+<section class="space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface">Pilih Kategori Masukan</h3>
+<div class="flex flex-wrap gap-2">
+<div class="category-chip">
+<input checked="" class="hidden" id="cat-perf" name="category" type="radio"/>
+<label class="px-4 py-2 rounded-full border border-outline-variant font-label-sm text-label-sm cursor-pointer transition-all flex items-center gap-2 hover:bg-surface-container" for="cat-perf">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+                            Performa Aplikasi
+                        </label>
+</div>
+<div class="category-chip">
+<input class="hidden" id="cat-driver" name="category" type="radio"/>
+<label class="px-4 py-2 rounded-full border border-outline-variant font-label-sm text-label-sm cursor-pointer transition-all flex items-center gap-2 hover:bg-surface-container" for="cat-driver">
+<span class="material-symbols-outlined text-[18px]">moped</span>
+                            Layanan Driver
+                        </label>
+</div>
+<div class="category-chip">
+<input class="hidden" id="cat-merchant" name="category" type="radio"/>
+<label class="px-4 py-2 rounded-full border border-outline-variant font-label-sm text-label-sm cursor-pointer transition-all flex items-center gap-2 hover:bg-surface-container" for="cat-merchant">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+                            Kualitas Toko
+                        </label>
+</div>
+<div class="category-chip">
+<input class="hidden" id="cat-other" name="category" type="radio"/>
+<label class="px-4 py-2 rounded-full border border-outline-variant font-label-sm text-label-sm cursor-pointer transition-all flex items-center gap-2 hover:bg-surface-container" for="cat-other">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+                            Lainnya
+                        </label>
+</div>
+</div>
+</section>
+<!-- Feedback Text Area -->
+<section class="space-y-stack-sm">
+<div class="flex justify-between items-end">
+<label class="font-label-lg text-label-lg text-on-surface" for="feedback-text">Tuliskan Detailnya</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Min. 10 karakter</span>
+</div>
+<textarea class="w-full h-40 p-4 rounded-xl border border-outline-variant bg-surface-container-lowest font-body-md text-on-surface feedback-textarea resize-none transition-all outline-none" id="feedback-text" maxlength="500" placeholder="Ceritakan pengalamanmu atau saran yang ingin kamu sampaikan..."></textarea>
+</section>
+<!-- Image Upload Section -->
+<section class="space-y-stack-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface">Lampirkan Foto (Opsional)</h3>
+<div class="grid grid-cols-3 gap-2">
+<button class="aspect-square flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors group" id="upload-trigger">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add_a_photo</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Tambah</span>
+</button>
+<!-- Placeholder for added image -->
+<div class="relative aspect-square rounded-xl overflow-hidden hidden" id="preview-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up high quality mobile screenshot of a digital delivery application interface showing a checkout error message. The design features soft green accents and clean white cards, matching the neighborhood-friendly Guyub brand aesthetic. Natural daylight illumination suggests an outdoor setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhdfqy37BJtIkeSawz2t4kNdzfaGkyJvF5QXlaWJU0NO1RhjeMDUBC0H4BocBA5H2FZ53jIdhj2JogdLZz3ZdstXJO5FmqVqeq9PWMu0BADStYocJrOlbXNQyyatDMwvSXq9RcYt2CF8cm-rQCGPu8KiU-kwPJd7CLo8cxj6goLEqILWpSim41CFBe4PKUunk58DVzDYEtZ1vG2M4Qp63Kqg-7NOvFnGe8lOtTQQI_t6B6UsU9cNqv1w')"></div>
+<button class="absolute top-1 right-1 bg-error text-on-error rounded-full p-0.5">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant italic">Maksimal 3 foto, ukuran @ 2MB (JPG, PNG)</p>
+</section>
+<!-- Notice Box -->
+<section class="bg-secondary-fixed text-on-secondary-fixed p-4 rounded-xl flex gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="font-label-sm text-label-sm leading-relaxed">Masukanmu akan ditinjau dalam 1x24 jam oleh tim operasional Guyub. Terima kasih sudah membantu kami menjadi lebih baik!</p>
+</section>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 p-margin-mobile bg-surface/80 backdrop-blur-md z-40">
+<div class="max-w-md mx-auto">
+<button class="w-full h-touch-target bg-primary text-on-primary rounded-xl font-headline-md text-headline-md santai-shadow active:scale-[0.98] transition-transform flex items-center justify-center gap-2" id="submit-feedback">
+<span>Kirim Masukan</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        const textarea = document.getElementById('feedback-text');
+        const submitBtn = document.getElementById('submit-feedback');
+        const uploadTrigger = document.getElementById('upload-trigger');
+        const previewContainer = document.getElementById('preview-container');
+
+        // Validation simple check
+        textarea.addEventListener('input', (e) => {
+            if (e.target.value.length >= 10) {
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        });
+
+        // Toggle Preview
+        uploadTrigger.addEventListener('click', () => {
+            previewContainer.classList.toggle('hidden');
+        });
+
+        // Submit effect
+        submitBtn.addEventListener('click', () => {
+            if (textarea.value.length < 10) {
+                alert('Tolong tuliskan masukan minimal 10 karakter ya!');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="animate-spin material-symbols-outlined">progress_activity</span>
+                <span>Mengirim...</span>
+            `;
+
+            setTimeout(() => {
+                alert('Terima kasih! Masukan kamu sudah terkirim.');
+                location.reload();
+            }, 1500);
+        });
+
+        // Category Selection tactile feedback
+        document.querySelectorAll('.category-chip label').forEach(label => {
+            label.addEventListener('click', () => {
+                // Visual feedback is handled by CSS :checked
+            });
+        });
+    </script>
+</body></html>

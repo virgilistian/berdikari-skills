@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Status Pesanan - Guyub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#ff7a2b",
+                        "secondary": "#9f4200",
+                        "surface-tint": "#006c44",
+                        "primary-fixed-dim": "#7ed9a6",
+                        "surface-container": "#efeded",
+                        "on-secondary-container": "#602500",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#258459",
+                        "outline-variant": "#bec9bf",
+                        "tertiary": "#7d5231",
+                        "on-primary-fixed": "#002111",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "inverse-surface": "#303030",
+                        "on-background": "#1b1c1c",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3f4942",
+                        "secondary-fixed": "#ffdbcb",
+                        "on-secondary-fixed-variant": "#793100",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-low": "#f5f3f3",
+                        "tertiary-container": "#996a47",
+                        "on-primary-container": "#f6fff6",
+                        "surface-dim": "#dbd9d9",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary-fixed-variant": "#005232",
+                        "outline": "#6f7a71",
+                        "primary-fixed": "#9af5c1",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#eae8e7",
+                        "inverse-primary": "#7ed9a6",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#ffb692",
+                        "surface-container-highest": "#e4e2e2",
+                        "primary": "#006a42",
+                        "inverse-on-surface": "#f2f0f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter-mobile": "12px",
+                        "base": "4px",
+                        "stack-lg": "24px",
+                        "margin-mobile": "16px",
+                        "touch-target": "44px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "price-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line {
+            width: 2px;
+            background: #bec9bf;
+            position: absolute;
+            top: 24px;
+            bottom: -8px;
+            left: 11px;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+        .map-gradient {
+            background: linear-gradient(180deg, rgba(251, 249, 248, 0) 0%, rgba(251, 249, 248, 1) 100%);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+        .animate-status-pulse {
+            animation: pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex items-center justify-between px-margin-mobile h-touch-target">
+<button class="flex items-center justify-center w-11 h-11 hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary">Status Pesanan</h1>
+<button class="flex items-center justify-center w-11 h-11 hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">help</span>
+</button>
+</header>
+<main class="pt-20 pb-28 px-margin-mobile max-w-md mx-auto">
+<!-- Current Status Prominent Card -->
+<section class="mb-stack-lg">
+<div class="bg-primary-container rounded-xl p-stack-md shadow-lg border border-primary/10 relative overflow-hidden animate-status-pulse">
+<div class="relative z-10 flex flex-col gap-1">
+<span class="text-on-primary-container font-label-sm uppercase tracking-wider opacity-90">Status Pengiriman</span>
+<h2 class="font-headline-md text-on-primary-container leading-tight">Kurir sedang menuju rumahmu</h2>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]">schedule</span>
+<p class="font-label-lg text-on-primary-container">Estimasi tiba: 5 - 8 Menit</p>
+</div>
+</div>
+<!-- Abstract Decoration -->
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px] rotate-12">moped</span>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="mb-stack-lg relative">
+<div class="w-full h-64 rounded-xl overflow-hidden shadow-sm border border-outline-variant bg-surface-container relative">
+<!-- Static Map Background -->
+<div class="absolute inset-0 z-0" data-alt="A detailed digital map view of a lush semi-rural Indonesian neighborhood in Tegalwaru. The map features warm, organic illustrations of local streets, small houses with orange roofs, and tropical green trees. A clear delivery route is marked with a soft green dashed line. Icons represent a local warung, a house, and a tiny stylized motorcycle courier moving along the path. The lighting is bright and sunny, reflecting a warm afternoon atmosphere in a friendly community." data-location="Tegalwaru, Pangkalan" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVkB7crg6nxEuHHAdR-xb4OpEjv5K2QP1utNIFEuw5xr0ieSws-DjyNvN0_uMz6vGgEaNhVCJ41XGjlZC6-9j4u5pk3l2OpNeDXtJnDXCCuHFefTZGxv3JxaEPWH6H99xJIwGvfUd1aZZIDMp5oIYv7tTzHcz-kOErKGW0iuSD-m1FYRYWiGnlkUkSa5YUpuU3yRoi5gx1RhS4iphqEiJUv0vo49Dilpkh9LRaxLaua-81sMR5UgvG-A'); background-size: cover; background-position: center;"></div>
+<!-- Pulsing Shader for Driver Location (Near Goa Dayeuh area) -->
+<div class="absolute top-[28%] right-[24%] z-10 w-24 h-24 -mt-12 -mr-12 pointer-events-none">
+<canvas class="w-full h-full" id="driverPulseShader"></canvas>
+</div>
+<!-- Map UI Elements -->
+<div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-outline-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[11px] font-semibold text-primary">LIVE TRACKING</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-12 map-gradient pointer-events-none"></div>
+</section>
+<!-- Driver Profile Section -->
+<section class="mb-stack-lg bg-white p-4 rounded-xl shadow-[0_4px_12px_rgba(125,82,49,0.06)] border border-surface-variant">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A friendly, smiling Indonesian delivery man in his late 20s wearing a clean green polo shirt. He is outdoors in soft daylight with a blurred background of a local residential street. His expression is professional yet warm and approachable, embodying the 'neighborly' brand persona of Guyub. The photographic style is high-quality with natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO22RXyJFMhq-U3aRHkhZumJzgybzcVSnV153BcZRCHBmvIyu6bCfuJYZSRSqZ9icGbXTiobJUg7b6UHn_TwuaeWR5grlpb5fY12kGUZK5F_tqfYAwKZHQc3uAvNLenoORFwgORVsySGJgpC-CtkSfKE2lY8aE0TiYwQntwJZNvC1OvMWHmqEAWQ_dfAId3PgciGkjjKIa9mggrvSZdvbe5PeDDW2lrDYoVIzNpBHy0lG1TgzkWOuilg"/>
+</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Mas Jaka</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">moped</span>
+<span class="text-label-sm">Honda Vario • B 1234 XYZ</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-11 h-11 flex items-center justify-center rounded-full bg-primary text-on-primary shadow-sm hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center rounded-full bg-secondary-container text-on-secondary-container shadow-sm hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Order Summary Card -->
+<section class="mb-stack-lg bg-surface-container-low p-4 rounded-xl border border-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-tertiary">storefront</span>
+</div>
+<div>
+<p class="font-label-lg text-on-surface">Warung Bu Haji</p>
+<p class="text-label-sm text-on-surface-variant">3 Barang</p>
+</div>
+</div>
+<button class="text-primary font-label-lg px-4 py-2 hover:bg-primary-fixed-dim/20 rounded-lg transition-colors">
+                Detail
+            </button>
+</section>
+<!-- Timeline Stepper -->
+<section class="space-y-2 pb-10">
+<h4 class="font-label-lg text-on-surface-variant mb-4 px-1">Lacak Progress</h4>
+<div class="flex flex-col gap-0">
+<!-- Step 1: Completed -->
+<div class="timeline-item relative flex gap-4 pb-6">
+<div class="timeline-line"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'wght' 700">check</span>
+</div>
+<div>
+<h5 class="font-label-lg text-on-surface">Pesanan Diterima</h5>
+<p class="text-label-sm text-on-surface-variant">12:30 • Kami sudah menerima pesananmu</p>
+</div>
+</div>
+<!-- Step 2: Completed -->
+<div class="timeline-item relative flex gap-4 pb-6">
+<div class="timeline-line"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-[16px] text-white" style="font-variation-settings: 'wght' 700">check</span>
+</div>
+<div>
+<h5 class="font-label-lg text-on-surface">Sedang Disiapkan</h5>
+<p class="text-label-sm text-on-surface-variant">12:45 • Warung sedang mengemas belanjaanmu</p>
+</div>
+</div>
+<!-- Step 3: In Progress -->
+<div class="timeline-item relative flex gap-4 pb-6">
+<div class="timeline-line"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-primary-container ring-4 ring-primary-fixed/30 flex items-center justify-center mt-1">
+<div class="w-2.5 h-2.5 rounded-full bg-on-primary-container animate-pulse"></div>
+</div>
+<div>
+<h5 class="font-headline-md text-[16px] text-primary">Pesanan Diantar</h5>
+<p class="text-label-sm text-on-surface-variant font-medium">13:05 • Mas Jaka sedang dalam perjalanan</p>
+</div>
+</div>
+<!-- Step 4: Upcoming -->
+<div class="timeline-item relative flex gap-4 pb-2">
+<div class="timeline-line"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center mt-1">
+</div>
+<div>
+<h5 class="font-label-lg text-outline">Pesanan Sampai</h5>
+<p class="text-label-sm text-outline">Menunggu kurir tiba di tujuan</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface shadow-[0_-4px_12px_0_rgba(125,82,49,0.08)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Pesan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profil</span>
+</button>
+</nav>
+<script>
+        // Shader Implementation
+        function initShader() {
+            const canvas = document.getElementById('driverPulseShader');
+            const gl = canvas.getContext('webgl');
+            if (!gl) return;
+
+            const vertexShaderSource = `
+                attribute vec2 position;
+                varying vec2 v_texCoord;
+                void main() {
+                    v_texCoord = position * 0.5 + 0.5;
+                    gl_Position = vec4(position, 0.0, 1.0);
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                uniform float u_time;
+                uniform vec2 u_resolution;
+                varying vec2 v_texCoord;
+
+                void main() {
+                    vec2 uv = v_texCoord;
+                    vec2 center = vec2(0.5, 0.5);
+                    float d = distance(uv, center);
+                    
+                    // Core marker
+                    float coreSize = 0.08;
+                    float core = smoothstep(coreSize, coreSize - 0.01, d);
+                    
+                    // Pulse ring
+                    float pulse = fract(u_time * 0.5);
+                    float ringSize = coreSize + pulse * 0.3;
+                    float ringWidth = 0.02;
+                    float ring = smoothstep(ringSize, ringSize - 0.01, d) - smoothstep(ringSize - ringWidth, ringSize - ringWidth - 0.01, d);
+                    
+                    // Color (Guyub Green #2d8a5e)
+                    vec3 color = vec3(0.176, 0.541, 0.369);
+                    float alpha = core + ring * (1.0 - pulse);
+                    
+                    gl_FragColor = vec4(color, alpha * 0.8);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                return shader;
+            }
+
+            const program = gl.createProgram();
+            gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vertexShaderSource));
+            gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource));
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+
+            const positionLocation = gl.getAttribLocation(program, 'position');
+            gl.enableVertexAttribArray(positionLocation);
+            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+            const timeLocation = gl.getUniformLocation(program, 'u_time');
+            const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+            function render(time) {
+                gl.viewport(0, 0, canvas.width, canvas.height);
+                gl.uniform1f(timeLocation, time * 0.001);
+                gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+                requestAnimationFrame(render);
+            }
+
+            canvas.width = canvas.clientWidth * window.devicePixelRatio;
+            canvas.height = canvas.clientHeight * window.devicePixelRatio;
+            requestAnimationFrame(render);
+        }
+
+        window.addEventListener('load', initShader);
+
+        // Simple touch feedback and micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.classList.add('opacity-80');
+            });
+            button.addEventListener('touchend', function() {
+                this.classList.remove('opacity-80');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guyub - Solusi Tetangga Digital</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Micro-interaction for active state scaling from JSON */
+        .active-scale:active {
+            transform: scale(0.95);
+            transition: transform 150ms ease;
+        }
+        .nav-item-active {
+            transform: scale(0.90);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top AppBar (from JSON) -->
+<header class="fixed full-width top-0 z-50 bg-surface flex justify-between items-center px-margin-mobile w-full py-base">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional and friendly portrait of a young Indonesian man in his 30s, smiling warmly, clean-shaven, wearing a casual linen shirt. The background is a soft-focus neighborhood garden with warm sunlight filtering through leaves. The lighting is high-key and optimistic, following the light-mode corporate modern aesthetic with a soft touch." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEygT-7mu2MD7Z6llyT-beuwXIcaKJ5L7VgCuSercil8ciYXO-oF2X3YeVO0tnIMDdDsx5-VHfY8P8cPoBVqjYQFR2SvCImvuCbe9Uq19uAKZS1lV7L1HNBE3eVlmslBDKnG0lyN4bRhu7WsaCFXeeYQSdEBpVQi1J9l_j3SnpbXBtEhbICYgncgfUeZd-FOskg8isf4v0YJUsos0aQzwQ_cjfGI864iMv4UMayBt7WZ15RTU1e4SWpA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Halo, Tetangga</span>
+<span class="font-headline-md text-headline-md text-primary leading-tight">Budi!</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined p-2 text-primary hover:bg-surface-container-low transition-colors rounded-full">search</button>
+</div>
+</header>
+<main class="pt-[72px] pb-24">
+<!-- Welcome & Location Section -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="bg-primary-container rounded-xl p-4 text-on-primary-container shadow-sm relative overflow-hidden">
+<!-- Abstract Pattern Decoration -->
+<div class="absolute -right-4 -top-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="relative z-10 flex flex-col gap-1">
+<div class="flex items-center gap-1 opacity-90">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-sm text-label-sm">Lokasimu saat ini:</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold">Pangkalan Baru, Karawang</span>
+</div>
+</div>
+</section>
+<!-- Search Bar -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="flex items-center gap-gutter-mobile">
+<div class="flex-1 relative flex items-center bg-surface-container-lowest border border-outline-variant rounded-xl h-touch-target px-4 shadow-sm">
+<span class="material-symbols-outlined text-outline mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md placeholder:text-on-surface-variant" placeholder="Cari sembako, jajanan, atau tetangga..." type="text"/>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center bg-surface-container-high rounded-xl text-primary active-scale">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</section>
+<!-- Quick Services Grid -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="grid grid-cols-4 gap-gutter-mobile">
+<!-- Titip Beli -->
+<div class="flex flex-col items-center gap-base active-scale">
+<div class="w-14 h-14 bg-secondary-fixed rounded-2xl flex items-center justify-center text-on-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Titip Beli</span>
+</div>
+<!-- Kuliner -->
+<div class="flex flex-col items-center gap-base active-scale">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-2xl flex items-center justify-center text-on-tertiary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Kuliner</span>
+</div>
+<!-- Layanan Lokal -->
+<div class="flex flex-col items-center gap-base active-scale">
+<div class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center text-on-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">construction</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Layanan</span>
+</div>
+<!-- Warung Terdekat -->
+<div class="flex flex-col items-center gap-base active-scale">
+<div class="w-14 h-14 bg-surface-container-highest rounded-2xl flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Warung</span>
+</div>
+</div>
+</section>
+<!-- Promo Section -->
+<section class="mb-stack-lg">
+<div class="px-margin-mobile flex justify-between items-end mb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Promo Spesial Tetangga</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hemat belanja di warung sekitar</p>
+</div>
+<button class="text-primary font-label-lg text-label-lg">Lihat Semua</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter-mobile px-margin-mobile">
+<!-- Promo Card 1 -->
+<div class="flex-shrink-0 w-[280px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-sm active-scale">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A close-up of delicious traditional Indonesian street food, Gorengan and Satay, served on a clean banana leaf with a modern presentation. The background shows a clean, vibrant local warung with warm wood textures and bright morning light. High quality commercial photography style with rich colors and soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa0KIgOJnRfhUCL6NsyHbuRZ1CNJjJmei9U1dDyrgbhoLCkHpkp2eJeLYrIW2vXtumelbGDHZR_4zU6qsfe6WoeCtrPYI5mmB4BjC0HTjclK7m8EuRKyRG7j8foJ7-u-yYfMnelaGdNVdL9nT7WInzii1Nb-JqpXVFjlW_ROfph0vTXbxFXQeMsnGxG0Ykf8lYbCqaRHDenIlOcovmP1I1xPbdfq5N0uTYpW92DsrkJyKEBgrtktsGaQ"/>
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">
+                            Diskon 20%
+                        </div>
+</div>
+<div class="p-3">
+<h3 class="font-label-lg text-label-lg">Warung Bu Dewi - Spesial Nasi Uduk</h3>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+<span class="font-label-sm text-label-sm">Berakhir dlm 2 jam</span>
+</div>
+</div>
+</div>
+<!-- Promo Card 2 -->
+<div class="flex-shrink-0 w-[280px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-sm active-scale">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A neatly organized local grocery store shelf in Pangkalan Baru Karawang, showing fresh produce and basic essentials like rice, cooking oil, and eggs. The lighting is warm and natural, creating a welcoming and trustworthy neighborhood atmosphere. The visual style is clean, corporate modern but with a touch of local warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3EtSSyiC5z_f6I09J4n1DbpSZdSu-DxmObLIEsnA9in0Qz_m9cAB2qprl-Z-815DQ2_BixgCL7oxPBu7hKTjwiaoFSnf4d-OwVoWrEAbMLotqFX4jsWoLq7fi0QV2nMvR-fsUc5LYStGL0v9e8xRqvusMx9IOAO-A0zWs9EN_PIcrEcO_4yql2ggrxnP4RZEzG2gD8XtLyObtkq60dnbfhLHOlDySo2fCqUs_FZlFRzPlSYjcMoiVfg"/>
+<div class="absolute top-2 left-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">
+                            Gratis Ongkir
+                        </div>
+</div>
+<div class="p-3">
+<h3 class="font-label-lg text-label-lg">Toko Haji Salim - Sembako Lengkap</h3>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span class="font-label-sm text-label-sm">Hanya 300m dari rumah</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Feed -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Kabar Pangkalan Baru</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Update terkini dari sekitar rumahmu</p>
+</div>
+<div class="flex flex-col gap-stack-md">
+<!-- Feed Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-start active-scale">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">agriculture</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-lg text-label-lg text-primary">Panitia Desa</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 mnt lalu</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Panen raya desa besok pagi jam 07:00 di sawah utara! Mari merapat tetangga, ada sarapan bersama.</p>
+<div class="mt-3 flex gap-4">
+<button class="flex items-center gap-1 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span> 24
+                            </button>
+<button class="flex items-center gap-1 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span> 8
+                            </button>
+</div>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-start active-scale border-l-4 border-secondary">
+<div class="w-12 h-12 bg-secondary-fixed rounded-full flex items-center justify-center flex-shrink-0 text-on-secondary-fixed">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-lg text-label-lg text-secondary">Toko Haji Salim</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1 jam lalu</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Update stok beras premium baru masuk! Masih segar dari penggilingan lokal. Stok terbatas.</p>
+<div class="mt-3">
+<button class="bg-secondary text-on-secondary font-label-lg text-label-lg px-4 py-2 rounded-lg">Pesan Sekarang</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-2 pt-2 bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(125,82,49,0.08)] rounded-t-xl">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 nav-item-active transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Pesanan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active-scale transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Pesanan</span>
+</a>
+<!-- Notifikasi -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active-scale transition-colors relative" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm">Notifikasi</span>
+<!-- Badge -->
+<div class="absolute top-2 right-4 w-2 h-2 bg-error rounded-full"></div>
+</a>
+<!-- Akun -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 active-scale transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Akun</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction logic for active states and simple animations
+        document.querySelectorAll('a, button, .active-scale').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('touchend', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Simple observer for scroll reveals
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

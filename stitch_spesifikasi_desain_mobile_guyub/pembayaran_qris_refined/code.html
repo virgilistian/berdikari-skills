@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GUYUB - Pembayaran QRIS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bec9bf",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-surface-variant": "#3f4942",
+                      "surface-container-high": "#eae8e7",
+                      "tertiary-fixed-dim": "#f4bb92",
+                      "on-surface": "#1b1c1c",
+                      "tertiary-container": "#996a47",
+                      "surface-container": "#efeded",
+                      "on-tertiary-container": "#fffbff",
+                      "inverse-surface": "#303030",
+                      "on-primary-fixed": "#002111",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f5f3f3",
+                      "on-secondary-fixed-variant": "#793100",
+                      "on-background": "#1b1c1c",
+                      "on-secondary-container": "#602500",
+                      "on-primary-fixed-variant": "#005232",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#6f7a71",
+                      "on-tertiary-fixed-variant": "#653d1e",
+                      "surface-tint": "#006c44",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#258459",
+                      "error-container": "#ffdad6",
+                      "tertiary": "#7d5231",
+                      "secondary": "#9f4200",
+                      "primary-fixed": "#9af5c1",
+                      "secondary-fixed-dim": "#ffb692",
+                      "surface-bright": "#fbf9f8",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#006a42",
+                      "on-tertiary-fixed": "#301400",
+                      "secondary-fixed": "#ffdbcb",
+                      "on-secondary-fixed": "#341100",
+                      "inverse-primary": "#7ed9a6",
+                      "surface-container-highest": "#e4e2e2",
+                      "on-primary-container": "#f6fff6",
+                      "surface-variant": "#e4e2e2",
+                      "surface": "#fbf9f8",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#ffdcc5",
+                      "background": "#fbf9f8",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dbd9d9",
+                      "primary-fixed-dim": "#7ed9a6",
+                      "secondary-container": "#ff7a2b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "8px",
+                      "lg": "8px",
+                      "xl": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "gutter-mobile": "12px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px",
+                      "margin-mobile": "16px",
+                      "base": "4px",
+                      "touch-target": "44px"
+              },
+              "fontFamily": {
+                      "label-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "price-lg": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "price-lg": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="sticky top-0 z-50 bg-surface flex items-center justify-between px-margin-mobile h-14 w-full">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low active:scale-95 transition-transform">
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Pembayaran QRIS</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low">
+</button>
+</header>
+<main class="px-margin-mobile py-stack-lg max-w-md mx-auto">
+<!-- Countdown Section -->
+<div class="bg-surface-variant border border-outline-variant/30 rounded-lg p-3 mb-stack-md flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-on-surface-variant">Selesaikan pembayaran dalam</span>
+</div>
+<div class="font-price-lg font-mono text-primary" id="countdown">14:59</div>
+</div>
+<!-- QRIS Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/30 p-6 flex flex-col items-center text-center">
+<div class="w-full flex justify-center mb-4">
+<div class="relative p-4 bg-white rounded-xl border border-outline-variant/50 shadow-inner">
+<img class="w-64 h-64 object-contain" data-alt="A clean, high-resolution QRIS code displayed on a white background with a subtle Guyub logo at the center. The visual style is modern, professional, and corporate, using a soft color palette of white and warm greens to maintain a neighborly and reliable feeling for a local resident app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZVp3W4A69tk0FDipY-csx9pD9nbwRvb7lPRJEtgIrkUkvOtktfM3dWbNw__M2Vs_ZREiR-E97my2H2_oJvSL_IXjvSCYviEGN3QYyZ_EGydZsETxtGElTV0-oKwGOumYYYp_fUmw4droidt_yVQk_6piIN2aTa6BwMGcplVSdnogTcbociIr_gLvyosgeQvkIaMw_r0vj7odELCA_84QRc4Q6KA40uN3chBlB0NWii732BSGqDY7Qpg"/>
+<!-- Scanning guide corners -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
+</div>
+</div>
+<div class="mb-2">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest">Metode Pembayaran</p>
+<div class="flex items-center justify-center gap-2 mt-1">
+<span class="font-bold text-headline-md text-on-surface">QRIS</span>
+<span class="text-xs py-0.5 px-2 bg-primary/10 text-primary rounded-full font-bold">OTOMATIS</span>
+</div>
+</div>
+<div class="w-full h-px bg-outline-variant/30 my-4"></div>
+<!-- Amount Section -->
+<div class="w-full">
+<p class="font-label-sm text-on-surface-variant">Total yang harus kamu bayar</p>
+<div class="flex items-center justify-center gap-2 mt-2 group">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Rp 45.317</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-primary hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-90" id="copy-btn" title="Salin Nominal">
+</button>
+</div>
+<div class="mt-4 bg-surface-container-low p-3 rounded-lg flex gap-3 text-left">
+<p class="text-[13px] leading-snug text-on-surface-variant">Mohon bayar <span class="font-bold text-primary">persis</span> hingga <span class="font-bold text-primary">3 digit terakhir</span>. <span class="font-bold text-primary">Kode unik</span> ini membantu tim GUYUB memverifikasi pesananmu lebih cepat secara otomatis.</p>
+</div>
+</div>
+</div>
+<!-- Verification Status Note -->
+<div class="mt-6 flex flex-col items-center gap-2 text-center px-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<p class="font-label-sm">Pembayaran kamu akan diverifikasi dalam 1-3 menit</p>
+</div>
+<p class="text-[12px] text-outline italic">Status akan berubah otomatis menjadi 'Menunggu Verifikasi' setelah kamu menekan tombol di bawah.</p>
+</div>
+<!-- Action Buttons -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] p-margin-mobile flex flex-col gap-3 max-w-md mx-auto left-1/2 -translate-x-1/2 rounded-t-xl z-50">
+<button class="w-full h-touch-target bg-primary text-on-primary font-label-lg rounded-lg shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                Saya sudah bayar
+            </button>
+<button class="w-full h-touch-target bg-white border border-outline text-on-surface-variant font-label-lg rounded-lg hover:bg-surface-container-low active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+
+                Unggah bukti (Opsional)
+            </button>
+</div>
+</main>
+<script>
+        // Simple Countdown Timer Logic
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                    display.classList.add('text-error');
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            const fifteenMinutes = 60 * 15 - 1;
+            const display = document.querySelector('#countdown');
+            startTimer(fifteenMinutes, display);
+        };
+
+        // Copy Button Interaction
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const icon = this.querySelector('.material-symbols-outlined');
+            icon.textContent = 'check';
+            this.classList.remove('bg-surface-container', 'text-primary');
+            this.classList.add('bg-primary', 'text-on-primary');
+            
+            setTimeout(() => {
+                icon.textContent = 'content_copy';
+                this.classList.add('bg-surface-container', 'text-primary');
+                this.classList.remove('bg-primary', 'text-on-primary');
+            }, 2000);
+        });
+    </script>
+</body></html>
